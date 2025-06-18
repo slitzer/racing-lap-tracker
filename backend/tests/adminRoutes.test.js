@@ -36,4 +36,28 @@ describe('Admin routes', () => {
     expect(res.status).toBe(200);
     expect(res.body.id).toBe('1');
   });
+  it('creates a game', async () => {
+    db.query.mockResolvedValue({ rows: [{ id: '1' }] });
+    const res = await request(app)
+      .post('/api/games')
+      .send({ name: 'Test Game' });
+    expect(res.status).toBe(201);
+    expect(res.body.id).toBe('1');
+  });
+
+  it('updates a track', async () => {
+    db.query.mockResolvedValue({ rows: [{ id: '2', name: 'Updated' }] });
+    const res = await request(app)
+      .put('/api/tracks/2')
+      .send({ gameId: '1', name: 'Updated' });
+    expect(res.status).toBe(200);
+    expect(res.body.name).toBe('Updated');
+  });
+
+  it('deletes a car', async () => {
+    db.query.mockResolvedValue({ rows: [{ id: '3' }] });
+    const res = await request(app).delete('/api/cars/3');
+    expect(res.status).toBe(200);
+    expect(res.body.id).toBe('3');
+  });
 });
