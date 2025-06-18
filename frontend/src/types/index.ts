@@ -41,4 +41,12 @@ export interface LapTime {
   lapDate: string;
   screenshotUrl?: string | null;
   username?: string;
+  gameName?: string;
+  gameImageUrl?: string | null;
+  trackName?: string;
+  trackImageUrl?: string | null;
+  layoutName?: string;
+  layoutImageUrl?: string | null;
+  carName?: string;
+  carImageUrl?: string | null;
 }
