@@ -3,6 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
+const fs = require('fs');
 const dotenv = require('dotenv');
 
 // Load environment variables
@@ -17,7 +18,7 @@ const layoutRoutes = require('./routes/layouts');
 const carRoutes = require('./routes/cars');
 const lapTimeRoutes = require('./routes/lapTimes');
 const leaderboardRoutes = require('./routes/leaderboards');
-const uploadRoutes = require('./routes/uploads');
+const { router: uploadRoutes, uploadDir } = require('./routes/uploads');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -27,6 +28,10 @@ app.use(cors());
 app.use(compression());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+// Ensure uploads directory exists and serve static files
+fs.mkdirSync(uploadDir, { recursive: true });
+app.use('/uploads', express.static(uploadDir));
 
 // Basic rate limiting
 const limiter = rateLimit({ windowMs: 1 * 60 * 1000, max: 100 });
