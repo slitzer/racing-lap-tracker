@@ -6,6 +6,29 @@ export interface User {
   isAdmin?: boolean;
 }
 
+export interface Game {
+  id: string;
+  name: string;
+}
+
+export interface Track {
+  id: string;
+  gameId: string;
+  name: string;
+}
+
+export interface Layout {
+  id: string;
+  trackId: string;
+  name: string;
+}
+
+export interface Car {
+  id: string;
+  gameId: string;
+  name: string;
+}
+
 export interface LapTime {
   id: string;
   userId: string;
