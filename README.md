@@ -36,6 +36,20 @@ pnpm dev   # starts the Vite dev server
 
 Use `pnpm build` to create a production build.
 
+## Docker Compose
+
+The repository ships with a `docker-compose.yml` configuration for a quick
+development setup. It starts PostgreSQL, the backend API and the frontend app.
+
+1. Copy `backend/.env.example` to `backend/.env` and adjust the variables if
+   needed (especially `JWT_SECRET`).
+2. Run `docker compose up --build` from the project root.
+3. Visit `http://localhost:5173` to access the UI. The API will be available at
+   `http://localhost:5000`.
+
+Database data is stored in the `db-data` volume and uploaded files are kept in
+`backend/uploads`.
+
 ## Database Setup
 
 Create a PostgreSQL database and apply the schema and seed files:
