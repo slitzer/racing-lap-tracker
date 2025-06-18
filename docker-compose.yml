@@ -12,7 +12,9 @@ services:
       - "5432:5432"
 
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      network: host
     environment:
       DATABASE_URL: postgres://postgres:postgres@db:5432/racing
       JWT_SECRET: supersecret
@@ -26,9 +28,11 @@ services:
       - "5000:5000"
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      network: host  # 👈 This enables host networking during image build
     environment:
-      VITE_API_URL: http://localhost:5000/api
+      VITE_API_URL: http://localhost:5000/api #Change this to your server IP
     depends_on:
       - backend
     ports:
@@ -36,3 +40,7 @@ services:
 
 volumes:
   db-data:
+
+networks:
+  default:
+    driver: bridge
