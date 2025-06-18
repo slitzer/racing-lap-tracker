@@ -11,6 +11,8 @@ npm-debug.log*
 # Build outputs
 /dist/
 /build/
+frontend/dist/
+frontend/pnpm-lock.yaml
 *.tsbuildinfo
 
 # Environment files
