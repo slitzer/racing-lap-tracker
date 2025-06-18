@@ -1,0 +1,44 @@
+# Racing Lap Time Tracker
+
+This repository contains a simple skeleton for a racing lap time tracker. It is split into three parts:
+
+- **backend** – Node.js/Express API
+- **frontend** – React client built with Vite and pnpm
+- **database** – PostgreSQL schema and seed data
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) 18 or newer
+- [pnpm](https://pnpm.io/) for the frontend
+- PostgreSQL
+
+## Backend Setup
+
+```bash
+cd backend
+npm install
+npm run dev  # or `npm start` for production
+```
+
+Environment variables can be configured in `backend/.env` (see `backend/.env.example`).
+
+## Frontend Setup
+
+```bash
+cd frontend
+pnpm install
+pnpm dev   # starts the Vite dev server
+```
+
+Use `pnpm build` to create a production build.
+
+## Database Setup
+
+Create a PostgreSQL database and apply the schema and seed files:
+
+```bash
+psql -U <user> -d <database> -f database/schema.sql
+psql -U <user> -d <database> -f database/seed_data.sql
+```
+
+Adjust connection settings in your backend environment variables as needed.

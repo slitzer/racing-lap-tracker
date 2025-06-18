@@ -1,0 +1,23 @@
+# Node.js dependencies
+node_modules/
+logs
+*.log
+npm-debug.log*
+
+# pnpm store
+.pnpm-store/
+.pnpm-debug.log*
+
+# Build outputs
+/dist/
+/build/
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Vite cache
+node_modules/.vite
+**/.vite
