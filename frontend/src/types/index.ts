@@ -1,5 +1,5 @@
 export interface User {
-  id: number;
+  id: string;
   username: string;
   email: string;
   avatarUrl?: string | null;
@@ -7,12 +7,12 @@ export interface User {
 }
 
 export interface LapTime {
-  id: number;
-  userId: number;
-  gameId: number;
-  trackId: number;
-  layoutId: number;
-  carId: number;
+  id: string;
+  userId: string;
+  gameId: string;
+  trackId: string;
+  layoutId: string;
+  carId: string;
   inputType: string;
   timeMs: number;
   lapDate: string;
