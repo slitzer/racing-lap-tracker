@@ -42,3 +42,7 @@ psql -U <user> -d <database> -f database/seed_data.sql
 ```
 
 Adjust connection settings in your backend environment variables as needed.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
