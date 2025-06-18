@@ -18,6 +18,7 @@ frontend/dist/
 .env
 .env.*
 !.env.example
+!.env.production
 
 # Vite cache
 node_modules/.vite
