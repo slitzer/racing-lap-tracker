@@ -5,9 +5,78 @@ const auth = require('../middleware/auth');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
+  const { userId } = req.query;
+  const params = [];
+  let where = '';
+  if (userId) {
+    params.push(userId);
+    where = 'WHERE lt.user_id = $1';
+  }
   try {
     const result = await db.query(
-      'SELECT * FROM lap_times ORDER BY date_submitted DESC LIMIT 100'
+      `SELECT lt.id,
+              lt.user_id AS "userId",
+              lt.game_id AS "gameId",
+              lt.track_id AS "trackId",
+              lt.layout_id AS "layoutId",
+              lt.car_id AS "carId",
+              lt.input_type AS "inputType",
+              lt.time_ms AS "timeMs",
+              lt.lap_date AS "lapDate",
+              lt.screenshot_url AS "screenshotUrl",
+              u.username,
+              g.name AS "gameName", g.image_url AS "gameImageUrl",
+              t.name AS "trackName", t.image_url AS "trackImageUrl",
+              l.name AS "layoutName", l.image_url AS "layoutImageUrl",
+              c.name AS "carName", c.image_url AS "carImageUrl"
+       FROM lap_times lt
+       JOIN users u ON lt.user_id = u.id
+       JOIN games g ON lt.game_id = g.id
+       JOIN tracks t ON lt.track_id = t.id
+       JOIN layouts l ON lt.layout_id = l.id
+       JOIN cars c ON lt.car_id = c.id
+       ${where}
+       ORDER BY lt.date_submitted DESC
+       LIMIT 100`,
+      params
+    );
+    res.json(result.rows);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/records', async (req, res, next) => {
+  try {
+    const result = await db.query(
+      `SELECT lt.id,
+              lt.user_id AS "userId",
+              lt.game_id AS "gameId",
+              lt.track_id AS "trackId",
+              lt.layout_id AS "layoutId",
+              lt.car_id AS "carId",
+              lt.input_type AS "inputType",
+              lt.time_ms AS "timeMs",
+              lt.lap_date AS "lapDate",
+              lt.screenshot_url AS "screenshotUrl",
+              u.username,
+              g.name AS "gameName", g.image_url AS "gameImageUrl",
+              t.name AS "trackName", t.image_url AS "trackImageUrl",
+              l.name AS "layoutName", l.image_url AS "layoutImageUrl",
+              c.name AS "carName", c.image_url AS "carImageUrl"
+       FROM lap_times lt
+       JOIN (
+            SELECT game_id, track_id, layout_id, MIN(time_ms) AS min_time
+            FROM lap_times
+            GROUP BY game_id, track_id, layout_id
+       ) r ON lt.game_id = r.game_id AND lt.track_id = r.track_id
+            AND lt.layout_id = r.layout_id AND lt.time_ms = r.min_time
+       JOIN users u ON lt.user_id = u.id
+       JOIN games g ON lt.game_id = g.id
+       JOIN tracks t ON lt.track_id = t.id
+       JOIN layouts l ON lt.layout_id = l.id
+       JOIN cars c ON lt.car_id = c.id
+       ORDER BY lt.time_ms ASC`
     );
     res.json(result.rows);
   } catch (err) {
