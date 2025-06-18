@@ -9,11 +9,26 @@ router.get('/', async (req, res, next) => {
   }
   try {
     const result = await db.query(
-      `SELECT lt.*, u.username,
-              g.name AS game_name, g.image_url AS game_image_url,
-              t.name AS track_name, t.image_url AS track_image_url,
-              l.name AS layout_name, l.image_url AS layout_image_url,
-              c.name AS car_name, c.image_url AS car_image_url
+      `SELECT lt.id,
+              lt.user_id AS "userId",
+              lt.game_id AS "gameId",
+              lt.track_id AS "trackId",
+              lt.layout_id AS "layoutId",
+              lt.car_id AS "carId",
+              lt.input_type AS "inputType",
+              lt.assists_json AS "assistsJson",
+              lt.time_ms AS "timeMs",
+              lt.screenshot_url AS "screenshotUrl",
+              lt.verified AS "verified",
+              lt.date_submitted AS "dateSubmitted",
+              lt.lap_date AS "lapDate",
+              lt.created_at AS "createdAt",
+              lt.updated_at AS "updatedAt",
+              u.username,
+              g.name AS "gameName", g.image_url AS "gameImageUrl",
+              t.name AS "trackName", t.image_url AS "trackImageUrl",
+              l.name AS "layoutName", l.image_url AS "layoutImageUrl",
+              c.name AS "carName", c.image_url AS "carImageUrl"
        FROM lap_times lt
        JOIN users u ON lt.user_id = u.id
        JOIN games g ON lt.game_id = g.id
@@ -21,7 +36,7 @@ router.get('/', async (req, res, next) => {
        JOIN layouts l ON lt.layout_id = l.id
        JOIN cars c ON lt.car_id = c.id
        WHERE lt.game_id = $1 AND lt.track_id = $2 AND lt.layout_id = $3
-       ORDER BY time_ms ASC
+       ORDER BY lt.time_ms ASC
        LIMIT 10`,
       [gameId, trackId, layoutId]
     );
