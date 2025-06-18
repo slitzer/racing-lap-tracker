@@ -43,7 +43,10 @@ development setup. It starts PostgreSQL, the backend API and the frontend app.
 
 1. Copy `backend/.env.example` to `backend/.env` and adjust the variables if
    needed (especially `JWT_SECRET`).
-2. Run `docker compose up --build` from the project root.
+2. Run `docker compose up --build` from the project root. Building the images
+   requires internet access. The `frontend/Dockerfile` runs `npm install -g
+   pnpm`, which downloads packages from `registry.npmjs.org`; without a network
+   connection this step fails with `EAI_AGAIN`.
 3. Visit `http://localhost:5173` to access the UI. The API will be available at
    `http://localhost:5000`.
 
