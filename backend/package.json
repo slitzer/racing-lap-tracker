@@ -23,7 +23,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1",
-    "jest": "^29.6.1"
+    "jest": "^29.6.1",
+    "supertest": "^7.1.1"
   },
   "keywords": ["racing", "lap-times", "simulator", "api"],
   "author": "MiniMax Agent",
