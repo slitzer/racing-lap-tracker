@@ -8,6 +8,7 @@ services:
       POSTGRES_DB: racing
     volumes:
       - db-data:/var/lib/postgresql/data
+      - ./database:/docker-entrypoint-initdb.d:ro
     ports:
       - "5432:5432"
 
