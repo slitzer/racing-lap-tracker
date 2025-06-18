@@ -47,6 +47,22 @@ psql -U <user> -d <database> -f database/seed_data.sql
 
 Adjust connection settings in your backend environment variables as needed.
 
+## Running Tests
+
+Before running tests make sure all dependencies are installed:
+
+```bash
+cd backend && npm install
+cd ../frontend && pnpm install
+```
+
+Run the backend and frontend test suites with:
+
+```bash
+npm test      # from ./backend
+pnpm test     # from ./frontend
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
