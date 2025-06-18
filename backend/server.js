@@ -18,6 +18,7 @@ const layoutRoutes = require('./routes/layouts');
 const carRoutes = require('./routes/cars');
 const lapTimeRoutes = require('./routes/lapTimes');
 const leaderboardRoutes = require('./routes/leaderboards');
+const adminRoutes = require('./routes/admin');
 const { router: uploadRoutes, uploadDir } = require('./routes/uploads');
 const errorHandler = require('./middleware/errorHandler');
 
@@ -47,14 +48,17 @@ app.use('/api/cars', carRoutes);
 app.use('/api/lapTimes', lapTimeRoutes);
 app.use('/api/leaderboards', leaderboardRoutes);
 app.use('/api/uploads', uploadRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Error handling
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+}
 
 module.exports = app;
