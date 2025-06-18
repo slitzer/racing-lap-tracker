@@ -22,6 +22,10 @@ npm run dev  # or `npm start` for production
 
 Environment variables can be configured in `backend/.env` (see `backend/.env.example`).
 
+Uploaded files are stored in the `backend/uploads` directory by default. The server
+creates this folder automatically on startup and serves its contents at `/uploads`.
+You can change the location by setting the `UPLOAD_DIR` environment variable.
+
 ## Frontend Setup
 
 ```bash

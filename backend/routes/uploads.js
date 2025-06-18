@@ -19,4 +19,7 @@ router.post('/', upload.single('file'), (req, res) => {
   res.json({ url: `/uploads/${req.file.filename}` });
 });
 
-module.exports = router;
+module.exports = {
+  router,
+  uploadDir,
+};
