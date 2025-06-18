@@ -54,6 +54,10 @@ development setup. It starts PostgreSQL, the backend API and the frontend app.
 4. Visit `http://localhost:5173` to access the UI. The API will be available at
    `http://localhost:5000`.
 
+When the `db` service starts for the first time it runs the SQL files from the
+`database` directory automatically, so the schema and seed data are loaded
+without any manual steps.
+
 Database data is stored in the `db-data` volume and uploaded files are kept in
 `backend/uploads`.
 
@@ -66,15 +70,9 @@ psql -U <user> -d <database> -f database/schema.sql
 psql -U <user> -d <database> -f database/seed_data.sql
 ```
 
-If you are using the Docker setup and need to seed a fresh container, copy the
-SQL files into the database container and execute them:
-
-```bash
-docker cp ./database/schema.sql <db_container>:/schema.sql
-docker cp ./database/seed_data.sql <db_container>:/seed_data.sql
-docker exec -it <db_container> psql -U postgres -d racing -f /schema.sql
-docker exec -it <db_container> psql -U postgres -d racing -f /seed_data.sql
-```
+When running with Docker Compose, these files are mounted to the `db` service
+and executed automatically on the first start. Simply remove the `db-data`
+volume and run `docker compose up -d` again to reset the database.
 
 Adjust connection settings in your backend environment variables as needed.
 
