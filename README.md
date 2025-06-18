@@ -42,12 +42,16 @@ The repository ships with a `docker-compose.yml` configuration for a quick
 development setup. It starts PostgreSQL, the backend API and the frontend app.
 
 1. Copy `backend/.env.example` to `backend/.env` and adjust the variables if
-   needed (especially `JWT_SECRET`).
-2. Run `docker compose up --build` from the project root. Building the images
-   requires internet access. The `frontend/Dockerfile` runs `npm install -g
-   pnpm`, which downloads packages from `registry.npmjs.org`; without a network
-   connection this step fails with `EAI_AGAIN`.
-3. Visit `http://localhost:5173` to access the UI. The API will be available at
+   needed (especially `JWT_SECRET`). The default `DATABASE_URL` points to the
+   `db` service used by Docker Compose.
+2. Copy `frontend/.env.production` and set `VITE_API_URL` to the publicly
+   reachable URL of the backend, for example `http://localhost:5000/api`.
+3. Run `docker compose build --no-cache frontend` followed by
+   `docker compose up -d` from the project root. Building the images requires
+   internet access. The `frontend/Dockerfile` runs `npm install -g pnpm`, which
+   downloads packages from `registry.npmjs.org`; without a network connection
+   this step fails with `EAI_AGAIN`.
+4. Visit `http://localhost:5173` to access the UI. The API will be available at
    `http://localhost:5000`.
 
 Database data is stored in the `db-data` volume and uploaded files are kept in
@@ -60,6 +64,16 @@ Create a PostgreSQL database and apply the schema and seed files:
 ```bash
 psql -U <user> -d <database> -f database/schema.sql
 psql -U <user> -d <database> -f database/seed_data.sql
+```
+
+If you are using the Docker setup and need to seed a fresh container, copy the
+SQL files into the database container and execute them:
+
+```bash
+docker cp ./database/schema.sql <db_container>:/schema.sql
+docker cp ./database/seed_data.sql <db_container>:/seed_data.sql
+docker exec -it <db_container> psql -U postgres -d racing -f /schema.sql
+docker exec -it <db_container> psql -U postgres -d racing -f /seed_data.sql
 ```
 
 Adjust connection settings in your backend environment variables as needed.
