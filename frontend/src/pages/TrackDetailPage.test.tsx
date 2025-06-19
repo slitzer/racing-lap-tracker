@@ -28,4 +28,34 @@ describe('TrackDetailPage', () => {
     );
     expect(await screen.findByRole('heading', { name: 'Track' })).toBeInTheDocument();
   });
+
+  it('shows input type badges in leaderboard', async () => {
+    mockedApi.getLayouts.mockResolvedValueOnce([
+      { id: 'l1', name: 'Layout', trackLayoutId: 'tl1', imageUrl: '' }
+    ]);
+    mockedApi.getLeaderboard.mockResolvedValueOnce([
+      {
+        id: 'lap1',
+        userId: 'u1',
+        gameId: 'g1',
+        trackLayoutId: 'tl1',
+        carId: 'c1',
+        inputType: 'Keyboard',
+        timeMs: 1000,
+        lapDate: '2023-01-01',
+        username: 'User',
+        carName: 'Car'
+      }
+    ]);
+
+    render(
+      <MemoryRouter initialEntries={["/track/t1"]}>
+        <Routes>
+          <Route path="/track/:id" element={<TrackDetailPage />} />
+        </Routes>
+      </MemoryRouter>
+    );
+
+    expect(await screen.findByText(/Keyboard/)).toBeInTheDocument();
+  });
 });

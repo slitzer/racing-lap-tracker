@@ -4,6 +4,7 @@ import { getTracks, getLayouts, getLeaderboard } from '../api';
 import { Track, Layout, LapTime } from '../types';
 import { getImageUrl } from '../utils';
 import { formatTime } from '../utils/time';
+import InputTypeBadge from '../components/InputTypeBadge';
 
 interface LayoutWithTL extends Layout {
   trackLayoutId?: string;
@@ -81,6 +82,7 @@ const TrackDetailPage: React.FC = () => {
                   <tr className="border-b">
                     <th className="px-2 py-1 text-left">Driver</th>
                     <th className="px-2 py-1 text-left">Car</th>
+                    <th className="px-2 py-1 text-left">Input</th>
                     <th className="px-2 py-1 text-right">Time</th>
                   </tr>
                 </thead>
@@ -89,6 +91,9 @@ const TrackDetailPage: React.FC = () => {
                     <tr key={r.id} className="border-b last:border-0">
                       <td className="px-2 py-1">{r.username}</td>
                       <td className="px-2 py-1">{r.carName}</td>
+                      <td className="px-2 py-1">
+                        <InputTypeBadge inputType={r.inputType} />
+                      </td>
                       <td className="px-2 py-1 text-right">{formatTime(r.timeMs)}</td>
                     </tr>
                   ))}
