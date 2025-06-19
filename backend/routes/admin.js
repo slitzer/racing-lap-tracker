@@ -8,7 +8,27 @@ const router = express.Router();
 router.get('/lapTimes/unverified', auth, admin, async (req, res, next) => {
   try {
     const result = await db.query(
-      'SELECT * FROM lap_times WHERE verified = FALSE ORDER BY date_submitted DESC'
+      `SELECT lt.id,
+              lt.user_id AS "userId",
+              lt.game_id AS "gameId",
+              lt.track_id AS "trackId",
+              lt.layout_id AS "layoutId",
+              lt.car_id AS "carId",
+              lt.time_ms AS "timeMs",
+              lt.screenshot_url AS "screenshotUrl",
+              u.username,
+              g.name AS "gameName",
+              t.name AS "trackName",
+              l.name AS "layoutName",
+              c.name AS "carName"
+       FROM lap_times lt
+       JOIN users u ON lt.user_id = u.id
+       JOIN games g ON lt.game_id = g.id
+       JOIN tracks t ON lt.track_id = t.id
+       JOIN layouts l ON lt.layout_id = l.id
+       JOIN cars c ON lt.car_id = c.id
+       WHERE lt.verified = FALSE
+       ORDER BY lt.date_submitted DESC`
     );
     res.json(result.rows);
   } catch (err) {

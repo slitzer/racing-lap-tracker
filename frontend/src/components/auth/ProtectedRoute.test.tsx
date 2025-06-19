@@ -8,7 +8,7 @@ const mockedUseAuth = useAuth as jest.MockedFunction<typeof useAuth>;
 
 describe('ProtectedRoute', () => {
   it('redirects unauthenticated users', () => {
-    mockedUseAuth.mockReturnValue({ user: null, isLoading: false, login: jest.fn(), register: jest.fn(), logout: jest.fn() });
+    mockedUseAuth.mockReturnValue({ user: null, isLoading: false, login: jest.fn(), register: jest.fn(), logout: jest.fn(), refreshUser: jest.fn() });
     render(
       <MemoryRouter initialEntries={['/private']}>
         <Routes>
@@ -21,7 +21,7 @@ describe('ProtectedRoute', () => {
   });
 
   it('shows access denied for non-admin', () => {
-    mockedUseAuth.mockReturnValue({ user: { id: '1', username: 'u', email: 'e', isAdmin: false }, isLoading: false, login: jest.fn(), register: jest.fn(), logout: jest.fn() });
+    mockedUseAuth.mockReturnValue({ user: { id: '1', username: 'u', email: 'e', isAdmin: false }, isLoading: false, login: jest.fn(), register: jest.fn(), logout: jest.fn(), refreshUser: jest.fn() });
     render(
       <MemoryRouter initialEntries={['/admin']}>
         <Routes>
@@ -33,7 +33,7 @@ describe('ProtectedRoute', () => {
   });
 
   it('renders children for authorised admin', () => {
-    mockedUseAuth.mockReturnValue({ user: { id: '1', username: 'u', email: 'e', isAdmin: true }, isLoading: false, login: jest.fn(), register: jest.fn(), logout: jest.fn() });
+    mockedUseAuth.mockReturnValue({ user: { id: '1', username: 'u', email: 'e', isAdmin: true }, isLoading: false, login: jest.fn(), register: jest.fn(), logout: jest.fn(), refreshUser: jest.fn() });
     render(
       <MemoryRouter initialEntries={['/admin']}>
         <Routes>

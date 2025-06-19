@@ -6,27 +6,37 @@ export interface User {
   isAdmin?: boolean;
 }
 
+export interface UserStats {
+  lapCount: number;
+  bestLapMs: number | null;
+  avgLapMs: number | null;
+}
+
 export interface Game {
   id: string;
   name: string;
+  imageUrl?: string | null;
 }
 
 export interface Track {
   id: string;
   gameId: string;
   name: string;
+  imageUrl?: string | null;
 }
 
 export interface Layout {
   id: string;
   trackId: string;
   name: string;
+  imageUrl?: string | null;
 }
 
 export interface Car {
   id: string;
   gameId: string;
   name: string;
+  imageUrl?: string | null;
 }
 
 export interface LapTime {

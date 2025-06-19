@@ -20,9 +20,11 @@ import {
   createCar,
   updateCar,
   deleteCar,
+  uploadFile,
 } from '../api';
 import { LapTime, Game, Track, Layout, Car } from '../types';
 import { Button } from '../components/ui/button';
+import { formatTime } from '../utils/time';
 
 const AdminPage: React.FC = () => {
   const [lapTimes, setLapTimes] = useState<LapTime[]>([]);
@@ -30,6 +32,11 @@ const AdminPage: React.FC = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
   const [layouts, setLayouts] = useState<Layout[]>([]);
   const [cars, setCars] = useState<Car[]>([]);
+
+  const [gameImage, setGameImage] = useState<File | null>(null);
+  const [trackImage, setTrackImage] = useState<File | null>(null);
+  const [layoutImage, setLayoutImage] = useState<File | null>(null);
+  const [carImage, setCarImage] = useState<File | null>(null);
 
   const [gameName, setGameName] = useState('');
   const [selectedGame, setSelectedGame] = useState('');
@@ -60,10 +67,16 @@ const AdminPage: React.FC = () => {
   const refreshCars = () => getCars().then(setCars).catch(() => {});
 
   const handleSaveGame = async () => {
+    let imageUrl: string | undefined;
+    if (gameImage) {
+      const { url } = await uploadFile(gameImage, 'images/games');
+      imageUrl = url;
+      setGameImage(null);
+    }
     if (selectedGame) {
-      await updateGame(selectedGame, { name: gameName });
+      await updateGame(selectedGame, { name: gameName, imageUrl });
     } else {
-      await createGame({ name: gameName });
+      await createGame({ name: gameName, imageUrl });
     }
     setGameName('');
     setSelectedGame('');
@@ -80,10 +93,16 @@ const AdminPage: React.FC = () => {
   };
 
   const handleSaveTrack = async () => {
+    let imageUrl: string | undefined;
+    if (trackImage) {
+      const { url } = await uploadFile(trackImage, 'images/tracks');
+      imageUrl = url;
+      setTrackImage(null);
+    }
     if (selectedTrack) {
-      await updateTrack(selectedTrack, { gameId: trackGameId, name: trackName });
+      await updateTrack(selectedTrack, { gameId: trackGameId, name: trackName, imageUrl });
     } else {
-      await createTrack({ gameId: trackGameId, name: trackName });
+      await createTrack({ gameId: trackGameId, name: trackName, imageUrl });
     }
     setTrackName('');
     setSelectedTrack('');
@@ -100,10 +119,16 @@ const AdminPage: React.FC = () => {
   };
 
   const handleSaveLayout = async () => {
+    let imageUrl: string | undefined;
+    if (layoutImage) {
+      const { url } = await uploadFile(layoutImage, 'images/layouts');
+      imageUrl = url;
+      setLayoutImage(null);
+    }
     if (selectedLayout) {
-      await updateLayout(selectedLayout, { trackId: layoutTrackId, name: layoutName });
+      await updateLayout(selectedLayout, { trackId: layoutTrackId, name: layoutName, imageUrl });
     } else {
-      await createLayout({ trackId: layoutTrackId, name: layoutName });
+      await createLayout({ trackId: layoutTrackId, name: layoutName, imageUrl });
     }
     setLayoutName('');
     setSelectedLayout('');
@@ -120,10 +145,16 @@ const AdminPage: React.FC = () => {
   };
 
   const handleSaveCar = async () => {
+    let imageUrl: string | undefined;
+    if (carImage) {
+      const { url } = await uploadFile(carImage, 'images/cars');
+      imageUrl = url;
+      setCarImage(null);
+    }
     if (selectedCar) {
-      await updateCar(selectedCar, { gameId: carGameId, name: carName });
+      await updateCar(selectedCar, { gameId: carGameId, name: carName, imageUrl });
     } else {
-      await createCar({ gameId: carGameId, name: carName });
+      await createCar({ gameId: carGameId, name: carName, imageUrl });
     }
     setCarName('');
     setSelectedCar('');
@@ -150,7 +181,7 @@ const AdminPage: React.FC = () => {
   };
 
   return (
-    <div className="container py-6 space-y-8">
+    <div className="container mx-auto py-6 space-y-8">
       <div className="flex items-center space-x-2 mb-4">
         <Settings className="h-6 w-6" />
         <h1 className="text-3xl font-bold">Admin</h1>
@@ -162,7 +193,12 @@ const AdminPage: React.FC = () => {
           <thead>
             <tr className="border-b">
               <th className="p-2">ID</th>
-              <th className="p-2">Time (ms)</th>
+              <th className="p-2">Driver</th>
+              <th className="p-2">Game</th>
+              <th className="p-2">Track</th>
+              <th className="p-2">Car</th>
+              <th className="p-2">Time</th>
+              <th className="p-2">Screenshot</th>
               <th className="p-2">Actions</th>
             </tr>
           </thead>
@@ -170,7 +206,19 @@ const AdminPage: React.FC = () => {
             {lapTimes.map((lt) => (
               <tr key={lt.id} className="border-b">
                 <td className="p-2">{lt.id}</td>
-                <td className="p-2">{lt.timeMs}</td>
+                <td className="p-2">{lt.username}</td>
+                <td className="p-2">{lt.gameName}</td>
+                <td className="p-2">
+                  {lt.trackName}
+                  {lt.layoutName ? ` - ${lt.layoutName}` : ''}
+                </td>
+                <td className="p-2">{lt.carName}</td>
+                <td className="p-2">{formatTime(lt.timeMs)}</td>
+                <td className="p-2">
+                  {lt.screenshotUrl && (
+                    <img src={lt.screenshotUrl} className="h-12" />
+                  )}
+                </td>
                 <td className="p-2 space-x-2">
                   <Button size="sm" onClick={() => verify(lt.id)}>Verify</Button>
                   <Button size="sm" variant="ghost" onClick={() => remove(lt.id)}>
@@ -181,7 +229,7 @@ const AdminPage: React.FC = () => {
             ))}
             {lapTimes.length === 0 && (
               <tr>
-                <td colSpan={3} className="p-2 text-center text-muted-foreground">
+                <td colSpan={8} className="p-2 text-center text-muted-foreground">
                   No unverified lap times
                 </td>
               </tr>
@@ -216,6 +264,11 @@ const AdminPage: React.FC = () => {
               value={gameName}
               onChange={(e) => setGameName(e.target.value)}
               placeholder="Name"
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setGameImage(e.target.files?.[0] || null)}
             />
             <Button size="sm" onClick={handleSaveGame}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteGame}>
@@ -263,6 +316,11 @@ const AdminPage: React.FC = () => {
               onChange={(e) => setTrackName(e.target.value)}
               placeholder="Name"
             />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setTrackImage(e.target.files?.[0] || null)}
+            />
             <Button size="sm" onClick={handleSaveTrack}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteTrack}>
               Delete
@@ -309,6 +367,11 @@ const AdminPage: React.FC = () => {
               onChange={(e) => setLayoutName(e.target.value)}
               placeholder="Name"
             />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setLayoutImage(e.target.files?.[0] || null)}
+            />
             <Button size="sm" onClick={handleSaveLayout}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteLayout}>
               Delete
@@ -354,6 +417,11 @@ const AdminPage: React.FC = () => {
               value={carName}
               onChange={(e) => setCarName(e.target.value)}
               placeholder="Name"
+            />
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setCarImage(e.target.files?.[0] || null)}
             />
             <Button size="sm" onClick={handleSaveCar}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteCar}>
