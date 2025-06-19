@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Settings } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import {
   getUnverifiedLapTimes,
   verifyLapTime,
@@ -267,7 +268,9 @@ const AdminPage: React.FC = () => {
                 <td className="p-2">{lt.username}</td>
                 <td className="p-2">{lt.gameName}</td>
                 <td className="p-2">
-                  {lt.trackName}
+                  <Link to={`/track/${lt.trackId}`} className="underline">
+                    {lt.trackName}
+                  </Link>
                   {lt.layoutName ? ` - ${lt.layoutName}` : ''}
                 </td>
                 <td className="p-2">{lt.carName}</td>
