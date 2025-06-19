@@ -6,10 +6,11 @@ import {
   getTracks,
   getLayouts,
   getCars,
+  getAssists,
   submitLapTime,
   uploadFile,
 } from '../api';
-import { Game, Track, Layout, Car } from '../types';
+import { Game, Track, Layout, Car, Assist } from '../types';
 import { parseTime } from '../utils/time';
 import { Button } from '../components/ui/button';
 
@@ -21,6 +22,8 @@ const SubmitLapTimePage: React.FC = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
   const [layouts, setLayouts] = useState<Layout[]>([]);
   const [cars, setCars] = useState<Car[]>([]);
+  const [assists, setAssists] = useState<Assist[]>([]);
+  const [selectedAssists, setSelectedAssists] = useState<string[]>([]);
 
   const [gameId, setGameId] = useState('');
   const [trackId, setTrackId] = useState('');
@@ -35,6 +38,7 @@ const SubmitLapTimePage: React.FC = () => {
 
   useEffect(() => {
     getGames().then(setGames).catch(() => {});
+    getAssists().then(setAssists).catch(() => {});
   }, []);
 
   useEffect(() => {
@@ -64,6 +68,12 @@ const SubmitLapTimePage: React.FC = () => {
     }
   }, [trackId]);
 
+  const toggleAssist = (id: string) => {
+    setSelectedAssists((prev) =>
+      prev.includes(id) ? prev.filter((a) => a !== id) : [...prev, id]
+    );
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const timeMs = parseTime(time);
@@ -88,6 +98,7 @@ const SubmitLapTimePage: React.FC = () => {
         timeMs,
         lapDate,
         screenshotUrl,
+        assists: selectedAssists,
       });
       navigate('/lap-times');
     } catch (err: any) {
@@ -185,6 +196,22 @@ const SubmitLapTimePage: React.FC = () => {
               </option>
             ))}
           </select>
+        </div>
+        <div className="space-y-1">
+          <label className="block text-sm font-medium">Assists</label>
+          <div className="flex flex-wrap gap-2">
+            {assists.map((a) => (
+              <label key={a.id} className="flex items-center space-x-1">
+                <input
+                  type="checkbox"
+                  checked={selectedAssists.includes(a.id)}
+                  onChange={() => toggleAssist(a.id)}
+                  className="accent-primary"
+                />
+                <span>{a.name}</span>
+              </label>
+            ))}
+          </div>
         </div>
         <div className="space-y-1">
           <label className="block text-sm font-medium">Time (m:ss.mmm)</label>
