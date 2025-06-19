@@ -3,6 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
+jest.mock('../middleware/auth', () => jest.fn((req, res, next) => next()));
+
 let app;
 let tmpDir;
 
