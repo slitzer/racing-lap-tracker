@@ -28,5 +28,5 @@ beforeEach(() => {
 
 test('renders assist checkboxes', async () => {
   render(<SubmitLapTimePage />);
-  expect(await screen.findByLabelText('ABS')).toBeInTheDocument();
+  expect(await screen.findByLabelText(/ABS/)).toBeInTheDocument();
 });

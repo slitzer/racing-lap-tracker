@@ -3,12 +3,13 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-jest.mock('../middleware/auth', () =>
-  jest.fn((req, res, next) => {
-    req.user = { id: 'user1' };
-    next();
-  })
-);
+// Mock middlewares
+jest.mock('../middleware/auth', () => jest.fn((req, res, next) => {
+  req.user = { id: 'user1' };
+  next();
+}));
+
+jest.mock('../middleware/admin', () => jest.fn((req, res, next) => next()));
 
 let app;
 let tmpDir;
