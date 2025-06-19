@@ -5,8 +5,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
-  Timer, 
-  Trophy, 
+  Timer,
   PlusCircle, 
   User, 
   Settings, 
@@ -39,7 +38,6 @@ const Header: React.FC = () => {
   };
   const navItems = [
     { to: '/', label: 'Home', icon: Timer },
-    { to: '/leaderboard', label: 'Leaderboard', icon: Trophy },
     { to: '/lap-times', label: 'Lap Times', icon: Timer },
   ];
   const userNavItems = [

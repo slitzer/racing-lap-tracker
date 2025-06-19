@@ -14,7 +14,6 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
-import LeaderboardPage from './pages/LeaderboardPage';
 import ProfilePage from './pages/ProfilePage';
 import LapTimesPage from './pages/LapTimesPage';
 import SubmitLapTimePage from './pages/SubmitLapTimePage';
@@ -44,7 +43,6 @@ function App() {
                 {/* Protected routes with layout */}
                 <Route path="/" element={<Layout />}>
                   <Route index element={<HomePage />} />
-                  <Route path="/leaderboard" element={<LeaderboardPage />} />
                   <Route path="/lap-times" element={<LapTimesPage />} />
                   <Route 
                     path="/submit" 
