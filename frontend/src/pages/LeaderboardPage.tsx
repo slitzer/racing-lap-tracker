@@ -50,7 +50,7 @@ const LeaderboardPage: React.FC = () => {
   }, [gameId, trackId, layoutId]);
 
   return (
-    <div className="container py-6">
+    <div className="container mx-auto py-6">
       <div className="flex items-center justify-center space-x-2 mb-6">
         <Trophy className="h-6 w-6" />
         <h1 className="text-3xl font-bold">Leaderboard</h1>

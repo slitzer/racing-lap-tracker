@@ -25,7 +25,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="container max-w-sm py-6">
+    <div className="container mx-auto max-w-sm py-6">
       <h1 className="text-2xl font-bold mb-4">Log In</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         {error && <p className="text-destructive text-sm">{error}</p>}

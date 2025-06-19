@@ -35,7 +35,7 @@ const ProfilePage: React.FC = () => {
   if (!user) return null;
 
   return (
-    <div className="container py-6 space-y-6 max-w-md">
+    <div className="container mx-auto py-6 space-y-6 max-w-md">
       <div className="flex items-center space-x-2 mb-4">
         <UserIcon className="h-6 w-6" />
         <h1 className="text-3xl font-bold">Profile</h1>
