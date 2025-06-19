@@ -12,7 +12,7 @@ INSERT INTO games (name, image_url) VALUES
 ('rFactor 2', '/images/games/rfactor_2.jpg');
 -- Get game IDs for reference
 -- Assetto Corsa tracks and layouts
-INSERT INTO tracks (game_id, name, image_url) 
+INSERT INTO tracks (game_id, name, image_url)
 SELECT id, 'Silverstone', '/images/tracks/silverstone.jpg' FROM games WHERE name = 'Assetto Corsa'
 UNION ALL
 SELECT id, 'Spa-Francorchamps', '/images/tracks/spa.jpg' FROM games WHERE name = 'Assetto Corsa'
@@ -46,22 +46,15 @@ SELECT id, 'GP Circuit', '/images/layouts/brands_hatch_gp.jpg' FROM tracks WHERE
 UNION ALL
 SELECT id, 'Indy Circuit', '/images/layouts/brands_hatch_indy.jpg' FROM tracks WHERE name = 'Brands Hatch';
 -- Cars for Assetto Corsa
-INSERT INTO cars (game_id, name, image_url)
-SELECT id, 'Ferrari 488 GT3', '/images/cars/ferrari_488_gt3.jpg' FROM games WHERE name = 'Assetto Corsa'
-UNION ALL
-SELECT id, 'McLaren MP4-12C GT3', '/images/cars/mclaren_mp4_12c_gt3.jpg' FROM games WHERE name = 'Assetto Corsa'
-UNION ALL
-SELECT id, 'BMW M3 E30', '/images/cars/bmw_m3_e30.jpg' FROM games WHERE name = 'Assetto Corsa'
-UNION ALL
-SELECT id, 'Porsche 911 GT3 R', '/images/cars/porsche_911_gt3_r.jpg' FROM games WHERE name = 'Assetto Corsa'
-UNION ALL
-SELECT id, 'Mercedes AMG GT3', '/images/cars/mercedes_amg_gt3.jpg' FROM games WHERE name = 'Assetto Corsa'
-UNION ALL
-SELECT id, 'Audi R8 LMS', '/images/cars/audi_r8_lms.jpg' FROM games WHERE name = 'Assetto Corsa'
-UNION ALL
-SELECT id, 'Lamborghini Huracán GT3', '/images/cars/lamborghini_huracan_gt3.jpg' FROM games WHERE name = 'Assetto Corsa'
-UNION ALL
-SELECT id, 'Formula RSS 2 V6', '/images/cars/formula_rss_2_v6.jpg' FROM games WHERE name = 'Assetto Corsa';
+INSERT INTO cars (name, image_url) VALUES
+('Ferrari 488 GT3', '/images/cars/ferrari_488_gt3.jpg'),
+('McLaren MP4-12C GT3', '/images/cars/mclaren_mp4_12c_gt3.jpg'),
+('BMW M3 E30', '/images/cars/bmw_m3_e30.jpg'),
+('Porsche 911 GT3 R', '/images/cars/porsche_911_gt3_r.jpg'),
+('Mercedes AMG GT3', '/images/cars/mercedes_amg_gt3.jpg'),
+('Audi R8 LMS', '/images/cars/audi_r8_lms.jpg'),
+('Lamborghini Huracán GT3', '/images/cars/lamborghini_huracan_gt3.jpg'),
+('Formula RSS 2 V6', '/images/cars/formula_rss_2_v6.jpg');
 -- ACC tracks and cars
 INSERT INTO tracks (game_id, name, image_url) 
 SELECT id, 'Monza', '/images/tracks/monza.jpg' FROM games WHERE name = 'Assetto Corsa Competizione'
@@ -77,17 +70,27 @@ UNION ALL
 SELECT t.id, 'Full Circuit', '/images/layouts/spa_full.jpg' FROM tracks t 
 JOIN games g ON t.game_id = g.id WHERE t.name = 'Spa-Francorchamps' AND g.name = 'Assetto Corsa Competizione'
 UNION ALL
-SELECT t.id, 'GP Circuit', '/images/layouts/silverstone_gp.jpg' FROM tracks t 
+SELECT t.id, 'GP Circuit', '/images/layouts/silverstone_gp.jpg' FROM tracks t
 JOIN games g ON t.game_id = g.id WHERE t.name = 'Silverstone' AND g.name = 'Assetto Corsa Competizione';
 -- Cars for ACC
-INSERT INTO cars (game_id, name, image_url)
-SELECT id, 'Ferrari 488 GT3 Evo', '/images/cars/ferrari_488_gt3_evo.jpg' FROM games WHERE name = 'Assetto Corsa Competizione'
+INSERT INTO cars (name, image_url) VALUES
+('Ferrari 488 GT3 Evo', '/images/cars/ferrari_488_gt3_evo.jpg'),
+('McLaren 720S GT3', '/images/cars/mclaren_720s_gt3.jpg');
+
+-- Track layout mapping
+INSERT INTO track_layouts (track_id, layout_id)
+SELECT track_id, id FROM layouts;
+
+INSERT INTO game_tracks (game_id, track_layout_id)
+SELECT t.game_id, tl.id FROM track_layouts tl JOIN tracks t ON tl.track_id = t.id;
+
+-- Map cars to games
+INSERT INTO game_cars (game_id, car_id)
+SELECT g.id, c.id FROM games g, cars c
+WHERE g.name = 'Assetto Corsa' AND c.name IN ('Ferrari 488 GT3','McLaren MP4-12C GT3','BMW M3 E30','Porsche 911 GT3 R','Mercedes AMG GT3','Audi R8 LMS','Lamborghini Huracán GT3','Formula RSS 2 V6')
 UNION ALL
-SELECT id, 'McLaren 720S GT3', '/images/cars/mclaren_720s_gt3.jpg' FROM games WHERE name = 'Assetto Corsa Competizione'
-UNION ALL
-SELECT id, 'Porsche 911 GT3 R', '/images/cars/porsche_911_gt3_r.jpg' FROM games WHERE name = 'Assetto Corsa Competizione'
-UNION ALL
-SELECT id, 'Mercedes AMG GT3', '/images/cars/mercedes_amg_gt3.jpg' FROM games WHERE name = 'Assetto Corsa Competizione';
+SELECT g.id, c.id FROM games g, cars c
+WHERE g.name = 'Assetto Corsa Competizione' AND c.name IN ('Ferrari 488 GT3 Evo','McLaren 720S GT3','Porsche 911 GT3 R','Mercedes AMG GT3');
 -- Create admin user (password: admin123)
 INSERT INTO users (username, email, password_hash, is_admin) VALUES
 ('admin', 'admin@example.com', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', true);
