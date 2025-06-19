@@ -18,13 +18,13 @@ const navigate = jest.fn();
 
 describe('LoginPage', () => {
   beforeEach(() => {
-    mockedUseAuth.mockReturnValue({ login: jest.fn(), register: jest.fn(), logout: jest.fn(), user: null, isLoading: false });
+    mockedUseAuth.mockReturnValue({ login: jest.fn(), register: jest.fn(), logout: jest.fn(), user: null, isLoading: false, refreshUser: jest.fn() });
     navigate.mockClear();
   });
 
   it('submits credentials and navigates', async () => {
     const loginMock = jest.fn();
-    mockedUseAuth.mockReturnValue({ login: loginMock, register: jest.fn(), logout: jest.fn(), user: null, isLoading: false });
+    mockedUseAuth.mockReturnValue({ login: loginMock, register: jest.fn(), logout: jest.fn(), user: null, isLoading: false, refreshUser: jest.fn() });
     render(
       <ReactRouter.MemoryRouter>
         <LoginPage />

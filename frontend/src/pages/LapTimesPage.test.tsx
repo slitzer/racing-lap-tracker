@@ -13,7 +13,7 @@ import LapTimesPage from './LapTimesPage';
 const mockedUseAuth = useAuth as jest.MockedFunction<typeof useAuth>;
 
 beforeEach(() => {
-  mockedUseAuth.mockReturnValue({ user: null, isLoading: false, login: jest.fn(), register: jest.fn(), logout: jest.fn() });
+  mockedUseAuth.mockReturnValue({ user: null, isLoading: false, login: jest.fn(), register: jest.fn(), logout: jest.fn(), refreshUser: jest.fn() });
 });
 
 test('renders lap times heading', () => {

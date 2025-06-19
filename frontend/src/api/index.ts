@@ -7,3 +7,4 @@ export * from './lapTimes';
 export * from './leaderboards';
 export * from './upload';
 export * from './admin';
+export * from './users';

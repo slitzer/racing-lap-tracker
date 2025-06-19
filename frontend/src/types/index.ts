@@ -6,6 +6,12 @@ export interface User {
   isAdmin?: boolean;
 }
 
+export interface UserStats {
+  lapCount: number;
+  bestLapMs: number | null;
+  avgLapMs: number | null;
+}
+
 export interface Game {
   id: string;
   name: string;
