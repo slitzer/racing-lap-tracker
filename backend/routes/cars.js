@@ -10,12 +10,19 @@ router.get('/', async (req, res, next) => {
     let result;
     if (gameId) {
       result = await db.query(
-        'SELECT id, game_id AS "gameId", name, image_url AS "imageUrl" FROM cars WHERE game_id = $1 ORDER BY name',
+        `SELECT c.id, gc.game_id AS "gameId", c.name, c.image_url AS "imageUrl"
+         FROM game_cars gc
+         JOIN cars c ON gc.car_id = c.id
+         WHERE gc.game_id = $1
+         ORDER BY c.name`,
         [gameId]
       );
     } else {
       result = await db.query(
-        'SELECT id, game_id AS "gameId", name, image_url AS "imageUrl" FROM cars ORDER BY name'
+        `SELECT c.id, gc.game_id AS "gameId", c.name, c.image_url AS "imageUrl"
+         FROM game_cars gc
+         JOIN cars c ON gc.car_id = c.id
+         ORDER BY c.name`
       );
     }
     res.json(result.rows);
@@ -27,11 +34,13 @@ router.get('/', async (req, res, next) => {
 router.post('/', auth, admin, async (req, res, next) => {
   const { gameId, name, imageUrl } = req.body;
   try {
-    const result = await db.query(
-      'INSERT INTO cars (game_id, name, image_url) VALUES ($1,$2,$3) RETURNING id, game_id AS "gameId", name, image_url AS "imageUrl"',
-      [gameId, name, imageUrl || null]
+    const car = await db.query(
+      'INSERT INTO cars (name, image_url) VALUES ($1,$2) RETURNING id, name, image_url AS "imageUrl"',
+      [name, imageUrl || null]
     );
-    res.status(201).json(result.rows[0]);
+    const c = car.rows[0];
+    await db.query('INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)', [gameId, c.id]);
+    res.status(201).json({ id: c.id, gameId, name: c.name, imageUrl: c.imageUrl });
   } catch (err) {
     next(err);
   }
@@ -42,13 +51,16 @@ router.put('/:id', auth, admin, async (req, res, next) => {
   const { gameId, name, imageUrl } = req.body;
   try {
     const result = await db.query(
-      'UPDATE cars SET game_id=$1, name=$2, image_url=$3 WHERE id=$4 RETURNING id, game_id AS "gameId", name, image_url AS "imageUrl"',
-      [gameId, name, imageUrl || null, id]
+      'UPDATE cars SET name=$1, image_url=$2 WHERE id=$3 RETURNING id, name, image_url AS "imageUrl"',
+      [name, imageUrl || null, id]
     );
     if (result.rows.length === 0) {
       return res.status(404).json({ message: 'Car not found' });
     }
-    res.json(result.rows[0]);
+    await db.query('DELETE FROM game_cars WHERE car_id=$1', [id]);
+    await db.query('INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)', [gameId, id]);
+    const car = result.rows[0];
+    res.json({ id, gameId, name: car.name, imageUrl: car.imageUrl });
   } catch (err) {
     next(err);
   }
@@ -58,7 +70,7 @@ router.delete('/:id', auth, admin, async (req, res, next) => {
   const { id } = req.params;
   try {
     const result = await db.query(
-      'DELETE FROM cars WHERE id=$1 RETURNING id, game_id AS "gameId", name, image_url AS "imageUrl"',
+      'DELETE FROM cars WHERE id=$1 RETURNING id, name, image_url AS "imageUrl"',
       [id]
     );
     if (result.rows.length === 0) {
