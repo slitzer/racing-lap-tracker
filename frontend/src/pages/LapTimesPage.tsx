@@ -4,6 +4,7 @@ import { getLapTimes, getWorldRecords } from '../api';
 import { LapTime } from '../types';
 import { formatTime } from '../utils/time';
 import { useAuth } from '../contexts/AuthContext';
+import { getImageUrl } from '../utils';
 
 const LapTimesPage: React.FC = () => {
   const { user } = useAuth();
@@ -46,7 +47,7 @@ const LapTimesPage: React.FC = () => {
               <td className="px-2 py-1">
                 {l.gameImageUrl && (
                   <img
-                    src={l.gameImageUrl}
+                    src={getImageUrl(l.gameImageUrl)}
                     alt={l.gameName || ''}
                     className="h-8 w-14 object-cover rounded mb-1"
                   />
@@ -56,7 +57,7 @@ const LapTimesPage: React.FC = () => {
               <td className="px-2 py-1">
                 {l.trackImageUrl && (
                   <img
-                    src={l.trackImageUrl}
+                    src={getImageUrl(l.trackImageUrl)}
                     alt={l.trackName || ''}
                     className="h-8 w-14 object-cover rounded mb-1"
                   />
@@ -67,7 +68,7 @@ const LapTimesPage: React.FC = () => {
               <td className="px-2 py-1">
                 {l.carImageUrl && (
                   <img
-                    src={l.carImageUrl}
+                    src={getImageUrl(l.carImageUrl)}
                     alt={l.carName || ''}
                     className="h-8 w-14 object-cover rounded mb-1"
                   />

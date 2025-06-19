@@ -28,7 +28,7 @@ import {
 } from '../ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet';
-import { getInitials } from '../../utils';
+import { getInitials, getImageUrl } from '../../utils';
 const Header: React.FC = () => {
   const { user, logout } = useAuth();
   const { theme, setTheme } = useTheme();
@@ -92,7 +92,10 @@ const Header: React.FC = () => {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="relative h-8 w-8 rounded-full">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src={user.avatarUrl || undefined} alt={user.username} />
+                    <AvatarImage
+                      src={getImageUrl(user.avatarUrl) || undefined}
+                      alt={user.username}
+                    />
                     <AvatarFallback>{getInitials(user.username)}</AvatarFallback>
                   </Avatar>
                 </Button>
