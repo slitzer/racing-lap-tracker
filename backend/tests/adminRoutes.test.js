@@ -1,18 +1,29 @@
 const request = require('supertest');
 const app = require('../server');
 
-jest.mock('../middleware/auth', () => jest.fn((req, res, next) => { req.user = { id: 'admin' }; next(); }));
+jest.mock('../middleware/auth', () =>
+  jest.fn((req, res, next) => {
+    req.user = { id: 'admin' };
+    next();
+  })
+);
 jest.mock('../middleware/admin', () => jest.fn((req, res, next) => next()));
 
 jest.mock('../utils/database', () => ({
   query: jest.fn(),
+  pool: { connect: jest.fn() },
 }));
 
 const db = require('../utils/database');
 
 describe('Admin routes', () => {
+  const mockClient = { query: jest.fn(), release: jest.fn() };
+
   beforeEach(() => {
     db.query.mockReset();
+    db.pool.connect.mockResolvedValue(mockClient);
+    mockClient.query.mockReset();
+    mockClient.release.mockReset();
   });
 
   it('lists unverified lap times', async () => {
@@ -77,11 +88,23 @@ describe('Admin routes', () => {
   });
 
   it('imports the database', async () => {
-    db.query.mockResolvedValue({});
+    mockClient.query.mockResolvedValue({});
+
     const res = await request(app)
       .post('/api/admin/import')
-      .send({ users: [], games: [], tracks: [], layouts: [], cars: [], lap_times: [] });
+      .send({
+        users: [],
+        games: [],
+        tracks: [],
+        layouts: [],
+        cars: [],
+        lap_times: [],
+      });
+
     expect(res.status).toBe(200);
-    expect(db.query).toHaveBeenCalled();
+    expect(db.pool.connect).toHaveBeenCalled();
+    expect(mockClient.query).toHaveBeenCalledWith('BEGIN');
+    expect(mockClient.query).toHaveBeenLastCalledWith('COMMIT');
+    expect(mockClient.release).toHaveBeenCalled();
   });
 });
