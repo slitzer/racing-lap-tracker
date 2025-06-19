@@ -65,4 +65,101 @@ router.delete('/lapTimes/:id', auth, admin, async (req, res, next) => {
   }
 });
 
+router.get('/export', auth, admin, async (req, res, next) => {
+  try {
+    const tables = ['users', 'games', 'tracks', 'layouts', 'cars', 'lap_times'];
+    const data = {};
+    for (const t of tables) {
+      // eslint-disable-next-line no-await-in-loop
+      const result = await db.query(`SELECT * FROM ${t}`);
+      data[t] = result.rows;
+    }
+    res.json(data);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post('/import', auth, admin, async (req, res, next) => {
+  const { users, games, tracks, layouts, cars, lap_times } = req.body;
+  try {
+    await db.query('TRUNCATE lap_times, cars, layouts, tracks, games, users RESTART IDENTITY CASCADE');
+
+    if (users) {
+      for (const u of users) {
+        // eslint-disable-next-line no-await-in-loop
+        await db.query(
+          'INSERT INTO users (id, username, email, password_hash, is_admin, avatar_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+          [u.id, u.username, u.email, u.password_hash, u.is_admin, u.avatar_url, u.created_at, u.updated_at]
+        );
+      }
+    }
+    if (games) {
+      for (const g of games) {
+        // eslint-disable-next-line no-await-in-loop
+        await db.query(
+          'INSERT INTO games (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5)',
+          [g.id, g.name, g.image_url, g.created_at, g.updated_at]
+        );
+      }
+    }
+    if (tracks) {
+      for (const t of tracks) {
+        // eslint-disable-next-line no-await-in-loop
+        await db.query(
+          'INSERT INTO tracks (id, game_id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6)',
+          [t.id, t.game_id, t.name, t.image_url, t.created_at, t.updated_at]
+        );
+      }
+    }
+    if (layouts) {
+      for (const l of layouts) {
+        // eslint-disable-next-line no-await-in-loop
+        await db.query(
+          'INSERT INTO layouts (id, track_id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6)',
+          [l.id, l.track_id, l.name, l.image_url, l.created_at, l.updated_at]
+        );
+      }
+    }
+    if (cars) {
+      for (const c of cars) {
+        // eslint-disable-next-line no-await-in-loop
+        await db.query(
+          'INSERT INTO cars (id, game_id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6)',
+          [c.id, c.game_id, c.name, c.image_url, c.created_at, c.updated_at]
+        );
+      }
+    }
+    if (lap_times) {
+      for (const lt of lap_times) {
+        // eslint-disable-next-line no-await-in-loop
+        await db.query(
+          'INSERT INTO lap_times (id, user_id, game_id, track_id, layout_id, car_id, input_type, assists_json, time_ms, screenshot_url, verified, date_submitted, lap_date, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15)',
+          [
+            lt.id,
+            lt.user_id,
+            lt.game_id,
+            lt.track_id,
+            lt.layout_id,
+            lt.car_id,
+            lt.input_type,
+            lt.assists_json,
+            lt.time_ms,
+            lt.screenshot_url,
+            lt.verified,
+            lt.date_submitted,
+            lt.lap_date,
+            lt.created_at,
+            lt.updated_at,
+          ]
+        );
+      }
+    }
+
+    res.json({ message: 'Import completed' });
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;

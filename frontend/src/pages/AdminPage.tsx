@@ -75,7 +75,7 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (gameImage) {
       const ext = gameImage.name.substring(gameImage.name.lastIndexOf('.'));
-      const filename = `${slugify(gameName)}${ext}`;
+      const filename = `${slugify(gameName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(gameImage, 'images/games', filename);
       imageUrl = url;
       setGameImage(null);
@@ -105,7 +105,7 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (trackImage) {
       const ext = trackImage.name.substring(trackImage.name.lastIndexOf('.'));
-      const filename = `${slugify(trackName)}${ext}`;
+      const filename = `${slugify(trackName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(trackImage, 'images/tracks', filename);
       imageUrl = url;
       setTrackImage(null);
@@ -135,7 +135,7 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (layoutImage) {
       const ext = layoutImage.name.substring(layoutImage.name.lastIndexOf('.'));
-      const filename = `${slugify(layoutName)}${ext}`;
+      const filename = `${slugify(layoutName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(layoutImage, 'images/layouts', filename);
       imageUrl = url;
       setLayoutImage(null);
@@ -165,7 +165,7 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (carImage) {
       const ext = carImage.name.substring(carImage.name.lastIndexOf('.'));
-      const filename = `${slugify(carName)}${ext}`;
+      const filename = `${slugify(carName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(carImage, 'images/cars', filename);
       imageUrl = url;
       setCarImage(null);
