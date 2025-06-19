@@ -38,6 +38,10 @@ const AdminPage: React.FC = () => {
   const [trackImage, setTrackImage] = useState<File | null>(null);
   const [layoutImage, setLayoutImage] = useState<File | null>(null);
   const [carImage, setCarImage] = useState<File | null>(null);
+  const [gamePreview, setGamePreview] = useState<string | null>(null);
+  const [trackPreview, setTrackPreview] = useState<string | null>(null);
+  const [layoutPreview, setLayoutPreview] = useState<string | null>(null);
+  const [carPreview, setCarPreview] = useState<string | null>(null);
 
   const [gameName, setGameName] = useState('');
   const [selectedGame, setSelectedGame] = useState('');
@@ -71,10 +75,11 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (gameImage) {
       const ext = gameImage.name.substring(gameImage.name.lastIndexOf('.'));
-      const filename = `${slugify(gameName)}${ext}`;
+      const filename = `${slugify(gameName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(gameImage, 'images/games', filename);
       imageUrl = url;
       setGameImage(null);
+      setGamePreview(null);
     }
     if (selectedGame) {
       await updateGame(selectedGame, { name: gameName, imageUrl });
@@ -91,6 +96,7 @@ const AdminPage: React.FC = () => {
       await deleteGame(selectedGame);
       setSelectedGame('');
       setGameName('');
+      setGamePreview(null);
       refreshGames();
     }
   };
@@ -99,10 +105,11 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (trackImage) {
       const ext = trackImage.name.substring(trackImage.name.lastIndexOf('.'));
-      const filename = `${slugify(trackName)}${ext}`;
+      const filename = `${slugify(trackName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(trackImage, 'images/tracks', filename);
       imageUrl = url;
       setTrackImage(null);
+      setTrackPreview(null);
     }
     if (selectedTrack) {
       await updateTrack(selectedTrack, { gameId: trackGameId, name: trackName, imageUrl });
@@ -119,6 +126,7 @@ const AdminPage: React.FC = () => {
       await deleteTrack(selectedTrack);
       setSelectedTrack('');
       setTrackName('');
+      setTrackPreview(null);
       refreshTracks();
     }
   };
@@ -127,10 +135,11 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (layoutImage) {
       const ext = layoutImage.name.substring(layoutImage.name.lastIndexOf('.'));
-      const filename = `${slugify(layoutName)}${ext}`;
+      const filename = `${slugify(layoutName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(layoutImage, 'images/layouts', filename);
       imageUrl = url;
       setLayoutImage(null);
+      setLayoutPreview(null);
     }
     if (selectedLayout) {
       await updateLayout(selectedLayout, { trackId: layoutTrackId, name: layoutName, imageUrl });
@@ -147,6 +156,7 @@ const AdminPage: React.FC = () => {
       await deleteLayout(selectedLayout);
       setSelectedLayout('');
       setLayoutName('');
+      setLayoutPreview(null);
       refreshLayouts();
     }
   };
@@ -155,10 +165,11 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (carImage) {
       const ext = carImage.name.substring(carImage.name.lastIndexOf('.'));
-      const filename = `${slugify(carName)}${ext}`;
+      const filename = `${slugify(carName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(carImage, 'images/cars', filename);
       imageUrl = url;
       setCarImage(null);
+      setCarPreview(null);
     }
     if (selectedCar) {
       await updateCar(selectedCar, { gameId: carGameId, name: carName, imageUrl });
@@ -175,6 +186,7 @@ const AdminPage: React.FC = () => {
       await deleteCar(selectedCar);
       setSelectedCar('');
       setCarName('');
+      setCarPreview(null);
       refreshCars();
     }
   };
@@ -258,6 +270,7 @@ const AdminPage: React.FC = () => {
                 setSelectedGame(id);
                 const game = games.find((g) => g.id === id);
                 setGameName(game ? game.name : '');
+                setGamePreview(game ? game.imageUrl || null : null);
               }}
               className="border p-1"
             >
@@ -277,8 +290,15 @@ const AdminPage: React.FC = () => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setGameImage(e.target.files?.[0] || null)}
+              onChange={(e) => {
+                const file = e.target.files?.[0] || null;
+                setGameImage(file);
+                setGamePreview(file ? URL.createObjectURL(file) : null);
+              }}
             />
+            {gamePreview && (
+              <img src={gamePreview} alt="preview" className="h-10" />
+            )}
             <Button size="sm" onClick={handleSaveGame}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteGame}>
               Delete
@@ -297,6 +317,7 @@ const AdminPage: React.FC = () => {
                 const track = tracks.find((t) => t.id === id);
                 setTrackName(track ? track.name : '');
                 setTrackGameId(track ? track.gameId : '');
+                setTrackPreview(track ? track.imageUrl || null : null);
               }}
               className="border p-1"
             >
@@ -328,8 +349,15 @@ const AdminPage: React.FC = () => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setTrackImage(e.target.files?.[0] || null)}
+              onChange={(e) => {
+                const file = e.target.files?.[0] || null;
+                setTrackImage(file);
+                setTrackPreview(file ? URL.createObjectURL(file) : null);
+              }}
             />
+            {trackPreview && (
+              <img src={trackPreview} alt="preview" className="h-10" />
+            )}
             <Button size="sm" onClick={handleSaveTrack}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteTrack}>
               Delete
@@ -348,6 +376,7 @@ const AdminPage: React.FC = () => {
                 const layout = layouts.find((l) => l.id === id);
                 setLayoutName(layout ? layout.name : '');
                 setLayoutTrackId(layout ? layout.trackId : '');
+                setLayoutPreview(layout ? layout.imageUrl || null : null);
               }}
               className="border p-1"
             >
@@ -379,8 +408,15 @@ const AdminPage: React.FC = () => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setLayoutImage(e.target.files?.[0] || null)}
+              onChange={(e) => {
+                const file = e.target.files?.[0] || null;
+                setLayoutImage(file);
+                setLayoutPreview(file ? URL.createObjectURL(file) : null);
+              }}
             />
+            {layoutPreview && (
+              <img src={layoutPreview} alt="preview" className="h-10" />
+            )}
             <Button size="sm" onClick={handleSaveLayout}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteLayout}>
               Delete
@@ -399,6 +435,7 @@ const AdminPage: React.FC = () => {
                 const car = cars.find((c) => c.id === id);
                 setCarName(car ? car.name : '');
                 setCarGameId(car ? car.gameId : '');
+                setCarPreview(car ? car.imageUrl || null : null);
               }}
               className="border p-1"
             >
@@ -430,8 +467,15 @@ const AdminPage: React.FC = () => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setCarImage(e.target.files?.[0] || null)}
+              onChange={(e) => {
+                const file = e.target.files?.[0] || null;
+                setCarImage(file);
+                setCarPreview(file ? URL.createObjectURL(file) : null);
+              }}
             />
+            {carPreview && (
+              <img src={carPreview} alt="preview" className="h-10" />
+            )}
             <Button size="sm" onClick={handleSaveCar}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteCar}>
               Delete
