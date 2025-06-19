@@ -34,6 +34,8 @@ services:
       network: host  # 👈 This enables host networking during image build
     environment:
       VITE_API_URL: http://localhost:5000/api #Change this to your server IP
+    volumes:
+      - ./frontend/public/images:/usr/src/app/dist/images
     depends_on:
       - backend
     ports:
