@@ -1,8 +1,11 @@
 import apiClient from './client';
 import { LapTime } from '../types';
 
-export async function getLapTimes(userId?: string): Promise<LapTime[]> {
-  const res = await apiClient.get('/lapTimes', { params: userId ? { userId } : undefined });
+export async function getLapTimes(userId?: string, carId?: string): Promise<LapTime[]> {
+  const params: Record<string, string> = {};
+  if (userId) params.userId = userId;
+  if (carId) params.carId = carId;
+  const res = await apiClient.get('/lapTimes', { params: Object.keys(params).length ? params : undefined });
   return res.data;
 }
 

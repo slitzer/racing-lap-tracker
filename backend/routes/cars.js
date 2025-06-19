@@ -11,7 +11,7 @@ router.get('/', async (req, res, next) => {
     let result;
     if (gameId) {
       result = await db.query(
-        `SELECT c.id, gc.game_id AS "gameId", c.name, c.image_url AS "imageUrl"
+        `SELECT c.id, gc.game_id AS "gameId", c.name, c.image_url AS "imageUrl", c.description
          FROM game_cars gc
          JOIN cars c ON gc.car_id = c.id
          WHERE gc.game_id = $1
@@ -20,7 +20,7 @@ router.get('/', async (req, res, next) => {
       );
     } else {
       result = await db.query(
-        `SELECT c.id, gc.game_id AS "gameId", c.name, c.image_url AS "imageUrl"
+        `SELECT c.id, gc.game_id AS "gameId", c.name, c.image_url AS "imageUrl", c.description
          FROM game_cars gc
          JOIN cars c ON gc.car_id = c.id
          ORDER BY c.name`
@@ -40,21 +40,22 @@ router.post(
     body('gameId').notEmpty(),
     body('name').trim().escape().notEmpty(),
     body('imageUrl').optional().trim(),
+    body('description').optional().trim(),
   ],
   async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { gameId, name, imageUrl } = req.body;
+    const { gameId, name, imageUrl, description } = req.body;
     try {
       const car = await db.query(
-        'INSERT INTO cars (name, image_url) VALUES ($1,$2) RETURNING id, name, image_url AS "imageUrl"',
-        [name, imageUrl || null]
+        'INSERT INTO cars (name, image_url, description) VALUES ($1,$2,$3) RETURNING id, name, image_url AS "imageUrl", description',
+        [name, imageUrl || null, description || null]
       );
       const c = car.rows[0];
       await db.query('INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)', [gameId, c.id]);
-      res.status(201).json({ id: c.id, gameId, name: c.name, imageUrl: c.imageUrl });
+      res.status(201).json({ id: c.id, gameId, name: c.name, imageUrl: c.imageUrl, description: c.description });
     } catch (err) {
       next(err);
     }
@@ -69,6 +70,7 @@ router.put(
     body('gameId').notEmpty(),
     body('name').trim().escape().notEmpty(),
     body('imageUrl').optional().trim(),
+    body('description').optional().trim(),
   ],
   async (req, res, next) => {
     const { id } = req.params;
@@ -76,11 +78,11 @@ router.put(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { gameId, name, imageUrl } = req.body;
+    const { gameId, name, imageUrl, description } = req.body;
     try {
       const result = await db.query(
-        'UPDATE cars SET name=$1, image_url=$2 WHERE id=$3 RETURNING id, name, image_url AS "imageUrl"',
-        [name, imageUrl || null, id]
+        'UPDATE cars SET name=$1, image_url=$2, description=$3 WHERE id=$4 RETURNING id, name, image_url AS "imageUrl", description',
+        [name, imageUrl || null, description || null, id]
       );
       if (result.rows.length === 0) {
         return res.status(404).json({ message: 'Car not found' });
@@ -88,7 +90,7 @@ router.put(
       await db.query('DELETE FROM game_cars WHERE car_id=$1', [id]);
       await db.query('INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)', [gameId, id]);
       const car = result.rows[0];
-      res.json({ id, gameId, name: car.name, imageUrl: car.imageUrl });
+      res.json({ id, gameId, name: car.name, imageUrl: car.imageUrl, description: car.description });
     } catch (err) {
       next(err);
     }
@@ -99,7 +101,7 @@ router.delete('/:id', auth, admin, async (req, res, next) => {
   const { id } = req.params;
   try {
     const result = await db.query(
-      'DELETE FROM cars WHERE id=$1 RETURNING id, name, image_url AS "imageUrl"',
+      'DELETE FROM cars WHERE id=$1 RETURNING id, name, image_url AS "imageUrl", description',
       [id]
     );
     if (result.rows.length === 0) {
