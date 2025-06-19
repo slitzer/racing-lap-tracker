@@ -2,6 +2,8 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const router = express.Router();
 
 const uploadDir = process.env.UPLOAD_DIR || path.join(__dirname, '..', 'uploads');
@@ -53,20 +55,37 @@ const upload = multer({
   },
 });
 
-router.post('/', (req, res, next) => {
-  upload.single('file')(req, res, (err) => {
-    if (err) {
-      if (err instanceof multer.MulterError) {
-        return res.status(400).json({ message: err.message });
+const adminFolders = [
+  'images/games',
+  'images/tracks',
+  'images/layouts',
+  'images/cars',
+];
+
+router.post('/', auth, (req, res, next) => {
+  const folder = req.query.folder
+    ? path.normalize(req.query.folder).replace(/^([.]{2}[\/])+/g, '')
+    : '';
+
+  const proceed = () =>
+    upload.single('file')(req, res, (err) => {
+      if (err) {
+        if (err instanceof multer.MulterError) {
+          return res.status(400).json({ message: err.message });
+        }
+        return next(err);
       }
-      return next(err);
-    }
-    const folder = req.query.folder
-      ? path.normalize(req.query.folder).replace(/^([.]{2}[\/])+/g, '')
-      : '';
-    const prefix = folder ? `${folder}/` : '';
-    res.json({ url: `/uploads/${prefix}${req.file.filename}` });
-  });
+      const prefix = folder ? `${folder}/` : '';
+      res.json({ url: `/uploads/${prefix}${req.file.filename}` });
+    });
+
+  if (adminFolders.some((f) => folder.startsWith(f))) {
+    return admin(req, res, (err) => {
+      if (err) return next(err);
+      proceed();
+    });
+  }
+  proceed();
 });
 
 module.exports = {
