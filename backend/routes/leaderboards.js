@@ -3,17 +3,16 @@ const db = require('../utils/database');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
-  const { gameId, trackId, layoutId } = req.query;
-  if (!gameId || !trackId || !layoutId) {
-    return res.status(400).json({ message: 'gameId, trackId and layoutId are required' });
+  const { gameId, trackLayoutId } = req.query;
+  if (!gameId || !trackLayoutId) {
+    return res.status(400).json({ message: 'gameId and trackLayoutId are required' });
   }
   try {
     const result = await db.query(
       `SELECT lt.id,
               lt.user_id AS "userId",
               lt.game_id AS "gameId",
-              lt.track_id AS "trackId",
-              lt.layout_id AS "layoutId",
+              lt.track_layout_id AS "trackLayoutId",
               lt.car_id AS "carId",
               lt.input_type AS "inputType",
               COALESCE(a.assists, '[]') AS assists,
@@ -32,8 +31,9 @@ router.get('/', async (req, res, next) => {
        FROM lap_times lt
        JOIN users u ON lt.user_id = u.id
        JOIN games g ON lt.game_id = g.id
-       JOIN tracks t ON lt.track_id = t.id
-       JOIN layouts l ON lt.layout_id = l.id
+       JOIN track_layouts tl ON lt.track_layout_id = tl.id
+       JOIN tracks t ON tl.track_id = t.id
+       JOIN layouts l ON tl.layout_id = l.id
        JOIN cars c ON lt.car_id = c.id
        LEFT JOIN LATERAL (
             SELECT json_agg(asst.name ORDER BY asst.name) AS assists
@@ -41,10 +41,10 @@ router.get('/', async (req, res, next) => {
             JOIN assists asst ON lta.assist_id = asst.id
             WHERE lta.lap_time_id = lt.id
        ) a ON TRUE
-       WHERE lt.game_id = $1 AND lt.track_id = $2 AND lt.layout_id = $3
+       WHERE lt.game_id = $1 AND lt.track_layout_id = $2
        ORDER BY lt.time_ms ASC
        LIMIT 10`,
-      [gameId, trackId, layoutId]
+      [gameId, trackLayoutId]
     );
     res.json(result.rows);
   } catch (err) {

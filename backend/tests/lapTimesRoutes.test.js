@@ -23,8 +23,7 @@ describe('Lap time routes', () => {
       .post('/api/lapTimes')
       .send({
         gameId: 'g1',
-        trackId: 't1',
-        layoutId: 'l1',
+        trackLayoutId: 'tl1',
         carId: 'c1',
         inputType: 'Wheel',
         timeMs: 1234,
