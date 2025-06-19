@@ -16,10 +16,10 @@ describe('Admin routes', () => {
   });
 
   it('lists unverified lap times', async () => {
-    db.query.mockResolvedValue({ rows: [{ id: '1' }] });
+    db.query.mockResolvedValue({ rows: [{ id: '1', username: 'u1' }] });
     const res = await request(app).get('/api/admin/lapTimes/unverified');
     expect(res.status).toBe(200);
-    expect(res.body).toEqual([{ id: '1' }]);
+    expect(res.body[0].username).toBe('u1');
     expect(db.query).toHaveBeenCalled();
   });
 
