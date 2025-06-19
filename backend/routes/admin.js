@@ -77,7 +77,10 @@ router.get('/export', auth, admin, async (req, res, next) => {
       'games',
       'tracks',
       'layouts',
+      'track_layouts',
+      'game_tracks',
       'cars',
+      'game_cars',
       'assists',
       'lap_times',
       'lap_time_assists',
@@ -100,7 +103,10 @@ router.post('/import', auth, admin, async (req, res, next) => {
     games,
     tracks,
     layouts,
+    track_layouts,
+    game_tracks,
     cars,
+    game_cars,
     assists,
     lap_times,
     lap_time_assists,
@@ -109,7 +115,7 @@ router.post('/import', auth, admin, async (req, res, next) => {
   try {
     await client.query('BEGIN');
     await client.query(
-      'TRUNCATE lap_time_assists, lap_times, assists, cars, layouts, tracks, games, users RESTART IDENTITY CASCADE'
+      'TRUNCATE lap_time_assists, lap_times, assists, game_cars, cars, game_tracks, track_layouts, layouts, tracks, games, users RESTART IDENTITY CASCADE'
     );
 
     if (users) {
@@ -157,6 +163,24 @@ router.post('/import', auth, admin, async (req, res, next) => {
         );
       }
     }
+    if (track_layouts) {
+      for (const tl of track_layouts) {
+        // eslint-disable-next-line no-await-in-loop
+        await client.query(
+          'INSERT INTO track_layouts (id, track_id, layout_id) VALUES ($1,$2,$3)',
+          [tl.id, tl.track_id, tl.layout_id]
+        );
+      }
+    }
+    if (game_tracks) {
+      for (const gt of game_tracks) {
+        // eslint-disable-next-line no-await-in-loop
+        await client.query(
+          'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2)',
+          [gt.game_id, gt.track_layout_id]
+        );
+      }
+    }
     if (cars) {
       for (const c of cars) {
         // eslint-disable-next-line no-await-in-loop
@@ -164,8 +188,15 @@ router.post('/import', auth, admin, async (req, res, next) => {
           'INSERT INTO cars (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5)',
           [c.id, c.name, c.image_url, c.created_at, c.updated_at]
         );
+      }
+    }
+    if (game_cars) {
+      for (const gc of game_cars) {
         // eslint-disable-next-line no-await-in-loop
-        await client.query('INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)', [c.game_id, c.id]);
+        await client.query(
+          'INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)',
+          [gc.game_id, gc.car_id]
+        );
       }
     }
     if (assists) {
