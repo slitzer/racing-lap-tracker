@@ -101,19 +101,27 @@ const AdminPage: React.FC = () => {
   const refreshCars = () => getCars().then(setCars).catch(() => {});
 
   const updateGameRow = async (id: string, data: Partial<Game>) => {
-    await updateGame(id, data);
+    const existing = games.find((g) => g.id === id);
+    if (!existing) return;
+    await updateGame(id, { ...existing, ...data });
     refreshGames();
   };
   const updateTrackRow = async (id: string, data: Partial<Track>) => {
-    await updateTrack(id, data);
+    const existing = tracks.find((t) => t.id === id);
+    if (!existing) return;
+    await updateTrack(id, { ...existing, ...data });
     refreshTracks();
   };
   const updateLayoutRow = async (id: string, data: Partial<Layout>) => {
-    await updateLayout(id, data);
+    const existing = layouts.find((l) => l.id === id);
+    if (!existing) return;
+    await updateLayout(id, { ...existing, ...data });
     refreshLayouts();
   };
   const updateCarRow = async (id: string, data: Partial<Car>) => {
-    await updateCar(id, data);
+    const existing = cars.find((c) => c.id === id);
+    if (!existing) return;
+    await updateCar(id, { ...existing, ...data });
     refreshCars();
   };
 
