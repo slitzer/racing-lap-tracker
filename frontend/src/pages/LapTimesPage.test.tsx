@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
 const mockedApi = {
   getLapTimes: jest.fn(),
@@ -19,7 +20,11 @@ beforeEach(() => {
 });
 
 test('renders lap times heading', () => {
-  render(<LapTimesPage />);
+  render(
+    <MemoryRouter>
+      <LapTimesPage />
+    </MemoryRouter>
+  );
   expect(screen.getByRole('heading', { name: /Lap Times/i })).toBeInTheDocument();
 });
 
@@ -43,6 +48,10 @@ test('renders assists when provided', async () => {
     }
   ]);
 
-  render(<LapTimesPage />);
+  render(
+    <MemoryRouter>
+      <LapTimesPage />
+    </MemoryRouter>
+  );
   expect(await screen.findByText('ABS')).toBeInTheDocument();
 });
