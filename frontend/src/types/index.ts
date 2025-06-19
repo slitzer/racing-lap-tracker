@@ -15,24 +15,28 @@ export interface UserStats {
 export interface Game {
   id: string;
   name: string;
+  imageUrl?: string | null;
 }
 
 export interface Track {
   id: string;
   gameId: string;
   name: string;
+  imageUrl?: string | null;
 }
 
 export interface Layout {
   id: string;
   trackId: string;
   name: string;
+  imageUrl?: string | null;
 }
 
 export interface Car {
   id: string;
   gameId: string;
   name: string;
+  imageUrl?: string | null;
 }
 
 export interface LapTime {
