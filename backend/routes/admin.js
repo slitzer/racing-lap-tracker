@@ -67,7 +67,7 @@ router.delete('/lapTimes/:id', auth, admin, async (req, res, next) => {
 
 router.get('/export', auth, admin, async (req, res, next) => {
   try {
-    const tables = ['users', 'games', 'tracks', 'layouts', 'cars', 'lap_times'];
+    const tables = ['users', 'games', 'tracks', 'layouts', 'cars', 'assists', 'lap_times', 'lap_time_assists'];
     const data = {};
     for (const t of tables) {
       // eslint-disable-next-line no-await-in-loop
@@ -81,9 +81,9 @@ router.get('/export', auth, admin, async (req, res, next) => {
 });
 
 router.post('/import', auth, admin, async (req, res, next) => {
-  const { users, games, tracks, layouts, cars, lap_times } = req.body;
+  const { users, games, tracks, layouts, cars, assists, lap_times, lap_time_assists } = req.body;
   try {
-    await db.query('TRUNCATE lap_times, cars, layouts, tracks, games, users RESTART IDENTITY CASCADE');
+    await db.query('TRUNCATE lap_time_assists, lap_times, assists, cars, layouts, tracks, games, users RESTART IDENTITY CASCADE');
 
     if (users) {
       for (const u of users) {
@@ -130,6 +130,15 @@ router.post('/import', auth, admin, async (req, res, next) => {
         );
       }
     }
+    if (assists) {
+      for (const a of assists) {
+        // eslint-disable-next-line no-await-in-loop
+        await db.query(
+          'INSERT INTO assists (id, name) VALUES ($1,$2)',
+          [a.id, a.name]
+        );
+      }
+    }
     if (lap_times) {
       for (const lt of lap_times) {
         // eslint-disable-next-line no-await-in-loop
@@ -152,6 +161,15 @@ router.post('/import', auth, admin, async (req, res, next) => {
             lt.created_at,
             lt.updated_at,
           ]
+        );
+      }
+    }
+    if (lap_time_assists) {
+      for (const lta of lap_time_assists) {
+        // eslint-disable-next-line no-await-in-loop
+        await db.query(
+          'INSERT INTO lap_time_assists (lap_time_id, assist_id) VALUES ($1,$2)',
+          [lta.lap_time_id, lta.assist_id]
         );
       }
     }

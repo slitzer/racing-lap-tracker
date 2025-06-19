@@ -68,10 +68,12 @@ describe('Admin routes', () => {
       .mockResolvedValueOnce({ rows: [] })
       .mockResolvedValueOnce({ rows: [] })
       .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
       .mockResolvedValueOnce({ rows: [] });
     const res = await request(app).get('/api/admin/export');
     expect(res.status).toBe(200);
-    expect(db.query).toHaveBeenCalledTimes(6);
+    expect(db.query).toHaveBeenCalledTimes(8);
   });
 
   it('imports the database', async () => {
