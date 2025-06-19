@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('../utils/database');
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
+const { body, validationResult } = require('express-validator');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
@@ -28,45 +29,73 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.post('/', auth, admin, async (req, res, next) => {
-  const { trackId, name, imageUrl } = req.body;
-  try {
-    const result = await db.query(
-      'INSERT INTO layouts (track_id, name, image_url) VALUES ($1,$2,$3) RETURNING id, track_id AS "trackId", name, image_url AS "imageUrl"',
-      [trackId, name, imageUrl || null]
-    );
-    const layout = result.rows[0];
-    const tl = await db.query(
-      'INSERT INTO track_layouts (track_id, layout_id) VALUES ($1,$2) RETURNING id',
-      [trackId, layout.id]
-    );
-    res.status(201).json({ ...layout, trackLayoutId: tl.rows[0].id });
-  } catch (err) {
-    next(err);
-  }
-});
-
-router.put('/:id', auth, admin, async (req, res, next) => {
-  const { id } = req.params;
-  const { trackId, name, imageUrl } = req.body;
-  try {
-    const result = await db.query(
-      'UPDATE layouts SET track_id=$1, name=$2, image_url=$3 WHERE id=$4 RETURNING id, track_id AS "trackId", name, image_url AS "imageUrl"',
-      [trackId, name, imageUrl || null, id]
-    );
-    if (result.rows.length === 0) {
-      return res.status(404).json({ message: 'Layout not found' });
+router.post(
+  '/',
+  auth,
+  admin,
+  [
+    body('trackId').notEmpty(),
+    body('name').trim().escape().notEmpty(),
+    body('imageUrl').optional().trim(),
+  ],
+  async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-    const layout = result.rows[0];
-    const tl = await db.query(
-      'UPDATE track_layouts SET track_id=$1 WHERE layout_id=$2 RETURNING id',
-      [trackId, id]
-    );
-    res.json({ ...layout, trackLayoutId: tl.rows[0].id });
-  } catch (err) {
-    next(err);
+    const { trackId, name, imageUrl } = req.body;
+    try {
+      const result = await db.query(
+        'INSERT INTO layouts (track_id, name, image_url) VALUES ($1,$2,$3) RETURNING id, track_id AS "trackId", name, image_url AS "imageUrl"',
+        [trackId, name, imageUrl || null]
+      );
+      const layout = result.rows[0];
+      const tl = await db.query(
+        'INSERT INTO track_layouts (track_id, layout_id) VALUES ($1,$2) RETURNING id',
+        [trackId, layout.id]
+      );
+      res.status(201).json({ ...layout, trackLayoutId: tl.rows[0].id });
+    } catch (err) {
+      next(err);
+    }
   }
-});
+);
+
+router.put(
+  '/:id',
+  auth,
+  admin,
+  [
+    body('trackId').notEmpty(),
+    body('name').trim().escape().notEmpty(),
+    body('imageUrl').optional().trim(),
+  ],
+  async (req, res, next) => {
+    const { id } = req.params;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const { trackId, name, imageUrl } = req.body;
+    try {
+      const result = await db.query(
+        'UPDATE layouts SET track_id=$1, name=$2, image_url=$3 WHERE id=$4 RETURNING id, track_id AS "trackId", name, image_url AS "imageUrl"',
+        [trackId, name, imageUrl || null, id]
+      );
+      if (result.rows.length === 0) {
+        return res.status(404).json({ message: 'Layout not found' });
+      }
+      const layout = result.rows[0];
+      const tl = await db.query(
+        'UPDATE track_layouts SET track_id=$1 WHERE layout_id=$2 RETURNING id',
+        [trackId, id]
+      );
+      res.json({ ...layout, trackLayoutId: tl.rows[0].id });
+    } catch (err) {
+      next(err);
+    }
+  }
+);
 
 router.delete('/:id', auth, admin, async (req, res, next) => {
   const { id } = req.params;
