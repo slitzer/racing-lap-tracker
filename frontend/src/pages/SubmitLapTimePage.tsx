@@ -27,7 +27,7 @@ const SubmitLapTimePage: React.FC = () => {
 
   const [gameId, setGameId] = useState('');
   const [trackId, setTrackId] = useState('');
-  const [layoutId, setLayoutId] = useState('');
+  const [trackLayoutId, setTrackLayoutId] = useState('');
   const [carId, setCarId] = useState('');
   const [inputType, setInputType] = useState(inputTypes[0]);
   const [time, setTime] = useState('');
@@ -64,7 +64,7 @@ const SubmitLapTimePage: React.FC = () => {
         .catch(() => setLayouts([]));
     } else {
       setLayouts([]);
-      setLayoutId('');
+      setTrackLayoutId('');
     }
   }, [trackId]);
 
@@ -91,8 +91,7 @@ const SubmitLapTimePage: React.FC = () => {
       }
       await submitLapTime({
         gameId,
-        trackId,
-        layoutId,
+        trackLayoutId,
         carId,
         inputType,
         timeMs,
@@ -152,15 +151,15 @@ const SubmitLapTimePage: React.FC = () => {
         <div className="space-y-1">
           <label className="block text-sm font-medium">Layout</label>
           <select
-            value={layoutId}
-            onChange={(e) => setLayoutId(e.target.value)}
+            value={trackLayoutId}
+            onChange={(e) => setTrackLayoutId(e.target.value)}
             className="w-full rounded border px-3 py-2"
             required
             disabled={!trackId}
           >
             <option value="">Select layout</option>
             {layouts.map((l) => (
-              <option key={l.id} value={l.id}>
+              <option key={l.id} value={l.trackLayoutId || l.id}>
                 {l.name}
               </option>
             ))}
