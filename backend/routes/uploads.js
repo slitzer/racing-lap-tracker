@@ -44,9 +44,8 @@ router.post('/', upload.single('file'), (req, res) => {
   const folder = req.query.folder
     ? path.normalize(req.query.folder).replace(/^([.]{2}[\/])+/g, '')
     : '';
-  const base = `${req.protocol}://${req.get('host')}`;
   const prefix = folder ? `${folder}/` : '';
-  res.json({ url: `${base}/uploads/${prefix}${req.file.filename}` });
+  res.json({ url: `/uploads/${prefix}${req.file.filename}` });
 });
 
 module.exports = {
