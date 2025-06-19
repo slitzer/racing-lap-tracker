@@ -25,6 +25,7 @@ import {
 import { LapTime, Game, Track, Layout, Car } from '../types';
 import { Button } from '../components/ui/button';
 import { formatTime } from '../utils/time';
+import { slugify } from '../utils';
 
 const AdminPage: React.FC = () => {
   const [lapTimes, setLapTimes] = useState<LapTime[]>([]);
@@ -69,7 +70,9 @@ const AdminPage: React.FC = () => {
   const handleSaveGame = async () => {
     let imageUrl: string | undefined;
     if (gameImage) {
-      const { url } = await uploadFile(gameImage, 'images/games');
+      const ext = gameImage.name.substring(gameImage.name.lastIndexOf('.'));
+      const filename = `${slugify(gameName)}${ext}`;
+      const { url } = await uploadFile(gameImage, 'images/games', filename);
       imageUrl = url;
       setGameImage(null);
     }
@@ -95,7 +98,9 @@ const AdminPage: React.FC = () => {
   const handleSaveTrack = async () => {
     let imageUrl: string | undefined;
     if (trackImage) {
-      const { url } = await uploadFile(trackImage, 'images/tracks');
+      const ext = trackImage.name.substring(trackImage.name.lastIndexOf('.'));
+      const filename = `${slugify(trackName)}${ext}`;
+      const { url } = await uploadFile(trackImage, 'images/tracks', filename);
       imageUrl = url;
       setTrackImage(null);
     }
@@ -121,7 +126,9 @@ const AdminPage: React.FC = () => {
   const handleSaveLayout = async () => {
     let imageUrl: string | undefined;
     if (layoutImage) {
-      const { url } = await uploadFile(layoutImage, 'images/layouts');
+      const ext = layoutImage.name.substring(layoutImage.name.lastIndexOf('.'));
+      const filename = `${slugify(layoutName)}${ext}`;
+      const { url } = await uploadFile(layoutImage, 'images/layouts', filename);
       imageUrl = url;
       setLayoutImage(null);
     }
@@ -147,7 +154,9 @@ const AdminPage: React.FC = () => {
   const handleSaveCar = async () => {
     let imageUrl: string | undefined;
     if (carImage) {
-      const { url } = await uploadFile(carImage, 'images/cars');
+      const ext = carImage.name.substring(carImage.name.lastIndexOf('.'));
+      const filename = `${slugify(carName)}${ext}`;
+      const { url } = await uploadFile(carImage, 'images/cars', filename);
       imageUrl = url;
       setCarImage(null);
     }

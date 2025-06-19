@@ -22,7 +22,9 @@ const ProfilePage: React.FC = () => {
     if (!file) return;
     setUploading(true);
     try {
-      const { url } = await uploadFile(file);
+      const ext = file.name.substring(file.name.lastIndexOf('.'));
+      const filename = `user_${user?.id ?? 'avatar'}${ext}`;
+      const { url } = await uploadFile(file, 'images/avatars', filename);
       await updateProfile({ avatarUrl: url });
       await refreshUser();
     } catch {
