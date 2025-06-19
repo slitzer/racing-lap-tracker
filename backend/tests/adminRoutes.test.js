@@ -99,12 +99,18 @@ describe('Admin routes', () => {
         users: [],
         games: [],
         tracks: [],
-        layouts: [],
-        track_layouts: [
-          { id: 'tl1', track_id: 't1', layout_id: 'l1' },
+        layouts: [
+          {
+            id: 'l1',
+            track_id: 't1',
+            name: 'Layout 1',
+            image_url: '/layout.png',
+            created_at: '2024-01-01',
+            updated_at: '2024-01-02',
+          },
         ],
         game_tracks: [
-          { game_id: 'g1', track_layout_id: 'tl1' },
+          { game_id: 'g1', track_layout_id: 'l1' },
         ],
         cars: [
           {
@@ -126,11 +132,11 @@ describe('Admin routes', () => {
     expect(mockClient.query).toHaveBeenCalledWith('BEGIN');
     expect(mockClient.query).toHaveBeenCalledWith(
       'INSERT INTO track_layouts (id, track_id, layout_id) VALUES ($1,$2,$3)',
-      ['tl1', 't1', 'l1']
+      ['l1', 't1', 'l1']
     );
     expect(mockClient.query).toHaveBeenCalledWith(
       'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2)',
-      ['g1', 'tl1']
+      ['g1', 'l1']
     );
     expect(mockClient.query).toHaveBeenCalledWith(
       'INSERT INTO cars (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5)',
@@ -150,8 +156,8 @@ describe('Admin routes', () => {
       .mockResolvedValueOnce({ rows: [{ id: 'g1' }] })
       .mockResolvedValueOnce({ rows: [{ id: 't1', game_id: 'g1' }] })
       .mockResolvedValueOnce({ rows: [{ id: 'l1', track_id: 't1' }] })
-      .mockResolvedValueOnce({ rows: [{ id: 'tl1', track_id: 't1', layout_id: 'l1' }] })
-      .mockResolvedValueOnce({ rows: [{ game_id: 'g1', track_layout_id: 'tl1' }] })
+      .mockResolvedValueOnce({ rows: [{ id: 'l1', track_id: 't1', layout_id: 'l1' }] })
+      .mockResolvedValueOnce({ rows: [{ game_id: 'g1', track_layout_id: 'l1' }] })
       .mockResolvedValueOnce({ rows: [{ id: 'c1' }] })
       .mockResolvedValueOnce({ rows: [{ game_id: 'g1', car_id: 'c1' }] })
       .mockResolvedValueOnce({ rows: [] })
@@ -170,11 +176,11 @@ describe('Admin routes', () => {
     expect(res.status).toBe(200);
     expect(mockClient.query).toHaveBeenCalledWith(
       'INSERT INTO track_layouts (id, track_id, layout_id) VALUES ($1,$2,$3)',
-      ['tl1', 't1', 'l1']
+      ['l1', 't1', 'l1']
     );
     expect(mockClient.query).toHaveBeenCalledWith(
       'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2)',
-      ['g1', 'tl1']
+      ['g1', 'l1']
     );
     expect(mockClient.query).toHaveBeenCalledWith(
       'INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)',
