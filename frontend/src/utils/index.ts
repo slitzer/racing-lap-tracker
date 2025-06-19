@@ -1,4 +1,5 @@
 export * from './cn';
+export * from './slug';
 
 export function getInitials(name: string) {
   return name
