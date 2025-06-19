@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 
 const mockedApi = {
@@ -24,14 +25,22 @@ beforeEach(() => {
 });
 
 test('renders admin heading', () => {
-  render(<AdminPage />);
+  render(
+    <MemoryRouter>
+      <AdminPage />
+    </MemoryRouter>
+  );
   expect(screen.getByText(/Admin/i)).toBeInTheDocument();
 });
 
 test('verifies a lap time', async () => {
   mockedApi.getUnverifiedLapTimes.mockResolvedValue([{ id: '1', timeMs: 123 }]);
   mockedApi.verifyLapTime.mockResolvedValue({ id: '1', verified: true });
-  render(<AdminPage />);
+  render(
+    <MemoryRouter>
+      <AdminPage />
+    </MemoryRouter>
+  );
   expect(await screen.findByText('1')).toBeInTheDocument();
   await userEvent.click(screen.getByRole('button', { name: /verify/i }));
   expect(mockedApi.verifyLapTime).toHaveBeenCalledWith('1');
@@ -40,7 +49,11 @@ test('verifies a lap time', async () => {
 test('deletes a lap time', async () => {
   mockedApi.getUnverifiedLapTimes.mockResolvedValue([{ id: '2', timeMs: 456 }]);
   mockedApi.deleteLapTime.mockResolvedValue({ id: '2' });
-  render(<AdminPage />);
+  render(
+    <MemoryRouter>
+      <AdminPage />
+    </MemoryRouter>
+  );
   expect(await screen.findByText('2')).toBeInTheDocument();
   await userEvent.click(screen.getAllByRole('button', { name: /delete/i })[0]);
   expect(mockedApi.deleteLapTime).toHaveBeenCalledWith('2');

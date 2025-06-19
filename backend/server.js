@@ -21,6 +21,7 @@ const leaderboardRoutes = require('./routes/leaderboards');
 const assistRoutes = require('./routes/assists');
 const adminRoutes = require('./routes/admin');
 const { router: uploadRoutes, uploadDir } = require('./routes/uploads');
+const { seedSampleLapTimes } = require('./utils/seedSampleLapTimes');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -28,8 +29,8 @@ const app = express();
 app.use(helmet());
 app.use(cors());
 app.use(compression());
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json({ limit: '5mb' }));
+app.use(express.urlencoded({ extended: false, limit: '5mb' }));
 
 // Ensure uploads directory exists and serve static files
 fs.mkdirSync(uploadDir, { recursive: true });
@@ -58,9 +59,13 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV !== 'test') {
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-  });
+  seedSampleLapTimes()
+    .catch((err) => console.error('Failed to seed sample lap times', err))
+    .finally(() => {
+      app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+      });
+    });
 }
 
 module.exports = app;

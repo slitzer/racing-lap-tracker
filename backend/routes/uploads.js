@@ -2,6 +2,8 @@ const express = require('express');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
+const auth = require('../middleware/auth');
+const admin = require('../middleware/admin');
 const router = express.Router();
 
 const uploadDir = process.env.UPLOAD_DIR || path.join(__dirname, '..', 'uploads');
@@ -38,14 +40,57 @@ const storage = multer.diskStorage({
     cb(null, name);
   },
 });
-const upload = multer({ storage });
+const allowedTypes = [
+  'image/jpeg',
+  'image/png',
+  'image/gif',
+  'image/webp',
+];
+const upload = multer({
+  storage,
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter(req, file, cb) {
+    if (allowedTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      const err = new multer.MulterError('LIMIT_UNEXPECTED_FILE');
+      err.message = 'Invalid file type';
+      cb(err);
+    }
+  },
+});
 
-router.post('/', upload.single('file'), (req, res) => {
+const adminFolders = [
+  'images/games',
+  'images/tracks',
+  'images/layouts',
+  'images/cars',
+];
+
+router.post('/', auth, (req, res, next) => {
   const folder = req.query.folder
     ? path.normalize(req.query.folder).replace(/^([.]{2}[\/])+/g, '')
     : '';
-  const prefix = folder ? `${folder}/` : '';
-  res.json({ url: `/uploads/${prefix}${req.file.filename}` });
+
+  const proceed = () =>
+    upload.single('file')(req, res, (err) => {
+      if (err) {
+        if (err instanceof multer.MulterError) {
+          return res.status(400).json({ message: err.message });
+        }
+        return next(err);
+      }
+      const prefix = folder ? `${folder}/` : '';
+      res.json({ url: `/uploads/${prefix}${req.file.filename}` });
+    });
+
+  if (adminFolders.some((f) => folder.startsWith(f))) {
+    return admin(req, res, (err) => {
+      if (err) return next(err);
+      proceed();
+    });
+  }
+  proceed();
 });
 
 module.exports = {

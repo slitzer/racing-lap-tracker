@@ -27,6 +27,7 @@ CREATE TABLE tracks (
     game_id UUID NOT NULL REFERENCES games(id) ON DELETE CASCADE,
     name VARCHAR(255) NOT NULL,
     image_url TEXT,
+    description TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(game_id, name)
@@ -41,15 +42,37 @@ CREATE TABLE layouts (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(track_id, name)
 );
+
+-- Track layouts table
+CREATE TABLE track_layouts (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    track_id UUID NOT NULL REFERENCES tracks(id) ON DELETE CASCADE,
+    layout_id UUID NOT NULL REFERENCES layouts(id) ON DELETE CASCADE,
+    UNIQUE(track_id, layout_id)
+);
+
+-- Game tracks table
+CREATE TABLE game_tracks (
+    game_id UUID NOT NULL REFERENCES games(id) ON DELETE CASCADE,
+    track_layout_id UUID NOT NULL REFERENCES track_layouts(id) ON DELETE CASCADE,
+    PRIMARY KEY (game_id, track_layout_id)
+);
 -- Cars table
 CREATE TABLE cars (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    game_id UUID NOT NULL REFERENCES games(id) ON DELETE CASCADE,
     name VARCHAR(255) NOT NULL,
     image_url TEXT,
+    description TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE(game_id, name)
+    UNIQUE(name)
+);
+
+-- Game cars table
+CREATE TABLE game_cars (
+    game_id UUID NOT NULL REFERENCES games(id) ON DELETE CASCADE,
+    car_id UUID NOT NULL REFERENCES cars(id) ON DELETE CASCADE,
+    PRIMARY KEY (game_id, car_id)
 );
 -- Input types enum
 CREATE TYPE input_type AS ENUM ('Wheel', 'Controller', 'Keyboard');
@@ -63,13 +86,13 @@ CREATE TABLE lap_times (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     game_id UUID NOT NULL REFERENCES games(id) ON DELETE CASCADE,
-    track_id UUID NOT NULL REFERENCES tracks(id) ON DELETE CASCADE,
-    layout_id UUID NOT NULL REFERENCES layouts(id) ON DELETE CASCADE,
+    track_layout_id UUID NOT NULL REFERENCES track_layouts(id) ON DELETE CASCADE,
     car_id UUID NOT NULL REFERENCES cars(id) ON DELETE CASCADE,
     input_type input_type NOT NULL,
     assists_json JSONB DEFAULT '{}',
     time_ms INTEGER NOT NULL,
     screenshot_url TEXT,
+    notes TEXT,
     verified BOOLEAN DEFAULT FALSE,
     date_submitted TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     lap_date DATE NOT NULL,
@@ -85,8 +108,7 @@ CREATE TABLE lap_time_assists (
 -- Indexes for performance
 CREATE INDEX idx_lap_times_user_id ON lap_times(user_id);
 CREATE INDEX idx_lap_times_game_id ON lap_times(game_id);
-CREATE INDEX idx_lap_times_track_id ON lap_times(track_id);
-CREATE INDEX idx_lap_times_layout_id ON lap_times(layout_id);
+CREATE INDEX idx_lap_times_track_layout_id ON lap_times(track_layout_id);
 CREATE INDEX idx_lap_times_car_id ON lap_times(car_id);
 CREATE INDEX idx_lap_times_time_ms ON lap_times(time_ms);
 CREATE INDEX idx_lap_times_verified ON lap_times(verified);
@@ -95,7 +117,7 @@ CREATE INDEX idx_lap_times_lap_date ON lap_times(lap_date);
 CREATE INDEX idx_lta_lap_time_id ON lap_time_assists(lap_time_id);
 CREATE INDEX idx_lta_assist_id ON lap_time_assists(assist_id);
 -- Composite indexes for common queries
-CREATE INDEX idx_lap_times_leaderboard ON lap_times(game_id, track_id, layout_id, time_ms);
+CREATE INDEX idx_lap_times_leaderboard ON lap_times(game_id, track_layout_id, time_ms);
 CREATE INDEX idx_lap_times_user_stats ON lap_times(user_id, date_submitted);
 -- Function to update updated_at timestamp
 CREATE OR REPLACE FUNCTION update_updated_at_column()

@@ -5,25 +5,33 @@ const auth = require('../middleware/auth');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
-  const { userId } = req.query;
+  const { userId, carId } = req.query;
   const params = [];
-  let where = '';
+  const conditions = [];
   if (userId) {
     params.push(userId);
-    where = 'WHERE lt.user_id = $1';
+    conditions.push(`lt.user_id = $${params.length}`);
   }
+  if (carId) {
+    params.push(carId);
+    conditions.push(`lt.car_id = $${params.length}`);
+  }
+  const where = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
   try {
     const result = await db.query(
       `SELECT lt.id,
               lt.user_id AS "userId",
               lt.game_id AS "gameId",
-              lt.track_id AS "trackId",
-              lt.layout_id AS "layoutId",
+              lt.track_layout_id AS "trackLayoutId",
+              t.id AS "trackId",
+              l.id AS "layoutId",
               lt.car_id AS "carId",
               lt.input_type AS "inputType",
               lt.time_ms AS "timeMs",
               lt.lap_date AS "lapDate",
               lt.screenshot_url AS "screenshotUrl",
+              lt.notes,
+
               u.username,
               g.name AS "gameName", g.image_url AS "gameImageUrl",
               t.name AS "trackName", t.image_url AS "trackImageUrl",
@@ -33,8 +41,9 @@ router.get('/', async (req, res, next) => {
        FROM lap_times lt
        JOIN users u ON lt.user_id = u.id
        JOIN games g ON lt.game_id = g.id
-       JOIN tracks t ON lt.track_id = t.id
-       JOIN layouts l ON lt.layout_id = l.id
+       JOIN track_layouts tl ON lt.track_layout_id = tl.id
+       JOIN tracks t ON tl.track_id = t.id
+       JOIN layouts l ON tl.layout_id = l.id
        JOIN cars c ON lt.car_id = c.id
        LEFT JOIN LATERAL (
             SELECT json_agg(asst.name ORDER BY asst.name) AS assists
@@ -59,13 +68,15 @@ router.get('/records', async (req, res, next) => {
       `SELECT lt.id,
               lt.user_id AS "userId",
               lt.game_id AS "gameId",
-              lt.track_id AS "trackId",
-              lt.layout_id AS "layoutId",
+              lt.track_layout_id AS "trackLayoutId",
+              t.id AS "trackId",
+              l.id AS "layoutId",
               lt.car_id AS "carId",
               lt.input_type AS "inputType",
               lt.time_ms AS "timeMs",
               lt.lap_date AS "lapDate",
               lt.screenshot_url AS "screenshotUrl",
+              lt.notes,
               u.username,
               g.name AS "gameName", g.image_url AS "gameImageUrl",
               t.name AS "trackName", t.image_url AS "trackImageUrl",
@@ -74,15 +85,16 @@ router.get('/records', async (req, res, next) => {
               COALESCE(a.assists, '[]') AS assists
        FROM lap_times lt
        JOIN (
-            SELECT game_id, track_id, layout_id, MIN(time_ms) AS min_time
+            SELECT game_id, track_layout_id, MIN(time_ms) AS min_time
             FROM lap_times
-            GROUP BY game_id, track_id, layout_id
-       ) r ON lt.game_id = r.game_id AND lt.track_id = r.track_id
-            AND lt.layout_id = r.layout_id AND lt.time_ms = r.min_time
+            GROUP BY game_id, track_layout_id
+       ) r ON lt.game_id = r.game_id AND lt.track_layout_id = r.track_layout_id
+            AND lt.time_ms = r.min_time
        JOIN users u ON lt.user_id = u.id
        JOIN games g ON lt.game_id = g.id
-       JOIN tracks t ON lt.track_id = t.id
-       JOIN layouts l ON lt.layout_id = l.id
+       JOIN track_layouts tl ON lt.track_layout_id = tl.id
+       JOIN tracks t ON tl.track_id = t.id
+       JOIN layouts l ON tl.layout_id = l.id
        JOIN cars c ON lt.car_id = c.id
        LEFT JOIN LATERAL (
             SELECT json_agg(asst.name ORDER BY asst.name) AS assists
@@ -103,27 +115,27 @@ router.post(
   auth,
   [
     body('gameId').notEmpty(),
-    body('trackId').notEmpty(),
-    body('layoutId').notEmpty(),
+    body('trackLayoutId').notEmpty(),
     body('carId').notEmpty(),
     body('inputType').notEmpty(),
     body('timeMs').isInt({ min: 1 }),
     body('lapDate').notEmpty(),
     body('assists').optional().isArray(),
     body('assists.*').optional().isUUID(),
+    body('notes').optional().trim(),
   ],
   async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { gameId, trackId, layoutId, carId, inputType, timeMs, lapDate, screenshotUrl, assists } = req.body;
+    const { gameId, trackLayoutId, carId, inputType, timeMs, lapDate, screenshotUrl, assists, notes } = req.body;
     try {
       const result = await db.query(
-        `INSERT INTO lap_times (user_id, game_id, track_id, layout_id, car_id, input_type, time_ms, lap_date, screenshot_url)
+        `INSERT INTO lap_times (user_id, game_id, track_layout_id, car_id, input_type, time_ms, lap_date, screenshot_url, notes)
          VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
          RETURNING *`,
-        [req.user.id, gameId, trackId, layoutId, carId, inputType, timeMs, lapDate, screenshotUrl || null]
+        [req.user.id, gameId, trackLayoutId, carId, inputType, timeMs, lapDate, screenshotUrl || null, notes || null]
       );
       const inserted = result.rows[0];
       if (Array.isArray(assists) && assists.length > 0) {

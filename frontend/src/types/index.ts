@@ -23,6 +23,7 @@ export interface Track {
   gameId: string;
   name: string;
   imageUrl?: string | null;
+  description?: string | null;
 }
 
 export interface Layout {
@@ -30,6 +31,7 @@ export interface Layout {
   trackId: string;
   name: string;
   imageUrl?: string | null;
+  trackLayoutId?: string;
 }
 
 export interface Car {
@@ -37,19 +39,22 @@ export interface Car {
   gameId: string;
   name: string;
   imageUrl?: string | null;
+  description?: string | null;
 }
 
 export interface LapTime {
   id: string;
   userId: string;
   gameId: string;
-  trackId: string;
-  layoutId: string;
+  trackLayoutId: string;
+  trackId?: string;
+  layoutId?: string;
   carId: string;
   inputType: string;
   timeMs: number;
   lapDate: string;
   screenshotUrl?: string | null;
+  notes?: string | null;
   username?: string;
   gameName?: string;
   gameImageUrl?: string | null;

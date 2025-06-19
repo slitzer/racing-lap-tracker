@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Timer } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { getLapTimes, getGames, getTracks, getCars } from '../api';
 import { LapTime, Game, Track, Car } from '../types';
 import { formatTime } from '../utils/time';
 import { getImageUrl } from '../utils';
 import AssistTags from '../components/AssistTags';
+import InputTypeBadge from '../components/InputTypeBadge';
 
 const LapTimesPage: React.FC = () => {
   const [view, setView] = useState<'all' | 'filter'>('all');
@@ -83,7 +85,9 @@ const LapTimesPage: React.FC = () => {
                     className="h-8 w-14 object-cover rounded mb-1"
                   />
                 )}
-                {l.trackName}
+                <Link to={`/track/${l.trackId}`} className="underline">
+                  {l.trackName}
+                </Link>
                 {l.layoutName ? ` - ${l.layoutName}` : ''}
               </td>
               <td className="px-2 py-1">
@@ -95,7 +99,10 @@ const LapTimesPage: React.FC = () => {
                   />
                 )}
                 {l.carName}
-                <AssistTags assists={l.assists} className="mt-1" />
+                <div className="mt-1 flex flex-wrap gap-1">
+                  <InputTypeBadge inputType={l.inputType} />
+                  <AssistTags assists={l.assists} />
+                </div>
               </td>
               <td className="px-2 py-1 text-right">{formatTime(l.timeMs)}</td>
             </tr>

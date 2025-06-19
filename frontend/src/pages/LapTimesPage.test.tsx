@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
 const mockedApi = {
   getLapTimes: jest.fn(),
@@ -19,7 +20,11 @@ beforeEach(() => {
 });
 
 test('renders lap times heading', () => {
-  render(<LapTimesPage />);
+  render(
+    <MemoryRouter>
+      <LapTimesPage />
+    </MemoryRouter>
+  );
   expect(screen.getByRole('heading', { name: /Lap Times/i })).toBeInTheDocument();
 });
 
@@ -29,6 +34,7 @@ test('renders assists when provided', async () => {
       id: '1',
       userId: 'u1',
       gameId: 'g1',
+      trackLayoutId: 'tl1',
       trackId: 't1',
       layoutId: 'l1',
       carId: 'c1',
@@ -43,6 +49,39 @@ test('renders assists when provided', async () => {
     }
   ]);
 
-  render(<LapTimesPage />);
+  render(
+    <MemoryRouter>
+      <LapTimesPage />
+    </MemoryRouter>
+  );
   expect(await screen.findByText('ABS')).toBeInTheDocument();
+});
+
+test('shows input type badge', async () => {
+  mockedApi.getLapTimes.mockResolvedValueOnce([
+    {
+      id: '1',
+      userId: 'u1',
+      gameId: 'g1',
+      trackLayoutId: 'tl1',
+      trackId: 't1',
+      layoutId: 'l1',
+      carId: 'c1',
+      inputType: 'Controller',
+      timeMs: 1500,
+      lapDate: '2023-01-01',
+      username: 'User',
+      gameName: 'Game',
+      trackName: 'Track',
+      carName: 'Car',
+      assists: []
+    }
+  ]);
+
+  render(
+    <MemoryRouter>
+      <LapTimesPage />
+    </MemoryRouter>
+  );
+  expect(await screen.findByText(/Controller/)).toBeInTheDocument();
 });

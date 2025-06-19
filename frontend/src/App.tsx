@@ -18,6 +18,8 @@ import ProfilePage from './pages/ProfilePage';
 import LapTimesPage from './pages/LapTimesPage';
 import SubmitLapTimePage from './pages/SubmitLapTimePage';
 import AdminPage from './pages/AdminPage';
+import TrackDetailPage from './pages/TrackDetailPage';
+import CarDetailPage from './pages/CarDetailPage';
 import './App.css';
 // Create a client for React Query
 const queryClient = new QueryClient({
@@ -44,6 +46,8 @@ function App() {
                 <Route path="/" element={<Layout />}>
                   <Route index element={<HomePage />} />
                   <Route path="/lap-times" element={<LapTimesPage />} />
+                  <Route path="/track/:id" element={<TrackDetailPage />} />
+                  <Route path="/car/:id" element={<CarDetailPage />} />
                   <Route 
                     path="/submit" 
                     element={

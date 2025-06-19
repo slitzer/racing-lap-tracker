@@ -23,8 +23,7 @@ describe('Lap time routes', () => {
       .post('/api/lapTimes')
       .send({
         gameId: 'g1',
-        trackId: 't1',
-        layoutId: 'l1',
+        trackLayoutId: 'tl1',
         carId: 'c1',
         inputType: 'Wheel',
         timeMs: 1234,
@@ -40,6 +39,15 @@ describe('Lap time routes', () => {
     const res = await request(app).get('/api/lapTimes/records');
     expect(res.status).toBe(200);
     expect(res.body).toEqual([{ id: 'r1' }]);
+    expect(db.query).toHaveBeenCalled();
+  });
+
+  it('lists lap times with track and layout ids', async () => {
+    db.query.mockResolvedValue({ rows: [{ id: '1', trackId: 't1', layoutId: 'l1' }] });
+    const res = await request(app).get('/api/lapTimes');
+    expect(res.status).toBe(200);
+    expect(res.body[0].trackId).toBe('t1');
+    expect(res.body[0].layoutId).toBe('l1');
     expect(db.query).toHaveBeenCalled();
   });
 });

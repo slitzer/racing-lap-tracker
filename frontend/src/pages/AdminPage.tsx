@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Settings } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import {
   getUnverifiedLapTimes,
   verifyLapTime,
@@ -28,6 +29,7 @@ import { LapTime, Game, Track, Layout, Car } from '../types';
 import { Button } from '../components/ui/button';
 import { formatTime } from '../utils/time';
 import { slugify, getImageUrl } from '../utils';
+import EditableTable, { Column } from '../components/admin/EditableTable';
 
 const AdminPage: React.FC = () => {
   const [lapTimes, setLapTimes] = useState<LapTime[]>([]);
@@ -61,6 +63,30 @@ const AdminPage: React.FC = () => {
   const [selectedCar, setSelectedCar] = useState('');
   const [importFile, setImportFile] = useState<File | null>(null);
 
+  const gameColumns: Column<Game>[] = [
+    { key: 'id', label: 'ID' },
+    { key: 'name', label: 'Name', editable: true },
+    { key: 'imageUrl', label: 'Image URL', editable: true },
+  ];
+  const trackColumns: Column<Track>[] = [
+    { key: 'id', label: 'ID' },
+    { key: 'gameId', label: 'Game ID', editable: true },
+    { key: 'name', label: 'Name', editable: true },
+    { key: 'imageUrl', label: 'Image URL', editable: true },
+  ];
+  const layoutColumns: Column<Layout>[] = [
+    { key: 'id', label: 'ID' },
+    { key: 'trackId', label: 'Track ID', editable: true },
+    { key: 'name', label: 'Name', editable: true },
+    { key: 'imageUrl', label: 'Image URL', editable: true },
+  ];
+  const carColumns: Column<Car>[] = [
+    { key: 'id', label: 'ID' },
+    { key: 'gameId', label: 'Game ID', editable: true },
+    { key: 'name', label: 'Name', editable: true },
+    { key: 'imageUrl', label: 'Image URL', editable: true },
+  ];
+
   useEffect(() => {
     getUnverifiedLapTimes().then(setLapTimes).catch(() => {});
     getGames().then(setGames).catch(() => {});
@@ -73,6 +99,31 @@ const AdminPage: React.FC = () => {
   const refreshTracks = () => getTracks().then(setTracks).catch(() => {});
   const refreshLayouts = () => getLayouts().then(setLayouts).catch(() => {});
   const refreshCars = () => getCars().then(setCars).catch(() => {});
+
+  const updateGameRow = async (id: string, data: Partial<Game>) => {
+    const existing = games.find((g) => g.id === id);
+    if (!existing) return;
+    await updateGame(id, { ...existing, ...data });
+    refreshGames();
+  };
+  const updateTrackRow = async (id: string, data: Partial<Track>) => {
+    const existing = tracks.find((t) => t.id === id);
+    if (!existing) return;
+    await updateTrack(id, { ...existing, ...data });
+    refreshTracks();
+  };
+  const updateLayoutRow = async (id: string, data: Partial<Layout>) => {
+    const existing = layouts.find((l) => l.id === id);
+    if (!existing) return;
+    await updateLayout(id, { ...existing, ...data });
+    refreshLayouts();
+  };
+  const updateCarRow = async (id: string, data: Partial<Car>) => {
+    const existing = cars.find((c) => c.id === id);
+    if (!existing) return;
+    await updateCar(id, { ...existing, ...data });
+    refreshCars();
+  };
 
   const handleSaveGame = async () => {
     let imageUrl: string | undefined;
@@ -267,7 +318,9 @@ const AdminPage: React.FC = () => {
                 <td className="p-2">{lt.username}</td>
                 <td className="p-2">{lt.gameName}</td>
                 <td className="p-2">
-                  {lt.trackName}
+                  <Link to={`/track/${lt.trackId}`} className="underline">
+                    {lt.trackName}
+                  </Link>
                   {lt.layoutName ? ` - ${lt.layoutName}` : ''}
                 </td>
                 <td className="p-2">{lt.carName}</td>
@@ -292,12 +345,33 @@ const AdminPage: React.FC = () => {
                 </td>
               </tr>
             )}
-          </tbody>
-        </table>
-      </section>
+        </tbody>
+      </table>
+    </section>
 
-      <section className="space-y-6">
-        <div>
+    <section className="space-y-6">
+      <h2 className="text-xl font-semibold mb-2">Database Editor</h2>
+      <div>
+        <h3 className="font-semibold mb-2">Games</h3>
+        <EditableTable data={games} columns={gameColumns} onUpdate={updateGameRow} />
+      </div>
+      <div>
+        <h3 className="font-semibold mb-2">Tracks</h3>
+        <EditableTable data={tracks} columns={trackColumns} onUpdate={updateTrackRow} />
+      </div>
+      <div>
+        <h3 className="font-semibold mb-2">Layouts</h3>
+        <EditableTable data={layouts} columns={layoutColumns} onUpdate={updateLayoutRow} />
+      </div>
+      <div>
+        <h3 className="font-semibold mb-2">Cars</h3>
+        <EditableTable data={cars} columns={carColumns} onUpdate={updateCarRow} />
+      </div>
+    </section>
+
+    <section className="space-y-6">
+      <h2 className="text-xl font-semibold mb-2">Legacy Editor</h2>
+      <div>
           <h3 className="font-semibold mb-2">Games</h3>
           <div className="flex space-x-2 mb-2">
             <select

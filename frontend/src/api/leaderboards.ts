@@ -3,8 +3,7 @@ import { LapTime } from '../types';
 
 export async function getLeaderboard(params: {
   gameId: string;
-  trackId: string;
-  layoutId: string;
+  trackLayoutId: string;
 }): Promise<LapTime[]> {
   const res = await apiClient.get('/leaderboards', { params });
   return res.data;

@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('../utils/database');
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
+const { body, validationResult } = require('express-validator');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
@@ -10,12 +11,19 @@ router.get('/', async (req, res, next) => {
     let result;
     if (gameId) {
       result = await db.query(
-        'SELECT id, game_id AS "gameId", name, image_url AS "imageUrl" FROM cars WHERE game_id = $1 ORDER BY name',
+        `SELECT c.id, gc.game_id AS "gameId", c.name, c.image_url AS "imageUrl", c.description
+         FROM game_cars gc
+         JOIN cars c ON gc.car_id = c.id
+         WHERE gc.game_id = $1
+         ORDER BY c.name`,
         [gameId]
       );
     } else {
       result = await db.query(
-        'SELECT id, game_id AS "gameId", name, image_url AS "imageUrl" FROM cars ORDER BY name'
+        `SELECT c.id, gc.game_id AS "gameId", c.name, c.image_url AS "imageUrl", c.description
+         FROM game_cars gc
+         JOIN cars c ON gc.car_id = c.id
+         ORDER BY c.name`
       );
     }
     res.json(result.rows);
@@ -24,41 +32,76 @@ router.get('/', async (req, res, next) => {
   }
 });
 
-router.post('/', auth, admin, async (req, res, next) => {
-  const { gameId, name, imageUrl } = req.body;
-  try {
-    const result = await db.query(
-      'INSERT INTO cars (game_id, name, image_url) VALUES ($1,$2,$3) RETURNING id, game_id AS "gameId", name, image_url AS "imageUrl"',
-      [gameId, name, imageUrl || null]
-    );
-    res.status(201).json(result.rows[0]);
-  } catch (err) {
-    next(err);
-  }
-});
-
-router.put('/:id', auth, admin, async (req, res, next) => {
-  const { id } = req.params;
-  const { gameId, name, imageUrl } = req.body;
-  try {
-    const result = await db.query(
-      'UPDATE cars SET game_id=$1, name=$2, image_url=$3 WHERE id=$4 RETURNING id, game_id AS "gameId", name, image_url AS "imageUrl"',
-      [gameId, name, imageUrl || null, id]
-    );
-    if (result.rows.length === 0) {
-      return res.status(404).json({ message: 'Car not found' });
+router.post(
+  '/',
+  auth,
+  admin,
+  [
+    body('gameId').notEmpty(),
+    body('name').trim().escape().notEmpty(),
+    body('imageUrl').optional().trim(),
+    body('description').optional().trim(),
+  ],
+  async (req, res, next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
     }
-    res.json(result.rows[0]);
-  } catch (err) {
-    next(err);
+    const { gameId, name, imageUrl, description } = req.body;
+    try {
+      const car = await db.query(
+        'INSERT INTO cars (name, image_url, description) VALUES ($1,$2,$3) RETURNING id, name, image_url AS "imageUrl", description',
+        [name, imageUrl || null, description || null]
+      );
+      const c = car.rows[0];
+      await db.query('INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)', [gameId, c.id]);
+      res.status(201).json({ id: c.id, gameId, name: c.name, imageUrl: c.imageUrl, description: c.description });
+    } catch (err) {
+      next(err);
+    }
   }
-});
+);
+
+router.put(
+  '/:id',
+  auth,
+  admin,
+  [
+    body('gameId').notEmpty(),
+    body('name').trim().escape().notEmpty(),
+    body('imageUrl').optional().trim(),
+    body('description').optional().trim(),
+  ],
+  async (req, res, next) => {
+    const { id } = req.params;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    const { gameId, name, imageUrl, description } = req.body;
+    try {
+      const result = await db.query(
+        'UPDATE cars SET name=$1, image_url=$2, description=$3 WHERE id=$4 RETURNING id, name, image_url AS "imageUrl", description',
+        [name, imageUrl || null, description || null, id]
+      );
+      if (result.rows.length === 0) {
+        return res.status(404).json({ message: 'Car not found' });
+      }
+      await db.query('DELETE FROM game_cars WHERE car_id=$1', [id]);
+      await db.query('INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)', [gameId, id]);
+      const car = result.rows[0];
+      res.json({ id, gameId, name: car.name, imageUrl: car.imageUrl, description: car.description });
+    } catch (err) {
+      next(err);
+    }
+  }
+);
 
 router.delete('/:id', auth, admin, async (req, res, next) => {
   const { id } = req.params;
   try {
     const result = await db.query(
-      'DELETE FROM cars WHERE id=$1 RETURNING id, game_id AS "gameId", name, image_url AS "imageUrl"',
+      'DELETE FROM cars WHERE id=$1 RETURNING id, name, image_url AS "imageUrl", description',
       [id]
     );
     if (result.rows.length === 0) {
