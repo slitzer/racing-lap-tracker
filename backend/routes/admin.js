@@ -161,9 +161,11 @@ router.post('/import', auth, admin, async (req, res, next) => {
       for (const c of cars) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO cars (id, game_id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6)',
-          [c.id, c.game_id, c.name, c.image_url, c.created_at, c.updated_at]
+          'INSERT INTO cars (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5)',
+          [c.id, c.name, c.image_url, c.created_at, c.updated_at]
         );
+        // eslint-disable-next-line no-await-in-loop
+        await client.query('INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)', [c.game_id, c.id]);
       }
     }
     if (assists) {
