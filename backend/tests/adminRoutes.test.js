@@ -112,6 +112,7 @@ describe('Admin routes', () => {
         game_tracks: [
           { game_id: 'g1', track_layout_id: 'l1' },
         ],
+        assists: [],
         cars: [
           {
             id: 'c1',
@@ -125,6 +126,7 @@ describe('Admin routes', () => {
           { game_id: 'g1', car_id: 'c1' },
         ],
         lap_times: [],
+        lap_time_assists: [],
       });
 
     expect(res.status).toBe(200);
@@ -148,6 +150,14 @@ describe('Admin routes', () => {
     );
     expect(mockClient.query).toHaveBeenLastCalledWith('COMMIT');
     expect(mockClient.release).toHaveBeenCalled();
+  });
+
+  it('rejects invalid import data', async () => {
+    const res = await request(app)
+      .post('/api/admin/import')
+      .send([{ foo: 'bar' }]);
+    expect(res.status).toBe(400);
+    expect(mockClient.query).not.toHaveBeenCalled();
   });
 
   it('export followed by import preserves mappings', async () => {

@@ -98,6 +98,9 @@ router.get('/export', auth, admin, async (req, res, next) => {
 });
 
 router.post('/import', auth, admin, async (req, res, next) => {
+  if (!req.body || Array.isArray(req.body) || typeof req.body !== 'object') {
+    return res.status(400).json({ message: 'Invalid import data' });
+  }
   const {
     users,
     games,
@@ -110,6 +113,11 @@ router.post('/import', auth, admin, async (req, res, next) => {
     lap_times,
     lap_time_assists,
   } = req.body;
+
+  const required = [users, games, tracks, layouts, game_tracks, cars, game_cars, assists, lap_times, lap_time_assists];
+  if (required.some((arr) => !Array.isArray(arr))) {
+    return res.status(400).json({ message: 'Invalid import data' });
+  }
   const client = await db.pool.connect();
   try {
     await client.query('BEGIN');

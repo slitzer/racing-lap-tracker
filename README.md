@@ -58,6 +58,10 @@ When the `db` service starts for the first time it runs the SQL files from the
 `database` directory automatically, so the schema and seed data are loaded
 without any manual steps.
 
+On startup the backend checks if the `lap_times` table is empty and, if so,
+loads the records from `database/sample_lap_times.json`. This means the sample
+lap times appear automatically on a fresh installation.
+
 Database data is stored in the `db-data` volume and uploaded files are kept in
 `backend/uploads`.
 
@@ -75,6 +79,10 @@ and executed automatically on the first start. Simply remove the `db-data`
 volume and run `docker compose up -d` again to reset the database.
 
 Adjust connection settings in your backend environment variables as needed.
+
+**Warning**: The Admin page's Import function expects a full database export
+created via the Export button. Uploading any other JSON file will be rejected
+and no data will be modified.
 
 ## Running Tests
 
