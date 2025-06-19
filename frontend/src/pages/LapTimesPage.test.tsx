@@ -54,3 +54,30 @@ test('renders assists when provided', async () => {
   );
   expect(await screen.findByText('ABS')).toBeInTheDocument();
 });
+
+test('shows input type badge', async () => {
+  mockedApi.getLapTimes.mockResolvedValueOnce([
+    {
+      id: '1',
+      userId: 'u1',
+      gameId: 'g1',
+      trackLayoutId: 'tl1',
+      carId: 'c1',
+      inputType: 'Controller',
+      timeMs: 1500,
+      lapDate: '2023-01-01',
+      username: 'User',
+      gameName: 'Game',
+      trackName: 'Track',
+      carName: 'Car',
+      assists: []
+    }
+  ]);
+
+  render(
+    <MemoryRouter>
+      <LapTimesPage />
+    </MemoryRouter>
+  );
+  expect(await screen.findByText(/Controller/)).toBeInTheDocument();
+});

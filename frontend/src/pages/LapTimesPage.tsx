@@ -6,6 +6,7 @@ import { LapTime, Game, Track, Car } from '../types';
 import { formatTime } from '../utils/time';
 import { getImageUrl } from '../utils';
 import AssistTags from '../components/AssistTags';
+import InputTypeBadge from '../components/InputTypeBadge';
 
 const LapTimesPage: React.FC = () => {
   const [view, setView] = useState<'all' | 'filter'>('all');
@@ -98,7 +99,10 @@ const LapTimesPage: React.FC = () => {
                   />
                 )}
                 {l.carName}
-                <AssistTags assists={l.assists} className="mt-1" />
+                <div className="mt-1 flex flex-wrap gap-1">
+                  <InputTypeBadge inputType={l.inputType} />
+                  <AssistTags assists={l.assists} />
+                </div>
               </td>
               <td className="px-2 py-1 text-right">{formatTime(l.timeMs)}</td>
             </tr>
