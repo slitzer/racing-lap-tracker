@@ -11,8 +11,9 @@ router.get('/lapTimes/unverified', auth, admin, async (req, res, next) => {
       `SELECT lt.id,
               lt.user_id AS "userId",
               lt.game_id AS "gameId",
-              lt.track_id AS "trackId",
-              lt.layout_id AS "layoutId",
+              lt.track_layout_id AS "trackLayoutId",
+              t.id AS "trackId",
+              l.id AS "layoutId",
               lt.car_id AS "carId",
               lt.time_ms AS "timeMs",
               lt.screenshot_url AS "screenshotUrl",
@@ -24,8 +25,9 @@ router.get('/lapTimes/unverified', auth, admin, async (req, res, next) => {
        FROM lap_times lt
        JOIN users u ON lt.user_id = u.id
        JOIN games g ON lt.game_id = g.id
-       JOIN tracks t ON lt.track_id = t.id
-       JOIN layouts l ON lt.layout_id = l.id
+       JOIN track_layouts tl ON lt.track_layout_id = tl.id
+       JOIN tracks t ON tl.track_id = t.id
+       JOIN layouts l ON tl.layout_id = l.id
        JOIN cars c ON lt.car_id = c.id
        WHERE lt.verified = FALSE
        ORDER BY lt.date_submitted DESC`
@@ -177,13 +179,12 @@ router.post('/import', auth, admin, async (req, res, next) => {
       for (const lt of lap_times) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO lap_times (id, user_id, game_id, track_id, layout_id, car_id, input_type, assists_json, time_ms, screenshot_url, verified, date_submitted, lap_date, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15)',
+          'INSERT INTO lap_times (id, user_id, game_id, track_layout_id, car_id, input_type, assists_json, time_ms, screenshot_url, verified, date_submitted, lap_date, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)',
           [
             lt.id,
             lt.user_id,
             lt.game_id,
-            lt.track_id,
-            lt.layout_id,
+            lt.track_layout_id,
             lt.car_id,
             lt.input_type,
             lt.assists_json,
