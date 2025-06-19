@@ -12,8 +12,6 @@ export async function uploadFile(
   if (filename) params.append('filename', filename);
   const query = params.toString();
   const url = query ? `/uploads?${query}` : '/uploads';
-  const res = await apiClient.post(url, formData, {
-    headers: { 'Content-Type': 'multipart/form-data' },
-  });
+  const res = await apiClient.post(url, formData);
   return res.data;
 }
