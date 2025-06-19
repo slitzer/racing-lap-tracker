@@ -27,6 +27,7 @@ CREATE TABLE tracks (
     game_id UUID NOT NULL REFERENCES games(id) ON DELETE CASCADE,
     name VARCHAR(255) NOT NULL,
     image_url TEXT,
+    description TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(game_id, name)
@@ -61,6 +62,7 @@ CREATE TABLE cars (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name VARCHAR(255) NOT NULL,
     image_url TEXT,
+    description TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     UNIQUE(name)
@@ -90,6 +92,7 @@ CREATE TABLE lap_times (
     assists_json JSONB DEFAULT '{}',
     time_ms INTEGER NOT NULL,
     screenshot_url TEXT,
+    notes TEXT,
     verified BOOLEAN DEFAULT FALSE,
     date_submitted TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     lap_date DATE NOT NULL,
