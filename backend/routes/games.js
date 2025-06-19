@@ -6,7 +6,9 @@ const router = express.Router();
 
 router.get('/', async (req, res, next) => {
   try {
-    const result = await db.query('SELECT * FROM games ORDER BY name');
+    const result = await db.query(
+      'SELECT id, name, image_url AS "imageUrl" FROM games ORDER BY name'
+    );
     res.json(result.rows);
   } catch (err) {
     next(err);
@@ -17,7 +19,7 @@ router.post('/', auth, admin, async (req, res, next) => {
   const { name, imageUrl } = req.body;
   try {
     const result = await db.query(
-      'INSERT INTO games (name, image_url) VALUES ($1,$2) RETURNING *',
+      'INSERT INTO games (name, image_url) VALUES ($1,$2) RETURNING id, name, image_url AS "imageUrl"',
       [name, imageUrl || null]
     );
     res.status(201).json(result.rows[0]);
@@ -31,7 +33,7 @@ router.put('/:id', auth, admin, async (req, res, next) => {
   const { name, imageUrl } = req.body;
   try {
     const result = await db.query(
-      'UPDATE games SET name=$1, image_url=$2 WHERE id=$3 RETURNING *',
+      'UPDATE games SET name=$1, image_url=$2 WHERE id=$3 RETURNING id, name, image_url AS "imageUrl"',
       [name, imageUrl || null, id]
     );
     if (result.rows.length === 0) {
@@ -46,7 +48,10 @@ router.put('/:id', auth, admin, async (req, res, next) => {
 router.delete('/:id', auth, admin, async (req, res, next) => {
   const { id } = req.params;
   try {
-    const result = await db.query('DELETE FROM games WHERE id=$1 RETURNING *', [id]);
+    const result = await db.query(
+      'DELETE FROM games WHERE id=$1 RETURNING id, name, image_url AS "imageUrl"',
+      [id]
+    );
     if (result.rows.length === 0) {
       return res.status(404).json({ message: 'Game not found' });
     }
