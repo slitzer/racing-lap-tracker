@@ -59,4 +59,10 @@ export interface LapTime {
   layoutImageUrl?: string | null;
   carName?: string;
   carImageUrl?: string | null;
+  assists?: string[];
+}
+
+export interface Assist {
+  id: string;
+  name: string;
 }

@@ -16,7 +16,7 @@ router.get('/', async (req, res, next) => {
               lt.layout_id AS "layoutId",
               lt.car_id AS "carId",
               lt.input_type AS "inputType",
-              lt.assists_json AS "assistsJson",
+              COALESCE(a.assists, '[]') AS assists,
               lt.time_ms AS "timeMs",
               lt.screenshot_url AS "screenshotUrl",
               lt.verified AS "verified",
@@ -35,6 +35,12 @@ router.get('/', async (req, res, next) => {
        JOIN tracks t ON lt.track_id = t.id
        JOIN layouts l ON lt.layout_id = l.id
        JOIN cars c ON lt.car_id = c.id
+       LEFT JOIN LATERAL (
+            SELECT json_agg(asst.name ORDER BY asst.name) AS assists
+            FROM lap_time_assists lta
+            JOIN assists asst ON lta.assist_id = asst.id
+            WHERE lta.lap_time_id = lt.id
+       ) a ON TRUE
        WHERE lt.game_id = $1 AND lt.track_id = $2 AND lt.layout_id = $3
        ORDER BY lt.time_ms ASC
        LIMIT 10`,

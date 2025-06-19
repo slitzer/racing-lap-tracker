@@ -89,8 +89,29 @@ SELECT id, 'Porsche 911 GT3 R', '/images/cars/porsche_911_gt3_r.jpg' FROM games 
 UNION ALL
 SELECT id, 'Mercedes AMG GT3', '/images/cars/mercedes_amg_gt3.jpg' FROM games WHERE name = 'Assetto Corsa Competizione';
 -- Create admin user (password: admin123)
-INSERT INTO users (username, email, password_hash, is_admin) VALUES 
+INSERT INTO users (username, email, password_hash, is_admin) VALUES
 ('admin', 'admin@example.com', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', true);
 -- Create sample regular user (password: user123)
-INSERT INTO users (username, email, password_hash, is_admin) VALUES 
+INSERT INTO users (username, email, password_hash, is_admin) VALUES
 ('racer1', 'racer1@example.com', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', false);
+
+-- Default assists
+INSERT INTO assists (name) VALUES
+('Traction Control'),
+('ABS'),
+('Stability Control'),
+('Auto Clutch'),
+('Automatic Transmission'),
+('Launch Control'),
+('Brake Assist'),
+('Throttle Assist'),
+('Steering Assist'),
+('Racing Line'),
+('Suggested Gear Indicator'),
+('Braking Indicator'),
+('Cornering Guide'),
+('Ghosting / Collision Off'),
+('Tire Wear Off'),
+('Fuel Usage Off'),
+('Mechanical Failures Off'),
+('Damage Off');

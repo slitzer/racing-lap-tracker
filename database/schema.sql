@@ -53,6 +53,11 @@ CREATE TABLE cars (
 );
 -- Input types enum
 CREATE TYPE input_type AS ENUM ('Wheel', 'Controller', 'Keyboard');
+-- Assists table
+CREATE TABLE assists (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name VARCHAR(255) UNIQUE NOT NULL
+);
 -- Lap times table
 CREATE TABLE lap_times (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
@@ -71,6 +76,12 @@ CREATE TABLE lap_times (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
+-- Junction table for lap times and assists
+CREATE TABLE lap_time_assists (
+    lap_time_id UUID NOT NULL REFERENCES lap_times(id) ON DELETE CASCADE,
+    assist_id UUID NOT NULL REFERENCES assists(id) ON DELETE CASCADE,
+    PRIMARY KEY (lap_time_id, assist_id)
+);
 -- Indexes for performance
 CREATE INDEX idx_lap_times_user_id ON lap_times(user_id);
 CREATE INDEX idx_lap_times_game_id ON lap_times(game_id);
@@ -81,6 +92,8 @@ CREATE INDEX idx_lap_times_time_ms ON lap_times(time_ms);
 CREATE INDEX idx_lap_times_verified ON lap_times(verified);
 CREATE INDEX idx_lap_times_date_submitted ON lap_times(date_submitted);
 CREATE INDEX idx_lap_times_lap_date ON lap_times(lap_date);
+CREATE INDEX idx_lta_lap_time_id ON lap_time_assists(lap_time_id);
+CREATE INDEX idx_lta_assist_id ON lap_time_assists(assist_id);
 -- Composite indexes for common queries
 CREATE INDEX idx_lap_times_leaderboard ON lap_times(game_id, track_id, layout_id, time_ms);
 CREATE INDEX idx_lap_times_user_stats ON lap_times(user_id, date_submitted);
