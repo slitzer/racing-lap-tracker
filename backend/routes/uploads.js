@@ -38,14 +38,35 @@ const storage = multer.diskStorage({
     cb(null, name);
   },
 });
-const upload = multer({ storage });
+const allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+const upload = multer({
+  storage,
+  limits: { fileSize: 5 * 1024 * 1024 },
+  fileFilter(req, file, cb) {
+    if (allowedTypes.includes(file.mimetype)) {
+      cb(null, true);
+    } else {
+      const err = new multer.MulterError('LIMIT_UNEXPECTED_FILE');
+      err.message = 'Invalid file type';
+      cb(err);
+    }
+  },
+});
 
-router.post('/', upload.single('file'), (req, res) => {
-  const folder = req.query.folder
-    ? path.normalize(req.query.folder).replace(/^([.]{2}[\/])+/g, '')
-    : '';
-  const prefix = folder ? `${folder}/` : '';
-  res.json({ url: `/uploads/${prefix}${req.file.filename}` });
+router.post('/', (req, res, next) => {
+  upload.single('file')(req, res, (err) => {
+    if (err) {
+      if (err instanceof multer.MulterError) {
+        return res.status(400).json({ message: err.message });
+      }
+      return next(err);
+    }
+    const folder = req.query.folder
+      ? path.normalize(req.query.folder).replace(/^([.]{2}[\/])+/g, '')
+      : '';
+    const prefix = folder ? `${folder}/` : '';
+    res.json({ url: `/uploads/${prefix}${req.file.filename}` });
+  });
 });
 
 module.exports = {
