@@ -97,13 +97,30 @@ describe('Admin routes', () => {
         games: [],
         tracks: [],
         layouts: [],
-        cars: [],
+        cars: [
+          {
+            id: 'c1',
+            game_id: 'g1',
+            name: 'Car 1',
+            image_url: '/img.png',
+            created_at: '2024-01-01',
+            updated_at: '2024-01-02',
+          },
+        ],
         lap_times: [],
       });
 
     expect(res.status).toBe(200);
     expect(db.pool.connect).toHaveBeenCalled();
     expect(mockClient.query).toHaveBeenCalledWith('BEGIN');
+    expect(mockClient.query).toHaveBeenCalledWith(
+      'INSERT INTO cars (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5)',
+      ['c1', 'Car 1', '/img.png', '2024-01-01', '2024-01-02']
+    );
+    expect(mockClient.query).toHaveBeenCalledWith(
+      'INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)',
+      ['g1', 'c1']
+    );
     expect(mockClient.query).toHaveBeenLastCalledWith('COMMIT');
     expect(mockClient.release).toHaveBeenCalled();
   });
