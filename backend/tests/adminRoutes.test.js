@@ -60,4 +60,26 @@ describe('Admin routes', () => {
     expect(res.status).toBe(200);
     expect(res.body.id).toBe('3');
   });
+
+  it('exports the database', async () => {
+    db.query
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] })
+      .mockResolvedValueOnce({ rows: [] });
+    const res = await request(app).get('/api/admin/export');
+    expect(res.status).toBe(200);
+    expect(db.query).toHaveBeenCalledTimes(6);
+  });
+
+  it('imports the database', async () => {
+    db.query.mockResolvedValue({});
+    const res = await request(app)
+      .post('/api/admin/import')
+      .send({ users: [], games: [], tracks: [], layouts: [], cars: [], lap_times: [] });
+    expect(res.status).toBe(200);
+    expect(db.query).toHaveBeenCalled();
+  });
 });

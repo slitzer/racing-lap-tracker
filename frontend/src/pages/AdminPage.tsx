@@ -21,6 +21,8 @@ import {
   updateCar,
   deleteCar,
   uploadFile,
+  exportDatabase,
+  importDatabase,
 } from '../api';
 import { LapTime, Game, Track, Layout, Car } from '../types';
 import { Button } from '../components/ui/button';
@@ -57,6 +59,7 @@ const AdminPage: React.FC = () => {
   const [carName, setCarName] = useState('');
   const [carGameId, setCarGameId] = useState('');
   const [selectedCar, setSelectedCar] = useState('');
+  const [importFile, setImportFile] = useState<File | null>(null);
 
   useEffect(() => {
     getUnverifiedLapTimes().then(setLapTimes).catch(() => {});
@@ -75,7 +78,7 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (gameImage) {
       const ext = gameImage.name.substring(gameImage.name.lastIndexOf('.'));
-      const filename = `${slugify(gameName)}${ext}`;
+      const filename = `${slugify(gameName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(gameImage, 'images/games', filename);
       imageUrl = url;
       setGameImage(null);
@@ -105,7 +108,7 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (trackImage) {
       const ext = trackImage.name.substring(trackImage.name.lastIndexOf('.'));
-      const filename = `${slugify(trackName)}${ext}`;
+      const filename = `${slugify(trackName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(trackImage, 'images/tracks', filename);
       imageUrl = url;
       setTrackImage(null);
@@ -135,7 +138,7 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (layoutImage) {
       const ext = layoutImage.name.substring(layoutImage.name.lastIndexOf('.'));
-      const filename = `${slugify(layoutName)}${ext}`;
+      const filename = `${slugify(layoutName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(layoutImage, 'images/layouts', filename);
       imageUrl = url;
       setLayoutImage(null);
@@ -165,7 +168,7 @@ const AdminPage: React.FC = () => {
     let imageUrl: string | undefined;
     if (carImage) {
       const ext = carImage.name.substring(carImage.name.lastIndexOf('.'));
-      const filename = `${slugify(carName)}${ext}`;
+      const filename = `${slugify(carName)}-${Date.now()}${ext}`;
       const { url } = await uploadFile(carImage, 'images/cars', filename);
       imageUrl = url;
       setCarImage(null);
@@ -201,12 +204,46 @@ const AdminPage: React.FC = () => {
     setLapTimes((lt) => lt.filter((l) => l.id !== id));
   };
 
+  const handleExportDb = async () => {
+    const data = await exportDatabase();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `backup-${Date.now()}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleImportDb = async () => {
+    if (!importFile) return;
+    const text = await importFile.text();
+    const json = JSON.parse(text);
+    await importDatabase(json);
+    setImportFile(null);
+  };
+
   return (
     <div className="container mx-auto py-6 space-y-8">
       <div className="flex items-center space-x-2 mb-4">
         <Settings className="h-6 w-6" />
         <h1 className="text-3xl font-bold">Admin</h1>
       </div>
+
+      <section>
+        <h2 className="text-xl font-semibold mb-2">Database Tools</h2>
+        <div className="flex items-center space-x-2 mb-4">
+          <Button size="sm" onClick={handleExportDb}>Export</Button>
+          <input
+            type="file"
+            accept="application/json"
+            onChange={(e) => setImportFile(e.target.files?.[0] || null)}
+          />
+          <Button size="sm" onClick={handleImportDb} disabled={!importFile}>
+            Import
+          </Button>
+        </div>
+      </section>
 
       <section>
         <h2 className="text-xl font-semibold mb-2">Unverified Lap Times</h2>

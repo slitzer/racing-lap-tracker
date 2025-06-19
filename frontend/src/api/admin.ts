@@ -75,3 +75,13 @@ export async function deleteCar(id: string): Promise<Car> {
   const res = await apiClient.delete(`/cars/${id}`);
   return res.data;
 }
+
+export async function exportDatabase(): Promise<any> {
+  const res = await apiClient.get('/admin/export');
+  return res.data;
+}
+
+export async function importDatabase(data: any): Promise<{ message: string }> {
+  const res = await apiClient.post('/admin/import', data);
+  return res.data;
+}
