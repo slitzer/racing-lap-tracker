@@ -103,7 +103,6 @@ router.post('/import', auth, admin, async (req, res, next) => {
     games,
     tracks,
     layouts,
-    track_layouts,
     game_tracks,
     cars,
     game_cars,
@@ -161,14 +160,10 @@ router.post('/import', auth, admin, async (req, res, next) => {
           'INSERT INTO layouts (id, track_id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6)',
           [l.id, l.track_id, l.name, l.image_url, l.created_at, l.updated_at]
         );
-      }
-    }
-    if (track_layouts) {
-      for (const tl of track_layouts) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
           'INSERT INTO track_layouts (id, track_id, layout_id) VALUES ($1,$2,$3)',
-          [tl.id, tl.track_id, tl.layout_id]
+          [l.id, l.track_id, l.id]
         );
       }
     }
