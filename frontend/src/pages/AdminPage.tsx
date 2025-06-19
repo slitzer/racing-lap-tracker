@@ -21,11 +21,13 @@ import {
   updateCar,
   deleteCar,
   uploadFile,
+  exportDatabase,
+  importDatabase,
 } from '../api';
 import { LapTime, Game, Track, Layout, Car } from '../types';
 import { Button } from '../components/ui/button';
 import { formatTime } from '../utils/time';
-import { slugify } from '../utils';
+import { slugify, getImageUrl } from '../utils';
 
 const AdminPage: React.FC = () => {
   const [lapTimes, setLapTimes] = useState<LapTime[]>([]);
@@ -57,6 +59,7 @@ const AdminPage: React.FC = () => {
   const [carName, setCarName] = useState('');
   const [carGameId, setCarGameId] = useState('');
   const [selectedCar, setSelectedCar] = useState('');
+  const [importFile, setImportFile] = useState<File | null>(null);
 
   useEffect(() => {
     getUnverifiedLapTimes().then(setLapTimes).catch(() => {});
@@ -201,12 +204,46 @@ const AdminPage: React.FC = () => {
     setLapTimes((lt) => lt.filter((l) => l.id !== id));
   };
 
+  const handleExportDb = async () => {
+    const data = await exportDatabase();
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `backup-${Date.now()}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const handleImportDb = async () => {
+    if (!importFile) return;
+    const text = await importFile.text();
+    const json = JSON.parse(text);
+    await importDatabase(json);
+    setImportFile(null);
+  };
+
   return (
     <div className="container mx-auto py-6 space-y-8">
       <div className="flex items-center space-x-2 mb-4">
         <Settings className="h-6 w-6" />
         <h1 className="text-3xl font-bold">Admin</h1>
       </div>
+
+      <section>
+        <h2 className="text-xl font-semibold mb-2">Database Tools</h2>
+        <div className="flex items-center space-x-2 mb-4">
+          <Button size="sm" onClick={handleExportDb}>Export</Button>
+          <input
+            type="file"
+            accept="application/json"
+            onChange={(e) => setImportFile(e.target.files?.[0] || null)}
+          />
+          <Button size="sm" onClick={handleImportDb} disabled={!importFile}>
+            Import
+          </Button>
+        </div>
+      </section>
 
       <section>
         <h2 className="text-xl font-semibold mb-2">Unverified Lap Times</h2>
@@ -237,7 +274,7 @@ const AdminPage: React.FC = () => {
                 <td className="p-2">{formatTime(lt.timeMs)}</td>
                 <td className="p-2">
                   {lt.screenshotUrl && (
-                    <img src={lt.screenshotUrl} className="h-12" />
+                    <img src={getImageUrl(lt.screenshotUrl)} className="h-12" />
                   )}
                 </td>
                 <td className="p-2 space-x-2">
@@ -297,7 +334,7 @@ const AdminPage: React.FC = () => {
               }}
             />
             {gamePreview && (
-              <img src={gamePreview} alt="preview" className="h-10" />
+              <img src={getImageUrl(gamePreview)} alt="preview" className="h-10" />
             )}
             <Button size="sm" onClick={handleSaveGame}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteGame}>
@@ -356,7 +393,7 @@ const AdminPage: React.FC = () => {
               }}
             />
             {trackPreview && (
-              <img src={trackPreview} alt="preview" className="h-10" />
+              <img src={getImageUrl(trackPreview)} alt="preview" className="h-10" />
             )}
             <Button size="sm" onClick={handleSaveTrack}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteTrack}>
@@ -415,7 +452,7 @@ const AdminPage: React.FC = () => {
               }}
             />
             {layoutPreview && (
-              <img src={layoutPreview} alt="preview" className="h-10" />
+              <img src={getImageUrl(layoutPreview)} alt="preview" className="h-10" />
             )}
             <Button size="sm" onClick={handleSaveLayout}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteLayout}>
@@ -474,7 +511,7 @@ const AdminPage: React.FC = () => {
               }}
             />
             {carPreview && (
-              <img src={carPreview} alt="preview" className="h-10" />
+              <img src={getImageUrl(carPreview)} alt="preview" className="h-10" />
             )}
             <Button size="sm" onClick={handleSaveCar}>Save</Button>
             <Button size="sm" variant="ghost" onClick={handleDeleteCar}>

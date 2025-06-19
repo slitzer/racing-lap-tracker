@@ -28,13 +28,20 @@ router.get('/', async (req, res, next) => {
               g.name AS "gameName", g.image_url AS "gameImageUrl",
               t.name AS "trackName", t.image_url AS "trackImageUrl",
               l.name AS "layoutName", l.image_url AS "layoutImageUrl",
-              c.name AS "carName", c.image_url AS "carImageUrl"
+              c.name AS "carName", c.image_url AS "carImageUrl",
+              COALESCE(a.assists, '[]') AS assists
        FROM lap_times lt
        JOIN users u ON lt.user_id = u.id
        JOIN games g ON lt.game_id = g.id
        JOIN tracks t ON lt.track_id = t.id
        JOIN layouts l ON lt.layout_id = l.id
        JOIN cars c ON lt.car_id = c.id
+       LEFT JOIN LATERAL (
+            SELECT json_agg(asst.name ORDER BY asst.name) AS assists
+            FROM lap_time_assists lta
+            JOIN assists asst ON lta.assist_id = asst.id
+            WHERE lta.lap_time_id = lt.id
+       ) a ON TRUE
        ${where}
        ORDER BY lt.date_submitted DESC
        LIMIT 100`,
@@ -63,7 +70,8 @@ router.get('/records', async (req, res, next) => {
               g.name AS "gameName", g.image_url AS "gameImageUrl",
               t.name AS "trackName", t.image_url AS "trackImageUrl",
               l.name AS "layoutName", l.image_url AS "layoutImageUrl",
-              c.name AS "carName", c.image_url AS "carImageUrl"
+              c.name AS "carName", c.image_url AS "carImageUrl",
+              COALESCE(a.assists, '[]') AS assists
        FROM lap_times lt
        JOIN (
             SELECT game_id, track_id, layout_id, MIN(time_ms) AS min_time
@@ -76,6 +84,12 @@ router.get('/records', async (req, res, next) => {
        JOIN tracks t ON lt.track_id = t.id
        JOIN layouts l ON lt.layout_id = l.id
        JOIN cars c ON lt.car_id = c.id
+       LEFT JOIN LATERAL (
+            SELECT json_agg(asst.name ORDER BY asst.name) AS assists
+            FROM lap_time_assists lta
+            JOIN assists asst ON lta.assist_id = asst.id
+            WHERE lta.lap_time_id = lt.id
+       ) a ON TRUE
        ORDER BY lt.time_ms ASC`
     );
     res.json(result.rows);
@@ -95,13 +109,15 @@ router.post(
     body('inputType').notEmpty(),
     body('timeMs').isInt({ min: 1 }),
     body('lapDate').notEmpty(),
+    body('assists').optional().isArray(),
+    body('assists.*').optional().isUUID(),
   ],
   async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { gameId, trackId, layoutId, carId, inputType, timeMs, lapDate, screenshotUrl } = req.body;
+    const { gameId, trackId, layoutId, carId, inputType, timeMs, lapDate, screenshotUrl, assists } = req.body;
     try {
       const result = await db.query(
         `INSERT INTO lap_times (user_id, game_id, track_id, layout_id, car_id, input_type, time_ms, lap_date, screenshot_url)
@@ -109,7 +125,17 @@ router.post(
          RETURNING *`,
         [req.user.id, gameId, trackId, layoutId, carId, inputType, timeMs, lapDate, screenshotUrl || null]
       );
-      res.status(201).json(result.rows[0]);
+      const inserted = result.rows[0];
+      if (Array.isArray(assists) && assists.length > 0) {
+        for (const aid of assists) {
+          // eslint-disable-next-line no-await-in-loop
+          await db.query(
+            'INSERT INTO lap_time_assists (lap_time_id, assist_id) VALUES ($1,$2)',
+            [inserted.id, aid]
+          );
+        }
+      }
+      res.status(201).json(inserted);
     } catch (err) {
       next(err);
     }

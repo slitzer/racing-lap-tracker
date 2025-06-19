@@ -8,3 +8,4 @@ export * from './leaderboards';
 export * from './upload';
 export * from './admin';
 export * from './users';
+export * from './assists';

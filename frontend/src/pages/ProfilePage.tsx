@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { uploadFile, updateProfile, getUserStats } from '../api';
 import { Avatar, AvatarImage, AvatarFallback } from '../components/ui/avatar';
 import { Button } from '../components/ui/button';
-import { getInitials } from '../utils';
+import { getInitials, getImageUrl } from '../utils';
 import { formatTime } from '../utils/time';
 import { UserStats } from '../types';
 
@@ -44,7 +44,10 @@ const ProfilePage: React.FC = () => {
       </div>
       <div className="flex flex-col items-center space-y-3">
         <Avatar className="h-24 w-24">
-          <AvatarImage src={user.avatarUrl || undefined} alt={user.username} />
+          <AvatarImage
+            src={getImageUrl(user.avatarUrl) || undefined}
+            alt={user.username}
+          />
           <AvatarFallback className="text-2xl">
             {getInitials(user.username)}
           </AvatarFallback>

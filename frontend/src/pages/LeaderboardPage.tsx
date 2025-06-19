@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Trophy } from 'lucide-react';
 import { getGames, getTracks, getLayouts, getLeaderboard } from '../api';
+import { getImageUrl } from '../utils';
 import { Game, Track, Layout, LapTime } from '../types';
 import { formatTime } from '../utils/time';
 
@@ -116,7 +117,7 @@ const LeaderboardPage: React.FC = () => {
                   <td className="px-2 py-1">
                     {e.gameImageUrl && (
                       <img
-                        src={e.gameImageUrl}
+                        src={getImageUrl(e.gameImageUrl)}
                         alt={e.gameName || ''}
                         className="h-8 w-14 object-cover rounded mb-1"
                       />
@@ -126,7 +127,7 @@ const LeaderboardPage: React.FC = () => {
                   <td className="px-2 py-1">
                     {e.trackImageUrl && (
                       <img
-                        src={e.trackImageUrl}
+                        src={getImageUrl(e.trackImageUrl)}
                         alt={e.trackName || ''}
                         className="h-8 w-14 object-cover rounded mb-1"
                       />
@@ -137,7 +138,7 @@ const LeaderboardPage: React.FC = () => {
                   <td className="px-2 py-1">
                     {e.carImageUrl && (
                       <img
-                        src={e.carImageUrl}
+                        src={getImageUrl(e.carImageUrl)}
                         alt={e.carName || ''}
                         className="h-8 w-14 object-cover rounded mb-1"
                       />
