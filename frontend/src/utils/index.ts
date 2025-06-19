@@ -15,7 +15,9 @@ export function getImageUrl(path?: string | null) {
   if (/^https?:\/\//i.test(path)) return path;
   if (!path.startsWith('/uploads')) return path;
   const envBase =
-    (globalThis as any).__API_BASE_URL__ || process.env.VITE_API_URL || '';
+    (globalThis as any).__API_BASE_URL__ ||
+    process.env.VITE_API_URL ||
+    '';
   const base = (envBase || '').replace(/\/api\/?$/, '');
   return `${base}${path}`;
 }
