@@ -4,6 +4,7 @@ import { getLapTimes, getGames, getTracks, getCars } from '../api';
 import { LapTime, Game, Track, Car } from '../types';
 import { formatTime } from '../utils/time';
 import { getImageUrl } from '../utils';
+import AssistTags from '../components/AssistTags';
 
 const LapTimesPage: React.FC = () => {
   const [view, setView] = useState<'all' | 'filter'>('all');
@@ -94,6 +95,7 @@ const LapTimesPage: React.FC = () => {
                   />
                 )}
                 {l.carName}
+                <AssistTags assists={l.assists} className="mt-1" />
               </td>
               <td className="px-2 py-1 text-right">{formatTime(l.timeMs)}</td>
             </tr>
