@@ -34,6 +34,11 @@ pnpm install
 pnpm dev   # starts the Vite dev server
 ```
 
+The development server proxies requests to `/uploads` to the backend so
+uploaded images can be accessed from the same URL as the frontend. Ensure
+`VITE_API_URL` points to your backend instance (for example
+`http://localhost:5000/api`) when running locally or from another device.
+
 Use `pnpm build` to create a production build.
 
 ## Docker Compose
