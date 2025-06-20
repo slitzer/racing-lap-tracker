@@ -30,3 +30,8 @@ test('renders assist checkboxes', async () => {
   render(<SubmitLapTimePage />);
   expect(await screen.findByLabelText(/ABS/)).toBeInTheDocument();
 });
+
+test('shows comments textarea', () => {
+  render(<SubmitLapTimePage />);
+  expect(screen.getByLabelText(/Comments/i)).toBeInTheDocument();
+});
