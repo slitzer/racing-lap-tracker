@@ -6,7 +6,14 @@ const router = express.Router();
 
 router.get('/me', auth, async (req, res, next) => {
   try {
-    const result = await db.query('SELECT id, username, email, is_admin, avatar_url FROM users WHERE id = $1', [req.user.id]);
+    const result = await db.query(
+      `SELECT id, username, email, is_admin, avatar_url,
+              wheel, frame, brakes, equipment,
+              favorite_sim, favorite_track, favorite_car,
+              default_assists, league
+         FROM users WHERE id = $1`,
+      [req.user.id]
+    );
     res.json(result.rows[0]);
   } catch (err) {
     next(err);
@@ -16,13 +23,37 @@ router.get('/me', auth, async (req, res, next) => {
 router.put(
   '/me',
   auth,
-  [body('username').optional().notEmpty(), body('avatarUrl').optional().isString()],
+  [
+    body('username').optional().notEmpty(),
+    body('avatarUrl').optional().isString(),
+    body('wheel').optional().isString(),
+    body('frame').optional().isString(),
+    body('brakes').optional().isString(),
+    body('equipment').optional().isString(),
+    body('favoriteSim').optional().isString(),
+    body('favoriteTrack').optional().isString(),
+    body('favoriteCar').optional().isString(),
+    body('defaultAssists').optional().isArray(),
+    body('league').optional().isString(),
+  ],
   async (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-    const { username, avatarUrl } = req.body;
+    const {
+      username,
+      avatarUrl,
+      wheel,
+      frame,
+      brakes,
+      equipment,
+      favoriteSim,
+      favoriteTrack,
+      favoriteCar,
+      defaultAssists,
+      league,
+    } = req.body;
     const fields = [];
     const params = [];
     if (username) {
@@ -33,6 +64,42 @@ router.put(
       params.push(avatarUrl);
       fields.push(`avatar_url = $${params.length}`);
     }
+    if (wheel !== undefined) {
+      params.push(wheel);
+      fields.push(`wheel = $${params.length}`);
+    }
+    if (frame !== undefined) {
+      params.push(frame);
+      fields.push(`frame = $${params.length}`);
+    }
+    if (brakes !== undefined) {
+      params.push(brakes);
+      fields.push(`brakes = $${params.length}`);
+    }
+    if (equipment !== undefined) {
+      params.push(equipment);
+      fields.push(`equipment = $${params.length}`);
+    }
+    if (favoriteSim !== undefined) {
+      params.push(favoriteSim);
+      fields.push(`favorite_sim = $${params.length}`);
+    }
+    if (favoriteTrack !== undefined) {
+      params.push(favoriteTrack);
+      fields.push(`favorite_track = $${params.length}`);
+    }
+    if (favoriteCar !== undefined) {
+      params.push(favoriteCar);
+      fields.push(`favorite_car = $${params.length}`);
+    }
+    if (defaultAssists !== undefined) {
+      params.push(JSON.stringify(defaultAssists));
+      fields.push(`default_assists = $${params.length}::jsonb`);
+    }
+    if (league !== undefined) {
+      params.push(league);
+      fields.push(`league = $${params.length}`);
+    }
     if (fields.length === 0) {
       return res.status(400).json({ message: 'No fields provided' });
     }
@@ -41,7 +108,10 @@ router.put(
       const result = await db.query(
         `UPDATE users SET ${fields.join(', ')}, updated_at = CURRENT_TIMESTAMP WHERE id = $${
           params.length
-        } RETURNING id, username, email, is_admin, avatar_url`,
+        } RETURNING id, username, email, is_admin, avatar_url,
+          wheel, frame, brakes, equipment,
+          favorite_sim, favorite_track, favorite_car,
+          default_assists, league`,
         params
       );
       res.json(result.rows[0]);

@@ -1,10 +1,50 @@
 import apiClient from './client';
 import { User, UserStats } from '../types';
 
-export async function updateProfile(data: { username?: string; avatarUrl?: string }): Promise<User> {
+export async function updateProfile(
+  data: {
+    username?: string;
+    avatarUrl?: string;
+    wheel?: string;
+    frame?: string;
+    brakes?: string;
+    equipment?: string;
+    favoriteSim?: string;
+    favoriteTrack?: string;
+    favoriteCar?: string;
+    defaultAssists?: string[];
+    league?: string;
+  }
+): Promise<User> {
   const res = await apiClient.put('/users/me', data);
-  const { is_admin, avatar_url, ...rest } = res.data;
-  return { ...rest, isAdmin: is_admin, avatarUrl: avatar_url };
+  const {
+    is_admin,
+    avatar_url,
+    default_assists,
+    favorite_sim,
+    favorite_track,
+    favorite_car,
+    wheel,
+    frame,
+    brakes,
+    equipment,
+    league,
+    ...rest
+  } = res.data;
+  return {
+    ...rest,
+    isAdmin: is_admin,
+    avatarUrl: avatar_url,
+    defaultAssists: default_assists || [],
+    favoriteSim: favorite_sim || '',
+    favoriteTrack: favorite_track || '',
+    favoriteCar: favorite_car || '',
+    wheel: wheel || '',
+    frame: frame || '',
+    brakes: brakes || '',
+    equipment: equipment || '',
+    league: league || '',
+  } as User;
 }
 
 export async function getUserStats(): Promise<UserStats> {

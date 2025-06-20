@@ -29,6 +29,19 @@ export async function register(
 
 export async function getCurrentUser(): Promise<User> {
   const res = await apiClient.get('/users/me');
-  const { is_admin, avatar_url, ...rest } = res.data;
-  return { ...rest, isAdmin: is_admin, avatarUrl: avatar_url };
+  const { is_admin, avatar_url, default_assists, favorite_sim, favorite_track, favorite_car, wheel, frame, brakes, equipment, league, ...rest } = res.data;
+  return {
+    ...rest,
+    isAdmin: is_admin,
+    avatarUrl: avatar_url,
+    defaultAssists: default_assists || [],
+    favoriteSim: favorite_sim || '',
+    favoriteTrack: favorite_track || '',
+    favoriteCar: favorite_car || '',
+    wheel: wheel || '',
+    frame: frame || '',
+    brakes: brakes || '',
+    equipment: equipment || '',
+    league: league || '',
+  } as User;
 }

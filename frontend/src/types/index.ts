@@ -4,6 +4,15 @@ export interface User {
   email: string;
   avatarUrl?: string | null;
   isAdmin?: boolean;
+  wheel?: string | null;
+  frame?: string | null;
+  brakes?: string | null;
+  equipment?: string | null;
+  favoriteSim?: string | null;
+  favoriteTrack?: string | null;
+  favoriteCar?: string | null;
+  defaultAssists?: string[];
+  league?: string | null;
 }
 
 export interface UserStats {

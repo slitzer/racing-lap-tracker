@@ -97,7 +97,10 @@ const SubmitLapTimePage: React.FC = () => {
         if (obj.inputType) setInputType(obj.inputType);
       } catch {}
     }
-  }, []);
+    if (user && user.defaultAssists && user.defaultAssists.length > 0) {
+      setSelectedAssists(user.defaultAssists);
+    }
+  }, [user]);
 
   useEffect(() => {
     if (gameId) {

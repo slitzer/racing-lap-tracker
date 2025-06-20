@@ -10,6 +10,15 @@ CREATE TABLE users (
     password_hash VARCHAR(255) NOT NULL,
     is_admin BOOLEAN DEFAULT FALSE,
     avatar_url TEXT,
+    wheel TEXT,
+    frame TEXT,
+    brakes TEXT,
+    equipment TEXT,
+    favorite_sim TEXT,
+    favorite_track TEXT,
+    favorite_car TEXT,
+    default_assists JSONB,
+    league TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
