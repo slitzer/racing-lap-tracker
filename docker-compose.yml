@@ -23,6 +23,7 @@ services:
       UPLOAD_DIR: uploads
     volumes:
       - ./backend/uploads:/usr/src/app/uploads
+      - ./database:/usr/src/database:ro
     depends_on:
       - db
     ports:
