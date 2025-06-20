@@ -13,7 +13,7 @@ interface EditableTableProps<T extends { id: string }> {
   onDelete?: (id: string) => Promise<void> | void;
 }
 
-function EditableTable<T extends { id: string }>({ data, columns, onUpdate }: EditableTableProps<T>) {
+function EditableTable<T extends { id: string }>({ data, columns, onUpdate, onDelete }: EditableTableProps<T>) {
   const [editingCell, setEditingCell] = useState<{ id: string; key: keyof T } | null>(null);
   const [changes, setChanges] = useState<Record<string, Partial<T>>>({});
   const [savingId, setSavingId] = useState<string | null>(null);
