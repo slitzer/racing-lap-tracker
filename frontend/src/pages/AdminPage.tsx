@@ -24,6 +24,7 @@ import {
   uploadFile,
   exportDatabase,
   importDatabase,
+  getVersion,
 } from '../api';
 import { LapTime, Game, Track, Layout, Car } from '../types';
 import { Button } from '../components/ui/button';
@@ -38,6 +39,8 @@ const AdminPage: React.FC = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
   const [layouts, setLayouts] = useState<Layout[]>([]);
   const [cars, setCars] = useState<Car[]>([]);
+  const [appVersion, setAppVersion] = useState('');
+  const [dbVersion, setDbVersion] = useState('');
 
   const [gameImage, setGameImage] = useState<File | null>(null);
   const [trackImage, setTrackImage] = useState<File | null>(null);
@@ -96,6 +99,12 @@ const AdminPage: React.FC = () => {
     getTracks().then(setTracks).catch(() => {});
     getLayouts().then(setLayouts).catch(() => {});
     getCars().then(setCars).catch(() => {});
+    getVersion()
+      .then((v) => {
+        setAppVersion(v.appVersion);
+        setDbVersion(v.dbVersion);
+      })
+      .catch(() => {});
   }, []);
 
   const refreshGames = () => getGames().then(setGames).catch(() => {});
@@ -612,6 +621,10 @@ const AdminPage: React.FC = () => {
             </Button>
           </div>
         </div>
+      </section>
+      <section className="mt-6 text-sm text-gray-500">
+        <p>App version: {appVersion}</p>
+        <p>Database version: {dbVersion}</p>
       </section>
     </div>
   );

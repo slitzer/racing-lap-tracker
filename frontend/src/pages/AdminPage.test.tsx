@@ -10,6 +10,7 @@ const mockedApi = {
   getCars: jest.fn(),
   verifyLapTime: jest.fn(),
   deleteLapTime: jest.fn(),
+  getVersion: jest.fn(),
 };
 
 jest.mock('../api', () => mockedApi);
@@ -22,6 +23,7 @@ beforeEach(() => {
   mockedApi.getTracks.mockResolvedValue([]);
   mockedApi.getLayouts.mockResolvedValue([]);
   mockedApi.getCars.mockResolvedValue([]);
+  mockedApi.getVersion.mockResolvedValue({ appVersion: 'v0.1', dbVersion: 'v1' });
 });
 
 test('renders admin heading', () => {
@@ -31,6 +33,16 @@ test('renders admin heading', () => {
     </MemoryRouter>
   );
   expect(screen.getByText(/Admin/i)).toBeInTheDocument();
+});
+
+test('shows version information', async () => {
+  render(
+    <MemoryRouter>
+      <AdminPage />
+    </MemoryRouter>
+  );
+  expect(await screen.findByText(/App version/i)).toBeInTheDocument();
+  expect(screen.getByText(/Database version/i)).toBeInTheDocument();
 });
 
 test('verifies a lap time', async () => {
