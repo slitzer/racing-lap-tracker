@@ -49,7 +49,7 @@ development setup. It starts PostgreSQL, the backend API and the frontend app.
 1. Copy `backend/.env.example` to `backend/.env` and adjust the variables if
    needed (especially `JWT_SECRET`). The default `DATABASE_URL` points to the
    `db` service used by Docker Compose.
-2. Copy `frontend/.env.production` and set `VITE_API_URL` to the publicly
+2. Copy `.env.example` to `.env` and set `VITE_API_URL` to the publicly
    reachable URL of the backend, for example `http://localhost:5000/api`.
 3. Ensure the `database` directory is present; Docker Compose mounts it
    read-only to the backend so the sample lap times can be imported
@@ -57,7 +57,8 @@ development setup. It starts PostgreSQL, the backend API and the frontend app.
 4. The `db` service includes a healthcheck so the backend waits for PostgreSQL
    to accept connections before starting.
 5. Run `docker compose build --no-cache frontend` followed by
-   `docker compose up -d` from the project root. Building the images requires
+   `docker compose up -d` from the project root. Docker Compose loads
+   variables from `.env` automatically. Building the images requires
    internet access. The `frontend/Dockerfile` runs `npm install -g pnpm`, which
    downloads packages from `registry.npmjs.org`; without a network connection
    this step fails with `EAI_AGAIN`.

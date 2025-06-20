@@ -39,8 +39,10 @@ services:
     build:
       context: ./frontend
       network: host  # 👈 This enables host networking during image build
+      args:
+        - VITE_API_URL=${VITE_API_URL}
     environment:
-      VITE_API_URL: http://localhost:5000/api #Change this to your server IP
+      VITE_API_URL: ${VITE_API_URL}
     volumes:
       - ./frontend/public/images:/usr/src/app/dist/images
     depends_on:
