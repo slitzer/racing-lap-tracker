@@ -25,13 +25,18 @@ import {
   exportDatabase,
   importDatabase,
   getVersion,
+  getUsers,
+  createUser,
+  updateUser,
+  deleteUser,
 } from '../api';
-import { LapTime, Game, Track, Layout, Car } from '../types';
+import { LapTime, Game, Track, Layout, Car, User } from '../types';
 import { Button } from '../components/ui/button';
 import { formatTime } from '../utils/time';
 import { slugify, getImageUrl } from '../utils';
 import EditableTable, { Column } from '../components/admin/EditableTable';
 import ProgressBar from '../components/admin/ProgressBar';
+import CollapsibleSection from '../components/admin/CollapsibleSection';
 
 const AdminPage: React.FC = () => {
   const [lapTimes, setLapTimes] = useState<LapTime[]>([]);
@@ -39,6 +44,7 @@ const AdminPage: React.FC = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
   const [layouts, setLayouts] = useState<Layout[]>([]);
   const [cars, setCars] = useState<Car[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [appVersion, setAppVersion] = useState('');
   const [dbVersion, setDbVersion] = useState('');
 
@@ -65,6 +71,10 @@ const AdminPage: React.FC = () => {
   const [carName, setCarName] = useState('');
   const [carGameId, setCarGameId] = useState('');
   const [selectedCar, setSelectedCar] = useState('');
+  const [newUsername, setNewUsername] = useState('');
+  const [newEmail, setNewEmail] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [newIsAdmin, setNewIsAdmin] = useState(false);
   const [importFile, setImportFile] = useState<File | null>(null);
   const [importProgress, setImportProgress] = useState(0);
   const [logs, setLogs] = useState<string[]>([]);
@@ -92,6 +102,12 @@ const AdminPage: React.FC = () => {
     { key: 'name', label: 'Name', editable: true },
     { key: 'imageUrl', label: 'Image URL', editable: true },
   ];
+  const userColumns: Column<User>[] = [
+    { key: 'id', label: 'ID' },
+    { key: 'username', label: 'Username', editable: true },
+    { key: 'email', label: 'Email', editable: true },
+    { key: 'isAdmin', label: 'Admin', editable: true },
+  ];
 
   useEffect(() => {
     getUnverifiedLapTimes().then(setLapTimes).catch(() => {});
@@ -99,6 +115,7 @@ const AdminPage: React.FC = () => {
     getTracks().then(setTracks).catch(() => {});
     getLayouts().then(setLayouts).catch(() => {});
     getCars().then(setCars).catch(() => {});
+    getUsers().then(setUsers).catch(() => {});
     getVersion()
       .then((v) => {
         setAppVersion(v.appVersion);
@@ -111,6 +128,7 @@ const AdminPage: React.FC = () => {
   const refreshTracks = () => getTracks().then(setTracks).catch(() => {});
   const refreshLayouts = () => getLayouts().then(setLayouts).catch(() => {});
   const refreshCars = () => getCars().then(setCars).catch(() => {});
+  const refreshUsers = () => getUsers().then(setUsers).catch(() => {});
 
   const updateGameRow = async (id: string, data: Partial<Game>) => {
     const existing = games.find((g) => g.id === id);
@@ -135,6 +153,12 @@ const AdminPage: React.FC = () => {
     if (!existing) return;
     await updateCar(id, { ...existing, ...data });
     refreshCars();
+  };
+  const updateUserRow = async (id: string, data: Partial<User>) => {
+    const existing = users.find((u) => u.id === id);
+    if (!existing) return;
+    await updateUser(id, { ...existing, ...data });
+    refreshUsers();
   };
 
   const handleSaveGame = async () => {
@@ -257,6 +281,26 @@ const AdminPage: React.FC = () => {
     }
   };
 
+  const handleCreateUser = async () => {
+    await createUser({
+      username: newUsername,
+      email: newEmail,
+      password: newPassword,
+      isAdmin: newIsAdmin,
+    });
+    setNewUsername('');
+    setNewEmail('');
+    setNewPassword('');
+    setNewIsAdmin(false);
+    refreshUsers();
+  };
+
+  const handleDeleteUser = async (id: string) => {
+    const keep = window.confirm('Keep lap times for this user?');
+    await deleteUser(id, keep);
+    refreshUsers();
+  };
+
   const verify = async (id: string) => {
     await verifyLapTime(id);
     setLapTimes((lt) => lt.filter((l) => l.id !== id));
@@ -324,8 +368,47 @@ const AdminPage: React.FC = () => {
         )}
       </section>
 
-      <section>
-        <h2 className="text-xl font-semibold mb-2">Unverified Lap Times</h2>
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold mb-2">User Management</h2>
+        <div className="flex flex-wrap items-end gap-2">
+          <input
+            className="border p-1"
+            placeholder="Username"
+            value={newUsername}
+            onChange={(e) => setNewUsername(e.target.value)}
+          />
+          <input
+            className="border p-1"
+            placeholder="Email"
+            value={newEmail}
+            onChange={(e) => setNewEmail(e.target.value)}
+          />
+          <input
+            className="border p-1"
+            type="password"
+            placeholder="Password"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+          <label className="flex items-center gap-1 text-sm">
+            <input
+              type="checkbox"
+              checked={newIsAdmin}
+              onChange={(e) => setNewIsAdmin(e.target.checked)}
+            />
+            Admin
+          </label>
+          <Button size="sm" onClick={handleCreateUser}>Create</Button>
+        </div>
+        <EditableTable
+          data={users}
+          columns={userColumns}
+          onUpdate={updateUserRow}
+          onDelete={handleDeleteUser}
+        />
+      </section>
+
+      <CollapsibleSection title="Unverified Lap Times" defaultOpen={false}>
         <table className="w-full text-sm text-left border">
           <thead>
             <tr className="border-b">
@@ -375,10 +458,9 @@ const AdminPage: React.FC = () => {
             )}
         </tbody>
       </table>
-    </section>
+      </CollapsibleSection>
 
-    <section className="space-y-6">
-      <h2 className="text-xl font-semibold mb-2">Database Editor</h2>
+    <CollapsibleSection title="Database Editor" defaultOpen={false}>
       <div>
         <h3 className="font-semibold mb-2">Games</h3>
         <EditableTable data={games} columns={gameColumns} onUpdate={updateGameRow} />
@@ -395,7 +477,7 @@ const AdminPage: React.FC = () => {
         <h3 className="font-semibold mb-2">Cars</h3>
         <EditableTable data={cars} columns={carColumns} onUpdate={updateCarRow} />
       </div>
-    </section>
+    </CollapsibleSection>
 
     <section className="space-y-6">
       <h2 className="text-xl font-semibold mb-2">Legacy Editor</h2>

@@ -20,6 +20,7 @@ const lapTimeRoutes = require('./routes/lapTimes');
 const leaderboardRoutes = require('./routes/leaderboards');
 const assistRoutes = require('./routes/assists');
 const adminRoutes = require('./routes/admin');
+const adminUserRoutes = require('./routes/adminUsers');
 const versionRoutes = require('./routes/version');
 const { router: uploadRoutes, uploadDir } = require('./routes/uploads');
 const { seedSampleLapTimes } = require('./utils/seedSampleLapTimes');
@@ -54,6 +55,7 @@ app.use('/api/lapTimes', lapTimeRoutes);
 app.use('/api/leaderboards', leaderboardRoutes);
 app.use('/api/uploads', uploadRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/admin/users', adminUserRoutes);
 app.use('/api/version', versionRoutes);
 
 // Error handling

@@ -11,6 +11,10 @@ const mockedApi = {
   verifyLapTime: jest.fn(),
   deleteLapTime: jest.fn(),
   getVersion: jest.fn(),
+  getUsers: jest.fn(),
+  createUser: jest.fn(),
+  updateUser: jest.fn(),
+  deleteUser: jest.fn(),
 };
 
 jest.mock('../api', () => mockedApi);
@@ -23,6 +27,7 @@ beforeEach(() => {
   mockedApi.getTracks.mockResolvedValue([]);
   mockedApi.getLayouts.mockResolvedValue([]);
   mockedApi.getCars.mockResolvedValue([]);
+  mockedApi.getUsers.mockResolvedValue([]);
   mockedApi.getVersion.mockResolvedValue({ appVersion: 'v0.1', dbVersion: 'v1' });
 });
 
@@ -32,7 +37,7 @@ test('renders admin heading', () => {
       <AdminPage />
     </MemoryRouter>
   );
-  expect(screen.getByText(/Admin/i)).toBeInTheDocument();
+  expect(screen.getByRole('heading', { name: /Admin/i })).toBeInTheDocument();
 });
 
 test('shows version information', async () => {
@@ -53,6 +58,7 @@ test('verifies a lap time', async () => {
       <AdminPage />
     </MemoryRouter>
   );
+  await userEvent.click(screen.getByRole('button', { name: /unverified lap times/i }));
   expect(await screen.findByText('1')).toBeInTheDocument();
   await userEvent.click(screen.getByRole('button', { name: /verify/i }));
   expect(mockedApi.verifyLapTime).toHaveBeenCalledWith('1');
@@ -66,6 +72,7 @@ test('deletes a lap time', async () => {
       <AdminPage />
     </MemoryRouter>
   );
+  await userEvent.click(screen.getByRole('button', { name: /unverified lap times/i }));
   expect(await screen.findByText('2')).toBeInTheDocument();
   await userEvent.click(screen.getAllByRole('button', { name: /delete/i })[0]);
   expect(mockedApi.deleteLapTime).toHaveBeenCalledWith('2');

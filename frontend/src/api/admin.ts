@@ -1,5 +1,5 @@
 import apiClient from './client';
-import { LapTime, Game, Track, Layout, Car } from '../types';
+import { LapTime, Game, Track, Layout, Car, User } from '../types';
 
 export async function getUnverifiedLapTimes(): Promise<LapTime[]> {
   const res = await apiClient.get('/admin/lapTimes/unverified');
@@ -93,5 +93,25 @@ export async function importDatabase(
       }
     },
   });
+  return res.data;
+}
+
+export async function getUsers(): Promise<User[]> {
+  const res = await apiClient.get('/admin/users');
+  return res.data;
+}
+
+export async function createUser(data: Partial<User> & { password: string }): Promise<User> {
+  const res = await apiClient.post('/admin/users', data);
+  return res.data;
+}
+
+export async function updateUser(id: string, data: Partial<User> & { password?: string }): Promise<User> {
+  const res = await apiClient.put(`/admin/users/${id}`, data);
+  return res.data;
+}
+
+export async function deleteUser(id: string, keepTimes?: boolean): Promise<any> {
+  const res = await apiClient.delete(`/admin/users/${id}`, { params: { keepTimes } });
   return res.data;
 }
