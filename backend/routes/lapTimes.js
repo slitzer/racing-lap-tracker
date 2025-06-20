@@ -33,6 +33,7 @@ router.get('/', async (req, res, next) => {
               lt.notes,
 
               u.username,
+              u.avatar_url AS "avatarUrl",
               g.name AS "gameName", g.image_url AS "gameImageUrl",
               t.name AS "trackName", t.image_url AS "trackImageUrl",
               l.name AS "layoutName", l.image_url AS "layoutImageUrl",
@@ -78,6 +79,7 @@ router.get('/records', async (req, res, next) => {
               lt.screenshot_url AS "screenshotUrl",
               lt.notes,
               u.username,
+              u.avatar_url AS "avatarUrl",
               g.name AS "gameName", g.image_url AS "gameImageUrl",
               t.name AS "trackName", t.image_url AS "trackImageUrl",
               l.name AS "layoutName", l.image_url AS "layoutImageUrl",

@@ -56,6 +56,7 @@ export interface LapTime {
   screenshotUrl?: string | null;
   notes?: string | null;
   username?: string;
+  avatarUrl?: string | null;
   gameName?: string;
   gameImageUrl?: string | null;
   trackName?: string;
