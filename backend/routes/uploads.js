@@ -43,6 +43,7 @@ const storage = multer.diskStorage({
 const allowedTypes = [
   'image/jpeg',
   'image/png',
+  'image/x-png',
   'image/gif',
   'image/webp',
 ];
