@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getTracks, getLayouts, getLeaderboard } from '../api';
+import { getTracks, getLayouts, getLeaderboard, updateTrack, uploadFile } from '../api';
 import { Track, Layout, LapTime } from '../types';
-import { getImageUrl } from '../utils';
+import { getImageUrl, slugify } from '../utils';
 import { formatTime } from '../utils/time';
 import InputTypeBadge from '../components/InputTypeBadge';
+import { useAuth } from '../contexts/AuthContext';
 
 interface LayoutWithTL extends Layout {
   trackLayoutId?: string;
@@ -12,9 +13,14 @@ interface LayoutWithTL extends Layout {
 
 const TrackDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { user } = useAuth();
   const [track, setTrack] = useState<Track | null>(null);
   const [layouts, setLayouts] = useState<LayoutWithTL[]>([]);
   const [records, setRecords] = useState<Record<string, LapTime[]>>({});
+  const [editing, setEditing] = useState(false);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -22,6 +28,10 @@ const TrackDetailPage: React.FC = () => {
       .then((data) => {
         const t = data.find((tr) => tr.id === id) || null;
         setTrack(t || null);
+        if (t) {
+          setName(t.name);
+          setDescription(t.description || '');
+        }
       })
       .catch(() => {});
   }, [id]);
@@ -53,6 +63,38 @@ const TrackDetailPage: React.FC = () => {
     );
   }
 
+  const handleSave = async () => {
+    if (!track) return;
+    let imageUrl: string | undefined = track.imageUrl || undefined;
+    if (imageFile) {
+      const ext = imageFile.name.substring(imageFile.name.lastIndexOf('.'));
+      const filename = `${slugify(name)}-${Date.now()}${ext}`;
+      try {
+        const res = await uploadFile(imageFile, 'images/tracks', filename);
+        imageUrl = res.url;
+      } catch {
+        imageUrl = track.imageUrl || undefined;
+      }
+    }
+    const updated = await updateTrack(track.id, {
+      gameId: track.gameId,
+      name,
+      imageUrl,
+      description,
+    });
+    setTrack(updated);
+    setEditing(false);
+    setImageFile(null);
+  };
+
+  const handleCancel = () => {
+    if (!track) return;
+    setName(track.name);
+    setDescription(track.description || '');
+    setImageFile(null);
+    setEditing(false);
+  };
+
   return (
     <div className="container mx-auto py-6 space-y-6">
       <div className="text-center space-y-2">
@@ -63,6 +105,59 @@ const TrackDetailPage: React.FC = () => {
             alt={track.name}
             className="mx-auto max-w-lg rounded"
           />
+        )}
+        {track.description && !editing && (
+          <p className="text-muted-foreground text-sm">{track.description}</p>
+        )}
+        {user?.isAdmin && !editing && (
+          <button
+            className="text-sm underline text-primary"
+            onClick={() => setEditing(true)}
+          >
+            Edit
+          </button>
+        )}
+        {editing && (
+          <div className="space-y-2">
+            <div className="space-y-1">
+              <label className="block text-sm font-medium">Name</label>
+              <input
+                className="w-full rounded border px-3 py-2"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="space-y-1">
+              <label className="block text-sm font-medium">Description</label>
+              <textarea
+                className="w-full rounded border px-3 py-2"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            <div className="space-y-1">
+              <label className="block text-sm font-medium">Image</label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setImageFile(e.target.files?.[0] || null)}
+              />
+            </div>
+            <div className="flex space-x-2">
+              <button
+                className="px-4 py-2 rounded bg-primary text-primary-foreground"
+                onClick={handleSave}
+              >
+                Save
+              </button>
+              <button
+                className="px-4 py-2 rounded border"
+                onClick={handleCancel}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
         )}
       </div>
       {layouts.map((layout) => (
