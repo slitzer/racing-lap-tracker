@@ -10,6 +10,7 @@ interface EditableTableProps<T extends { id: string }> {
   data: T[];
   columns: Column<T>[];
   onUpdate: (id: string, changes: Partial<T>) => Promise<void>;
+  onDelete?: (id: string) => Promise<void> | void;
 }
 
 function EditableTable<T extends { id: string }>({ data, columns, onUpdate }: EditableTableProps<T>) {
@@ -101,6 +102,14 @@ function EditableTable<T extends { id: string }>({ data, columns, onUpdate }: Ed
                 >
                   {savingId === row.id ? 'Saving...' : 'Update'}
                 </button>
+                {onDelete && (
+                  <button
+                    className="text-red-600"
+                    onClick={() => onDelete(row.id)}
+                  >
+                    Delete
+                  </button>
+                )}
               </td>
             </tr>
           ))}
