@@ -7,10 +7,13 @@ import { formatTime } from '../utils/time';
 import { getImageUrl } from '../utils';
 import AssistTags from '../components/AssistTags';
 import InputTypeBadge from '../components/InputTypeBadge';
+import { Dialog, DialogContent } from '../components/ui/dialog';
+import LapTimePopup from '../components/LapTimePopup';
 
 const LapTimesPage: React.FC = () => {
   const [view, setView] = useState<'all' | 'filter'>('all');
   const [laps, setLaps] = useState<LapTime[]>([]);
+  const [selectedLap, setSelectedLap] = useState<LapTime | null>(null);
 
   const [games, setGames] = useState<Game[]>([]);
   const [tracks, setTracks] = useState<Track[]>([]);
@@ -65,7 +68,11 @@ const LapTimesPage: React.FC = () => {
         </thead>
         <tbody>
           {data.map((l) => (
-            <tr key={l.id} className="border-b last:border-0">
+            <tr
+              key={l.id}
+              className="border-b last:border-0 cursor-pointer hover:bg-muted"
+              onClick={() => setSelectedLap(l)}
+            >
               <td className="px-2 py-1">{l.username}</td>
               <td className="px-2 py-1">
                 {l.gameImageUrl && (
@@ -182,6 +189,12 @@ const LapTimesPage: React.FC = () => {
       ) : (
         <p className="text-center text-muted-foreground">No lap times found.</p>
       )}
+
+      <Dialog open={!!selectedLap} onOpenChange={(o) => !o && setSelectedLap(null)}>
+        <DialogContent>
+          {selectedLap && <LapTimePopup lap={selectedLap} />}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

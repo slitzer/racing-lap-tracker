@@ -54,6 +54,7 @@ const SubmitLapTimePage: React.FC = () => {
   const [time, setTime] = useState('');
   const [lapDate, setLapDate] = useState('');
   const [screenshot, setScreenshot] = useState<File | null>(null);
+  const [notes, setNotes] = useState('');
   const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
@@ -119,6 +120,7 @@ const SubmitLapTimePage: React.FC = () => {
         lapDate,
         screenshotUrl,
         assists: selectedAssists,
+        notes,
       });
       navigate('/lap-times');
     } catch (err: any) {
@@ -246,6 +248,18 @@ const SubmitLapTimePage: React.FC = () => {
                 accept="image/*"
                 onChange={(e) => setScreenshot(e.target.files?.[0] || null)}
                 className="w-full"
+              />
+            </div>
+            <div className="space-y-1">
+              <label htmlFor="notes" className="block text-sm font-medium">
+                Comments
+              </label>
+              <textarea
+                id="notes"
+                value={notes}
+                onChange={(e) => setNotes(e.target.value)}
+                className="w-full rounded border px-3 py-2"
+                rows={3}
               />
             </div>
           </div>
