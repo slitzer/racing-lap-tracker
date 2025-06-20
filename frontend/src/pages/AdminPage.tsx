@@ -25,7 +25,7 @@ import {
   exportDatabase,
   importDatabase,
   getVersion,
-  getUsers,
+  getAdminUsers,
   createUser,
   updateUser,
   deleteUser,
@@ -115,7 +115,7 @@ const AdminPage: React.FC = () => {
     getTracks().then(setTracks).catch(() => {});
     getLayouts().then(setLayouts).catch(() => {});
     getCars().then(setCars).catch(() => {});
-    getUsers().then(setUsers).catch(() => {});
+    getAdminUsers().then(setUsers).catch(() => {});
     getVersion()
       .then((v) => {
         setAppVersion(v.appVersion);
@@ -128,7 +128,7 @@ const AdminPage: React.FC = () => {
   const refreshTracks = () => getTracks().then(setTracks).catch(() => {});
   const refreshLayouts = () => getLayouts().then(setLayouts).catch(() => {});
   const refreshCars = () => getCars().then(setCars).catch(() => {});
-  const refreshUsers = () => getUsers().then(setUsers).catch(() => {});
+  const refreshUsers = () => getAdminUsers().then(setUsers).catch(() => {});
 
   const updateGameRow = async (id: string, data: Partial<Game>) => {
     const existing = games.find((g) => g.id === id);

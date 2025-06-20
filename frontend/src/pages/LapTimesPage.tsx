@@ -25,7 +25,7 @@ const LapTimesPage: React.FC = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [tracks, setTracks] = useState<Track[]>([]);
   const [cars, setCars] = useState<Car[]>([]);
-  const [users, setUsers] = useState<User[]>([]);
+  const [users, setUsers] = useState<Pick<User, 'id' | 'username'>[]>([]);
   const [assists, setAssists] = useState<Assist[]>([]);
   const [filters, setFilters] = useState({
     gameId: '',
