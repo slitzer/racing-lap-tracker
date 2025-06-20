@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Timer } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getLapTimes, getGames, getTracks, getCars } from '../api';
-import { LapTime, Game, Track, Car } from '../types';
+import {
+  getLapTimes,
+  getGames,
+  getTracks,
+  getCars,
+  getUsers,
+  getAssists,
+} from '../api';
+import { LapTime, Game, Track, Car, User, Assist } from '../types';
 import { formatTime } from '../utils/time';
 import { getImageUrl } from '../utils';
 import AssistTags from '../components/AssistTags';
@@ -18,7 +25,17 @@ const LapTimesPage: React.FC = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [tracks, setTracks] = useState<Track[]>([]);
   const [cars, setCars] = useState<Car[]>([]);
-  const [filters, setFilters] = useState({ gameId: '', trackId: '', carId: '' });
+  const [users, setUsers] = useState<User[]>([]);
+  const [assists, setAssists] = useState<Assist[]>([]);
+  const [filters, setFilters] = useState({
+    gameId: '',
+    trackId: '',
+    carId: '',
+    userId: '',
+    assist: '',
+  });
+  const [search, setSearch] = useState('');
+  const [sort, setSort] = useState('timeAsc');
 
   useEffect(() => {
     getLapTimes()
@@ -33,6 +50,8 @@ const LapTimesPage: React.FC = () => {
     if (view === 'filter') {
       getGames().then(setGames).catch(() => {});
       getCars(filters.gameId || undefined).then(setCars).catch(() => {});
+      getUsers().then(setUsers).catch(() => {});
+      getAssists().then(setAssists).catch(() => {});
     }
   }, [view, filters.gameId]);
 
@@ -47,12 +66,42 @@ const LapTimesPage: React.FC = () => {
     }
   }, [view, filters.gameId]);
 
-  const filteredLaps = laps.filter(
-    (l) =>
+  const filteredLaps = laps.filter((l) => {
+    const searchLower = search.toLowerCase();
+    return (
       (!filters.gameId || l.gameId === filters.gameId) &&
       (!filters.trackId || l.trackId === filters.trackId) &&
-      (!filters.carId || l.carId === filters.carId)
-  );
+      (!filters.carId || l.carId === filters.carId) &&
+      (!filters.userId || l.userId === filters.userId) &&
+      (!filters.assist || l.assists?.includes(filters.assist)) &&
+      (!search ||
+        l.username?.toLowerCase().includes(searchLower) ||
+        l.gameName?.toLowerCase().includes(searchLower) ||
+        l.trackName?.toLowerCase().includes(searchLower) ||
+        l.carName?.toLowerCase().includes(searchLower) ||
+        l.layoutName?.toLowerCase().includes(searchLower) ||
+        l.notes?.toLowerCase().includes(searchLower))
+    );
+  });
+
+  const sortedLaps = [...filteredLaps].sort((a, b) => {
+    switch (sort) {
+      case 'timeAsc':
+        return a.timeMs - b.timeMs;
+      case 'timeDesc':
+        return b.timeMs - a.timeMs;
+      case 'dateAsc':
+        return (
+          new Date(a.lapDate).getTime() - new Date(b.lapDate).getTime()
+        );
+      case 'dateDesc':
+        return (
+          new Date(b.lapDate).getTime() - new Date(a.lapDate).getTime()
+        );
+      default:
+        return 0;
+    }
+  });
 
   const renderTable = (data: LapTime[]) => (
     <div className="overflow-x-auto">
@@ -143,8 +192,27 @@ const LapTimesPage: React.FC = () => {
           Filter
         </button>
       </div>
+      <div className="flex flex-col md:flex-row md:items-end gap-4 mb-6">
+        <input
+          type="text"
+          placeholder="Search..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="w-full md:w-64 rounded border px-3 py-2"
+        />
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          className="w-full md:w-48 rounded border px-3 py-2"
+        >
+          <option value="timeAsc">Time ↑</option>
+          <option value="timeDesc">Time ↓</option>
+          <option value="dateDesc">Date ↓</option>
+          <option value="dateAsc">Date ↑</option>
+        </select>
+      </div>
       {view === 'filter' && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-6">
           <select
             value={filters.gameId}
             onChange={(e) => setFilters({ ...filters, gameId: e.target.value })}
@@ -182,10 +250,34 @@ const LapTimesPage: React.FC = () => {
               </option>
             ))}
           </select>
+          <select
+            value={filters.userId}
+            onChange={(e) => setFilters({ ...filters, userId: e.target.value })}
+            className="w-full rounded border px-3 py-2"
+          >
+            <option value="">All users</option>
+            {users.map((u) => (
+              <option key={u.id} value={u.id}>
+                {u.username}
+              </option>
+            ))}
+          </select>
+          <select
+            value={filters.assist}
+            onChange={(e) => setFilters({ ...filters, assist: e.target.value })}
+            className="w-full rounded border px-3 py-2"
+          >
+            <option value="">All assists</option>
+            {assists.map((a) => (
+              <option key={a.id} value={a.name}>
+                {a.name}
+              </option>
+            ))}
+          </select>
         </div>
       )}
-      {filteredLaps.length > 0 ? (
-        renderTable(filteredLaps)
+      {sortedLaps.length > 0 ? (
+        renderTable(sortedLaps)
       ) : (
         <p className="text-center text-muted-foreground">No lap times found.</p>
       )}

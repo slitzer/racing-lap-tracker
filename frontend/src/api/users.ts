@@ -11,3 +11,8 @@ export async function getUserStats(): Promise<UserStats> {
   const res = await apiClient.get('/users/me/stats');
   return res.data;
 }
+
+export async function getUsers(): Promise<Pick<User, 'id' | 'username'>[]> {
+  const res = await apiClient.get('/users');
+  return res.data;
+}

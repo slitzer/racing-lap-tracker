@@ -6,6 +6,8 @@ const mockedApi = {
   getGames: jest.fn(),
   getTracks: jest.fn(),
   getCars: jest.fn(),
+  getUsers: jest.fn(),
+  getAssists: jest.fn(),
 };
 
 jest.mock('../api', () => mockedApi);
@@ -17,6 +19,8 @@ beforeEach(() => {
   mockedApi.getGames.mockResolvedValue([]);
   mockedApi.getTracks.mockResolvedValue([]);
   mockedApi.getCars.mockResolvedValue([]);
+  mockedApi.getUsers.mockResolvedValue([]);
+  mockedApi.getAssists.mockResolvedValue([]);
 });
 
 test('renders lap times heading', () => {
@@ -26,6 +30,7 @@ test('renders lap times heading', () => {
     </MemoryRouter>
   );
   expect(screen.getByRole('heading', { name: /Lap Times/i })).toBeInTheDocument();
+  expect(screen.getByPlaceholderText('Search...')).toBeInTheDocument();
 });
 
 test('renders assists when provided', async () => {
@@ -84,4 +89,14 @@ test('shows input type badge', async () => {
     </MemoryRouter>
   );
   expect(await screen.findByText(/Controller/)).toBeInTheDocument();
+});
+
+test('shows user filter when filter view selected', async () => {
+  render(
+    <MemoryRouter>
+      <LapTimesPage />
+    </MemoryRouter>
+  );
+  screen.getByRole('button', { name: 'Filter' }).click();
+  expect(await screen.findByText('All users')).toBeInTheDocument();
 });
