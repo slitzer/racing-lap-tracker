@@ -85,9 +85,10 @@ volume and run `docker compose up -d` again to reset the database.
 
 Adjust connection settings in your backend environment variables as needed.
 
-**Warning**: The Admin page's Import function expects a full database export
-created via the Export button. Uploading any other JSON file will be rejected
-and no data will be modified.
+**Note**: The Admin page's Import function accepts JSON files created via the
+Export button. Existing records are preserved and any duplicates in the file are
+skipped during import.
+During the import process the Admin page now shows a progress bar and log of actions.
 
 ## Running Tests
 

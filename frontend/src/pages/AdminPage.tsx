@@ -30,6 +30,7 @@ import { Button } from '../components/ui/button';
 import { formatTime } from '../utils/time';
 import { slugify, getImageUrl } from '../utils';
 import EditableTable, { Column } from '../components/admin/EditableTable';
+import ProgressBar from '../components/admin/ProgressBar';
 
 const AdminPage: React.FC = () => {
   const [lapTimes, setLapTimes] = useState<LapTime[]>([]);
@@ -62,6 +63,8 @@ const AdminPage: React.FC = () => {
   const [carGameId, setCarGameId] = useState('');
   const [selectedCar, setSelectedCar] = useState('');
   const [importFile, setImportFile] = useState<File | null>(null);
+  const [importProgress, setImportProgress] = useState(0);
+  const [logs, setLogs] = useState<string[]>([]);
 
   const gameColumns: Column<Game>[] = [
     { key: 'id', label: 'ID' },
@@ -270,8 +273,12 @@ const AdminPage: React.FC = () => {
     if (!importFile) return;
     const text = await importFile.text();
     const json = JSON.parse(text);
-    await importDatabase(json);
+    setLogs((l) => [...l, `Importing ${importFile.name}...`]);
+    await importDatabase(json, setImportProgress)
+      .then(() => setLogs((l) => [...l, 'Import completed']))
+      .catch(() => setLogs((l) => [...l, 'Import failed']));
     setImportFile(null);
+    setImportProgress(0);
   };
 
   return (
@@ -288,12 +295,24 @@ const AdminPage: React.FC = () => {
           <input
             type="file"
             accept="application/json"
-            onChange={(e) => setImportFile(e.target.files?.[0] || null)}
+            onChange={(e) => {
+              setImportFile(e.target.files?.[0] || null);
+              setImportProgress(0);
+              setLogs([]);
+            }}
           />
           <Button size="sm" onClick={handleImportDb} disabled={!importFile}>
             Import
           </Button>
         </div>
+        {importProgress > 0 && <ProgressBar progress={importProgress} />}
+        {logs.length > 0 && (
+          <div className="border p-2 bg-gray-50 text-xs h-24 overflow-auto space-y-1">
+            {logs.map((l, i) => (
+              <div key={i}>{l}</div>
+            ))}
+          </div>
+        )}
       </section>
 
       <section>

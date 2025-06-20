@@ -81,7 +81,17 @@ export async function exportDatabase(): Promise<any> {
   return res.data;
 }
 
-export async function importDatabase(data: any): Promise<{ message: string }> {
-  const res = await apiClient.post('/admin/import', data);
+export async function importDatabase(
+  data: any,
+  onProgress?: (percent: number) => void
+): Promise<{ message: string }> {
+  const res = await apiClient.post('/admin/import', data, {
+    onUploadProgress: (evt) => {
+      if (onProgress && evt.total) {
+        const pct = Math.round((evt.loaded / evt.total) * 100);
+        onProgress(pct);
+      }
+    },
+  });
   return res.data;
 }

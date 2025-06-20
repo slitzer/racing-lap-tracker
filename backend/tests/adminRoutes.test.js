@@ -133,19 +133,19 @@ describe('Admin routes', () => {
     expect(db.pool.connect).toHaveBeenCalled();
     expect(mockClient.query).toHaveBeenCalledWith('BEGIN');
     expect(mockClient.query).toHaveBeenCalledWith(
-      'INSERT INTO track_layouts (id, track_id, layout_id) VALUES ($1,$2,$3)',
+      'INSERT INTO track_layouts (id, track_id, layout_id) VALUES ($1,$2,$3) ON CONFLICT DO NOTHING',
       ['l1', 't1', 'l1']
     );
     expect(mockClient.query).toHaveBeenCalledWith(
-      'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2)',
+      'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2) ON CONFLICT DO NOTHING',
       ['g1', 'l1']
     );
     expect(mockClient.query).toHaveBeenCalledWith(
-      'INSERT INTO cars (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5)',
+      'INSERT INTO cars (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5) ON CONFLICT (id) DO NOTHING',
       ['c1', 'Car 1', '/img.png', '2024-01-01', '2024-01-02']
     );
     expect(mockClient.query).toHaveBeenCalledWith(
-      'INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)',
+      'INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2) ON CONFLICT DO NOTHING',
       ['g1', 'c1']
     );
     expect(mockClient.query).toHaveBeenLastCalledWith('COMMIT');
@@ -185,15 +185,15 @@ describe('Admin routes', () => {
 
     expect(res.status).toBe(200);
     expect(mockClient.query).toHaveBeenCalledWith(
-      'INSERT INTO track_layouts (id, track_id, layout_id) VALUES ($1,$2,$3)',
+      'INSERT INTO track_layouts (id, track_id, layout_id) VALUES ($1,$2,$3) ON CONFLICT DO NOTHING',
       ['l1', 't1', 'l1']
     );
     expect(mockClient.query).toHaveBeenCalledWith(
-      'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2)',
+      'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2) ON CONFLICT DO NOTHING',
       ['g1', 'l1']
     );
     expect(mockClient.query).toHaveBeenCalledWith(
-      'INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)',
+      'INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2) ON CONFLICT DO NOTHING',
       ['g1', 'c1']
     );
   });

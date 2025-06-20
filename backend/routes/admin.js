@@ -121,15 +121,12 @@ router.post('/import', auth, admin, async (req, res, next) => {
   const client = await db.pool.connect();
   try {
     await client.query('BEGIN');
-    await client.query(
-      'TRUNCATE lap_time_assists, lap_times, assists, game_cars, cars, game_tracks, track_layouts, layouts, tracks, games, users RESTART IDENTITY CASCADE'
-    );
 
     if (users) {
       for (const u of users) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO users (id, username, email, password_hash, is_admin, avatar_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+          'INSERT INTO users (id, username, email, password_hash, is_admin, avatar_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) ON CONFLICT (id) DO NOTHING',
           [
             u.id,
             u.username,
@@ -147,7 +144,7 @@ router.post('/import', auth, admin, async (req, res, next) => {
       for (const g of games) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO games (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5)',
+          'INSERT INTO games (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5) ON CONFLICT (id) DO NOTHING',
           [g.id, g.name, g.image_url, g.created_at, g.updated_at]
         );
       }
@@ -156,7 +153,7 @@ router.post('/import', auth, admin, async (req, res, next) => {
       for (const t of tracks) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO tracks (id, game_id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6)',
+          'INSERT INTO tracks (id, game_id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6) ON CONFLICT (id) DO NOTHING',
           [t.id, t.game_id, t.name, t.image_url, t.created_at, t.updated_at]
         );
       }
@@ -165,12 +162,12 @@ router.post('/import', auth, admin, async (req, res, next) => {
       for (const l of layouts) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO layouts (id, track_id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6)',
+          'INSERT INTO layouts (id, track_id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6) ON CONFLICT (id) DO NOTHING',
           [l.id, l.track_id, l.name, l.image_url, l.created_at, l.updated_at]
         );
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO track_layouts (id, track_id, layout_id) VALUES ($1,$2,$3)',
+          'INSERT INTO track_layouts (id, track_id, layout_id) VALUES ($1,$2,$3) ON CONFLICT DO NOTHING',
           [l.id, l.track_id, l.id]
         );
       }
@@ -179,7 +176,7 @@ router.post('/import', auth, admin, async (req, res, next) => {
       for (const gt of game_tracks) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2)',
+          'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2) ON CONFLICT DO NOTHING',
           [gt.game_id, gt.track_layout_id]
         );
       }
@@ -188,7 +185,7 @@ router.post('/import', auth, admin, async (req, res, next) => {
       for (const c of cars) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO cars (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5)',
+          'INSERT INTO cars (id, name, image_url, created_at, updated_at) VALUES ($1,$2,$3,$4,$5) ON CONFLICT (id) DO NOTHING',
           [c.id, c.name, c.image_url, c.created_at, c.updated_at]
         );
       }
@@ -197,7 +194,7 @@ router.post('/import', auth, admin, async (req, res, next) => {
       for (const gc of game_cars) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2)',
+          'INSERT INTO game_cars (game_id, car_id) VALUES ($1,$2) ON CONFLICT DO NOTHING',
           [gc.game_id, gc.car_id]
         );
       }
@@ -205,7 +202,7 @@ router.post('/import', auth, admin, async (req, res, next) => {
     if (assists) {
       for (const a of assists) {
         // eslint-disable-next-line no-await-in-loop
-        await client.query('INSERT INTO assists (id, name) VALUES ($1,$2)', [
+        await client.query('INSERT INTO assists (id, name) VALUES ($1,$2) ON CONFLICT (id) DO NOTHING', [
           a.id,
           a.name,
         ]);
@@ -215,7 +212,7 @@ router.post('/import', auth, admin, async (req, res, next) => {
       for (const lt of lap_times) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO lap_times (id, user_id, game_id, track_layout_id, car_id, input_type, assists_json, time_ms, screenshot_url, verified, date_submitted, lap_date, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14)',
+          'INSERT INTO lap_times (id, user_id, game_id, track_layout_id, car_id, input_type, assists_json, time_ms, screenshot_url, verified, date_submitted, lap_date, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14) ON CONFLICT (id) DO NOTHING',
           [
             lt.id,
             lt.user_id,
@@ -239,7 +236,7 @@ router.post('/import', auth, admin, async (req, res, next) => {
       for (const lta of lap_time_assists) {
         // eslint-disable-next-line no-await-in-loop
         await client.query(
-          'INSERT INTO lap_time_assists (lap_time_id, assist_id) VALUES ($1,$2)',
+          'INSERT INTO lap_time_assists (lap_time_id, assist_id) VALUES ($1,$2) ON CONFLICT DO NOTHING',
           [lta.lap_time_id, lta.assist_id]
         );
       }
