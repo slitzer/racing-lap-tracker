@@ -4,6 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { uploadFile, updateProfile, getUserStats } from '../api';
 import { Avatar, AvatarImage, AvatarFallback } from '../components/ui/avatar';
 import { Button } from '../components/ui/button';
+import { toast } from 'sonner';
 import { getInitials, getImageUrl } from '../utils';
 import { formatTime } from '../utils/time';
 import { UserStats } from '../types';
@@ -27,8 +28,10 @@ const ProfilePage: React.FC = () => {
       const { url } = await uploadFile(file, 'images/avatars', filename);
       await updateProfile({ avatarUrl: url });
       await refreshUser();
-    } catch {
-      // ignore errors for now
+    } catch (err) {
+      // Show an error toast and log for debugging
+      toast.error('Failed to upload avatar');
+      console.error(err);
     } finally {
       setUploading(false);
     }
