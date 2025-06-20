@@ -51,12 +51,17 @@ development setup. It starts PostgreSQL, the backend API and the frontend app.
    `db` service used by Docker Compose.
 2. Copy `frontend/.env.production` and set `VITE_API_URL` to the publicly
    reachable URL of the backend, for example `http://localhost:5000/api`.
-3. Run `docker compose build --no-cache frontend` followed by
+3. Ensure the `database` directory is present; Docker Compose mounts it
+   read-only to the backend so the sample lap times can be imported
+   automatically on first startup.
+4. The `db` service includes a healthcheck so the backend waits for PostgreSQL
+   to accept connections before starting.
+5. Run `docker compose build --no-cache frontend` followed by
    `docker compose up -d` from the project root. Building the images requires
    internet access. The `frontend/Dockerfile` runs `npm install -g pnpm`, which
    downloads packages from `registry.npmjs.org`; without a network connection
    this step fails with `EAI_AGAIN`.
-4. Visit `http://localhost:5173` to access the UI. The API will be available at
+6. Visit `http://localhost:5173` to access the UI. The API will be available at
    `http://localhost:5000`.
 
 When the `db` service starts for the first time it runs the SQL files from the

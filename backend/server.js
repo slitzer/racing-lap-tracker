@@ -22,6 +22,7 @@ const assistRoutes = require('./routes/assists');
 const adminRoutes = require('./routes/admin');
 const { router: uploadRoutes, uploadDir } = require('./routes/uploads');
 const { seedSampleLapTimes } = require('./utils/seedSampleLapTimes');
+const waitForDb = require('./utils/waitForDb');
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
@@ -59,13 +60,17 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 
 if (process.env.NODE_ENV !== 'test') {
-  seedSampleLapTimes()
-    .catch((err) => console.error('Failed to seed sample lap times', err))
-    .finally(() => {
-      app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
-      });
+  (async () => {
+    try {
+      await waitForDb();
+      await seedSampleLapTimes();
+    } catch (err) {
+      console.error('Failed to seed sample lap times', err);
+    }
+    app.listen(PORT, () => {
+      console.log(`Server running on port ${PORT}`);
     });
+  })();
 }
 
 module.exports = app;
