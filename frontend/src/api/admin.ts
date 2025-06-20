@@ -96,7 +96,7 @@ export async function importDatabase(
   return res.data;
 }
 
-export async function getUsers(): Promise<User[]> {
+export async function getAdminUsers(): Promise<User[]> {
   const res = await apiClient.get('/admin/users');
   return res.data;
 }

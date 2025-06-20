@@ -11,7 +11,7 @@ const mockedApi = {
   verifyLapTime: jest.fn(),
   deleteLapTime: jest.fn(),
   getVersion: jest.fn(),
-  getUsers: jest.fn(),
+  getAdminUsers: jest.fn(),
   createUser: jest.fn(),
   updateUser: jest.fn(),
   deleteUser: jest.fn(),
@@ -27,7 +27,7 @@ beforeEach(() => {
   mockedApi.getTracks.mockResolvedValue([]);
   mockedApi.getLayouts.mockResolvedValue([]);
   mockedApi.getCars.mockResolvedValue([]);
-  mockedApi.getUsers.mockResolvedValue([]);
+  mockedApi.getAdminUsers.mockResolvedValue([]);
   mockedApi.getVersion.mockResolvedValue({ appVersion: 'v0.1', dbVersion: 'v1' });
 });
 
