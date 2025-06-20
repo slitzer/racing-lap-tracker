@@ -18,7 +18,6 @@ import { Game, Track, Layout, Car, Assist, LapTime } from '../types';
 import { parseTime, formatTime } from '../utils/time';
 import { getImageUrl } from '../utils';
 import { useAuth } from '../contexts/AuthContext';
-import CollapsibleSection from '../components/admin/CollapsibleSection';
 import { Button } from '../components/ui/button';
 
 const inputTypes = ['Wheel', 'Controller', 'Keyboard'];
@@ -62,7 +61,7 @@ const SubmitLapTimePage: React.FC = () => {
   const [deviceModel, setDeviceModel] = useState('');
   const [time, setTime] = useState('');
   const [timeError, setTimeError] = useState('');
-  const [lapDate, setLapDate] = useState('');
+  const [lapDate, setLapDate] = useState(() => new Date().toISOString().slice(0, 10));
   const [screenshot, setScreenshot] = useState<File | null>(null);
   const [screenshotPreview, setScreenshotPreview] = useState<string | null>(null);
   const [notes, setNotes] = useState('');
@@ -79,6 +78,7 @@ const SubmitLapTimePage: React.FC = () => {
       setScreenshotPreview(URL.createObjectURL(file));
     }
   }, []);
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, accept: { 'image/*': [] } });
 
   useEffect(() => {
@@ -100,6 +100,10 @@ const SubmitLapTimePage: React.FC = () => {
 
   useEffect(() => {
     if (gameId) {
+      setTrackId('');
+      setTrackLayoutId('');
+      setCarId('');
+      setScreenshotPreview(null);
       getTracks(gameId)
         .then(setTracks)
         .catch(() => setTracks([]));
@@ -110,7 +114,9 @@ const SubmitLapTimePage: React.FC = () => {
       setTracks([]);
       setCars([]);
       setTrackId('');
+      setTrackLayoutId('');
       setCarId('');
+      setScreenshotPreview(null);
     }
   }, [gameId]);
 
@@ -217,7 +223,7 @@ const SubmitLapTimePage: React.FC = () => {
         <PlusCircle className="h-6 w-6" />
         <h1 className="text-3xl font-bold">Submit Lap Time</h1>
       </div>
-      {/* Form rendering here, already merged */}
+      {/* Add your redesigned form layout here */}
     </div>
   );
 };
