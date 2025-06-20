@@ -62,6 +62,7 @@ development setup. It starts PostgreSQL, the backend API and the frontend app.
    downloads packages from `registry.npmjs.org`; without a network connection
    this step fails with `EAI_AGAIN`.
 6. Visit `http://localhost:5173` to access the UI. The API will be available at
+
    `http://localhost:5000`.
 
 When the `db` service starts for the first time it runs the SQL files from the
