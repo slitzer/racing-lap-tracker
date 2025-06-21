@@ -6,7 +6,9 @@ const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 const router = express.Router();
 
-const uploadDir = process.env.UPLOAD_DIR || path.join(__dirname, '..', 'uploads');
+const uploadDir =
+  process.env.UPLOAD_DIR ||
+  path.join(__dirname, '..', '..', 'frontend', 'public', 'images');
 function sanitizeFilename(name) {
   return name
     .replace(/[^a-z0-9._-]/gi, '_')
@@ -82,7 +84,7 @@ router.post('/', auth, (req, res, next) => {
         return next(err);
       }
       const prefix = folder ? `${folder}/` : '';
-      res.json({ url: `/uploads/${prefix}${req.file.filename}` });
+      res.json({ url: `/images/${prefix}${req.file.filename}` });
     });
 
   if (adminFolders.some((f) => folder.startsWith(f))) {
