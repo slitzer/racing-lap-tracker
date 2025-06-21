@@ -23,6 +23,7 @@ const adminRoutes = require('./routes/admin');
 const adminUserRoutes = require('./routes/adminUsers');
 const versionRoutes = require('./routes/version');
 const { router: uploadRoutes, uploadDir } = require('./routes/uploads');
+const { contentDir } = require('./utils/markdown');
 const { seedSampleLapTimes } = require('./utils/seedSampleLapTimes');
 const waitForDb = require('./utils/waitForDb');
 const errorHandler = require('./middleware/errorHandler');
@@ -39,6 +40,11 @@ app.use(express.urlencoded({ extended: false, limit: '5mb' }));
 fs.mkdirSync(uploadDir, { recursive: true });
 console.log(`Uploads directory: ${uploadDir}`);
 app.use('/uploads', express.static(uploadDir));
+
+// Ensure markdown content directory exists and serve static files
+fs.mkdirSync(contentDir, { recursive: true });
+console.log(`Content directory: ${contentDir}`);
+app.use('/content', express.static(contentDir));
 
 // Basic rate limiting
 const limiter = rateLimit({ windowMs: 1 * 60 * 1000, max: 100 });

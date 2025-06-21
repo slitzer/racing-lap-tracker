@@ -6,6 +6,7 @@ import { Track, Game, LapTime, Car } from '../types';
 import { getImageUrl } from '../utils';
 import { formatTime } from '../utils/time';
 import InputTypeBadge from '../components/InputTypeBadge';
+import MarkdownRenderer from '../components/MarkdownRenderer';
 
 const HomePage: React.FC = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
@@ -109,7 +110,10 @@ const HomePage: React.FC = () => {
                     )}
                   </div>
                   {t.description && (
-                    <p className="text-sm text-muted-foreground line-clamp-2">{t.description}</p>
+                    <MarkdownRenderer
+                      content={t.description}
+                      className="text-muted-foreground text-sm line-clamp-2"
+                    />
                   )}
                 </div>
               </Link>
@@ -136,7 +140,10 @@ const HomePage: React.FC = () => {
                     )}
                   </div>
                   {c.description && (
-                    <p className="text-sm text-muted-foreground line-clamp-2">{c.description}</p>
+                    <MarkdownRenderer
+                      content={c.description}
+                      className="text-muted-foreground text-sm line-clamp-2"
+                    />
                   )}
                 </div>
               </Link>

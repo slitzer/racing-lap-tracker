@@ -2,6 +2,9 @@ const express = require('express');
 const { body, validationResult } = require('express-validator');
 const db = require('../utils/database');
 const auth = require('../middleware/auth');
+const { writeMarkdown, readMarkdown, contentDir } = require('../utils/markdown');
+const fs = require('fs');
+const path = require('path');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
@@ -57,7 +60,11 @@ router.get('/', async (req, res, next) => {
        LIMIT 100`,
       params
     );
-    res.json(result.rows);
+    const laps = result.rows.map((l) => ({
+      ...l,
+      notes: readMarkdown(l.notes),
+    }));
+    res.json(laps);
   } catch (err) {
     next(err);
   }
@@ -106,7 +113,11 @@ router.get('/records', async (req, res, next) => {
        ) a ON TRUE
        ORDER BY lt.time_ms ASC`
     );
-    res.json(result.rows);
+    const laps = result.rows.map((l) => ({
+      ...l,
+      notes: readMarkdown(l.notes),
+    }));
+    res.json(laps);
   } catch (err) {
     next(err);
   }
@@ -134,12 +145,14 @@ router.post(
     const { gameId, trackLayoutId, carId, inputType, timeMs, lapDate, screenshotUrl, assists, notes } = req.body;
     try {
       const result = await db.query(
-        `INSERT INTO lap_times (user_id, game_id, track_layout_id, car_id, input_type, time_ms, lap_date, screenshot_url, notes)
-         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9)
+        `INSERT INTO lap_times (user_id, game_id, track_layout_id, car_id, input_type, time_ms, lap_date, screenshot_url)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
          RETURNING *`,
-        [req.user.id, gameId, trackLayoutId, carId, inputType, timeMs, lapDate, screenshotUrl || null, notes || null]
+        [req.user.id, gameId, trackLayoutId, carId, inputType, timeMs, lapDate, screenshotUrl || null]
       );
       const inserted = result.rows[0];
+      const mdPath = writeMarkdown('lapTimes', inserted.id, notes || '');
+      await db.query('UPDATE lap_times SET notes=$1 WHERE id=$2', [mdPath, inserted.id]);
       if (Array.isArray(assists) && assists.length > 0) {
         for (const aid of assists) {
           // eslint-disable-next-line no-await-in-loop
@@ -149,7 +162,7 @@ router.post(
           );
         }
       }
-      res.status(201).json(inserted);
+      res.status(201).json({ ...inserted, notes });
     } catch (err) {
       next(err);
     }

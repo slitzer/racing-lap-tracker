@@ -18,6 +18,7 @@ import { Game, Track, Layout, Car, Assist, LapTime } from '../types';
 import { parseTime, formatTime } from '../utils/time';
 import { getImageUrl } from '../utils';
 import { useAuth } from '../contexts/AuthContext';
+import MarkdownRenderer from '../components/MarkdownRenderer';
 import CollapsibleSection from '../components/admin/CollapsibleSection';
 import { Button } from '../components/ui/button';
 
@@ -430,9 +431,10 @@ const SubmitLapTimePage: React.FC = () => {
                   />
                 ) : null}
                 {selectedTrack?.description && (
-                  <p className="text-sm text-muted-foreground">
-                    {selectedTrack.description}
-                  </p>
+                  <MarkdownRenderer
+                    content={selectedTrack.description}
+                    className="text-muted-foreground"
+                  />
                 )}
                 {personalBestMs !== null && (
                   <div className="text-sm space-y-1">
