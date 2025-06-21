@@ -14,11 +14,29 @@ async function fetchWikipediaInfo(title) {
       imageUrl: data.thumbnail ? data.thumbnail.source : null
     };
   } catch (err) {
+    if (err.response && err.response.status === 404) {
+      // Fallback to search API when exact page is missing
+      try {
+        const searchUrl =
+          `https://en.wikipedia.org/w/api.php?action=query&list=search&srsearch=${encodeURIComponent(title)}&format=json&srlimit=1`;
+        const { data: searchData } = await axios.get(searchUrl, {
+          headers: { 'User-Agent': 'RacingLapTracker/1.0 (https://github.com/yourproject)' },
+          timeout: 10000,
+        });
+        const results = searchData?.query?.search;
+        if (Array.isArray(results) && results.length > 0) {
+          return fetchWikipediaInfo(results[0].title);
+        }
+      } catch {
+        // ignore search errors and fall back to 404 handling
+      }
+      const error = new Error('Wikipedia page not found');
+      error.status = 404;
+      throw error;
+    }
     if (err.response) {
       const status = err.response.status;
-      const error = new Error(
-        status === 404 ? 'Wikipedia page not found' : 'Failed to fetch Wikipedia info'
-      );
+      const error = new Error('Failed to fetch Wikipedia info');
       error.status = status;
       throw error;
     }
