@@ -22,9 +22,10 @@ npm run dev  # or `npm start` for production
 
 Environment variables can be configured in `backend/.env` (see `backend/.env.example`).
 
-Uploaded files are stored in the `backend/uploads` directory by default. The server
-creates this folder automatically on startup and serves its contents at `/uploads`.
-You can change the location by setting the `UPLOAD_DIR` environment variable.
+Uploaded files are stored in the `frontend/public/images` directory by default.
+The server creates this folder automatically on startup and serves its contents
+at `/uploads`. You can change the location by setting the `UPLOAD_DIR`
+environment variable.
 
 ## Frontend Setup
 
@@ -75,7 +76,7 @@ loads the records from `database/sample_lap_times.json`. This means the sample
 lap times appear automatically on a fresh installation.
 
 Database data is stored in the `db-data` volume and uploaded files are kept in
-`backend/uploads`.
+`frontend/public/images`.
 
 ## Database Setup
 
