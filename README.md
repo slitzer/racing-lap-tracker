@@ -39,6 +39,10 @@ Markdown descriptions and comments are stored under
 change this location. The backend serves files from this directory at
 `/content`.
 
+See [docs/markdown_samples.md](docs/markdown_samples.md) for examples of the
+small Markdown syntax supported by comments and descriptions on the Track, Game
+and Car pages.
+
 
 ## Frontend Setup
 
