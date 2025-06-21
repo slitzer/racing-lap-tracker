@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Timer } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getTracks, getGames, getLapTimes, getWorldRecords } from '../api';
-import { Track, Game, LapTime } from '../types';
+import { getTracks, getGames, getLapTimes, getWorldRecords, getCars } from '../api';
+import { Track, Game, LapTime, Car } from '../types';
 import { getImageUrl } from '../utils';
 import { formatTime } from '../utils/time';
 import InputTypeBadge from '../components/InputTypeBadge';
 
 const HomePage: React.FC = () => {
   const [tracks, setTracks] = useState<Track[]>([]);
+  const [displayTracks, setDisplayTracks] = useState<Track[]>([]);
   const [games, setGames] = useState<Game[]>([]);
+  const [cars, setCars] = useState<Car[]>([]);
+  const [displayCars, setDisplayCars] = useState<Car[]>([]);
   const [recent, setRecent] = useState<LapTime[]>([]);
   const [top, setTop] = useState<LapTime[]>([]);
   const [tab, setTab] = useState<'top' | 'recent'>('top');
@@ -17,12 +20,35 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     getTracks().then(setTracks).catch(() => {});
     getGames().then(setGames).catch(() => {});
+    getCars().then(setCars).catch(() => {});
     getWorldRecords().then(setTop).catch(() => {});
     getLapTimes().then((data) => {
       data.sort((a, b) => new Date(b.lapDate).getTime() - new Date(a.lapDate).getTime());
       setRecent(data.slice(0, 10));
     }).catch(() => {});
   }, []);
+
+  useEffect(() => {
+    if (tracks.length === 0) return;
+    const pick = () => {
+      const shuffled = [...tracks].sort(() => 0.5 - Math.random());
+      setDisplayTracks(shuffled.slice(0, 6));
+    };
+    pick();
+    const id = setInterval(pick, 10000);
+    return () => clearInterval(id);
+  }, [tracks]);
+
+  useEffect(() => {
+    if (cars.length === 0) return;
+    const pick = () => {
+      const shuffled = [...cars].sort(() => 0.5 - Math.random());
+      setDisplayCars(shuffled.slice(0, 6));
+    };
+    pick();
+    const id = setInterval(pick, 10000);
+    return () => clearInterval(id);
+  }, [cars]);
 
   const renderTable = (laps: LapTime[]) => (
     <div className="overflow-x-auto">
@@ -68,7 +94,7 @@ const HomePage: React.FC = () => {
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Discover Tracks</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {tracks.slice(0, 6).map((t) => {
+          {displayTracks.map((t) => {
             const game = games.find((g) => g.id === t.gameId);
             return (
               <Link key={t.id} to={`/track/${t.id}`} className="border rounded hover:shadow bg-card">
@@ -84,6 +110,33 @@ const HomePage: React.FC = () => {
                   </div>
                   {t.description && (
                     <p className="text-sm text-muted-foreground line-clamp-2">{t.description}</p>
+                  )}
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold">Discover Cars</h2>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {displayCars.map((c) => {
+            const game = games.find((g) => g.id === c.gameId);
+            return (
+              <Link key={c.id} to={`/car/${c.id}`} className="border rounded hover:shadow bg-card">
+                {c.imageUrl && (
+                  <img src={getImageUrl(c.imageUrl)} alt={c.name} className="w-full h-32 object-cover rounded-t" />
+                )}
+                <div className="p-2 space-y-1">
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-semibold">{c.name}</h3>
+                    {game && game.imageUrl && (
+                      <img src={getImageUrl(game.imageUrl)} alt={game.name} className="h-5 w-8 object-cover rounded" />
+                    )}
+                  </div>
+                  {c.description && (
+                    <p className="text-sm text-muted-foreground line-clamp-2">{c.description}</p>
                   )}
                 </div>
               </Link>
