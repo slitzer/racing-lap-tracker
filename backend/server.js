@@ -35,9 +35,9 @@ app.use(compression());
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: false, limit: '5mb' }));
 
-// Ensure image upload directory exists and serve static files
+// Ensure uploads directory exists and serve static files
 fs.mkdirSync(uploadDir, { recursive: true });
-app.use('/images', express.static(uploadDir));
+app.use('/uploads', express.static(uploadDir));
 
 // Basic rate limiting
 const limiter = rateLimit({ windowMs: 1 * 60 * 1000, max: 100 });
