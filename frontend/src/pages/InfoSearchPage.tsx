@@ -37,7 +37,7 @@ const InfoSearchPage: React.FC = () => {
   const handleSave = async () => {
     if (!result) return;
     if (type === 'game') {
-      await createGame({ name: result.title, imageUrl: result.imageUrl, description: result.description });
+      await createGame({ name: result.title, imageUrl: result.imageUrl });
     } else if (type === 'track') {
       if (!gameId) return;
       await createTrack({ gameId, name: result.title, imageUrl: result.imageUrl, description: result.description });
