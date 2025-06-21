@@ -13,11 +13,11 @@ describe('User routes', () => {
   });
 
   it('updates profile', async () => {
-    db.query.mockResolvedValue({ rows: [{ id: 'u1', username: 'test', email: 'a@b.c', is_admin: false, avatar_url: '/images/a.jpg' }] });
-    const res = await request(app).put('/api/users/me').send({ avatarUrl: '/images/a.jpg' });
+    db.query.mockResolvedValue({ rows: [{ id: 'u1', username: 'test', email: 'a@b.c', is_admin: false, avatar_url: '/uploads/a.jpg' }] });
+    const res = await request(app).put('/api/users/me').send({ avatarUrl: '/uploads/a.jpg' });
     expect(res.status).toBe(200);
     expect(db.query).toHaveBeenCalled();
-    expect(res.body.avatar_url).toBe('/images/a.jpg');
+    expect(res.body.avatar_url).toBe('/uploads/a.jpg');
   });
 
   it('returns user stats', async () => {
