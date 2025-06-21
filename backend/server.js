@@ -37,6 +37,7 @@ app.use(express.urlencoded({ extended: false, limit: '5mb' }));
 
 // Ensure uploads directory exists and serve static files
 fs.mkdirSync(uploadDir, { recursive: true });
+console.log(`Uploads directory: ${uploadDir}`);
 app.use('/uploads', express.static(uploadDir));
 
 // Basic rate limiting
