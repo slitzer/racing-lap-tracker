@@ -27,4 +27,13 @@ describe('Admin search route', () => {
     const res = await request(app).get('/api/admin/search');
     expect(res.status).toBe(400);
   });
+
+  it('handles not found error from Wikipedia', async () => {
+    const err = new Error('Wikipedia page not found');
+    err.status = 404;
+    fetchWikipediaInfo.mockRejectedValue(err);
+    const res = await request(app).get('/api/admin/search?title=Unknown');
+    expect(res.status).toBe(404);
+    expect(res.body.message).toBe('Wikipedia page not found');
+  });
 });
