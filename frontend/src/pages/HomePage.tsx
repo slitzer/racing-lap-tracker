@@ -31,24 +31,14 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     if (tracks.length === 0) return;
-    const pick = () => {
-      const shuffled = [...tracks].sort(() => 0.5 - Math.random());
-      setDisplayTracks(shuffled.slice(0, 6));
-    };
-    pick();
-    const id = setInterval(pick, 10000);
-    return () => clearInterval(id);
+    const shuffled = [...tracks].sort(() => 0.5 - Math.random());
+    setDisplayTracks(shuffled.slice(0, 4));
   }, [tracks]);
 
   useEffect(() => {
     if (cars.length === 0) return;
-    const pick = () => {
-      const shuffled = [...cars].sort(() => 0.5 - Math.random());
-      setDisplayCars(shuffled.slice(0, 6));
-    };
-    pick();
-    const id = setInterval(pick, 10000);
-    return () => clearInterval(id);
+    const shuffled = [...cars].sort(() => 0.5 - Math.random());
+    setDisplayCars(shuffled.slice(0, 4));
   }, [cars]);
 
   const renderTable = (laps: LapTime[]) => (
@@ -92,65 +82,67 @@ const HomePage: React.FC = () => {
         <p className="text-muted-foreground">Track your fastest laps and compete with other drivers.</p>
       </div>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Discover Tracks</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {displayTracks.map((t) => {
-            const game = games.find((g) => g.id === t.gameId);
-            return (
-              <Link key={t.id} to={`/track/${t.id}`} className="border rounded hover:shadow bg-card">
-                {t.imageUrl && (
-                  <img src={getImageUrl(t.imageUrl)} alt={t.name} className="w-full h-32 object-cover rounded-t" />
-                )}
-                <div className="p-2 space-y-1">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-semibold">{t.name}</h3>
-                    {game && game.imageUrl && (
-                      <img src={getImageUrl(game.imageUrl)} alt={game.name} className="h-5 w-8 object-cover rounded" />
+      <div className="grid gap-8 md:grid-cols-2">
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold">Discover Tracks</h2>
+          <div className="grid gap-4 grid-cols-2">
+            {displayTracks.map((t) => {
+              const game = games.find((g) => g.id === t.gameId);
+              return (
+                <Link key={t.id} to={`/track/${t.id}`} className="border rounded hover:shadow bg-card">
+                  {t.imageUrl && (
+                    <img src={getImageUrl(t.imageUrl)} alt={t.name} className="w-full h-32 object-cover rounded-t" />
+                  )}
+                  <div className="p-2 space-y-1">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-semibold">{t.name}</h3>
+                      {game && game.imageUrl && (
+                        <img src={getImageUrl(game.imageUrl)} alt={game.name} className="h-5 w-8 object-cover rounded" />
+                      )}
+                    </div>
+                    {t.description && (
+                      <MarkdownRenderer
+                        content={t.description}
+                        className="text-muted-foreground text-sm line-clamp-2"
+                      />
                     )}
                   </div>
-                  {t.description && (
-                    <MarkdownRenderer
-                      content={t.description}
-                      className="text-muted-foreground text-sm line-clamp-2"
-                    />
-                  )}
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold">Discover Cars</h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {displayCars.map((c) => {
-            const game = games.find((g) => g.id === c.gameId);
-            return (
-              <Link key={c.id} to={`/car/${c.id}`} className="border rounded hover:shadow bg-card">
-                {c.imageUrl && (
-                  <img src={getImageUrl(c.imageUrl)} alt={c.name} className="w-full h-32 object-cover rounded-t" />
-                )}
-                <div className="p-2 space-y-1">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-semibold">{c.name}</h3>
-                    {game && game.imageUrl && (
-                      <img src={getImageUrl(game.imageUrl)} alt={game.name} className="h-5 w-8 object-cover rounded" />
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold">Discover Cars</h2>
+          <div className="grid gap-4 grid-cols-2">
+            {displayCars.map((c) => {
+              const game = games.find((g) => g.id === c.gameId);
+              return (
+                <Link key={c.id} to={`/car/${c.id}`} className="border rounded hover:shadow bg-card">
+                  {c.imageUrl && (
+                    <img src={getImageUrl(c.imageUrl)} alt={c.name} className="w-full h-32 object-cover rounded-t" />
+                  )}
+                  <div className="p-2 space-y-1">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-semibold">{c.name}</h3>
+                      {game && game.imageUrl && (
+                        <img src={getImageUrl(game.imageUrl)} alt={game.name} className="h-5 w-8 object-cover rounded" />
+                      )}
+                    </div>
+                    {c.description && (
+                      <MarkdownRenderer
+                        content={c.description}
+                        className="text-muted-foreground text-sm line-clamp-2"
+                      />
                     )}
                   </div>
-                  {c.description && (
-                    <MarkdownRenderer
-                      content={c.description}
-                      className="text-muted-foreground text-sm line-clamp-2"
-                    />
-                  )}
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
+                </Link>
+              );
+            })}
+          </div>
+        </section>
+      </div>
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold">Lap Records</h2>
