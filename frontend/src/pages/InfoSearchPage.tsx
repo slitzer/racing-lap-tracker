@@ -9,7 +9,9 @@ import {
   createCar,
   getGames,
   getTracks,
+  uploadFile,
 } from '../api';
+import { slugify } from '../utils';
 import { Button } from '../components/ui/button';
 
 const InfoSearchPage: React.FC = () => {
@@ -36,17 +38,40 @@ const InfoSearchPage: React.FC = () => {
 
   const handleSave = async () => {
     if (!result) return;
+    let imageUrl: string | undefined = result.imageUrl || undefined;
+    if (result.imageUrl) {
+      try {
+        const resp = await fetch(result.imageUrl);
+        const blob = await resp.blob();
+        const extMatch = /\.([a-z0-9]+)(?:$|\?)/i.exec(result.imageUrl);
+        const ext = extMatch ? `.${extMatch[1]}` : '.jpg';
+        const filename = `${slugify(result.title)}-${Date.now()}${ext}`;
+        const file = new File([blob], filename, { type: blob.type || 'image/jpeg' });
+        const folder =
+          type === 'game'
+            ? 'images/games'
+            : type === 'track'
+            ? 'images/tracks'
+            : type === 'layout'
+            ? 'images/layouts'
+            : 'images/cars';
+        const upload = await uploadFile(file, folder, filename);
+        imageUrl = upload.url;
+      } catch {
+        // ignore and fall back to original URL
+      }
+    }
     if (type === 'game') {
-      await createGame({ name: result.title, imageUrl: result.imageUrl });
+      await createGame({ name: result.title, imageUrl });
     } else if (type === 'track') {
       if (!gameId) return;
-      await createTrack({ gameId, name: result.title, imageUrl: result.imageUrl, description: result.description });
+      await createTrack({ gameId, name: result.title, imageUrl, description: result.description });
     } else if (type === 'layout') {
       if (!trackId) return;
-      await createLayout({ trackId, name: result.title, imageUrl: result.imageUrl });
+      await createLayout({ trackId, name: result.title, imageUrl });
     } else if (type === 'car') {
       if (!gameId) return;
-      await createCar({ gameId, name: result.title, imageUrl: result.imageUrl, description: result.description });
+      await createCar({ gameId, name: result.title, imageUrl, description: result.description });
     }
     setMessage('Saved');
   };
