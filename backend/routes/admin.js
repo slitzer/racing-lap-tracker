@@ -91,8 +91,8 @@ router.get('/images', auth, admin, async (req, res, next) => {
     return res.status(400).json({ message: 'q query required' });
   }
   try {
-    const { image_search } = await import('duckduckgo-images-api');
-    const results = await image_search({ query: q, moderate: true, iterations: 1 });
+    const { imageSearch } = await import('@mudbill/duckduckgo-images-api');
+    const results = await imageSearch({ query: q, safe: true, iterations: 1 });
     const images = results.slice(0, 4).map((r) => r.image);
     res.json({ images });
   } catch (err) {
