@@ -1,23 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getCars, getLapTimes, getWorldRecords } from '../api';
+import { getCars, getLapTimes, getWorldRecords, updateCar, uploadFile } from '../api';
 import { Car, LapTime } from '../types';
-import { getImageUrl } from '../utils';
+import { getImageUrl, slugify } from '../utils';
 import { formatTime } from '../utils/time';
 import InputTypeBadge from '../components/InputTypeBadge';
 import MarkdownRenderer from '../components/MarkdownRenderer';
+import { useAuth } from '../contexts/AuthContext';
 
 const CarDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const { user } = useAuth();
   const [car, setCar] = useState<Car | null>(null);
   const [recent, setRecent] = useState<LapTime[]>([]);
   const [top, setTop] = useState<LapTime[]>([]);
   const [tab, setTab] = useState<'top' | 'recent'>('top');
+  const [editing, setEditing] = useState(false);
+  const [name, setName] = useState('');
+  const [description, setDescription] = useState('');
+  const [imageFile, setImageFile] = useState<File | null>(null);
 
   useEffect(() => {
     if (!id) return;
     getCars()
-      .then((data) => setCar(data.find((c) => c.id === id) || null))
+      .then((data) => {
+        const c = data.find((car) => car.id === id) || null;
+        setCar(c);
+        if (c) {
+          setName(c.name);
+          setDescription(c.description || '');
+        }
+      })
       .catch(() => {});
     getWorldRecords()
       .then((data) => setTop(data.filter((l) => l.carId === id)))
@@ -65,6 +78,38 @@ const CarDetailPage: React.FC = () => {
     </div>
   );
 
+  const handleSave = async () => {
+    if (!car) return;
+    let imageUrl: string | undefined = car.imageUrl || undefined;
+    if (imageFile) {
+      const ext = imageFile.name.substring(imageFile.name.lastIndexOf('.'));
+      const filename = `${slugify(name)}-${Date.now()}${ext}`;
+      try {
+        const res = await uploadFile(imageFile, 'images/cars', filename);
+        imageUrl = res.url;
+      } catch {
+        imageUrl = car.imageUrl || undefined;
+      }
+    }
+    const updated = await updateCar(car.id, {
+      gameId: car.gameId,
+      name,
+      imageUrl,
+      description,
+    });
+    setCar(updated);
+    setEditing(false);
+    setImageFile(null);
+  };
+
+  const handleCancel = () => {
+    if (!car) return;
+    setName(car.name);
+    setDescription(car.description || '');
+    setImageFile(null);
+    setEditing(false);
+  };
+
   return (
     <div className="container mx-auto py-6 space-y-6">
       <div className="text-center space-y-2">
@@ -72,8 +117,55 @@ const CarDetailPage: React.FC = () => {
         {car.imageUrl && (
           <img src={getImageUrl(car.imageUrl)} alt={car.name} className="mx-auto max-w-lg rounded" />
         )}
-        {car.description && (
+        {car.description && !editing && (
           <MarkdownRenderer content={car.description} className="text-muted-foreground" />
+        )}
+        {user?.isAdmin && !editing && (
+          <button
+            className="text-sm underline text-primary"
+            onClick={() => setEditing(true)}
+          >
+            Edit
+          </button>
+        )}
+        {editing && (
+          <div className="space-y-2">
+            <div className="space-y-1">
+              <label className="block text-sm font-medium">Name</label>
+              <input
+                className="w-full rounded border px-3 py-2"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="space-y-1">
+              <label className="block text-sm font-medium">Description</label>
+              <textarea
+                className="w-full rounded border px-3 py-2"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+            <div className="space-y-1">
+              <label className="block text-sm font-medium">Image</label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setImageFile(e.target.files?.[0] || null)}
+              />
+            </div>
+            <div className="flex space-x-2">
+              <button
+                className="px-4 py-2 rounded bg-primary text-primary-foreground"
+                onClick={handleSave}
+              >
+                Save
+              </button>
+              <button className="px-4 py-2 rounded border" onClick={handleCancel}>
+                Cancel
+              </button>
+            </div>
+          </div>
         )}
       </div>
       <div className="space-y-4">
