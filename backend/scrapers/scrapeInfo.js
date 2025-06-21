@@ -2,16 +2,28 @@ const axios = require('axios');
 
 async function fetchWikipediaInfo(title) {
   const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(title)}`;
-  const { data } = await axios.get(url, {
-    headers: { 'User-Agent': 'RacingLapTracker/1.0 (https://github.com/yourproject)' },
-    maxRedirects: 5,
-    timeout: 10000
-  });
-  return {
-    title: data.title,
-    description: data.extract,
-    imageUrl: data.thumbnail ? data.thumbnail.source : null
-  };
+  try {
+    const { data } = await axios.get(url, {
+      headers: { 'User-Agent': 'RacingLapTracker/1.0 (https://github.com/yourproject)' },
+      maxRedirects: 5,
+      timeout: 10000
+    });
+    return {
+      title: data.title,
+      description: data.extract,
+      imageUrl: data.thumbnail ? data.thumbnail.source : null
+    };
+  } catch (err) {
+    if (err.response) {
+      const status = err.response.status;
+      const error = new Error(
+        status === 404 ? 'Wikipedia page not found' : 'Failed to fetch Wikipedia info'
+      );
+      error.status = status;
+      throw error;
+    }
+    throw err;
+  }
 }
 
 async function main() {
