@@ -202,7 +202,7 @@ const SubmitLapTimePage: React.FC = () => {
     try {
       let screenshotUrl: string | undefined;
       if (screenshot) {
-        const res = await uploadFile(screenshot);
+        const res = await uploadFile(screenshot, 'images');
         screenshotUrl = res.url;
       }
       const combinedNotes = deviceModel
