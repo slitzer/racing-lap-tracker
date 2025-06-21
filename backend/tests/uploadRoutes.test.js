@@ -43,7 +43,7 @@ describe('Upload routes', () => {
       .attach('file', pngBuffer, 'test.png');
 
     expect(res.status).toBe(200);
-    expect(res.body.url).toMatch(/^\/uploads\/.*\.png$/);
+    expect(res.body.url).toMatch(/^\/images\/.*\.png$/);
 
     const storedPath = path.join(tmpDir, path.basename(res.body.url));
     expect(fs.existsSync(storedPath)).toBe(true);
@@ -60,7 +60,7 @@ describe('Upload routes', () => {
       .attach('file', pngBuffer, { filename: 'test.png', contentType: 'image/x-png' });
 
     expect(res.status).toBe(200);
-    expect(res.body.url).toMatch(/^\/uploads\/.*\.png$/);
+    expect(res.body.url).toMatch(/^\/images\/.*\.png$/);
 
     const storedPath = path.join(tmpDir, path.basename(res.body.url));
     expect(fs.existsSync(storedPath)).toBe(true);
