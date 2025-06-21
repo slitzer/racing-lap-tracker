@@ -26,7 +26,7 @@ Environment variables can be configured in `backend/.env` (see
 Uploaded files are stored in the `frontend/public/images` directory. The server
 creates this folder automatically on startup and serves its contents at
 `/uploads`. Both `.env.example` and `docker-compose.yml` set
-`UPLOAD_DIR=../frontend/public/images` so the backend writes directly to the
+`UPLOAD_DIR=../frontend/public` so the backend writes directly to the
 
 frontend's image folder. The path is resolved to an absolute location on start
 and printed to the console. You may point `UPLOAD_DIR` elsewhere if desired,
