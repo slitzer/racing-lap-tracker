@@ -35,10 +35,10 @@ describe('Lap time routes', () => {
   });
 
   it('lists world records', async () => {
-    db.query.mockResolvedValue({ rows: [{ id: 'r1' }] });
+    db.query.mockResolvedValue({ rows: [{ id: 'r1', notes: null }] });
     const res = await request(app).get('/api/lapTimes/records');
     expect(res.status).toBe(200);
-    expect(res.body).toEqual([{ id: 'r1' }]);
+    expect(res.body).toEqual([{ id: 'r1', notes: null }]);
     expect(db.query).toHaveBeenCalled();
   });
 

@@ -3,6 +3,9 @@ const db = require('../utils/database');
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 const { body, validationResult } = require('express-validator');
+const { writeMarkdown, readMarkdown, contentDir } = require('../utils/markdown');
+const fs = require('fs');
+const path = require('path');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
@@ -19,7 +22,11 @@ router.get('/', async (req, res, next) => {
         'SELECT id, game_id AS "gameId", name, image_url AS "imageUrl", description FROM tracks ORDER BY name'
       );
     }
-    res.json(result.rows);
+    const tracks = result.rows.map((t) => ({
+      ...t,
+      description: readMarkdown(t.description),
+    }));
+    res.json(tracks);
   } catch (err) {
     next(err);
   }
@@ -43,10 +50,13 @@ router.post(
     const { gameId, name, imageUrl, description } = req.body;
     try {
       const result = await db.query(
-        'INSERT INTO tracks (game_id, name, image_url, description) VALUES ($1,$2,$3,$4) RETURNING id, game_id AS "gameId", name, image_url AS "imageUrl", description',
-        [gameId, name, imageUrl || null, description || null]
+        'INSERT INTO tracks (game_id, name, image_url) VALUES ($1,$2,$3) RETURNING id, game_id AS "gameId", name, image_url AS "imageUrl"',
+        [gameId, name, imageUrl || null]
       );
-      res.status(201).json(result.rows[0]);
+      const t = result.rows[0];
+      const mdPath = writeMarkdown('tracks', t.id, description || '');
+      await db.query('UPDATE tracks SET description=$1 WHERE id=$2', [mdPath, t.id]);
+      res.status(201).json({ ...t, description });
     } catch (err) {
       next(err);
     }
@@ -70,14 +80,15 @@ router.put(
     }
     const { gameId, name, imageUrl, description } = req.body;
     try {
+      const mdPath = writeMarkdown('tracks', id, description || '');
       const result = await db.query(
         'UPDATE tracks SET game_id=$1, name=$2, image_url=$3, description=$4 WHERE id=$5 RETURNING id, game_id AS "gameId", name, image_url AS "imageUrl", description',
-        [gameId, name, imageUrl || null, description || null, id]
+        [gameId, name, imageUrl || null, mdPath, id]
       );
       if (result.rows.length === 0) {
         return res.status(404).json({ message: 'Track not found' });
       }
-      res.json(result.rows[0]);
+      res.json({ ...result.rows[0], description });
     } catch (err) {
       next(err);
     }
@@ -94,7 +105,9 @@ router.delete('/:id', auth, admin, async (req, res, next) => {
     if (result.rows.length === 0) {
       return res.status(404).json({ message: 'Track not found' });
     }
-    res.json(result.rows[0]);
+    const mdPath = result.rows[0].description;
+    if (mdPath) fs.rmSync(path.join(contentDir, mdPath), { force: true });
+    res.json({ ...result.rows[0], description: readMarkdown(mdPath) });
   } catch (err) {
     next(err);
   }
