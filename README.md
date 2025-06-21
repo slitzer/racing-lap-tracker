@@ -20,12 +20,14 @@ npm install
 npm run dev  # or `npm start` for production
 ```
 
-Environment variables can be configured in `backend/.env` (see `backend/.env.example`).
+Environment variables can be configured in `backend/.env` (see
+`backend/.env.example`).
 
-Uploaded files are stored in the `frontend/public/images` directory by default.
-The server creates this folder automatically on startup and serves its contents
-at `/uploads`. You can change the location by setting the `UPLOAD_DIR`
-environment variable.
+Uploaded files are stored in the `frontend/public/images` directory. The server
+creates this folder automatically on startup and serves its contents at
+`/uploads`. Both `.env.example` and `docker-compose.yml` set
+`UPLOAD_DIR=../frontend/public/images` so the backend writes directly to the
+frontend's image folder. You may point `UPLOAD_DIR` elsewhere if desired.
 
 ## Frontend Setup
 
@@ -76,7 +78,8 @@ loads the records from `database/sample_lap_times.json`. This means the sample
 lap times appear automatically on a fresh installation.
 
 Database data is stored in the `db-data` volume and uploaded files are kept in
-`frontend/public/images`.
+`frontend/public/images`, which is mounted into both the backend and frontend
+containers.
 
 ## Database Setup
 
