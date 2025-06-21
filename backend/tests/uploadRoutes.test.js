@@ -27,7 +27,7 @@ afterAll(() => {
 
 beforeEach(() => {
   for (const file of fs.readdirSync(tmpDir)) {
-    fs.rmSync(path.join(tmpDir, file));
+    fs.rmSync(path.join(tmpDir, file), { recursive: true, force: true });
   }
 });
 
@@ -63,6 +63,23 @@ describe('Upload routes', () => {
     expect(res.body.url).toMatch(/^\/uploads\/.*\.png$/);
 
     const storedPath = path.join(tmpDir, path.basename(res.body.url));
+    expect(fs.existsSync(storedPath)).toBe(true);
+  });
+
+  it('uploads image to images folder without uploads prefix', async () => {
+    const pngBuffer = Buffer.from(
+      '89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4890000000a49444154789c6360000002000100057ff2d80000000049454e44ae426082',
+      'hex'
+    );
+
+    const res = await request(app)
+      .post('/api/uploads?folder=images/cars')
+      .attach('file', pngBuffer, 'car.png');
+
+    expect(res.status).toBe(200);
+    expect(res.body.url).toMatch(/^\/images\/cars\/.*\.png$/);
+
+    const storedPath = path.join(tmpDir, 'images', 'cars', path.basename(res.body.url));
     expect(fs.existsSync(storedPath)).toBe(true);
   });
 

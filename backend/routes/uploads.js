@@ -85,7 +85,8 @@ router.post('/', auth, (req, res, next) => {
         return next(err);
       }
       const prefix = folder ? `${folder}/` : '';
-      res.json({ url: `/uploads/${prefix}${req.file.filename}` });
+      const base = folder.startsWith('images') ? '/' : '/uploads/';
+      res.json({ url: `${base}${prefix}${req.file.filename}` });
     });
 
   if (adminFolders.some((f) => folder.startsWith(f))) {
