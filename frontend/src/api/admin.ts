@@ -120,3 +120,8 @@ export async function searchInfo(title: string) {
   const res = await apiClient.get('/admin/search', { params: { title } });
   return res.data as { title: string; description: string; imageUrl: string | null };
 }
+
+export async function searchImages(query: string) {
+  const res = await apiClient.get('/admin/images', { params: { q: query } });
+  return res.data as { images: string[] };
+}

@@ -6,12 +6,19 @@ import * as api from '../api';
 
 jest.mock('../api', () => ({
   searchInfo: jest.fn(),
+  searchImages: jest.fn(),
   createGame: jest.fn(),
   createTrack: jest.fn(),
   createLayout: jest.fn(),
   createCar: jest.fn(),
+  updateGame: jest.fn(),
+  updateTrack: jest.fn(),
+  updateLayout: jest.fn(),
+  updateCar: jest.fn(),
   getGames: jest.fn(),
   getTracks: jest.fn(),
+  getLayouts: jest.fn(),
+  getCars: jest.fn(),
   uploadFile: jest.fn(),
 }));
 
@@ -19,8 +26,11 @@ const mockedApi = api as jest.Mocked<typeof api>;
 
 beforeEach(() => {
   mockedApi.searchInfo.mockResolvedValue({ title: 'Monza', description: 'd', imageUrl: '/img' });
+  mockedApi.searchImages.mockResolvedValue({ images: ['/img'] });
   mockedApi.getGames.mockResolvedValue([]);
   mockedApi.getTracks.mockResolvedValue([]);
+  mockedApi.getLayouts.mockResolvedValue([]);
+  mockedApi.getCars.mockResolvedValue([]);
   mockedApi.uploadFile.mockResolvedValue({ url: '/local/img.jpg' });
   global.fetch = jest.fn().mockResolvedValue({
     blob: () => Promise.resolve(new Blob(['img'], { type: 'image/jpeg' })),
