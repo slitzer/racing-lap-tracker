@@ -4,6 +4,7 @@ import { formatTime } from '../utils/time';
 import { getImageUrl } from '../utils';
 import AssistTags from './AssistTags';
 import InputTypeBadge from './InputTypeBadge';
+import MarkdownRenderer from './MarkdownRenderer';
 
 interface LapTimePopupProps {
   lap: LapTime;
@@ -111,7 +112,7 @@ const LapTimePopup: React.FC<LapTimePopupProps> = ({ lap }) => {
       {lap.notes && (
         <div>
           <h3 className="text-sm font-semibold mb-1">Comments</h3>
-          <p className="text-sm whitespace-pre-line">{lap.notes}</p>
+          <MarkdownRenderer content={lap.notes} className="text-sm" />
         </div>
       )}
     </div>

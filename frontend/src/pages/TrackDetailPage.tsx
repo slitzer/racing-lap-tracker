@@ -6,6 +6,7 @@ import { getImageUrl, slugify } from '../utils';
 import { formatTime } from '../utils/time';
 import InputTypeBadge from '../components/InputTypeBadge';
 import { useAuth } from '../contexts/AuthContext';
+import MarkdownRenderer from '../components/MarkdownRenderer';
 
 interface LayoutWithTL extends Layout {
   trackLayoutId?: string;
@@ -107,7 +108,7 @@ const TrackDetailPage: React.FC = () => {
           />
         )}
         {track.description && !editing && (
-          <p className="text-muted-foreground text-sm">{track.description}</p>
+          <MarkdownRenderer content={track.description} className="text-muted-foreground" />
         )}
         {user?.isAdmin && !editing && (
           <button

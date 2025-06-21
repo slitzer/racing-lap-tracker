@@ -5,6 +5,7 @@ import { Car, LapTime } from '../types';
 import { getImageUrl } from '../utils';
 import { formatTime } from '../utils/time';
 import InputTypeBadge from '../components/InputTypeBadge';
+import MarkdownRenderer from '../components/MarkdownRenderer';
 
 const CarDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -71,7 +72,9 @@ const CarDetailPage: React.FC = () => {
         {car.imageUrl && (
           <img src={getImageUrl(car.imageUrl)} alt={car.name} className="mx-auto max-w-lg rounded" />
         )}
-        {car.description && <p className="text-muted-foreground text-sm">{car.description}</p>}
+        {car.description && (
+          <MarkdownRenderer content={car.description} className="text-muted-foreground" />
+        )}
       </div>
       <div className="space-y-4">
         <div className="flex justify-center">
