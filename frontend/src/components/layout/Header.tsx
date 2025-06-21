@@ -7,9 +7,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { 
   Timer,
   PlusCircle, 
-  User, 
-  Settings, 
-  LogOut, 
+  User,
+  Settings,
+  Search,
+  LogOut,
   Menu,
   Moon,
   Sun
@@ -119,6 +120,14 @@ const Header: React.FC = () => {
                     <Link to="/admin" className="cursor-pointer">
                       <Settings className="mr-2 h-4 w-4" />
                       <span>Admin</span>
+                    </Link>
+                  </DropdownMenuItem>
+                )}
+                {user.isAdmin && (
+                  <DropdownMenuItem asChild>
+                    <Link to="/admin/search" className="cursor-pointer">
+                      <Search className="mr-2 h-4 w-4" />
+                      <span>Info Search</span>
                     </Link>
                   </DropdownMenuItem>
                 )}

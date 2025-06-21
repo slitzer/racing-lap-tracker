@@ -18,6 +18,7 @@ import ProfilePage from './pages/ProfilePage';
 import LapTimesPage from './pages/LapTimesPage';
 import SubmitLapTimePage from './pages/SubmitLapTimePage';
 import AdminPage from './pages/AdminPage';
+import InfoSearchPage from './pages/InfoSearchPage';
 import TrackDetailPage from './pages/TrackDetailPage';
 import CarDetailPage from './pages/CarDetailPage';
 import './App.css';
@@ -64,13 +65,21 @@ function App() {
                       </ProtectedRoute>
                     } 
                   />
-                  <Route 
-                    path="/admin" 
+                  <Route
+                    path="/admin"
                     element={
                       <ProtectedRoute requireAdmin>
                         <AdminPage />
                       </ProtectedRoute>
-                    } 
+                    }
+                  />
+                  <Route
+                    path="/admin/search"
+                    element={
+                      <ProtectedRoute requireAdmin>
+                        <InfoSearchPage />
+                      </ProtectedRoute>
+                    }
                   />
                 </Route>
                 

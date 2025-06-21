@@ -341,15 +341,46 @@ const AdminPage: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto py-6 flex">
-      <aside className="w-56 pr-4 border-r space-y-6">
-        <div>
-          <h3 className="mb-2 text-sm font-semibold uppercase">General</h3>
-          <nav className="space-y-1">
-            <button type="button" onClick={() => setActiveSection('appearance')} className={navClass('appearance')}>
-              Appearance
-            </button>
-          </nav>
+<div className="container mx-auto py-6 flex">
+  <aside className="w-56 pr-4 border-r space-y-6">
+    <div>
+      <h3 className="mb-2 text-sm font-semibold uppercase">General</h3>
+      <nav className="space-y-1">
+        <button type="button" onClick={() => setActiveSection('appearance')} className={navClass('appearance')}>
+          Appearance
+        </button>
+      </nav>
+    </div>
+  </aside>
+
+  <div className="container mx-auto py-6 space-y-8">
+    <Settings className="h-6 w-6" />
+    <h1 className="text-3xl font-bold">Admin</h1>
+    <Link to="/admin/search" className="underline text-sm ml-2">
+      Info Search
+    </Link>
+
+    <section>
+      <h2 className="text-xl font-semibold mb-2">Database Tools</h2>
+      <div className="flex items-center space-x-2 mb-4">
+        <Button size="sm" onClick={handleExportDb}>Export</Button>
+        <input
+          type="file"
+          accept="application/json"
+          onChange={(e) => {
+            setImportFile(e.target.files?.[0] || null);
+            setImportProgress(0);
+            setLogs([]);
+          }}
+        />
+        <Button size="sm" onClick={handleImportDb} disabled={!importFile}>
+          Import
+        </Button>
+      </div>
+    </section>
+  </div>
+</div>
+
         </div>
         <div>
           <h3 className="mb-2 text-sm font-semibold uppercase flex items-center gap-1">
