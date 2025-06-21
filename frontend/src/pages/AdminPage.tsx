@@ -339,6 +339,9 @@ const AdminPage: React.FC = () => {
       <div className="flex items-center space-x-2 mb-4">
         <Settings className="h-6 w-6" />
         <h1 className="text-3xl font-bold">Admin</h1>
+        <Link to="/admin/search" className="underline text-sm ml-2">
+          Info Search
+        </Link>
       </div>
 
       <section>

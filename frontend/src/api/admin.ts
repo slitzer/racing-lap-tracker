@@ -115,3 +115,8 @@ export async function deleteUser(id: string, keepTimes?: boolean): Promise<any> 
   const res = await apiClient.delete(`/admin/users/${id}`, { params: { keepTimes } });
   return res.data;
 }
+
+export async function searchInfo(title: string) {
+  const res = await apiClient.get('/admin/search', { params: { title } });
+  return res.data as { title: string; description: string; imageUrl: string | null };
+}

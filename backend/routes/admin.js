@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('../utils/database');
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
+const { fetchWikipediaInfo } = require('../scrapers/scrapeInfo');
 
 const router = express.Router();
 
@@ -65,6 +66,19 @@ router.delete('/lapTimes/:id', auth, admin, async (req, res, next) => {
       return res.status(404).json({ message: 'Lap time not found' });
     }
     res.json(result.rows[0]);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.get('/search', auth, admin, async (req, res, next) => {
+  const { title } = req.query;
+  if (!title) {
+    return res.status(400).json({ message: 'title query required' });
+  }
+  try {
+    const info = await fetchWikipediaInfo(title);
+    res.json(info);
   } catch (err) {
     next(err);
   }

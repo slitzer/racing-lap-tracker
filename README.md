@@ -113,6 +113,23 @@ npm test      # from ./backend
 pnpm test     # from ./frontend
 ```
 
+## Scraper Script
+
+The backend includes a small utility that can fetch track or car information
+from Wikipedia. Use it to quickly populate images and descriptions:
+
+```bash
+node backend/scrapers/scrapeInfo.js "Monza" "Ferrari 488 GT3"
+```
+
+The script outputs JSON containing the page title, short description and a
+thumbnail image URL for each term. Provide any number of Wikipedia page titles
+as arguments.
+
+The Admin interface includes a new **Info Search** page that uses this scraper.
+Admins can search Wikipedia for a game, track, layout or car and save the
+resulting title, description and thumbnail directly to the database.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
