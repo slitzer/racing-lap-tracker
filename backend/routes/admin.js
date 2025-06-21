@@ -84,6 +84,22 @@ router.get('/search', auth, admin, async (req, res, next) => {
   }
 });
 
+// Return a few image options using DuckDuckGo image search
+router.get('/images', auth, admin, async (req, res, next) => {
+  const { q } = req.query;
+  if (!q) {
+    return res.status(400).json({ message: 'q query required' });
+  }
+  try {
+    const { image_search } = await import('duckduckgo-images-api');
+    const results = await image_search({ query: q, moderate: true, iterations: 1 });
+    const images = results.slice(0, 4).map((r) => r.image);
+    res.json({ images });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get('/export', auth, admin, async (req, res, next) => {
   try {
     const tables = [

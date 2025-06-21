@@ -3,12 +3,19 @@ import { Search, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import {
   searchInfo,
+  searchImages,
   createGame,
   createTrack,
   createLayout,
   createCar,
+  updateGame,
+  updateTrack,
+  updateLayout,
+  updateCar,
   getGames,
   getTracks,
+  getLayouts,
+  getCars,
   uploadFile,
 } from '../api';
 import { slugify } from '../utils';
@@ -20,32 +27,50 @@ const InfoSearchPage: React.FC = () => {
   const [type, setType] = useState<'game' | 'track' | 'layout' | 'car'>('game');
   const [games, setGames] = useState<any[]>([]);
   const [tracks, setTracks] = useState<any[]>([]);
+  const [layouts, setLayouts] = useState<any[]>([]);
+  const [cars, setCars] = useState<any[]>([]);
   const [gameId, setGameId] = useState('');
   const [trackId, setTrackId] = useState('');
   const [message, setMessage] = useState('');
+  const [images, setImages] = useState<string[]>([]);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [addAsNew, setAddAsNew] = useState(true);
+  const [existingId, setExistingId] = useState('');
+  const [name, setName] = useState('');
 
   useEffect(() => {
     getGames().then(setGames).catch(() => {});
     getTracks().then(setTracks).catch(() => {});
+    getLayouts().then(setLayouts).catch(() => {});
+    getCars().then(setCars).catch(() => {});
   }, []);
 
   const handleSearch = async () => {
     if (!term.trim()) return;
     const info = await searchInfo(term.trim());
     setResult(info);
+    setName(info.title);
     setMessage('');
+    try {
+      const imgRes = await searchImages(term.trim());
+      setImages(imgRes.images);
+      setSelectedImage(imgRes.images[0] || info.imageUrl || null);
+    } catch {
+      setImages([]);
+      setSelectedImage(info.imageUrl || null);
+    }
   };
 
   const handleSave = async () => {
     if (!result) return;
-    let imageUrl: string | undefined = result.imageUrl || undefined;
-    if (result.imageUrl) {
+    let imageUrl: string | undefined = selectedImage || undefined;
+    if (selectedImage) {
       try {
-        const resp = await fetch(result.imageUrl);
+        const resp = await fetch(selectedImage);
         const blob = await resp.blob();
-        const extMatch = /\.([a-z0-9]+)(?:$|\?)/i.exec(result.imageUrl);
+        const extMatch = /\.([a-z0-9]+)(?:$|\?)/i.exec(selectedImage);
         const ext = extMatch ? `.${extMatch[1]}` : '.jpg';
-        const filename = `${slugify(result.title)}-${Date.now()}${ext}`;
+        const filename = `${slugify(name)}-${Date.now()}${ext}`;
         const file = new File([blob], filename, { type: blob.type || 'image/jpeg' });
         const folder =
           type === 'game'
@@ -62,16 +87,32 @@ const InfoSearchPage: React.FC = () => {
       }
     }
     if (type === 'game') {
-      await createGame({ name: result.title, imageUrl });
+      if (addAsNew) {
+        await createGame({ name, imageUrl });
+      } else if (existingId) {
+        await updateGame(existingId, { name, imageUrl });
+      }
     } else if (type === 'track') {
       if (!gameId) return;
-      await createTrack({ gameId, name: result.title, imageUrl, description: result.description });
+      if (addAsNew) {
+        await createTrack({ gameId, name, imageUrl, description: result.description });
+      } else if (existingId) {
+        await updateTrack(existingId, { gameId, name, imageUrl, description: result.description });
+      }
     } else if (type === 'layout') {
       if (!trackId) return;
-      await createLayout({ trackId, name: result.title, imageUrl });
+      if (addAsNew) {
+        await createLayout({ trackId, name, imageUrl });
+      } else if (existingId) {
+        await updateLayout(existingId, { trackId, name, imageUrl });
+      }
     } else if (type === 'car') {
       if (!gameId) return;
-      await createCar({ gameId, name: result.title, imageUrl, description: result.description });
+      if (addAsNew) {
+        await createCar({ gameId, name, imageUrl, description: result.description });
+      } else if (existingId) {
+        await updateCar(existingId, { gameId, name, imageUrl, description: result.description });
+      }
     }
     setMessage('Saved');
   };
@@ -97,7 +138,20 @@ const InfoSearchPage: React.FC = () => {
       {result && (
         <div className="border p-4 space-y-2">
           <h2 className="text-lg font-semibold">{result.title}</h2>
-          {result.imageUrl && <img src={result.imageUrl} alt={result.title} className="h-32" />}
+          {selectedImage && <img src={selectedImage} alt={name} className="h-32" />}
+          {images.length > 0 && (
+            <div className="flex space-x-2 overflow-x-auto py-1">
+              {images.map((img) => (
+                <img
+                  key={img}
+                  src={img}
+                  alt="option"
+                  onClick={() => setSelectedImage(img)}
+                  className={`h-16 cursor-pointer border ${selectedImage === img ? 'border-blue-500' : 'border-transparent'}`}
+                />
+              ))}
+            </div>
+          )}
           <p className="text-sm whitespace-pre-line">{result.description}</p>
           <div className="flex flex-wrap items-end gap-2">
             <select value={type} onChange={(e) => setType(e.target.value as any)} className="border p-1">
@@ -126,6 +180,21 @@ const InfoSearchPage: React.FC = () => {
                 ))}
               </select>
             )}
+            <label className="flex items-center space-x-1 text-sm">
+              <input type="checkbox" checked={addAsNew} onChange={(e) => setAddAsNew(e.target.checked)} />
+              <span>Add as new</span>
+            </label>
+            {!addAsNew && (
+              <select value={existingId} onChange={(e) => setExistingId(e.target.value)} className="border p-1">
+                <option value="">Select Existing</option>
+                {(type === 'game' ? games : type === 'track' ? tracks : type === 'layout' ? layouts : cars).map((i: any) => (
+                  <option key={i.id} value={i.id}>
+                    {i.name}
+                  </option>
+                ))}
+              </select>
+            )}
+            <input value={name} onChange={(e) => setName(e.target.value)} className="border p-1" />
             <Button size="sm" onClick={handleSave}>Save</Button>
             {message && <span className="text-green-600 text-sm">{message}</span>}
           </div>
