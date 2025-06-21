@@ -6,7 +6,9 @@ const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 const router = express.Router();
 
-const uploadDir = process.env.UPLOAD_DIR || path.join(__dirname, '..', 'uploads');
+const uploadDir =
+  process.env.UPLOAD_DIR ||
+  path.join(__dirname, '..', '..', 'frontend', 'public', 'images');
 function sanitizeFilename(name) {
   return name
     .replace(/[^a-z0-9._-]/gi, '_')
