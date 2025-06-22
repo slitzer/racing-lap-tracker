@@ -54,26 +54,38 @@ const CarDetailPage: React.FC = () => {
         const g = games.find((gm) => gm.id === car.gameId);
         if (!g) return;
         const base = `/GamePack/${slugify(g.name)}/cars/${slugify(car.name)}`;
-        fetch(`${base}/info.md`)
-          .then((res) => (res.ok ? res.text() : Promise.reject()))
-          .then((txt) => {
+        const fetchInfo = async (p: string) => {
+          try {
+            const res = await fetch(`${p}/info.md`);
+            if (!res.ok) throw new Error('missing');
+            const txt = await res.text();
             setPackDesc(txt);
             const exts = ['jpg', 'png', 'jpeg', 'webp'];
-            (async () => {
-              for (const ext of exts) {
-                try {
-                  const r = await fetch(`${base}/car.${ext}`, { method: 'HEAD' });
-                  if (r.ok) {
-                    setPackImage(`${base}/car.${ext}`);
-                    return;
-                  }
-                } catch {
-                  // ignore and try next
+            for (const ext of exts) {
+              try {
+                const r = await fetch(`${p}/car.${ext}`, { method: 'HEAD' });
+                if (r.ok) {
+                  setPackImage(`${p}/car.${ext}`);
+                  return;
                 }
+              } catch {
+                // ignore and try next
               }
-            })();
-          })
-          .catch(() => {});
+            }
+          } catch {
+            return false;
+          }
+          return true;
+        };
+        fetchInfo(base).then((ok) => {
+          if (!ok && car.imageUrl) {
+            const idx = car.imageUrl.lastIndexOf('/');
+            if (idx !== -1) {
+              const altBase = car.imageUrl.substring(0, idx);
+              fetchInfo(altBase);
+            }
+          }
+        });
       })
       .catch(() => {});
   }, [id]);
