@@ -11,7 +11,8 @@ module.exports = {
     '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
     '^react-markdown$': '<rootDir>/__mocks__/react-markdown.js',
     '^remark-gfm$': '<rootDir>/__mocks__/remark-gfm.js',
+    '^rehype-raw$': '<rootDir>/__mocks__/rehype-raw.js',
   },
-  transformIgnorePatterns: ['/node_modules/(?!.*react-markdown.*|.*remark-gfm.*)'],
+  transformIgnorePatterns: ['/node_modules/(?!.*react-markdown.*|.*remark-gfm.*|.*rehype-raw.*|.*hast-util-raw.*)'],
   setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
 };
