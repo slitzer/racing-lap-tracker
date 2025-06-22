@@ -1,0 +1,2399 @@
+{
+  "users": [
+    {
+      "id": "a8fa04e1-3c81-41ce-b2ce-9385941acad6",
+      "username": "admin",
+      "email": "admin@example.com",
+      "password_hash": "$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+      "is_admin": true,
+      "avatar_url": null,
+      "wheel": null,
+      "frame": null,
+      "brakes": null,
+      "equipment": null,
+      "favorite_sim": null,
+      "favorite_track": null,
+      "favorite_car": null,
+      "default_assists": null,
+      "league": null,
+      "created_at": "2025-06-21T21:03:33.531Z",
+      "updated_at": "2025-06-21T21:03:33.531Z"
+    },
+    {
+      "id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "username": "racer1",
+      "email": "racer1@example.com",
+      "password_hash": "$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+      "is_admin": false,
+      "avatar_url": null,
+      "wheel": null,
+      "frame": null,
+      "brakes": null,
+      "equipment": null,
+      "favorite_sim": null,
+      "favorite_track": null,
+      "favorite_car": null,
+      "default_assists": null,
+      "league": null,
+      "created_at": "2025-06-21T21:03:33.533Z",
+      "updated_at": "2025-06-21T21:03:33.533Z"
+    }
+  ],
+  "games": [
+    {
+      "id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "name": "Assetto Corsa",
+      "image_url": "/images/games/assetto_corsa.jpg",
+      "created_at": "2025-06-21T21:03:33.475Z",
+      "updated_at": "2025-06-21T21:03:33.475Z"
+    },
+    {
+      "id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "name": "Assetto Corsa Competizione",
+      "image_url": "/images/games/acc.jpg",
+      "created_at": "2025-06-21T21:03:33.475Z",
+      "updated_at": "2025-06-21T21:03:33.475Z"
+    },
+    {
+      "id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "name": "Forza Motorsport",
+      "image_url": "/images/games/forza_motorsport.jpg",
+      "created_at": "2025-06-21T21:03:33.475Z",
+      "updated_at": "2025-06-21T21:03:33.475Z"
+    },
+    {
+      "id": "7b2825d0-f9aa-428f-98f5-ed01bd9e2d75",
+      "name": "Gran Turismo 7",
+      "image_url": "/images/games/gran_turismo_7.jpg",
+      "created_at": "2025-06-21T21:03:33.475Z",
+      "updated_at": "2025-06-21T21:03:33.475Z"
+    },
+    {
+      "id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "name": "iRacing",
+      "image_url": "/images/games/iracing.jpg",
+      "created_at": "2025-06-21T21:03:33.475Z",
+      "updated_at": "2025-06-21T21:03:33.475Z"
+    },
+    {
+      "id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "name": "F1 23",
+      "image_url": "/images/games/f1_23.jpg",
+      "created_at": "2025-06-21T21:03:33.475Z",
+      "updated_at": "2025-06-21T21:03:33.475Z"
+    },
+    {
+      "id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "name": "Project CARS 3",
+      "image_url": "/images/games/project_cars_3.jpg",
+      "created_at": "2025-06-21T21:03:33.475Z",
+      "updated_at": "2025-06-21T21:03:33.475Z"
+    },
+    {
+      "id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "name": "rFactor 2",
+      "image_url": "/images/games/rfactor_2.jpg",
+      "created_at": "2025-06-21T21:03:33.475Z",
+      "updated_at": "2025-06-21T21:03:33.475Z"
+    }
+  ],
+  "tracks": [
+    {
+      "id": "d2b0c367-25df-4a78-8893-a73b3b3de5cd",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "name": "Silverstone",
+      "image_url": "/images/tracks/silverstone.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.479Z",
+      "updated_at": "2025-06-21T21:03:33.479Z"
+    },
+    {
+      "id": "fadfe28a-1a33-4bf2-9258-82912152e13f",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "name": "Spa-Francorchamps",
+      "image_url": "/images/tracks/spa.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.479Z",
+      "updated_at": "2025-06-21T21:03:33.479Z"
+    },
+    {
+      "id": "ec5f094d-022c-43ca-b01c-a296f4e1914b",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "name": "Monza",
+      "image_url": "/images/tracks/monza.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.479Z",
+      "updated_at": "2025-06-21T21:03:33.479Z"
+    },
+    {
+      "id": "9d936049-8710-4e88-aee1-b5ac3d872027",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "name": "Nürburgring",
+      "image_url": "/images/tracks/nurburgring.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.479Z",
+      "updated_at": "2025-06-21T21:03:33.479Z"
+    },
+    {
+      "id": "ab84d21e-39a2-484a-930e-a988a3633fd9",
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "name": "Monza",
+      "image_url": "/images/tracks/monza.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.492Z",
+      "updated_at": "2025-06-21T21:03:33.492Z"
+    },
+    {
+      "id": "8ad23434-290f-4fbb-8e98-ca89fa757702",
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "name": "Spa-Francorchamps",
+      "image_url": "/images/tracks/spa.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.492Z",
+      "updated_at": "2025-06-21T21:03:33.492Z"
+    },
+    {
+      "id": "dfba6566-6565-4340-8497-0955d6e977e5",
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "name": "Silverstone",
+      "image_url": "/images/tracks/silverstone.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.492Z",
+      "updated_at": "2025-06-21T21:03:33.492Z"
+    },
+    {
+      "id": "70b411e2-9667-481e-b677-0169de63c3d1",
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "name": "Suzuka Circuit",
+      "image_url": "/images/tracks/suzuka.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.497Z",
+      "updated_at": "2025-06-21T21:03:33.497Z"
+    },
+    {
+      "id": "b93776cb-eaea-4f0a-96d8-a8dade9826ab",
+      "game_id": "7b2825d0-f9aa-428f-98f5-ed01bd9e2d75",
+      "name": "Tokyo Expressway",
+      "image_url": "/images/tracks/tokyo_expressway.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.501Z",
+      "updated_at": "2025-06-21T21:03:33.501Z"
+    },
+    {
+      "id": "9d4cd89f-2893-4ac1-9ad0-c86446540ad1",
+      "game_id": "7b2825d0-f9aa-428f-98f5-ed01bd9e2d75",
+      "name": "Mount Panorama",
+      "image_url": "/images/tracks/mount_panorama.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.501Z",
+      "updated_at": "2025-06-21T21:03:33.501Z"
+    },
+    {
+      "id": "4351ac38-135d-4546-b57f-e8c9e8d3b248",
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "name": "Daytona",
+      "image_url": "/images/tracks/daytona.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.505Z",
+      "updated_at": "2025-06-21T21:03:33.505Z"
+    },
+    {
+      "id": "8a59f738-7bd5-40a2-a581-85f671b227f8",
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "name": "Road America",
+      "image_url": "/images/tracks/road_america.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.505Z",
+      "updated_at": "2025-06-21T21:03:33.505Z"
+    },
+    {
+      "id": "50953403-7346-4029-967f-60f40d8e644f",
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "name": "Monaco",
+      "image_url": "/images/tracks/monaco.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.508Z",
+      "updated_at": "2025-06-21T21:03:33.508Z"
+    },
+    {
+      "id": "4ff525b1-9f34-4d11-b2fd-4133005a3359",
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "name": "Bahrain",
+      "image_url": "/images/tracks/bahrain.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.508Z",
+      "updated_at": "2025-06-21T21:03:33.508Z"
+    },
+    {
+      "id": "b5d5bcaa-4c6e-4a9b-9b5e-17e855bd61d7",
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "name": "Hockenheimring",
+      "image_url": "/images/tracks/hockenheimring.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.512Z",
+      "updated_at": "2025-06-21T21:03:33.512Z"
+    },
+    {
+      "id": "70be831f-61cd-48a7-b0f9-17bbe21549da",
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "name": "Imola",
+      "image_url": "/images/tracks/imola.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.512Z",
+      "updated_at": "2025-06-21T21:03:33.512Z"
+    },
+    {
+      "id": "2eb69adc-4a55-45c0-92ac-0094c42a9f9a",
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "name": "Indianapolis",
+      "image_url": "/images/tracks/indianapolis.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.516Z",
+      "updated_at": "2025-06-21T21:03:33.516Z"
+    },
+    {
+      "id": "a4864333-2d7f-4e72-9af6-afd6aaa19685",
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "name": "Sebring International Raceway",
+      "image_url": "/images/tracks/sebring_international_raceway-1750539940495.png",
+      "description": "tracks/a4864333-2d7f-4e72-9af6-afd6aaa19685.md",
+      "created_at": "2025-06-21T21:03:33.516Z",
+      "updated_at": "2025-06-21T21:05:40.715Z"
+    },
+    {
+      "id": "a4fd7d03-105b-4950-9b08-8c36d310ae6b",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "name": "Brands Hatch",
+      "image_url": "/images/tracks/brands_hatch-1750546539431.jpg",
+      "description": "tracks/a4fd7d03-105b-4950-9b08-8c36d310ae6b.md",
+      "created_at": "2025-06-21T21:03:33.479Z",
+      "updated_at": "2025-06-21T22:55:41.333Z"
+    },
+    {
+      "id": "82274139-cca9-435d-b981-9170f1afafb9",
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "name": "Laguna Seca",
+      "image_url": "https://mediapool.bmwgroup.com/cache/P9/201909/P90365838/P90365838-laguna-seca-usa-15th-september-2019-imsa-weathertech-sportscar-championship-laguna-seca-raceway-bmw--2249px.jpg",
+      "description": "tracks/82274139-cca9-435d-b981-9170f1afafb9.md",
+      "created_at": "2025-06-21T21:03:33.497Z",
+      "updated_at": "2025-06-21T22:57:05.727Z"
+    }
+  ],
+  "layouts": [
+    {
+      "id": "29b24668-364c-4845-adb2-2a9a68810438",
+      "track_id": "d2b0c367-25df-4a78-8893-a73b3b3de5cd",
+      "name": "GP Circuit",
+      "image_url": "/images/layouts/silverstone_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.483Z",
+      "updated_at": "2025-06-21T21:03:33.483Z"
+    },
+    {
+      "id": "c539f55f-12a0-4ca4-bee9-6b221ef42a94",
+      "track_id": "d2b0c367-25df-4a78-8893-a73b3b3de5cd",
+      "name": "National Circuit",
+      "image_url": "/images/layouts/silverstone_national.jpg",
+      "created_at": "2025-06-21T21:03:33.483Z",
+      "updated_at": "2025-06-21T21:03:33.483Z"
+    },
+    {
+      "id": "039da2e2-087f-4889-ad18-9513645536f1",
+      "track_id": "fadfe28a-1a33-4bf2-9258-82912152e13f",
+      "name": "Full Circuit",
+      "image_url": "/images/layouts/spa_full.jpg",
+      "created_at": "2025-06-21T21:03:33.485Z",
+      "updated_at": "2025-06-21T21:03:33.485Z"
+    },
+    {
+      "id": "dac6ef4a-4c61-4a46-99c8-0607ab446e50",
+      "track_id": "ec5f094d-022c-43ca-b01c-a296f4e1914b",
+      "name": "GP Circuit",
+      "image_url": "/images/layouts/monza_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.486Z",
+      "updated_at": "2025-06-21T21:03:33.486Z"
+    },
+    {
+      "id": "f54667e8-89e1-4761-a2c1-fc8380b274be",
+      "track_id": "ec5f094d-022c-43ca-b01c-a296f4e1914b",
+      "name": "Junior Circuit",
+      "image_url": "/images/layouts/monza_junior.jpg",
+      "created_at": "2025-06-21T21:03:33.486Z",
+      "updated_at": "2025-06-21T21:03:33.486Z"
+    },
+    {
+      "id": "ac51cb0b-aa42-4050-aebf-c4379725f676",
+      "track_id": "9d936049-8710-4e88-aee1-b5ac3d872027",
+      "name": "GP Circuit",
+      "image_url": "/images/layouts/nurburgring_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.487Z",
+      "updated_at": "2025-06-21T21:03:33.487Z"
+    },
+    {
+      "id": "6a3bac4c-fad6-45f7-9689-6ac5121d04ca",
+      "track_id": "a4fd7d03-105b-4950-9b08-8c36d310ae6b",
+      "name": "GP Circuit",
+      "image_url": "/images/layouts/brands_hatch_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.489Z",
+      "updated_at": "2025-06-21T21:03:33.489Z"
+    },
+    {
+      "id": "bdcda18f-f3a6-46cf-97fb-0e8d5361730d",
+      "track_id": "a4fd7d03-105b-4950-9b08-8c36d310ae6b",
+      "name": "Indy Circuit",
+      "image_url": "/images/layouts/brands_hatch_indy.jpg",
+      "created_at": "2025-06-21T21:03:33.489Z",
+      "updated_at": "2025-06-21T21:03:33.489Z"
+    },
+    {
+      "id": "442d497a-14f6-4249-af8d-04c904eaf09b",
+      "track_id": "ab84d21e-39a2-484a-930e-a988a3633fd9",
+      "name": "GP Circuit",
+      "image_url": "/images/layouts/monza_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.494Z",
+      "updated_at": "2025-06-21T21:03:33.494Z"
+    },
+    {
+      "id": "d83d6915-d3f1-406f-9d5b-ef1d09e8eb0c",
+      "track_id": "8ad23434-290f-4fbb-8e98-ca89fa757702",
+      "name": "Full Circuit",
+      "image_url": "/images/layouts/spa_full.jpg",
+      "created_at": "2025-06-21T21:03:33.494Z",
+      "updated_at": "2025-06-21T21:03:33.494Z"
+    },
+    {
+      "id": "1f611cf6-33a5-49f9-a6f2-4bba74df261c",
+      "track_id": "dfba6566-6565-4340-8497-0955d6e977e5",
+      "name": "GP Circuit",
+      "image_url": "/images/layouts/silverstone_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.494Z",
+      "updated_at": "2025-06-21T21:03:33.494Z"
+    },
+    {
+      "id": "775e66f3-547e-416d-825d-13d670024ab5",
+      "track_id": "82274139-cca9-435d-b981-9170f1afafb9",
+      "name": "Full Circuit",
+      "image_url": "/images/layouts/laguna_full.jpg",
+      "created_at": "2025-06-21T21:03:33.498Z",
+      "updated_at": "2025-06-21T21:03:33.498Z"
+    },
+    {
+      "id": "32ea6b21-afac-49ae-8dab-620c7feaef89",
+      "track_id": "70b411e2-9667-481e-b677-0169de63c3d1",
+      "name": "GP Circuit",
+      "image_url": "/images/layouts/suzuka_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.498Z",
+      "updated_at": "2025-06-21T21:03:33.498Z"
+    },
+    {
+      "id": "d1c19bc6-408b-409c-a71b-81b8c25a38f8",
+      "track_id": "70b411e2-9667-481e-b677-0169de63c3d1",
+      "name": "East Circuit",
+      "image_url": "/images/layouts/suzuka_east.jpg",
+      "created_at": "2025-06-21T21:03:33.498Z",
+      "updated_at": "2025-06-21T21:03:33.498Z"
+    },
+    {
+      "id": "35a14bad-369f-4765-8a94-0702071486c9",
+      "track_id": "b93776cb-eaea-4f0a-96d8-a8dade9826ab",
+      "name": "Central Outer Loop",
+      "image_url": "/images/layouts/tokyo_outer.jpg",
+      "created_at": "2025-06-21T21:03:33.502Z",
+      "updated_at": "2025-06-21T21:03:33.502Z"
+    },
+    {
+      "id": "d5e158ab-06c3-4be1-bd0b-8c57bea9b57d",
+      "track_id": "9d4cd89f-2893-4ac1-9ad0-c86446540ad1",
+      "name": "Full Circuit",
+      "image_url": "/images/layouts/mount_panorama_full.jpg",
+      "created_at": "2025-06-21T21:03:33.502Z",
+      "updated_at": "2025-06-21T21:03:33.502Z"
+    },
+    {
+      "id": "945bca05-2fcd-4fc7-9b7a-56c85d894f96",
+      "track_id": "4351ac38-135d-4546-b57f-e8c9e8d3b248",
+      "name": "Road Course",
+      "image_url": "/images/layouts/daytona_road.jpg",
+      "created_at": "2025-06-21T21:03:33.506Z",
+      "updated_at": "2025-06-21T21:03:33.506Z"
+    },
+    {
+      "id": "50c393f5-bf7e-49d5-a950-31ebbb36f484",
+      "track_id": "8a59f738-7bd5-40a2-a581-85f671b227f8",
+      "name": "Full Circuit",
+      "image_url": "/images/layouts/road_america_full.jpg",
+      "created_at": "2025-06-21T21:03:33.506Z",
+      "updated_at": "2025-06-21T21:03:33.506Z"
+    },
+    {
+      "id": "716a694c-efb7-4883-a001-e93c4f9a5db2",
+      "track_id": "50953403-7346-4029-967f-60f40d8e644f",
+      "name": "Grand Prix",
+      "image_url": "/images/layouts/monaco_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.509Z",
+      "updated_at": "2025-06-21T21:03:33.509Z"
+    },
+    {
+      "id": "f65fe899-7400-4c49-9c98-f91ff41c2fd1",
+      "track_id": "4ff525b1-9f34-4d11-b2fd-4133005a3359",
+      "name": "Grand Prix",
+      "image_url": "/images/layouts/bahrain_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.509Z",
+      "updated_at": "2025-06-21T21:03:33.509Z"
+    },
+    {
+      "id": "8d77c3b4-ec68-48f2-80f3-a8056389065d",
+      "track_id": "b5d5bcaa-4c6e-4a9b-9b5e-17e855bd61d7",
+      "name": "GP Circuit",
+      "image_url": "/images/layouts/hockenheim_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.513Z",
+      "updated_at": "2025-06-21T21:03:33.513Z"
+    },
+    {
+      "id": "7f58d64a-10ce-4cb1-b9b0-97e46abcf08b",
+      "track_id": "70be831f-61cd-48a7-b0f9-17bbe21549da",
+      "name": "GP Circuit",
+      "image_url": "/images/layouts/imola_gp.jpg",
+      "created_at": "2025-06-21T21:03:33.513Z",
+      "updated_at": "2025-06-21T21:03:33.513Z"
+    },
+    {
+      "id": "54d3fdbe-66da-4b96-9e44-cd83ac282f2b",
+      "track_id": "a4864333-2d7f-4e72-9af6-afd6aaa19685",
+      "name": "Full Circuit",
+      "image_url": "/images/layouts/sebring_full.jpg",
+      "created_at": "2025-06-21T21:03:33.517Z",
+      "updated_at": "2025-06-21T21:03:33.517Z"
+    },
+    {
+      "id": "b9d3ad77-3482-4bbe-94d5-73e8d5faf4f2",
+      "track_id": "2eb69adc-4a55-45c0-92ac-0094c42a9f9a",
+      "name": "Road Course",
+      "image_url": "/images/layouts/indy_road.jpg",
+      "created_at": "2025-06-21T21:03:33.517Z",
+      "updated_at": "2025-06-21T21:03:33.517Z"
+    },
+    {
+      "id": "5aa9cf99-b7c0-4a33-b56f-98535ee2dd36",
+      "track_id": "9d936049-8710-4e88-aee1-b5ac3d872027",
+      "name": "Nordschleife",
+      "image_url": "https://jacos-paddock.com/wp-content/uploads/2019/12/NordschleifeMap.png",
+      "created_at": "2025-06-21T21:03:33.487Z",
+      "updated_at": "2025-06-21T23:01:54.250Z"
+    },
+    {
+      "id": "b2b6f2df-b5e9-4569-92da-7e5fb8e6eacb",
+      "track_id": "9d936049-8710-4e88-aee1-b5ac3d872027",
+      "name": "Südschleife",
+      "image_url": "https://imgr1.auto-motor-und-sport.de/Nuerburgring-S-dschleife-Layout-169Inline-3dd10fbf-1681806.jpg",
+      "created_at": "2025-06-21T23:03:21.744Z",
+      "updated_at": "2025-06-21T23:03:21.744Z"
+    }
+  ],
+  "track_layouts": [
+    {
+      "id": "ce76e9f1-967b-4052-b3af-0695b613fdb8",
+      "track_id": "d2b0c367-25df-4a78-8893-a73b3b3de5cd",
+      "layout_id": "29b24668-364c-4845-adb2-2a9a68810438"
+    },
+    {
+      "id": "067da320-1565-4b54-8498-79962569f65a",
+      "track_id": "d2b0c367-25df-4a78-8893-a73b3b3de5cd",
+      "layout_id": "c539f55f-12a0-4ca4-bee9-6b221ef42a94"
+    },
+    {
+      "id": "f4eec219-d735-4205-8b05-1dc5fa98f065",
+      "track_id": "fadfe28a-1a33-4bf2-9258-82912152e13f",
+      "layout_id": "039da2e2-087f-4889-ad18-9513645536f1"
+    },
+    {
+      "id": "0a2aafbc-5550-4dde-ba31-d8583ef7db71",
+      "track_id": "ec5f094d-022c-43ca-b01c-a296f4e1914b",
+      "layout_id": "dac6ef4a-4c61-4a46-99c8-0607ab446e50"
+    },
+    {
+      "id": "a19ba5af-b111-452c-a22d-1685ba0e26d0",
+      "track_id": "ec5f094d-022c-43ca-b01c-a296f4e1914b",
+      "layout_id": "f54667e8-89e1-4761-a2c1-fc8380b274be"
+    },
+    {
+      "id": "843bbae3-a23e-4bf2-a17b-bc506cfda692",
+      "track_id": "9d936049-8710-4e88-aee1-b5ac3d872027",
+      "layout_id": "ac51cb0b-aa42-4050-aebf-c4379725f676"
+    },
+    {
+      "id": "025d1d4f-030c-4925-9df4-bc3d92d16faf",
+      "track_id": "a4fd7d03-105b-4950-9b08-8c36d310ae6b",
+      "layout_id": "6a3bac4c-fad6-45f7-9689-6ac5121d04ca"
+    },
+    {
+      "id": "def3542a-04c9-4b4c-ab17-681f08699c5b",
+      "track_id": "a4fd7d03-105b-4950-9b08-8c36d310ae6b",
+      "layout_id": "bdcda18f-f3a6-46cf-97fb-0e8d5361730d"
+    },
+    {
+      "id": "d29369e6-738f-4e4d-8cb3-032a9e7d70a2",
+      "track_id": "ab84d21e-39a2-484a-930e-a988a3633fd9",
+      "layout_id": "442d497a-14f6-4249-af8d-04c904eaf09b"
+    },
+    {
+      "id": "35031f76-98a2-4374-b86d-9469ee7e380c",
+      "track_id": "8ad23434-290f-4fbb-8e98-ca89fa757702",
+      "layout_id": "d83d6915-d3f1-406f-9d5b-ef1d09e8eb0c"
+    },
+    {
+      "id": "c6e50379-5574-4686-9bcc-f4cfee672c27",
+      "track_id": "dfba6566-6565-4340-8497-0955d6e977e5",
+      "layout_id": "1f611cf6-33a5-49f9-a6f2-4bba74df261c"
+    },
+    {
+      "id": "8833a151-440d-42d6-9dd1-20f329acb9e0",
+      "track_id": "82274139-cca9-435d-b981-9170f1afafb9",
+      "layout_id": "775e66f3-547e-416d-825d-13d670024ab5"
+    },
+    {
+      "id": "064d1957-3822-4af9-b898-23fe412c47a9",
+      "track_id": "70b411e2-9667-481e-b677-0169de63c3d1",
+      "layout_id": "32ea6b21-afac-49ae-8dab-620c7feaef89"
+    },
+    {
+      "id": "40f98083-0060-4254-8de1-1a34fe7c8086",
+      "track_id": "70b411e2-9667-481e-b677-0169de63c3d1",
+      "layout_id": "d1c19bc6-408b-409c-a71b-81b8c25a38f8"
+    },
+    {
+      "id": "4b1db466-03ed-4af9-8b6a-81b5d611fd75",
+      "track_id": "b93776cb-eaea-4f0a-96d8-a8dade9826ab",
+      "layout_id": "35a14bad-369f-4765-8a94-0702071486c9"
+    },
+    {
+      "id": "0f00be81-2d49-4231-ade5-17ee759ef169",
+      "track_id": "9d4cd89f-2893-4ac1-9ad0-c86446540ad1",
+      "layout_id": "d5e158ab-06c3-4be1-bd0b-8c57bea9b57d"
+    },
+    {
+      "id": "3ed19e86-c88d-425b-94c1-7571d5e1c53b",
+      "track_id": "4351ac38-135d-4546-b57f-e8c9e8d3b248",
+      "layout_id": "945bca05-2fcd-4fc7-9b7a-56c85d894f96"
+    },
+    {
+      "id": "6179fb75-5fd4-4a24-8049-3bb35c485e13",
+      "track_id": "8a59f738-7bd5-40a2-a581-85f671b227f8",
+      "layout_id": "50c393f5-bf7e-49d5-a950-31ebbb36f484"
+    },
+    {
+      "id": "4110ed32-5a7f-4396-abd8-c52cbbc96aa9",
+      "track_id": "50953403-7346-4029-967f-60f40d8e644f",
+      "layout_id": "716a694c-efb7-4883-a001-e93c4f9a5db2"
+    },
+    {
+      "id": "6bec2b6f-93cc-4659-82c9-b1eb40e44e8d",
+      "track_id": "4ff525b1-9f34-4d11-b2fd-4133005a3359",
+      "layout_id": "f65fe899-7400-4c49-9c98-f91ff41c2fd1"
+    },
+    {
+      "id": "def00a6f-e99b-436e-8b42-636034ced646",
+      "track_id": "b5d5bcaa-4c6e-4a9b-9b5e-17e855bd61d7",
+      "layout_id": "8d77c3b4-ec68-48f2-80f3-a8056389065d"
+    },
+    {
+      "id": "232103a9-8fd4-4c4d-8f7f-4e04ce46c47c",
+      "track_id": "70be831f-61cd-48a7-b0f9-17bbe21549da",
+      "layout_id": "7f58d64a-10ce-4cb1-b9b0-97e46abcf08b"
+    },
+    {
+      "id": "f4ee0bab-e6bd-4526-a869-430fc0725d2c",
+      "track_id": "a4864333-2d7f-4e72-9af6-afd6aaa19685",
+      "layout_id": "54d3fdbe-66da-4b96-9e44-cd83ac282f2b"
+    },
+    {
+      "id": "b013e527-e146-4ce3-a0ef-06d2411bd274",
+      "track_id": "2eb69adc-4a55-45c0-92ac-0094c42a9f9a",
+      "layout_id": "b9d3ad77-3482-4bbe-94d5-73e8d5faf4f2"
+    },
+    {
+      "id": "8f6c27f1-7e56-4c5a-b4b4-29429162f27d",
+      "track_id": "9d936049-8710-4e88-aee1-b5ac3d872027",
+      "layout_id": "5aa9cf99-b7c0-4a33-b56f-98535ee2dd36"
+    },
+    {
+      "id": "ef341677-f539-4209-b79e-6bebcb404614",
+      "track_id": "9d936049-8710-4e88-aee1-b5ac3d872027",
+      "layout_id": "b2b6f2df-b5e9-4569-92da-7e5fb8e6eacb"
+    }
+  ],
+  "game_tracks": [
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "ce76e9f1-967b-4052-b3af-0695b613fdb8"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "067da320-1565-4b54-8498-79962569f65a"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "f4eec219-d735-4205-8b05-1dc5fa98f065"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "0a2aafbc-5550-4dde-ba31-d8583ef7db71"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "a19ba5af-b111-452c-a22d-1685ba0e26d0"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "843bbae3-a23e-4bf2-a17b-bc506cfda692"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "8f6c27f1-7e56-4c5a-b4b4-29429162f27d"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "025d1d4f-030c-4925-9df4-bc3d92d16faf"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "def3542a-04c9-4b4c-ab17-681f08699c5b"
+    },
+    {
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "track_layout_id": "d29369e6-738f-4e4d-8cb3-032a9e7d70a2"
+    },
+    {
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "track_layout_id": "35031f76-98a2-4374-b86d-9469ee7e380c"
+    },
+    {
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "track_layout_id": "c6e50379-5574-4686-9bcc-f4cfee672c27"
+    },
+    {
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "track_layout_id": "8833a151-440d-42d6-9dd1-20f329acb9e0"
+    },
+    {
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "track_layout_id": "064d1957-3822-4af9-b898-23fe412c47a9"
+    },
+    {
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "track_layout_id": "40f98083-0060-4254-8de1-1a34fe7c8086"
+    },
+    {
+      "game_id": "7b2825d0-f9aa-428f-98f5-ed01bd9e2d75",
+      "track_layout_id": "4b1db466-03ed-4af9-8b6a-81b5d611fd75"
+    },
+    {
+      "game_id": "7b2825d0-f9aa-428f-98f5-ed01bd9e2d75",
+      "track_layout_id": "0f00be81-2d49-4231-ade5-17ee759ef169"
+    },
+    {
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "track_layout_id": "3ed19e86-c88d-425b-94c1-7571d5e1c53b"
+    },
+    {
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "track_layout_id": "6179fb75-5fd4-4a24-8049-3bb35c485e13"
+    },
+    {
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "track_layout_id": "4110ed32-5a7f-4396-abd8-c52cbbc96aa9"
+    },
+    {
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "track_layout_id": "6bec2b6f-93cc-4659-82c9-b1eb40e44e8d"
+    },
+    {
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "track_layout_id": "def00a6f-e99b-436e-8b42-636034ced646"
+    },
+    {
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "track_layout_id": "232103a9-8fd4-4c4d-8f7f-4e04ce46c47c"
+    },
+    {
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "track_layout_id": "f4ee0bab-e6bd-4526-a869-430fc0725d2c"
+    },
+    {
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "track_layout_id": "b013e527-e146-4ce3-a0ef-06d2411bd274"
+    }
+  ],
+  "cars": [
+    {
+      "id": "a02f9367-7c28-4542-a1ce-660f76235f73",
+      "name": "Ferrari 488 GT3",
+      "image_url": "/images/cars/ferrari_488_gt3.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.490Z",
+      "updated_at": "2025-06-21T21:03:33.490Z"
+    },
+    {
+      "id": "1bec4ef4-9dc6-426a-83b4-c211835e9fae",
+      "name": "McLaren MP4-12C GT3",
+      "image_url": "/images/cars/mclaren_mp4_12c_gt3.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.490Z",
+      "updated_at": "2025-06-21T21:03:33.490Z"
+    },
+    {
+      "id": "50e27eb3-da0c-4b95-8f8d-f321fa96c47a",
+      "name": "BMW M3 E30",
+      "image_url": "/images/cars/bmw_m3_e30.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.490Z",
+      "updated_at": "2025-06-21T21:03:33.490Z"
+    },
+    {
+      "id": "37567bbf-769f-40f7-ba94-6b6053ed2085",
+      "name": "Porsche 911 GT3 R",
+      "image_url": "/images/cars/porsche_911_gt3_r.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.490Z",
+      "updated_at": "2025-06-21T21:03:33.490Z"
+    },
+    {
+      "id": "abcecb3f-48c7-46ff-b2f6-ab0df69ec9fe",
+      "name": "Audi R8 LMS",
+      "image_url": "/images/cars/audi_r8_lms.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.490Z",
+      "updated_at": "2025-06-21T21:03:33.490Z"
+    },
+    {
+      "id": "f1e6f2f6-774f-4fca-b105-f9419ae44859",
+      "name": "Lamborghini Huracán GT3",
+      "image_url": "/images/cars/lamborghini_huracan_gt3.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.490Z",
+      "updated_at": "2025-06-21T21:03:33.490Z"
+    },
+    {
+      "id": "ed26535d-b91c-4727-8f14-2599ceca6243",
+      "name": "Formula RSS 2 V6",
+      "image_url": "/images/cars/formula_rss_2_v6.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.490Z",
+      "updated_at": "2025-06-21T21:03:33.490Z"
+    },
+    {
+      "id": "e1f34ba9-4026-41e5-9d1e-b5e526f7b916",
+      "name": "Ferrari 488 GT3 Evo",
+      "image_url": "/images/cars/ferrari_488_gt3_evo.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.496Z",
+      "updated_at": "2025-06-21T21:03:33.496Z"
+    },
+    {
+      "id": "ec974431-5629-46eb-9c35-fc27090e661b",
+      "name": "McLaren 720S GT3",
+      "image_url": "/images/cars/mclaren_720s_gt3.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.496Z",
+      "updated_at": "2025-06-21T21:03:33.496Z"
+    },
+    {
+      "id": "55cf7680-ac66-41d5-a9c5-d35cb5f4d609",
+      "name": "Ford Mustang GT",
+      "image_url": "/images/cars/ford_mustang_gt.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.500Z",
+      "updated_at": "2025-06-21T21:03:33.500Z"
+    },
+    {
+      "id": "bb6d628d-8baa-4ef1-abd4-6b9f9836b782",
+      "name": "Chevrolet Corvette C7.R",
+      "image_url": "/images/cars/corvette_c7r.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.500Z",
+      "updated_at": "2025-06-21T21:03:33.500Z"
+    },
+    {
+      "id": "9c647a1f-e6ae-49ed-ae16-3f29dbe5fc74",
+      "name": "Porsche 911 GT3 Cup",
+      "image_url": "/images/cars/porsche_911_gt3_cup.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.500Z",
+      "updated_at": "2025-06-21T21:03:33.500Z"
+    },
+    {
+      "id": "564db13b-bc05-493f-9706-3ea54a52dadf",
+      "name": "Nissan GT-R Nismo GT3",
+      "image_url": "/images/cars/nissan_gtr_nismo_gt3.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.504Z",
+      "updated_at": "2025-06-21T21:03:33.504Z"
+    },
+    {
+      "id": "0da5c921-6676-44c7-95fc-e44614f0a22c",
+      "name": "Toyota Supra GT500",
+      "image_url": "/images/cars/toyota_supra_gt500.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.504Z",
+      "updated_at": "2025-06-21T21:03:33.504Z"
+    },
+    {
+      "id": "1a5a86a7-acc2-4816-909f-83df3bc93ef3",
+      "name": "Mazda RX-Vision GT3 Concept",
+      "image_url": "/images/cars/mazda_rx_vision_gt3.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.504Z",
+      "updated_at": "2025-06-21T21:03:33.504Z"
+    },
+    {
+      "id": "c9495e21-4211-4728-ae02-33f45e47528e",
+      "name": "Dallara P217",
+      "image_url": "/images/cars/dallara_p217.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.507Z",
+      "updated_at": "2025-06-21T21:03:33.507Z"
+    },
+    {
+      "id": "d2d08929-5b4c-486a-a79b-98ca2e656944",
+      "name": "Ford GT GT3",
+      "image_url": "/images/cars/ford_gt_gt3.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.507Z",
+      "updated_at": "2025-06-21T21:03:33.507Z"
+    },
+    {
+      "id": "b7414847-ed6d-4a5a-b8fd-3b581e602383",
+      "name": "BMW M4 GT3",
+      "image_url": "/images/cars/bmw_m4_gt3.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.507Z",
+      "updated_at": "2025-06-21T21:03:33.507Z"
+    },
+    {
+      "id": "7e70ea35-21af-4f9c-8c46-27d0f7d75c66",
+      "name": "Red Bull RB19",
+      "image_url": "/images/cars/red_bull_rb19.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.511Z",
+      "updated_at": "2025-06-21T21:03:33.511Z"
+    },
+    {
+      "id": "dbfcfe8c-fba2-4c56-9404-a7a1bee3a17e",
+      "name": "Ferrari SF-23",
+      "image_url": "/images/cars/ferrari_sf23.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.511Z",
+      "updated_at": "2025-06-21T21:03:33.511Z"
+    },
+    {
+      "id": "c5dd2d0a-acfc-4f46-92ef-7dfa201d2001",
+      "name": "Audi R8 LMS GT3",
+      "image_url": "/images/cars/audi_r8_lms_gt3.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.515Z",
+      "updated_at": "2025-06-21T21:03:33.515Z"
+    },
+    {
+      "id": "db20722e-b904-48fc-b1d6-aff2a30e5d30",
+      "name": "Ferrari 488 Challenge Evo",
+      "image_url": "/images/cars/ferrari_488_challenge_evo.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.515Z",
+      "updated_at": "2025-06-21T21:03:33.515Z"
+    },
+    {
+      "id": "c4fc8eec-c54f-402e-ad05-8a906bd2f5ad",
+      "name": "Corvette C8.R",
+      "image_url": "/images/cars/corvette_c8r.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.518Z",
+      "updated_at": "2025-06-21T21:03:33.518Z"
+    },
+    {
+      "id": "1aaa7d5e-6c4f-4440-aa41-b448b5aa52ba",
+      "name": "BMW M8 GTE",
+      "image_url": "/images/cars/bmw_m8_gte.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.518Z",
+      "updated_at": "2025-06-21T21:03:33.518Z"
+    },
+    {
+      "id": "979b7a30-2b4d-49f7-a972-7184edcf9036",
+      "name": "Oreca 07",
+      "image_url": "/images/cars/oreca_07.jpg",
+      "description": null,
+      "created_at": "2025-06-21T21:03:33.518Z",
+      "updated_at": "2025-06-21T21:03:33.518Z"
+    },
+    {
+      "id": "e8ba79bf-8f71-4b56-b41d-c68ebd7711bb",
+      "name": "Acura NSX GT3",
+      "image_url": "/images/cars/acura_nsx_gt3-1750540305008.jpg",
+      "description": "cars/e8ba79bf-8f71-4b56-b41d-c68ebd7711bb.md",
+      "created_at": "2025-06-21T21:03:33.515Z",
+      "updated_at": "2025-06-21T21:11:45.101Z"
+    },
+    {
+      "id": "fc06f7b1-8750-4ef8-89be-9bde75d0f2f0",
+      "name": "Mercedes AMG GT",
+      "image_url": "https://doubleapex.co.za/wp-content/uploads/Mercedes-AMG-GT3.jpg",
+      "description": "cars/fc06f7b1-8750-4ef8-89be-9bde75d0f2f0.md",
+      "created_at": "2025-06-21T21:03:33.490Z",
+      "updated_at": "2025-06-21T22:51:55.681Z"
+    },
+    {
+      "id": "5188562f-22f3-486b-8099-2df5a72fb852",
+      "name": "Mercedes W14",
+      "image_url": "https://www.f1-fansite.com/wp-content/uploads/2023/02/M350392.jpg",
+      "description": "cars/5188562f-22f3-486b-8099-2df5a72fb852.md",
+      "created_at": "2025-06-21T21:03:33.511Z",
+      "updated_at": "2025-06-21T22:53:28.390Z"
+    }
+  ],
+  "game_cars": [
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "car_id": "a02f9367-7c28-4542-a1ce-660f76235f73"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "car_id": "1bec4ef4-9dc6-426a-83b4-c211835e9fae"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "car_id": "50e27eb3-da0c-4b95-8f8d-f321fa96c47a"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "car_id": "37567bbf-769f-40f7-ba94-6b6053ed2085"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "car_id": "abcecb3f-48c7-46ff-b2f6-ab0df69ec9fe"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "car_id": "f1e6f2f6-774f-4fca-b105-f9419ae44859"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "car_id": "ed26535d-b91c-4727-8f14-2599ceca6243"
+    },
+    {
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "car_id": "37567bbf-769f-40f7-ba94-6b6053ed2085"
+    },
+    {
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "car_id": "e1f34ba9-4026-41e5-9d1e-b5e526f7b916"
+    },
+    {
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "car_id": "ec974431-5629-46eb-9c35-fc27090e661b"
+    },
+    {
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "car_id": "55cf7680-ac66-41d5-a9c5-d35cb5f4d609"
+    },
+    {
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "car_id": "bb6d628d-8baa-4ef1-abd4-6b9f9836b782"
+    },
+    {
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "car_id": "9c647a1f-e6ae-49ed-ae16-3f29dbe5fc74"
+    },
+    {
+      "game_id": "7b2825d0-f9aa-428f-98f5-ed01bd9e2d75",
+      "car_id": "564db13b-bc05-493f-9706-3ea54a52dadf"
+    },
+    {
+      "game_id": "7b2825d0-f9aa-428f-98f5-ed01bd9e2d75",
+      "car_id": "0da5c921-6676-44c7-95fc-e44614f0a22c"
+    },
+    {
+      "game_id": "7b2825d0-f9aa-428f-98f5-ed01bd9e2d75",
+      "car_id": "1a5a86a7-acc2-4816-909f-83df3bc93ef3"
+    },
+    {
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "car_id": "c9495e21-4211-4728-ae02-33f45e47528e"
+    },
+    {
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "car_id": "d2d08929-5b4c-486a-a79b-98ca2e656944"
+    },
+    {
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "car_id": "b7414847-ed6d-4a5a-b8fd-3b581e602383"
+    },
+    {
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "car_id": "7e70ea35-21af-4f9c-8c46-27d0f7d75c66"
+    },
+    {
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "car_id": "dbfcfe8c-fba2-4c56-9404-a7a1bee3a17e"
+    },
+    {
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "car_id": "c5dd2d0a-acfc-4f46-92ef-7dfa201d2001"
+    },
+    {
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "car_id": "db20722e-b904-48fc-b1d6-aff2a30e5d30"
+    },
+    {
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "car_id": "c4fc8eec-c54f-402e-ad05-8a906bd2f5ad"
+    },
+    {
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "car_id": "1aaa7d5e-6c4f-4440-aa41-b448b5aa52ba"
+    },
+    {
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "car_id": "979b7a30-2b4d-49f7-a972-7184edcf9036"
+    },
+    {
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "car_id": "e8ba79bf-8f71-4b56-b41d-c68ebd7711bb"
+    },
+    {
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "car_id": "fc06f7b1-8750-4ef8-89be-9bde75d0f2f0"
+    },
+    {
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "car_id": "5188562f-22f3-486b-8099-2df5a72fb852"
+    }
+  ],
+  "assists": [
+    {
+      "id": "04421bb8-68fa-4913-a871-69abe4685a96",
+      "name": "Traction Control"
+    },
+    {
+      "id": "ee4800a1-e7c5-42f4-91eb-d62982a9db71",
+      "name": "ABS"
+    },
+    {
+      "id": "17b6bf17-f789-4f3c-82f4-4550b8c572c4",
+      "name": "Stability Control"
+    },
+    {
+      "id": "f7ee6d9b-b266-429d-8ea3-6431ff0af913",
+      "name": "Auto Clutch"
+    },
+    {
+      "id": "e48a6861-aff6-4c04-a5f9-1fd767980a72",
+      "name": "Automatic Transmission"
+    },
+    {
+      "id": "5c9d7b3b-6c9a-4a44-8caf-92600488e5bd",
+      "name": "Launch Control"
+    },
+    {
+      "id": "d7e27a40-950f-4f3a-93da-458c58ca984a",
+      "name": "Brake Assist"
+    },
+    {
+      "id": "096c175b-4173-4617-a45d-d7811f2e8699",
+      "name": "Throttle Assist"
+    },
+    {
+      "id": "30599c55-bcdd-4cf1-afed-021eea22b662",
+      "name": "Steering Assist"
+    },
+    {
+      "id": "ad51bc11-1e2b-44f3-9ebc-1b1f6d5a41e8",
+      "name": "Racing Line"
+    },
+    {
+      "id": "dfb86205-7215-4ae5-a9c7-09c67b8dea7e",
+      "name": "Suggested Gear Indicator"
+    },
+    {
+      "id": "80c8cf83-64d2-46aa-9103-56774e1cfff7",
+      "name": "Braking Indicator"
+    },
+    {
+      "id": "c4741d35-476f-4b01-9d3c-6e0b1e8b4909",
+      "name": "Cornering Guide"
+    },
+    {
+      "id": "6ae5623c-3d58-4d4b-8446-c5b01e2b95f0",
+      "name": "Ghosting / Collision Off"
+    },
+    {
+      "id": "72cb7220-910d-41a2-825c-44951ab8ef6e",
+      "name": "Tire Wear Off"
+    },
+    {
+      "id": "65f530a0-b288-45ab-afe7-34baa1eadda0",
+      "name": "Fuel Usage Off"
+    },
+    {
+      "id": "2f8cafdb-351b-4f5f-b012-a329a3373bcc",
+      "name": "Mechanical Failures Off"
+    },
+    {
+      "id": "b55efc99-c088-4ff0-9cf7-5e24428ec5b3",
+      "name": "Damage Off"
+    }
+  ],
+  "lap_times": [
+    {
+      "id": "45543b47-a196-456f-b704-f567126167de",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "track_layout_id": "6bec2b6f-93cc-4659-82c9-b1eb40e44e8d",
+      "car_id": "5188562f-22f3-486b-8099-2df5a72fb852",
+      "input_type": "Controller",
+      "assists_json": [],
+      "time_ms": 148138,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.163Z",
+      "lap_date": "2024-07-17T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.163Z",
+      "updated_at": "2025-06-21T21:03:38.163Z"
+    },
+    {
+      "id": "2b229f90-388f-48ff-b4cc-ee7f327844df",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "track_layout_id": "f4ee0bab-e6bd-4526-a869-430fc0725d2c",
+      "car_id": "a02f9367-7c28-4542-a1ce-660f76235f73",
+      "input_type": "Wheel",
+      "assists_json": [],
+      "time_ms": 104364,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.168Z",
+      "lap_date": "2024-08-17T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.168Z",
+      "updated_at": "2025-06-21T21:03:38.168Z"
+    },
+    {
+      "id": "f2a4d2f2-f8c4-42c4-83be-32e00415fd33",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "track_layout_id": "3ed19e86-c88d-425b-94c1-7571d5e1c53b",
+      "car_id": "a02f9367-7c28-4542-a1ce-660f76235f73",
+      "input_type": "Wheel",
+      "assists_json": [],
+      "time_ms": 153026,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.170Z",
+      "lap_date": "2024-01-24T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.170Z",
+      "updated_at": "2025-06-21T21:03:38.170Z"
+    },
+    {
+      "id": "bfc2432c-dde9-48c8-bfc5-8af6838282d7",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "track_layout_id": "6179fb75-5fd4-4a24-8049-3bb35c485e13",
+      "car_id": "db20722e-b904-48fc-b1d6-aff2a30e5d30",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Traction Control",
+        "Braking Indicator",
+        "Stability Control"
+      ],
+      "time_ms": 126339,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.172Z",
+      "lap_date": "2024-08-04T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.172Z",
+      "updated_at": "2025-06-21T21:03:38.172Z"
+    },
+    {
+      "id": "5389e797-b13e-4a2c-96d3-e0214e1c7aef",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "track_layout_id": "c6e50379-5574-4686-9bcc-f4cfee672c27",
+      "car_id": "bb6d628d-8baa-4ef1-abd4-6b9f9836b782",
+      "input_type": "Wheel",
+      "assists_json": [
+        "ABS",
+        "Throttle Assist",
+        "Braking Indicator"
+      ],
+      "time_ms": 121247,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.181Z",
+      "lap_date": "2024-07-10T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.181Z",
+      "updated_at": "2025-06-21T21:03:38.181Z"
+    },
+    {
+      "id": "7d7b4ee1-6e9c-4a29-900f-5d74908d4c24",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "c6e50379-5574-4686-9bcc-f4cfee672c27",
+      "car_id": "55cf7680-ac66-41d5-a9c5-d35cb5f4d609",
+      "input_type": "Controller",
+      "assists_json": [
+        "Mechanical Failures Off",
+        "Fuel Usage Off",
+        "Automatic Transmission"
+      ],
+      "time_ms": 199569,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.188Z",
+      "lap_date": "2024-12-17T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.188Z",
+      "updated_at": "2025-06-21T21:03:38.188Z"
+    },
+    {
+      "id": "6c2534d3-b867-4254-bf58-94be13b7ac14",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "track_layout_id": "f4ee0bab-e6bd-4526-a869-430fc0725d2c",
+      "car_id": "e8ba79bf-8f71-4b56-b41d-c68ebd7711bb",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Traction Control"
+      ],
+      "time_ms": 148686,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.195Z",
+      "lap_date": "2024-07-16T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.195Z",
+      "updated_at": "2025-06-21T21:03:38.195Z"
+    },
+    {
+      "id": "af7bf597-b0d5-4733-b57c-8a90a70e4464",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "track_layout_id": "4110ed32-5a7f-4396-abd8-c52cbbc96aa9",
+      "car_id": "dbfcfe8c-fba2-4c56-9404-a7a1bee3a17e",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Launch Control",
+        "Brake Assist",
+        "Racing Line"
+      ],
+      "time_ms": 110248,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.198Z",
+      "lap_date": "2024-12-07T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.198Z",
+      "updated_at": "2025-06-21T21:03:38.198Z"
+    },
+    {
+      "id": "dcc62d05-9a44-40a8-96ba-c92b16c1fbdd",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "track_layout_id": "d29369e6-738f-4e4d-8cb3-032a9e7d70a2",
+      "car_id": "7e70ea35-21af-4f9c-8c46-27d0f7d75c66",
+      "input_type": "Controller",
+      "assists_json": [
+        "Suggested Gear Indicator"
+      ],
+      "time_ms": 147664,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.203Z",
+      "lap_date": "2024-01-14T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.203Z",
+      "updated_at": "2025-06-21T21:03:38.203Z"
+    },
+    {
+      "id": "aef7bc57-b264-415f-baec-bf4d752a8a3d",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "track_layout_id": "def00a6f-e99b-436e-8b42-636034ced646",
+      "car_id": "c4fc8eec-c54f-402e-ad05-8a906bd2f5ad",
+      "input_type": "Wheel",
+      "assists_json": [
+        "ABS"
+      ],
+      "time_ms": 174719,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.205Z",
+      "lap_date": "2024-02-09T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.205Z",
+      "updated_at": "2025-06-21T21:03:38.205Z"
+    },
+    {
+      "id": "6d7f5b57-b7f5-41d9-95a9-9bab95cd49d0",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "d29369e6-738f-4e4d-8cb3-032a9e7d70a2",
+      "car_id": "fc06f7b1-8750-4ef8-89be-9bde75d0f2f0",
+      "input_type": "Controller",
+      "assists_json": [],
+      "time_ms": 152307,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.208Z",
+      "lap_date": "2024-08-01T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.208Z",
+      "updated_at": "2025-06-21T21:03:38.208Z"
+    },
+    {
+      "id": "8531160c-07e8-4857-8f80-d5f0e04817bc",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "a19ba5af-b111-452c-a22d-1685ba0e26d0",
+      "car_id": "f1e6f2f6-774f-4fca-b105-f9419ae44859",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Damage Off",
+        "Tire Wear Off"
+      ],
+      "time_ms": 176265,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.209Z",
+      "lap_date": "2024-01-18T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.209Z",
+      "updated_at": "2025-06-21T21:03:38.209Z"
+    },
+    {
+      "id": "cf815a12-e581-4f3b-86a8-adf464a01e81",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "025d1d4f-030c-4925-9df4-bc3d92d16faf",
+      "car_id": "564db13b-bc05-493f-9706-3ea54a52dadf",
+      "input_type": "Controller",
+      "assists_json": [],
+      "time_ms": 113223,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.213Z",
+      "lap_date": "2024-06-16T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.213Z",
+      "updated_at": "2025-06-21T21:03:38.213Z"
+    },
+    {
+      "id": "e7e7d0cd-70e6-49fd-a0b9-2be81dfb262b",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "track_layout_id": "4110ed32-5a7f-4396-abd8-c52cbbc96aa9",
+      "car_id": "e8ba79bf-8f71-4b56-b41d-c68ebd7711bb",
+      "input_type": "Controller",
+      "assists_json": [
+        "Cornering Guide",
+        "Throttle Assist"
+      ],
+      "time_ms": 109374,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.214Z",
+      "lap_date": "2024-12-12T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.214Z",
+      "updated_at": "2025-06-21T21:03:38.214Z"
+    },
+    {
+      "id": "8a3778cd-ca84-4330-b78d-325f6b591ef0",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "track_layout_id": "b013e527-e146-4ce3-a0ef-06d2411bd274",
+      "car_id": "abcecb3f-48c7-46ff-b2f6-ab0df69ec9fe",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Auto Clutch",
+        "Brake Assist"
+      ],
+      "time_ms": 194182,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.218Z",
+      "lap_date": "2024-03-21T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.218Z",
+      "updated_at": "2025-06-21T21:03:38.218Z"
+    },
+    {
+      "id": "01e7fcaf-05f9-4c62-ada1-37553776b3ce",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "track_layout_id": "c6e50379-5574-4686-9bcc-f4cfee672c27",
+      "car_id": "c9495e21-4211-4728-ae02-33f45e47528e",
+      "input_type": "Controller",
+      "assists_json": [],
+      "time_ms": 180211,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.222Z",
+      "lap_date": "2024-12-21T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.222Z",
+      "updated_at": "2025-06-21T21:03:38.222Z"
+    },
+    {
+      "id": "f0e6817f-ab24-4023-8cad-c25ea7f3bd30",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "track_layout_id": "35031f76-98a2-4374-b86d-9469ee7e380c",
+      "car_id": "5188562f-22f3-486b-8099-2df5a72fb852",
+      "input_type": "Keyboard",
+      "assists_json": [],
+      "time_ms": 95550,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.224Z",
+      "lap_date": "2024-12-06T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.224Z",
+      "updated_at": "2025-06-21T21:03:38.224Z"
+    },
+    {
+      "id": "a04c79a2-b169-4d5f-899f-4c4419fa8f2f",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "track_layout_id": "35031f76-98a2-4374-b86d-9469ee7e380c",
+      "car_id": "bb6d628d-8baa-4ef1-abd4-6b9f9836b782",
+      "input_type": "Keyboard",
+      "assists_json": [],
+      "time_ms": 101643,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.225Z",
+      "lap_date": "2024-03-09T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.225Z",
+      "updated_at": "2025-06-21T21:03:38.225Z"
+    },
+    {
+      "id": "c2b04f8b-e84a-4234-974a-83bfd2a1b788",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "track_layout_id": "b013e527-e146-4ce3-a0ef-06d2411bd274",
+      "car_id": "e1f34ba9-4026-41e5-9d1e-b5e526f7b916",
+      "input_type": "Controller",
+      "assists_json": [],
+      "time_ms": 81298,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.227Z",
+      "lap_date": "2024-01-01T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.227Z",
+      "updated_at": "2025-06-21T21:03:38.227Z"
+    },
+    {
+      "id": "bc2f7d80-8b72-4b77-ad51-533a7a65415a",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "track_layout_id": "4110ed32-5a7f-4396-abd8-c52cbbc96aa9",
+      "car_id": "1aaa7d5e-6c4f-4440-aa41-b448b5aa52ba",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Steering Assist",
+        "Brake Assist"
+      ],
+      "time_ms": 134548,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.228Z",
+      "lap_date": "2024-05-25T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.228Z",
+      "updated_at": "2025-06-21T21:03:38.228Z"
+    },
+    {
+      "id": "16cde6ff-039e-445b-8656-035ab59c6030",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "track_layout_id": "40f98083-0060-4254-8de1-1a34fe7c8086",
+      "car_id": "1a5a86a7-acc2-4816-909f-83df3bc93ef3",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Stability Control"
+      ],
+      "time_ms": 127943,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.232Z",
+      "lap_date": "2024-08-09T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.232Z",
+      "updated_at": "2025-06-21T21:03:38.232Z"
+    },
+    {
+      "id": "2bb6ce3d-decf-44e4-a01b-40570b7ffd6e",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "track_layout_id": "def00a6f-e99b-436e-8b42-636034ced646",
+      "car_id": "564db13b-bc05-493f-9706-3ea54a52dadf",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Brake Assist",
+        "Auto Clutch"
+      ],
+      "time_ms": 176594,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.235Z",
+      "lap_date": "2024-02-25T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.235Z",
+      "updated_at": "2025-06-21T21:03:38.235Z"
+    },
+    {
+      "id": "612b5bf3-e975-4cfc-af7f-e31acd81cc56",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "track_layout_id": "def00a6f-e99b-436e-8b42-636034ced646",
+      "car_id": "d2d08929-5b4c-486a-a79b-98ca2e656944",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Braking Indicator",
+        "Auto Clutch",
+        "Suggested Gear Indicator"
+      ],
+      "time_ms": 123521,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.239Z",
+      "lap_date": "2024-05-09T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.239Z",
+      "updated_at": "2025-06-21T21:03:38.239Z"
+    },
+    {
+      "id": "d9ccf255-5e6e-414f-a1db-25e87543ea1f",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "track_layout_id": "6179fb75-5fd4-4a24-8049-3bb35c485e13",
+      "car_id": "5188562f-22f3-486b-8099-2df5a72fb852",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Fuel Usage Off"
+      ],
+      "time_ms": 96367,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.244Z",
+      "lap_date": "2024-12-23T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.244Z",
+      "updated_at": "2025-06-21T21:03:38.244Z"
+    },
+    {
+      "id": "98b0808a-520b-4a9e-b9a4-915d8490bc11",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "track_layout_id": "6bec2b6f-93cc-4659-82c9-b1eb40e44e8d",
+      "car_id": "f1e6f2f6-774f-4fca-b105-f9419ae44859",
+      "input_type": "Controller",
+      "assists_json": [
+        "Cornering Guide",
+        "Fuel Usage Off",
+        "Throttle Assist"
+      ],
+      "time_ms": 165894,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.247Z",
+      "lap_date": "2024-01-19T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.247Z",
+      "updated_at": "2025-06-21T21:03:38.247Z"
+    },
+    {
+      "id": "cffb3ee9-9c16-4169-917b-09d12dc56877",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "track_layout_id": "6bec2b6f-93cc-4659-82c9-b1eb40e44e8d",
+      "car_id": "7e70ea35-21af-4f9c-8c46-27d0f7d75c66",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Brake Assist"
+      ],
+      "time_ms": 190370,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.252Z",
+      "lap_date": "2024-02-06T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.252Z",
+      "updated_at": "2025-06-21T21:03:38.252Z"
+    },
+    {
+      "id": "e86eb794-23b9-4452-a452-fb4e44d7649b",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "track_layout_id": "8833a151-440d-42d6-9dd1-20f329acb9e0",
+      "car_id": "b7414847-ed6d-4a5a-b8fd-3b581e602383",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Braking Indicator"
+      ],
+      "time_ms": 185665,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.254Z",
+      "lap_date": "2024-04-08T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.254Z",
+      "updated_at": "2025-06-21T21:03:38.254Z"
+    },
+    {
+      "id": "90432f85-4b85-4c34-a09c-c5aa55eeee0f",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "track_layout_id": "def00a6f-e99b-436e-8b42-636034ced646",
+      "car_id": "ed26535d-b91c-4727-8f14-2599ceca6243",
+      "input_type": "Controller",
+      "assists_json": [],
+      "time_ms": 126936,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.257Z",
+      "lap_date": "2024-03-09T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.257Z",
+      "updated_at": "2025-06-21T21:03:38.257Z"
+    },
+    {
+      "id": "a3201c30-521d-4597-93ee-36a2f7e6defd",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "track_layout_id": "f4ee0bab-e6bd-4526-a869-430fc0725d2c",
+      "car_id": "55cf7680-ac66-41d5-a9c5-d35cb5f4d609",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Ghosting / Collision Off",
+        "Racing Line",
+        "Damage Off"
+      ],
+      "time_ms": 69673,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.259Z",
+      "lap_date": "2024-04-15T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.259Z",
+      "updated_at": "2025-06-21T21:03:38.259Z"
+    },
+    {
+      "id": "92eff8ec-3a27-4244-ac63-b7a2963e9d90",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "13007dce-72b7-4cda-894a-2f5b8c8384ac",
+      "track_layout_id": "d29369e6-738f-4e4d-8cb3-032a9e7d70a2",
+      "car_id": "1a5a86a7-acc2-4816-909f-83df3bc93ef3",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Braking Indicator",
+        "Tire Wear Off",
+        "Cornering Guide"
+      ],
+      "time_ms": 147266,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.264Z",
+      "lap_date": "2024-02-10T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.264Z",
+      "updated_at": "2025-06-21T21:03:38.264Z"
+    },
+    {
+      "id": "d045fedf-120f-403f-8f60-fb5ef8ab9894",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "a19ba5af-b111-452c-a22d-1685ba0e26d0",
+      "car_id": "ed26535d-b91c-4727-8f14-2599ceca6243",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Throttle Assist"
+      ],
+      "time_ms": 145236,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.269Z",
+      "lap_date": "2024-04-04T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.269Z",
+      "updated_at": "2025-06-21T21:03:38.269Z"
+    },
+    {
+      "id": "e451a39a-7f78-4e79-8994-5a36ee4865cb",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "def3542a-04c9-4b4c-ab17-681f08699c5b",
+      "car_id": "b7414847-ed6d-4a5a-b8fd-3b581e602383",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Damage Off",
+        "Traction Control"
+      ],
+      "time_ms": 197388,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.271Z",
+      "lap_date": "2024-09-27T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.271Z",
+      "updated_at": "2025-06-21T21:03:38.271Z"
+    },
+    {
+      "id": "5a3d5342-004c-4e76-a2ac-a0d7bc20ef9b",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "025d1d4f-030c-4925-9df4-bc3d92d16faf",
+      "car_id": "979b7a30-2b4d-49f7-a972-7184edcf9036",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Cornering Guide",
+        "ABS",
+        "Launch Control"
+      ],
+      "time_ms": 105034,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.275Z",
+      "lap_date": "2024-01-14T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.275Z",
+      "updated_at": "2025-06-21T21:03:38.275Z"
+    },
+    {
+      "id": "29fdd538-9b06-435b-ac9e-2ab83ae94aec",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "track_layout_id": "064d1957-3822-4af9-b898-23fe412c47a9",
+      "car_id": "a02f9367-7c28-4542-a1ce-660f76235f73",
+      "input_type": "Keyboard",
+      "assists_json": [],
+      "time_ms": 168267,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.280Z",
+      "lap_date": "2024-07-11T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.280Z",
+      "updated_at": "2025-06-21T21:03:38.280Z"
+    },
+    {
+      "id": "bd6782e9-2135-4e72-843d-fd0092105ff5",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "7b2825d0-f9aa-428f-98f5-ed01bd9e2d75",
+      "track_layout_id": "4b1db466-03ed-4af9-8b6a-81b5d611fd75",
+      "car_id": "db20722e-b904-48fc-b1d6-aff2a30e5d30",
+      "input_type": "Controller",
+      "assists_json": [
+        "Throttle Assist",
+        "Fuel Usage Off",
+        "Mechanical Failures Off"
+      ],
+      "time_ms": 115295,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.282Z",
+      "lap_date": "2024-10-04T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.282Z",
+      "updated_at": "2025-06-21T21:03:38.282Z"
+    },
+    {
+      "id": "c14c2c23-e904-433b-98f6-d8d0e150cb29",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "track_layout_id": "6179fb75-5fd4-4a24-8049-3bb35c485e13",
+      "car_id": "a02f9367-7c28-4542-a1ce-660f76235f73",
+      "input_type": "Keyboard",
+      "assists_json": [],
+      "time_ms": 186506,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.287Z",
+      "lap_date": "2024-12-02T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.287Z",
+      "updated_at": "2025-06-21T21:03:38.287Z"
+    },
+    {
+      "id": "70c90fa3-6549-4821-937f-e05c52870097",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "35031f76-98a2-4374-b86d-9469ee7e380c",
+      "car_id": "ec974431-5629-46eb-9c35-fc27090e661b",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Racing Line",
+        "Automatic Transmission"
+      ],
+      "time_ms": 61723,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.289Z",
+      "lap_date": "2024-12-14T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.289Z",
+      "updated_at": "2025-06-21T21:03:38.289Z"
+    },
+    {
+      "id": "34e145ce-c0a7-437e-a6e7-8cc3484151df",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "track_layout_id": "064d1957-3822-4af9-b898-23fe412c47a9",
+      "car_id": "e1f34ba9-4026-41e5-9d1e-b5e526f7b916",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Fuel Usage Off"
+      ],
+      "time_ms": 170752,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.292Z",
+      "lap_date": "2024-06-01T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.292Z",
+      "updated_at": "2025-06-21T21:03:38.292Z"
+    },
+    {
+      "id": "1bfcf58c-84e5-4189-8ed4-c4f1b9730fd2",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "025d1d4f-030c-4925-9df4-bc3d92d16faf",
+      "car_id": "fc06f7b1-8750-4ef8-89be-9bde75d0f2f0",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Ghosting / Collision Off",
+        "Steering Assist",
+        "Mechanical Failures Off"
+      ],
+      "time_ms": 82105,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.295Z",
+      "lap_date": "2024-09-23T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.295Z",
+      "updated_at": "2025-06-21T21:03:38.295Z"
+    },
+    {
+      "id": "f5aa09b8-c853-4c76-bac3-2c5f6038fe8d",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "track_layout_id": "232103a9-8fd4-4c4d-8f7f-4e04ce46c47c",
+      "car_id": "c4fc8eec-c54f-402e-ad05-8a906bd2f5ad",
+      "input_type": "Keyboard",
+      "assists_json": [],
+      "time_ms": 160227,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.300Z",
+      "lap_date": "2024-11-08T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.300Z",
+      "updated_at": "2025-06-21T21:03:38.300Z"
+    },
+    {
+      "id": "350d1911-ed38-4604-8509-5449c9dc9071",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "track_layout_id": "3ed19e86-c88d-425b-94c1-7571d5e1c53b",
+      "car_id": "7e70ea35-21af-4f9c-8c46-27d0f7d75c66",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Auto Clutch",
+        "Tire Wear Off"
+      ],
+      "time_ms": 160185,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.302Z",
+      "lap_date": "2024-12-21T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.302Z",
+      "updated_at": "2025-06-21T21:03:38.302Z"
+    },
+    {
+      "id": "849e368e-9360-4cde-b23b-60b421ddf9b6",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "43ab8217-dc95-4168-8e28-d66cd3e881bb",
+      "track_layout_id": "232103a9-8fd4-4c4d-8f7f-4e04ce46c47c",
+      "car_id": "b7414847-ed6d-4a5a-b8fd-3b581e602383",
+      "input_type": "Controller",
+      "assists_json": [
+        "Auto Clutch"
+      ],
+      "time_ms": 104069,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.306Z",
+      "lap_date": "2024-09-24T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.306Z",
+      "updated_at": "2025-06-21T21:03:38.306Z"
+    },
+    {
+      "id": "8f8335af-b7cd-4ff3-930b-5bcd80e19afe",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "39c59672-d54e-445e-8f7e-0f8c73b8a3ed",
+      "track_layout_id": "8833a151-440d-42d6-9dd1-20f329acb9e0",
+      "car_id": "9c647a1f-e6ae-49ed-ae16-3f29dbe5fc74",
+      "input_type": "Keyboard",
+      "assists_json": [],
+      "time_ms": 132083,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.309Z",
+      "lap_date": "2024-05-27T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.309Z",
+      "updated_at": "2025-06-21T21:03:38.309Z"
+    },
+    {
+      "id": "c2ead083-2b24-4e68-819c-a57e729ee137",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "track_layout_id": "3ed19e86-c88d-425b-94c1-7571d5e1c53b",
+      "car_id": "979b7a30-2b4d-49f7-a972-7184edcf9036",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Fuel Usage Off"
+      ],
+      "time_ms": 79780,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.310Z",
+      "lap_date": "2024-05-22T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.310Z",
+      "updated_at": "2025-06-21T21:03:38.310Z"
+    },
+    {
+      "id": "dd6d173b-761e-4736-8c3f-9ae702742f08",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "cca01361-c561-44ef-85ee-dfef547d64f4",
+      "track_layout_id": "843bbae3-a23e-4bf2-a17b-bc506cfda692",
+      "car_id": "1bec4ef4-9dc6-426a-83b4-c211835e9fae",
+      "input_type": "Controller",
+      "assists_json": [
+        "Automatic Transmission"
+      ],
+      "time_ms": 100010,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.313Z",
+      "lap_date": "2024-07-12T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.313Z",
+      "updated_at": "2025-06-21T21:03:38.313Z"
+    },
+    {
+      "id": "057e6b70-bbce-44a5-91f8-f8562af35214",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "track_layout_id": "f4ee0bab-e6bd-4526-a869-430fc0725d2c",
+      "car_id": "1aaa7d5e-6c4f-4440-aa41-b448b5aa52ba",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Mechanical Failures Off",
+        "Auto Clutch",
+        "Braking Indicator"
+      ],
+      "time_ms": 115069,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.315Z",
+      "lap_date": "2024-09-21T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.315Z",
+      "updated_at": "2025-06-21T21:03:38.315Z"
+    },
+    {
+      "id": "52d22fc7-aaa9-4457-a4cb-7b41864928d7",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "aff04e4f-cb22-4fe7-b191-d76fd8280f98",
+      "track_layout_id": "4110ed32-5a7f-4396-abd8-c52cbbc96aa9",
+      "car_id": "bb6d628d-8baa-4ef1-abd4-6b9f9836b782",
+      "input_type": "Controller",
+      "assists_json": [
+        "Steering Assist",
+        "Racing Line"
+      ],
+      "time_ms": 108704,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.320Z",
+      "lap_date": "2024-04-11T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.320Z",
+      "updated_at": "2025-06-21T21:03:38.320Z"
+    },
+    {
+      "id": "a23fa058-0abc-4c90-b439-115fb250c0b2",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "84ebf6ad-c1f3-4c54-be5b-0485bb23aa92",
+      "track_layout_id": "3ed19e86-c88d-425b-94c1-7571d5e1c53b",
+      "car_id": "d2d08929-5b4c-486a-a79b-98ca2e656944",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Auto Clutch",
+        "Suggested Gear Indicator"
+      ],
+      "time_ms": 64818,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.330Z",
+      "lap_date": "2024-06-12T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.330Z",
+      "updated_at": "2025-06-21T21:03:38.330Z"
+    },
+    {
+      "id": "5ac112d7-e098-40d4-96b7-84161ed7eee4",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "75928df4-f975-4e3d-9434-595f0f325367",
+      "track_layout_id": "f4ee0bab-e6bd-4526-a869-430fc0725d2c",
+      "car_id": "1a5a86a7-acc2-4816-909f-83df3bc93ef3",
+      "input_type": "Wheel",
+      "assists_json": [
+        "Automatic Transmission",
+        "ABS",
+        "Tire Wear Off"
+      ],
+      "time_ms": 178886,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.334Z",
+      "lap_date": "2024-04-05T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.334Z",
+      "updated_at": "2025-06-21T21:03:38.334Z"
+    },
+    {
+      "id": "bfa49898-432f-453f-ad31-cf2043577d34",
+      "user_id": "9bfca969-8c96-4aee-b651-449492fc58f0",
+      "game_id": "7b2825d0-f9aa-428f-98f5-ed01bd9e2d75",
+      "track_layout_id": "0f00be81-2d49-4231-ade5-17ee759ef169",
+      "car_id": "db20722e-b904-48fc-b1d6-aff2a30e5d30",
+      "input_type": "Keyboard",
+      "assists_json": [
+        "Throttle Assist",
+        "Damage Off"
+      ],
+      "time_ms": 111461,
+      "screenshot_url": null,
+      "notes": null,
+      "verified": false,
+      "date_submitted": "2025-06-21T21:03:38.341Z",
+      "lap_date": "2024-05-08T00:00:00.000Z",
+      "created_at": "2025-06-21T21:03:38.341Z",
+      "updated_at": "2025-06-21T21:03:38.341Z"
+    }
+  ],
+  "lap_time_assists": [
+    {
+      "lap_time_id": "bfc2432c-dde9-48c8-bfc5-8af6838282d7",
+      "assist_id": "04421bb8-68fa-4913-a871-69abe4685a96"
+    },
+    {
+      "lap_time_id": "bfc2432c-dde9-48c8-bfc5-8af6838282d7",
+      "assist_id": "80c8cf83-64d2-46aa-9103-56774e1cfff7"
+    },
+    {
+      "lap_time_id": "bfc2432c-dde9-48c8-bfc5-8af6838282d7",
+      "assist_id": "17b6bf17-f789-4f3c-82f4-4550b8c572c4"
+    },
+    {
+      "lap_time_id": "5389e797-b13e-4a2c-96d3-e0214e1c7aef",
+      "assist_id": "ee4800a1-e7c5-42f4-91eb-d62982a9db71"
+    },
+    {
+      "lap_time_id": "5389e797-b13e-4a2c-96d3-e0214e1c7aef",
+      "assist_id": "096c175b-4173-4617-a45d-d7811f2e8699"
+    },
+    {
+      "lap_time_id": "5389e797-b13e-4a2c-96d3-e0214e1c7aef",
+      "assist_id": "80c8cf83-64d2-46aa-9103-56774e1cfff7"
+    },
+    {
+      "lap_time_id": "7d7b4ee1-6e9c-4a29-900f-5d74908d4c24",
+      "assist_id": "2f8cafdb-351b-4f5f-b012-a329a3373bcc"
+    },
+    {
+      "lap_time_id": "7d7b4ee1-6e9c-4a29-900f-5d74908d4c24",
+      "assist_id": "65f530a0-b288-45ab-afe7-34baa1eadda0"
+    },
+    {
+      "lap_time_id": "7d7b4ee1-6e9c-4a29-900f-5d74908d4c24",
+      "assist_id": "e48a6861-aff6-4c04-a5f9-1fd767980a72"
+    },
+    {
+      "lap_time_id": "6c2534d3-b867-4254-bf58-94be13b7ac14",
+      "assist_id": "04421bb8-68fa-4913-a871-69abe4685a96"
+    },
+    {
+      "lap_time_id": "af7bf597-b0d5-4733-b57c-8a90a70e4464",
+      "assist_id": "5c9d7b3b-6c9a-4a44-8caf-92600488e5bd"
+    },
+    {
+      "lap_time_id": "af7bf597-b0d5-4733-b57c-8a90a70e4464",
+      "assist_id": "d7e27a40-950f-4f3a-93da-458c58ca984a"
+    },
+    {
+      "lap_time_id": "af7bf597-b0d5-4733-b57c-8a90a70e4464",
+      "assist_id": "ad51bc11-1e2b-44f3-9ebc-1b1f6d5a41e8"
+    },
+    {
+      "lap_time_id": "dcc62d05-9a44-40a8-96ba-c92b16c1fbdd",
+      "assist_id": "dfb86205-7215-4ae5-a9c7-09c67b8dea7e"
+    },
+    {
+      "lap_time_id": "aef7bc57-b264-415f-baec-bf4d752a8a3d",
+      "assist_id": "ee4800a1-e7c5-42f4-91eb-d62982a9db71"
+    },
+    {
+      "lap_time_id": "8531160c-07e8-4857-8f80-d5f0e04817bc",
+      "assist_id": "b55efc99-c088-4ff0-9cf7-5e24428ec5b3"
+    },
+    {
+      "lap_time_id": "8531160c-07e8-4857-8f80-d5f0e04817bc",
+      "assist_id": "72cb7220-910d-41a2-825c-44951ab8ef6e"
+    },
+    {
+      "lap_time_id": "e7e7d0cd-70e6-49fd-a0b9-2be81dfb262b",
+      "assist_id": "c4741d35-476f-4b01-9d3c-6e0b1e8b4909"
+    },
+    {
+      "lap_time_id": "e7e7d0cd-70e6-49fd-a0b9-2be81dfb262b",
+      "assist_id": "096c175b-4173-4617-a45d-d7811f2e8699"
+    },
+    {
+      "lap_time_id": "8a3778cd-ca84-4330-b78d-325f6b591ef0",
+      "assist_id": "f7ee6d9b-b266-429d-8ea3-6431ff0af913"
+    },
+    {
+      "lap_time_id": "8a3778cd-ca84-4330-b78d-325f6b591ef0",
+      "assist_id": "d7e27a40-950f-4f3a-93da-458c58ca984a"
+    },
+    {
+      "lap_time_id": "bc2f7d80-8b72-4b77-ad51-533a7a65415a",
+      "assist_id": "30599c55-bcdd-4cf1-afed-021eea22b662"
+    },
+    {
+      "lap_time_id": "bc2f7d80-8b72-4b77-ad51-533a7a65415a",
+      "assist_id": "d7e27a40-950f-4f3a-93da-458c58ca984a"
+    },
+    {
+      "lap_time_id": "16cde6ff-039e-445b-8656-035ab59c6030",
+      "assist_id": "17b6bf17-f789-4f3c-82f4-4550b8c572c4"
+    },
+    {
+      "lap_time_id": "2bb6ce3d-decf-44e4-a01b-40570b7ffd6e",
+      "assist_id": "d7e27a40-950f-4f3a-93da-458c58ca984a"
+    },
+    {
+      "lap_time_id": "2bb6ce3d-decf-44e4-a01b-40570b7ffd6e",
+      "assist_id": "f7ee6d9b-b266-429d-8ea3-6431ff0af913"
+    },
+    {
+      "lap_time_id": "612b5bf3-e975-4cfc-af7f-e31acd81cc56",
+      "assist_id": "80c8cf83-64d2-46aa-9103-56774e1cfff7"
+    },
+    {
+      "lap_time_id": "612b5bf3-e975-4cfc-af7f-e31acd81cc56",
+      "assist_id": "f7ee6d9b-b266-429d-8ea3-6431ff0af913"
+    },
+    {
+      "lap_time_id": "612b5bf3-e975-4cfc-af7f-e31acd81cc56",
+      "assist_id": "dfb86205-7215-4ae5-a9c7-09c67b8dea7e"
+    },
+    {
+      "lap_time_id": "d9ccf255-5e6e-414f-a1db-25e87543ea1f",
+      "assist_id": "65f530a0-b288-45ab-afe7-34baa1eadda0"
+    },
+    {
+      "lap_time_id": "98b0808a-520b-4a9e-b9a4-915d8490bc11",
+      "assist_id": "c4741d35-476f-4b01-9d3c-6e0b1e8b4909"
+    },
+    {
+      "lap_time_id": "98b0808a-520b-4a9e-b9a4-915d8490bc11",
+      "assist_id": "65f530a0-b288-45ab-afe7-34baa1eadda0"
+    },
+    {
+      "lap_time_id": "98b0808a-520b-4a9e-b9a4-915d8490bc11",
+      "assist_id": "096c175b-4173-4617-a45d-d7811f2e8699"
+    },
+    {
+      "lap_time_id": "cffb3ee9-9c16-4169-917b-09d12dc56877",
+      "assist_id": "d7e27a40-950f-4f3a-93da-458c58ca984a"
+    },
+    {
+      "lap_time_id": "e86eb794-23b9-4452-a452-fb4e44d7649b",
+      "assist_id": "80c8cf83-64d2-46aa-9103-56774e1cfff7"
+    },
+    {
+      "lap_time_id": "a3201c30-521d-4597-93ee-36a2f7e6defd",
+      "assist_id": "6ae5623c-3d58-4d4b-8446-c5b01e2b95f0"
+    },
+    {
+      "lap_time_id": "a3201c30-521d-4597-93ee-36a2f7e6defd",
+      "assist_id": "ad51bc11-1e2b-44f3-9ebc-1b1f6d5a41e8"
+    },
+    {
+      "lap_time_id": "a3201c30-521d-4597-93ee-36a2f7e6defd",
+      "assist_id": "b55efc99-c088-4ff0-9cf7-5e24428ec5b3"
+    },
+    {
+      "lap_time_id": "92eff8ec-3a27-4244-ac63-b7a2963e9d90",
+      "assist_id": "80c8cf83-64d2-46aa-9103-56774e1cfff7"
+    },
+    {
+      "lap_time_id": "92eff8ec-3a27-4244-ac63-b7a2963e9d90",
+      "assist_id": "72cb7220-910d-41a2-825c-44951ab8ef6e"
+    },
+    {
+      "lap_time_id": "92eff8ec-3a27-4244-ac63-b7a2963e9d90",
+      "assist_id": "c4741d35-476f-4b01-9d3c-6e0b1e8b4909"
+    },
+    {
+      "lap_time_id": "d045fedf-120f-403f-8f60-fb5ef8ab9894",
+      "assist_id": "096c175b-4173-4617-a45d-d7811f2e8699"
+    },
+    {
+      "lap_time_id": "e451a39a-7f78-4e79-8994-5a36ee4865cb",
+      "assist_id": "b55efc99-c088-4ff0-9cf7-5e24428ec5b3"
+    },
+    {
+      "lap_time_id": "e451a39a-7f78-4e79-8994-5a36ee4865cb",
+      "assist_id": "04421bb8-68fa-4913-a871-69abe4685a96"
+    },
+    {
+      "lap_time_id": "5a3d5342-004c-4e76-a2ac-a0d7bc20ef9b",
+      "assist_id": "c4741d35-476f-4b01-9d3c-6e0b1e8b4909"
+    },
+    {
+      "lap_time_id": "5a3d5342-004c-4e76-a2ac-a0d7bc20ef9b",
+      "assist_id": "ee4800a1-e7c5-42f4-91eb-d62982a9db71"
+    },
+    {
+      "lap_time_id": "5a3d5342-004c-4e76-a2ac-a0d7bc20ef9b",
+      "assist_id": "5c9d7b3b-6c9a-4a44-8caf-92600488e5bd"
+    },
+    {
+      "lap_time_id": "bd6782e9-2135-4e72-843d-fd0092105ff5",
+      "assist_id": "096c175b-4173-4617-a45d-d7811f2e8699"
+    },
+    {
+      "lap_time_id": "bd6782e9-2135-4e72-843d-fd0092105ff5",
+      "assist_id": "65f530a0-b288-45ab-afe7-34baa1eadda0"
+    },
+    {
+      "lap_time_id": "bd6782e9-2135-4e72-843d-fd0092105ff5",
+      "assist_id": "2f8cafdb-351b-4f5f-b012-a329a3373bcc"
+    },
+    {
+      "lap_time_id": "70c90fa3-6549-4821-937f-e05c52870097",
+      "assist_id": "ad51bc11-1e2b-44f3-9ebc-1b1f6d5a41e8"
+    },
+    {
+      "lap_time_id": "70c90fa3-6549-4821-937f-e05c52870097",
+      "assist_id": "e48a6861-aff6-4c04-a5f9-1fd767980a72"
+    },
+    {
+      "lap_time_id": "34e145ce-c0a7-437e-a6e7-8cc3484151df",
+      "assist_id": "65f530a0-b288-45ab-afe7-34baa1eadda0"
+    },
+    {
+      "lap_time_id": "1bfcf58c-84e5-4189-8ed4-c4f1b9730fd2",
+      "assist_id": "6ae5623c-3d58-4d4b-8446-c5b01e2b95f0"
+    },
+    {
+      "lap_time_id": "1bfcf58c-84e5-4189-8ed4-c4f1b9730fd2",
+      "assist_id": "30599c55-bcdd-4cf1-afed-021eea22b662"
+    },
+    {
+      "lap_time_id": "1bfcf58c-84e5-4189-8ed4-c4f1b9730fd2",
+      "assist_id": "2f8cafdb-351b-4f5f-b012-a329a3373bcc"
+    },
+    {
+      "lap_time_id": "350d1911-ed38-4604-8509-5449c9dc9071",
+      "assist_id": "f7ee6d9b-b266-429d-8ea3-6431ff0af913"
+    },
+    {
+      "lap_time_id": "350d1911-ed38-4604-8509-5449c9dc9071",
+      "assist_id": "72cb7220-910d-41a2-825c-44951ab8ef6e"
+    },
+    {
+      "lap_time_id": "849e368e-9360-4cde-b23b-60b421ddf9b6",
+      "assist_id": "f7ee6d9b-b266-429d-8ea3-6431ff0af913"
+    },
+    {
+      "lap_time_id": "c2ead083-2b24-4e68-819c-a57e729ee137",
+      "assist_id": "65f530a0-b288-45ab-afe7-34baa1eadda0"
+    },
+    {
+      "lap_time_id": "dd6d173b-761e-4736-8c3f-9ae702742f08",
+      "assist_id": "e48a6861-aff6-4c04-a5f9-1fd767980a72"
+    },
+    {
+      "lap_time_id": "057e6b70-bbce-44a5-91f8-f8562af35214",
+      "assist_id": "2f8cafdb-351b-4f5f-b012-a329a3373bcc"
+    },
+    {
+      "lap_time_id": "057e6b70-bbce-44a5-91f8-f8562af35214",
+      "assist_id": "f7ee6d9b-b266-429d-8ea3-6431ff0af913"
+    },
+    {
+      "lap_time_id": "057e6b70-bbce-44a5-91f8-f8562af35214",
+      "assist_id": "80c8cf83-64d2-46aa-9103-56774e1cfff7"
+    },
+    {
+      "lap_time_id": "52d22fc7-aaa9-4457-a4cb-7b41864928d7",
+      "assist_id": "30599c55-bcdd-4cf1-afed-021eea22b662"
+    },
+    {
+      "lap_time_id": "52d22fc7-aaa9-4457-a4cb-7b41864928d7",
+      "assist_id": "ad51bc11-1e2b-44f3-9ebc-1b1f6d5a41e8"
+    },
+    {
+      "lap_time_id": "a23fa058-0abc-4c90-b439-115fb250c0b2",
+      "assist_id": "f7ee6d9b-b266-429d-8ea3-6431ff0af913"
+    },
+    {
+      "lap_time_id": "a23fa058-0abc-4c90-b439-115fb250c0b2",
+      "assist_id": "dfb86205-7215-4ae5-a9c7-09c67b8dea7e"
+    },
+    {
+      "lap_time_id": "5ac112d7-e098-40d4-96b7-84161ed7eee4",
+      "assist_id": "e48a6861-aff6-4c04-a5f9-1fd767980a72"
+    },
+    {
+      "lap_time_id": "5ac112d7-e098-40d4-96b7-84161ed7eee4",
+      "assist_id": "ee4800a1-e7c5-42f4-91eb-d62982a9db71"
+    },
+    {
+      "lap_time_id": "5ac112d7-e098-40d4-96b7-84161ed7eee4",
+      "assist_id": "72cb7220-910d-41a2-825c-44951ab8ef6e"
+    },
+    {
+      "lap_time_id": "bfa49898-432f-453f-ad31-cf2043577d34",
+      "assist_id": "096c175b-4173-4617-a45d-d7811f2e8699"
+    },
+    {
+      "lap_time_id": "bfa49898-432f-453f-ad31-cf2043577d34",
+      "assist_id": "b55efc99-c088-4ff0-9cf7-5e24428ec5b3"
+    }
+  ]
+}
