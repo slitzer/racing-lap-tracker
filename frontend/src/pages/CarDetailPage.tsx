@@ -88,7 +88,7 @@ const CarDetailPage: React.FC = () => {
         });
       })
       .catch(() => {});
-  }, [id]);
+  }, [car]);
 
   if (!car) {
     return (
