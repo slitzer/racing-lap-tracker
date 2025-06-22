@@ -140,3 +140,12 @@ export async function scanGamePack() {
   const res = await apiClient.post('/admin/scanGamePack');
   return res.data as { message: string; summary: { games: number; tracks: number; layouts: number; cars: number } };
 }
+
+export async function uploadGamePack(file: File) {
+  const form = new FormData();
+  form.append('file', file);
+  const res = await apiClient.post('/admin/uploadGamePack', form, {
+    headers: { 'Content-Type': 'multipart/form-data' },
+  });
+  return res.data as { message: string; summary: { games: number; tracks: number; layouts: number; cars: number } };
+}
