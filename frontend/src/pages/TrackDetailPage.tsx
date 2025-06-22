@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getTracks, getLayouts, getLeaderboard, updateTrack, uploadFile } from '../api';
+import { getTracks, getGames, getLayouts, getLeaderboard, updateTrack, uploadFile } from '../api';
 import { Track, Layout, LapTime } from '../types';
 import { getImageUrl, slugify } from '../utils';
 import { formatTime } from '../utils/time';
@@ -22,6 +22,8 @@ const TrackDetailPage: React.FC = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [packDesc, setPackDesc] = useState<string | null>(null);
+  const [packImage, setPackImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -41,6 +43,36 @@ const TrackDetailPage: React.FC = () => {
     if (!track) return;
     getLayouts(track.id)
       .then((data) => setLayouts(data as LayoutWithTL[]))
+      .catch(() => {});
+  }, [track]);
+
+  useEffect(() => {
+    if (!track) return;
+    setPackDesc(null);
+    setPackImage(null);
+    getGames()
+      .then((games) => {
+        const g = games.find((gm) => gm.id === track.gameId);
+        if (!g) return;
+        const base = `/GamePack/${slugify(g.name)}/tracks/${slugify(track.name)}`;
+        fetch(`${base}/info.md`)
+          .then((res) => (res.ok ? res.text() : Promise.reject()))
+          .then((txt) => {
+            setPackDesc(txt);
+            const exts = ['jpg', 'png', 'jpeg', 'webp'];
+            exts.reduce((p, ext) =>
+              p.catch(() =>
+                fetch(`${base}/track.${ext}`, { method: 'HEAD' }).then((r) =>
+                  r.ok ? `${base}/track.${ext}` : Promise.reject()
+                )
+              ),
+              Promise.reject()
+            )
+              .then((img) => setPackImage(img as string))
+              .catch(() => {});
+          })
+          .catch(() => {});
+      })
       .catch(() => {});
   }, [track]);
 
@@ -100,16 +132,18 @@ const TrackDetailPage: React.FC = () => {
     <div className="container mx-auto py-6 space-y-6">
       <div className="text-center space-y-2">
         <h1 className="text-3xl font-bold">{track.name}</h1>
-        {track.imageUrl && (
+        {(packImage || track.imageUrl) && (
           <img
-            src={getImageUrl(track.imageUrl)}
+            src={packImage || getImageUrl(track.imageUrl)}
             alt={track.name}
             className="mx-auto max-w-lg rounded"
           />
         )}
-        {track.description && !editing && (
+        {packDesc && !editing ? (
+          <MarkdownRenderer content={packDesc} className="text-muted-foreground" />
+        ) : track.description && !editing ? (
           <MarkdownRenderer content={track.description} className="text-muted-foreground" />
-        )}
+        ) : null}
         {user?.isAdmin && !editing && (
           <button
             className="text-sm underline text-primary"
@@ -186,7 +220,11 @@ const TrackDetailPage: React.FC = () => {
                   {records[layout.id].map((r) => (
                     <tr key={r.id} className="border-b last:border-0">
                       <td className="px-2 py-1">{r.username}</td>
-                      <td className="px-2 py-1">{r.carName}</td>
+                      <td className="px-2 py-1">
+                        <Link to={`/car/${r.carId}`} className="underline">
+                          {r.carName}
+                        </Link>
+                      </td>
                       <td className="px-2 py-1">
                         <InputTypeBadge inputType={r.inputType} />
                       </td>

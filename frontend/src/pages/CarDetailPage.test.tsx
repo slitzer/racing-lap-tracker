@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 const mockedApi = {
   getCars: jest.fn(),
+  getGames: jest.fn(),
   getLapTimes: jest.fn(),
   getWorldRecords: jest.fn(),
 };
@@ -25,6 +26,7 @@ describe('CarDetailPage', () => {
       refreshUser: jest.fn(),
     });
     mockedApi.getCars.mockResolvedValue([{ id: 'c1', gameId: 'g1', name: 'Car', imageUrl: '' }]);
+    mockedApi.getGames.mockResolvedValue([{ id: 'g1', name: 'Game' }]);
     mockedApi.getLapTimes.mockResolvedValue([]);
     mockedApi.getWorldRecords.mockResolvedValue([]);
   });

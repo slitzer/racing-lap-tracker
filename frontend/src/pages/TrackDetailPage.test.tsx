@@ -2,6 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 const mockedApi = {
   getTracks: jest.fn(),
+  getGames: jest.fn(),
   getLayouts: jest.fn(),
   getLeaderboard: jest.fn(),
 };
@@ -26,6 +27,7 @@ describe('TrackDetailPage', () => {
       refreshUser: jest.fn(),
     });
     mockedApi.getTracks.mockResolvedValue([{ id: 't1', gameId: 'g1', name: 'Track', imageUrl: '' }]);
+    mockedApi.getGames.mockResolvedValue([{ id: 'g1', name: 'Game' }]);
     mockedApi.getLayouts.mockResolvedValue([]);
     mockedApi.getLeaderboard.mockResolvedValue([]);
   });
