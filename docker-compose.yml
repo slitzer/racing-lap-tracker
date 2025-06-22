@@ -26,10 +26,11 @@ services:
       JWT_SECRET: supersecret
       PORT: 5000
       UPLOAD_DIR: ../frontend/public
-      CONTENT_DIR: ../frontend/public/conten
+      CONTENT_DIR: ../frontend/public/content
     volumes:
       - ./frontend/public/images:/usr/src/frontend/public/images
       - ./frontend/public/content:/usr/src/frontend/public/content
+      - ./frontend/public/GamePack:/usr/src/frontend/public/GamePack:ro
       - ./database:/usr/src/database:ro
     depends_on:
       db:
@@ -48,6 +49,7 @@ services:
     volumes:
       - ./frontend/public/images:/usr/src/app/dist/images
       - ./frontend/public/content:/usr/src/app/dist/content
+      - ./frontend/public/GamePack:/usr/src/app/dist/GamePack:ro
     depends_on:
       - backend
     ports:
