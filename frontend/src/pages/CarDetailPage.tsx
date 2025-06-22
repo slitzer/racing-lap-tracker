@@ -59,16 +59,19 @@ const CarDetailPage: React.FC = () => {
           .then((txt) => {
             setPackDesc(txt);
             const exts = ['jpg', 'png', 'jpeg', 'webp'];
-            exts.reduce((p, ext) =>
-              p.catch(() =>
-                fetch(`${base}/car.${ext}`, { method: 'HEAD' }).then((r) =>
-                  r.ok ? `${base}/car.${ext}` : Promise.reject()
-                )
-              ),
-              Promise.reject()
-            )
-              .then((img) => setPackImage(img as string))
-              .catch(() => {});
+            (async () => {
+              for (const ext of exts) {
+                try {
+                  const r = await fetch(`${base}/car.${ext}`, { method: 'HEAD' });
+                  if (r.ok) {
+                    setPackImage(`${base}/car.${ext}`);
+                    return;
+                  }
+                } catch {
+                  // ignore and try next
+                }
+              }
+            })();
           })
           .catch(() => {});
       })

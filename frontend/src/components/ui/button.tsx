@@ -4,7 +4,7 @@ import { cn } from '../../utils';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'ghost';
+  variant?: 'default' | 'ghost' | 'destructive';
   size?: 'default' | 'sm';
   asChild?: boolean;
 }
@@ -20,6 +20,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           variant === 'default' &&
             'bg-primary text-primary-foreground hover:bg-primary/90',
           variant === 'ghost' && 'hover:bg-accent hover:text-accent-foreground',
+          variant === 'destructive' &&
+            'bg-destructive text-destructive-foreground hover:bg-destructive/90',
           size === 'default' && 'h-10 px-4 py-2',
           size === 'sm' && 'h-9 px-3',
           className
