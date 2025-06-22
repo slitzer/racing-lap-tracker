@@ -28,7 +28,7 @@ beforeEach(() => {
   mockedApi.getLayouts.mockResolvedValue([]);
   mockedApi.getCars.mockResolvedValue([]);
   mockedApi.getAdminUsers.mockResolvedValue([]);
-  mockedApi.getVersion.mockResolvedValue({ appVersion: 'v0.1', dbVersion: 'v1' });
+  mockedApi.getVersion.mockResolvedValue({ appVersion: 'v1.1', dbVersion: 'v1' });
 });
 
 test('renders admin heading', () => {
