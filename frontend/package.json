@@ -1,7 +1,7 @@
 {
 "name": "racing-lap-tracker-frontend",
 "private": true,
-"version": "0.0.0",
+"version": "1.1.0",
 "type": "module",
   "scripts": {
     "dev": "yes | pnpm install && vite",
