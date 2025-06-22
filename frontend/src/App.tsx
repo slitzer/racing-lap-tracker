@@ -21,6 +21,8 @@ import AdminPage from './pages/AdminPage';
 import InfoSearchPage from './pages/InfoSearchPage';
 import TrackDetailPage from './pages/TrackDetailPage';
 import CarDetailPage from './pages/CarDetailPage';
+import InfoPage from './pages/InfoPage';
+import { useLocation } from 'react-router-dom';
 import './App.css';
 // Create a client for React Query
 const queryClient = new QueryClient({
@@ -32,6 +34,11 @@ const queryClient = new QueryClient({
   },
 });
 function App() {
+  const InfoRoute = () => {
+    const location = useLocation();
+    const path = location.pathname.replace(/^\/info/, '/GamePack');
+    return <InfoPage path={path} />;
+  };
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="dark" storageKey="racing-tracker-theme">
@@ -49,8 +56,9 @@ function App() {
                   <Route path="/lap-times" element={<LapTimesPage />} />
                   <Route path="/track/:id" element={<TrackDetailPage />} />
                   <Route path="/car/:id" element={<CarDetailPage />} />
-                  <Route 
-                    path="/submit" 
+                  <Route path="/info/*" element={<InfoRoute />} />
+                  <Route
+                    path="/submit"
                     element={
                       <ProtectedRoute>
                         <SubmitLapTimePage />

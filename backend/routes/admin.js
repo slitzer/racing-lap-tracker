@@ -177,6 +177,41 @@ router.get('/images', auth, admin, async (req, res, next) => {
 
 // Scan GamePack directory for JSON files and import into the database
 const { scanGamePack } = require('../utils/scanGamePack');
+const multer = require('multer');
+const AdmZip = require('adm-zip');
+const path = require('path');
+const fs = require('fs');
+
+const gamePackDir = path.resolve(
+  process.env.GAMEPACK_DIR ||
+    path.join(__dirname, '..', '..', 'frontend', 'public', 'GamePack')
+);
+
+const uploadPack = multer({ dest: 'tmp' });
+
+router.post('/uploadGamePack', auth, admin, uploadPack.single('file'), async (req, res, next) => {
+  if (!req.file) return res.status(400).json({ message: 'No file uploaded' });
+  try {
+    const zip = new AdmZip(req.file.path);
+    zip.getEntries().forEach((entry) => {
+      const dest = path.join(gamePackDir, entry.entryName);
+      const normalized = path.normalize(dest);
+      if (!normalized.startsWith(gamePackDir)) return;
+      if (entry.isDirectory) {
+        fs.mkdirSync(normalized, { recursive: true });
+      } else {
+        fs.mkdirSync(path.dirname(normalized), { recursive: true });
+        fs.writeFileSync(normalized, entry.getData());
+      }
+    });
+    fs.unlinkSync(req.file.path);
+    const summary = await scanGamePack();
+    res.json({ message: 'GamePack uploaded', summary });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.post('/scanGamePack', auth, admin, async (req, res, next) => {
   try {
     const summary = await scanGamePack();

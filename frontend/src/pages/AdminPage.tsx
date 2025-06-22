@@ -27,6 +27,7 @@ import {
   clearLapTimes,
   clearGameData,
   scanGamePack,
+  uploadGamePack,
   getVersion,
   getAdminUsers,
   createUser,
@@ -81,6 +82,7 @@ const AdminPage: React.FC = () => {
   const [newIsAdmin, setNewIsAdmin] = useState(false);
   const [importFile, setImportFile] = useState<File | null>(null);
   const [importProgress, setImportProgress] = useState(0);
+  const [packFile, setPackFile] = useState<File | null>(null);
   const [clearGameId, setClearGameId] = useState('');
   const [logs, setLogs] = useState<string[]>([]);
   const [activeSection, setActiveSection] = useState('dbEditor');
@@ -383,6 +385,24 @@ const AdminPage: React.FC = () => {
     }
   };
 
+  const handleUploadGamePack = async () => {
+    if (!packFile) return;
+    toast.info('Uploading GamePack...');
+    try {
+      const res = await uploadGamePack(packFile);
+      toast.success(
+        `Upload completed: ${res.summary.games} games, ${res.summary.tracks} tracks, ${res.summary.layouts} layouts, ${res.summary.cars} cars`
+      );
+      setPackFile(null);
+      refreshGames();
+      refreshTracks();
+      refreshLayouts();
+      refreshCars();
+    } catch (err) {
+      toast.error('Upload failed');
+    }
+  };
+
   return (
     <div className="container mx-auto py-6 flex">
       <aside className="w-56 pr-4 border-r space-y-6">
@@ -467,6 +487,14 @@ const AdminPage: React.FC = () => {
               />
               <Button size="sm" onClick={handleImportDb} disabled={!importFile}>
                 Import
+              </Button>
+              <input
+                type="file"
+                accept=".zip"
+                onChange={(e) => setPackFile(e.target.files?.[0] || null)}
+              />
+              <Button size="sm" onClick={handleUploadGamePack} disabled={!packFile}>
+                Upload GamePack
               </Button>
               <Button size="sm" onClick={handleScanGamePack}>Scan GamePack</Button>
             </div>
