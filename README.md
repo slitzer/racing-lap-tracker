@@ -64,7 +64,9 @@ A `docker-compose.yml` file sets up PostgreSQL, the backend and the frontend:
 4. Visit `http://localhost:5173` to access the UI.
 
 Database data is stored in the `db-data` volume and images are written to
-`frontend/public/images`, which is mounted into both containers.
+`frontend/public/images`, which is mounted into both containers. The
+`frontend/public/GamePack` folder is also mounted so the backend can scan the
+example metadata files.
 
 ### Database
 
