@@ -1,9 +1,9 @@
 # Markdown Samples
 
-These examples demonstrate the small subset of Markdown supported by the
-application. The `MarkdownRenderer` component allows **bold text**, inline `code`
-and newlines for paragraph breaks. Use these examples as a starting point for
-comments or descriptions.
+These examples demonstrate common Markdown features supported by the
+application. The `MarkdownRenderer` component now uses `react-markdown` with the
+`remark-gfm` plugin, so standard GitHub&nbsp;Flavored Markdown works. Use these
+examples as a starting point for comments or descriptions.
 
 ## Comment example
 
