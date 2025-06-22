@@ -8,12 +8,9 @@ interface Props {
 }
 
 const MarkdownRenderer: React.FC<Props> = ({ content, className }) => (
-  <ReactMarkdown
-    className={`prose prose-sm max-w-none ${className || ''}`.trim()}
-    remarkPlugins={[remarkGfm]}
-  >
-    {content}
-  </ReactMarkdown>
+  <div className={`prose prose-sm max-w-none ${className || ''}`.trim()}>
+    <ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
+  </div>
 );
 
 export default MarkdownRenderer;
