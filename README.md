@@ -13,7 +13,7 @@ configuration is provided for a quick local setup.
 - Admin interface for verifying lap times and managing users
 - REST API for games, tracks, layouts, cars and lap times
 - Image uploads served from `/api/uploads`
-- Markdown support for descriptions and comments
+- GitHub Flavored Markdown support for descriptions and comments
 - Optional Wikipedia scraper utility for quick data entry
 - Unit tests for both backend and frontend
 
