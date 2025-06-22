@@ -56,12 +56,18 @@ const HomePage: React.FC = () => {
           {laps.map((r) => (
             <tr key={r.id} className="border-b last:border-0">
               <td className="px-2 py-1">{r.username}</td>
-              <td className="px-2 py-1">{r.trackName}</td>
+              <td className="px-2 py-1">
+                <Link to={`/track/${r.trackId}`} className="underline">
+                  {r.trackName}
+                </Link>
+              </td>
               <td className="px-2 py-1 flex items-center gap-1">
                 {r.carImageUrl && (
                   <img src={getImageUrl(r.carImageUrl)} alt={r.carName || ''} className="h-5 w-8 object-cover rounded" />
                 )}
-                {r.carName}
+                <Link to={`/car/${r.carId}`} className="underline">
+                  {r.carName}
+                </Link>
                 <InputTypeBadge inputType={r.inputType} className="ml-1" />
               </td>
               <td className="px-2 py-1 text-right">{formatTime(r.timeMs)}</td>

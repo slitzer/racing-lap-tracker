@@ -154,7 +154,9 @@ const LapTimesPage: React.FC = () => {
                     className="h-8 w-14 object-cover rounded mb-1"
                   />
                 )}
-                {l.carName}
+                <Link to={`/car/${l.carId}`} className="underline">
+                  {l.carName}
+                </Link>
                 <div className="mt-1 flex flex-wrap gap-1">
                   <InputTypeBadge inputType={l.inputType} />
                   <AssistTags assists={l.assists} />

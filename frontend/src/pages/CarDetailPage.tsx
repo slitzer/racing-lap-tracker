@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getCars, getLapTimes, getWorldRecords, updateCar, uploadFile } from '../api';
+import { getCars, getGames, getLapTimes, getWorldRecords, updateCar, uploadFile } from '../api';
 import { Car, LapTime } from '../types';
 import { getImageUrl, slugify } from '../utils';
 import { formatTime } from '../utils/time';
@@ -19,6 +19,8 @@ const CarDetailPage: React.FC = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [imageFile, setImageFile] = useState<File | null>(null);
+  const [packDesc, setPackDesc] = useState<string | null>(null);
+  const [packImage, setPackImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -39,6 +41,36 @@ const CarDetailPage: React.FC = () => {
       .then((data) => {
         data.sort((a, b) => new Date(b.lapDate).getTime() - new Date(a.lapDate).getTime());
         setRecent(data.slice(0, 10));
+      })
+      .catch(() => {});
+  }, [id]);
+
+  useEffect(() => {
+    if (!car) return;
+    setPackDesc(null);
+    setPackImage(null);
+    getGames()
+      .then((games) => {
+        const g = games.find((gm) => gm.id === car.gameId);
+        if (!g) return;
+        const base = `/GamePack/${slugify(g.name)}/cars/${slugify(car.name)}`;
+        fetch(`${base}/info.md`)
+          .then((res) => (res.ok ? res.text() : Promise.reject()))
+          .then((txt) => {
+            setPackDesc(txt);
+            const exts = ['jpg', 'png', 'jpeg', 'webp'];
+            exts.reduce((p, ext) =>
+              p.catch(() =>
+                fetch(`${base}/car.${ext}`, { method: 'HEAD' }).then((r) =>
+                  r.ok ? `${base}/car.${ext}` : Promise.reject()
+                )
+              ),
+              Promise.reject()
+            )
+              .then((img) => setPackImage(img as string))
+              .catch(() => {});
+          })
+          .catch(() => {});
       })
       .catch(() => {});
   }, [id]);
@@ -66,7 +98,11 @@ const CarDetailPage: React.FC = () => {
           {laps.map((r) => (
             <tr key={r.id} className="border-b last:border-0">
               <td className="px-2 py-1">{r.username}</td>
-              <td className="px-2 py-1">{r.trackName}</td>
+              <td className="px-2 py-1">
+                <Link to={`/track/${r.trackId}`} className="underline">
+                  {r.trackName}
+                </Link>
+              </td>
               <td className="px-2 py-1">
                 <InputTypeBadge inputType={r.inputType} />
               </td>
@@ -114,12 +150,18 @@ const CarDetailPage: React.FC = () => {
     <div className="container mx-auto py-6 space-y-6">
       <div className="text-center space-y-2">
         <h1 className="text-3xl font-bold">{car.name}</h1>
-        {car.imageUrl && (
-          <img src={getImageUrl(car.imageUrl)} alt={car.name} className="mx-auto max-w-lg rounded" />
+        {(packImage || car.imageUrl) && (
+          <img
+            src={packImage || getImageUrl(car.imageUrl)}
+            alt={car.name}
+            className="mx-auto max-w-lg rounded"
+          />
         )}
-        {car.description && !editing && (
+        {packDesc && !editing ? (
+          <MarkdownRenderer content={packDesc} className="text-muted-foreground" />
+        ) : car.description && !editing ? (
           <MarkdownRenderer content={car.description} className="text-muted-foreground" />
-        )}
+        ) : null}
         {user?.isAdmin && !editing && (
           <button
             className="text-sm underline text-primary"
