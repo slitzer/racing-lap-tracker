@@ -76,6 +76,16 @@ export async function deleteCar(id: string): Promise<Car> {
   return res.data;
 }
 
+export async function clearLapTimes(): Promise<{ message: string }> {
+  const res = await apiClient.delete('/admin/lapTimes');
+  return res.data;
+}
+
+export async function clearGameData(id: string): Promise<{ message: string }> {
+  const res = await apiClient.delete(`/admin/games/${id}/data`);
+  return res.data;
+}
+
 export async function exportDatabase(): Promise<any> {
   const res = await apiClient.get('/admin/export');
   return res.data;

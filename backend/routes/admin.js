@@ -71,6 +71,81 @@ router.delete('/lapTimes/:id', auth, admin, async (req, res, next) => {
   }
 });
 
+// Delete all lap times
+router.delete('/lapTimes', auth, admin, async (req, res, next) => {
+  try {
+    await db.query('DELETE FROM lap_times');
+    res.json({ message: 'All lap times cleared' });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// Clear data related to a specific game
+router.delete('/games/:id/data', auth, admin, async (req, res, next) => {
+  const { id } = req.params;
+  const client = await db.pool.connect();
+  try {
+    await client.query('BEGIN');
+
+    const carRes = await client.query(
+      'SELECT car_id FROM game_cars WHERE game_id=$1',
+      [id]
+    );
+    const layoutRes = await client.query(
+      'SELECT track_layout_id FROM game_tracks WHERE game_id=$1',
+      [id]
+    );
+    const trackRes = await client.query('SELECT id FROM tracks WHERE game_id=$1', [id]);
+
+    await client.query('DELETE FROM lap_times WHERE game_id=$1', [id]);
+    await client.query('DELETE FROM game_cars WHERE game_id=$1', [id]);
+    await client.query('DELETE FROM game_tracks WHERE game_id=$1', [id]);
+
+    for (const row of carRes.rows) {
+      const cid = row.car_id;
+      const otherGc = await client.query('SELECT 1 FROM game_cars WHERE car_id=$1', [cid]);
+      const otherLt = await client.query('SELECT 1 FROM lap_times WHERE car_id=$1', [cid]);
+      if (otherGc.rows.length === 0 && otherLt.rows.length === 0) {
+        await client.query('DELETE FROM cars WHERE id=$1', [cid]);
+      }
+    }
+
+    for (const row of layoutRes.rows) {
+      const lid = row.track_layout_id;
+      const otherGt = await client.query('SELECT 1 FROM game_tracks WHERE track_layout_id=$1', [lid]);
+      const otherLt = await client.query('SELECT 1 FROM lap_times WHERE track_layout_id=$1', [lid]);
+      if (otherGt.rows.length === 0 && otherLt.rows.length === 0) {
+        await client.query('DELETE FROM layouts WHERE id=$1', [lid]);
+      }
+    }
+
+    for (const row of trackRes.rows) {
+      const tid = row.id;
+      const hasLayouts = await client.query('SELECT 1 FROM layouts WHERE track_id=$1', [tid]);
+      const otherGt = await client.query(
+        'SELECT 1 FROM game_tracks WHERE track_layout_id IN (SELECT id FROM track_layouts WHERE track_id=$1)',
+        [tid]
+      );
+      const otherLt = await client.query(
+        'SELECT 1 FROM lap_times WHERE track_layout_id IN (SELECT id FROM track_layouts WHERE track_id=$1)',
+        [tid]
+      );
+      if (hasLayouts.rows.length === 0 && otherGt.rows.length === 0 && otherLt.rows.length === 0) {
+        await client.query('DELETE FROM tracks WHERE id=$1', [tid]);
+      }
+    }
+
+    await client.query('COMMIT');
+    res.json({ message: 'Game data cleared' });
+  } catch (err) {
+    await client.query('ROLLBACK');
+    next(err);
+  } finally {
+    client.release();
+  }
+});
+
 router.get('/search', auth, admin, async (req, res, next) => {
   const { title } = req.query;
   if (!title) {

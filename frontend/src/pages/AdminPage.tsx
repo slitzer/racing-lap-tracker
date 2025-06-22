@@ -24,6 +24,8 @@ import {
   uploadFile,
   exportDatabase,
   importDatabase,
+  clearLapTimes,
+  clearGameData,
   getVersion,
   getAdminUsers,
   createUser,
@@ -77,6 +79,7 @@ const AdminPage: React.FC = () => {
   const [newIsAdmin, setNewIsAdmin] = useState(false);
   const [importFile, setImportFile] = useState<File | null>(null);
   const [importProgress, setImportProgress] = useState(0);
+  const [clearGameId, setClearGameId] = useState('');
   const [logs, setLogs] = useState<string[]>([]);
   const [activeSection, setActiveSection] = useState('dbEditor');
   const navClass = (key: string) =>
@@ -340,6 +343,28 @@ const AdminPage: React.FC = () => {
     setImportProgress(0);
   };
 
+  const handleClearLapTimes = async () => {
+    if (window.confirm('Delete ALL lap times? This cannot be undone.')) {
+      await clearLapTimes();
+      refreshGames();
+      refreshTracks();
+      refreshLayouts();
+      refreshCars();
+    }
+  };
+
+  const handleClearGame = async () => {
+    if (!clearGameId) return;
+    if (window.confirm('Remove data for this game? This cannot be undone.')) {
+      await clearGameData(clearGameId);
+      setClearGameId('');
+      refreshGames();
+      refreshTracks();
+      refreshLayouts();
+      refreshCars();
+    }
+  };
+
   return (
     <div className="container mx-auto py-6 flex">
       <aside className="w-56 pr-4 border-r space-y-6">
@@ -434,6 +459,33 @@ const AdminPage: React.FC = () => {
                 ))}
               </div>
             )}
+            <div className="mt-4 space-y-2">
+              <Button size="sm" variant="destructive" onClick={handleClearLapTimes}>
+                Clear All Lap Times
+              </Button>
+              <div className="flex items-center space-x-2">
+                <select
+                  className="border p-1"
+                  value={clearGameId}
+                  onChange={(e) => setClearGameId(e.target.value)}
+                >
+                  <option value="">Select Game</option>
+                  {games.map((g) => (
+                    <option key={g.id} value={g.id}>
+                      {g.name}
+                    </option>
+                  ))}
+                </select>
+                <Button
+                  size="sm"
+                  variant="destructive"
+                  onClick={handleClearGame}
+                  disabled={!clearGameId}
+                >
+                  Clear Game Data
+                </Button>
+              </div>
+            </div>
           </section>
         )}
 

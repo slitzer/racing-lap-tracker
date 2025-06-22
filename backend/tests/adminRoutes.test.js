@@ -197,4 +197,24 @@ describe('Admin routes', () => {
       ['g1', 'c1']
     );
   });
+
+  it('clears all lap times', async () => {
+    db.query.mockResolvedValue({});
+    const res = await request(app).delete('/api/admin/lapTimes');
+    expect(res.status).toBe(200);
+    expect(db.query).toHaveBeenCalledWith('DELETE FROM lap_times');
+  });
+
+  it('clears game data', async () => {
+    mockClient.query.mockResolvedValue({ rows: [] });
+
+    const res = await request(app).delete('/api/admin/games/g1/data');
+
+    expect(res.status).toBe(200);
+    expect(mockClient.query).toHaveBeenCalledWith('BEGIN');
+    expect(mockClient.query).toHaveBeenCalledWith('DELETE FROM lap_times WHERE game_id=$1', ['g1']);
+    expect(mockClient.query).toHaveBeenCalledWith('DELETE FROM game_cars WHERE game_id=$1', ['g1']);
+    expect(mockClient.query).toHaveBeenCalledWith('DELETE FROM game_tracks WHERE game_id=$1', ['g1']);
+    expect(mockClient.query).toHaveBeenLastCalledWith('COMMIT');
+  });
 });
