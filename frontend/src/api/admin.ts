@@ -135,3 +135,8 @@ export async function searchImages(query: string) {
   const res = await apiClient.get('/admin/images', { params: { q: query } });
   return res.data as { images: string[] };
 }
+
+export async function scanGamePack() {
+  const res = await apiClient.post('/admin/scanGamePack');
+  return res.data as { message: string; summary: { games: number; tracks: number; layouts: number; cars: number } };
+}

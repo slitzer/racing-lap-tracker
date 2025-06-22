@@ -39,6 +39,9 @@ variables include `DATABASE_URL`, `JWT_SECRET`, `UPLOAD_DIR`, `CONTENT_DIR` and
 
 Uploaded images are stored in `frontend/public/images` by default. Markdown
 content lives under `frontend/public/content` and is served from `/content`.
+Game and vehicle metadata can be placed under `frontend/public/GamePack`. Use
+the **Scan GamePack** button on the Admin page to import any `*.json` files
+found in these folders.
 
 ### Frontend
 

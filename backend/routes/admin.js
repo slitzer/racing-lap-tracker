@@ -175,6 +175,17 @@ router.get('/images', auth, admin, async (req, res, next) => {
   }
 });
 
+// Scan GamePack directory for JSON files and import into the database
+const { scanGamePack } = require('../utils/scanGamePack');
+router.post('/scanGamePack', auth, admin, async (req, res, next) => {
+  try {
+    const summary = await scanGamePack();
+    res.json({ message: 'Scan completed', summary });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get('/export', auth, admin, async (req, res, next) => {
   try {
     const tables = [

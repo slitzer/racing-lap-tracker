@@ -26,6 +26,7 @@ import {
   importDatabase,
   clearLapTimes,
   clearGameData,
+  scanGamePack,
   getVersion,
   getAdminUsers,
   createUser,
@@ -39,6 +40,7 @@ import { slugify, getImageUrl, cn } from '../utils';
 import EditableTable, { Column } from '../components/admin/EditableTable';
 import ProgressBar from '../components/admin/ProgressBar';
 import CollapsibleSection from '../components/admin/CollapsibleSection';
+import { toast } from 'sonner';
 
 const AdminPage: React.FC = () => {
   const [lapTimes, setLapTimes] = useState<LapTime[]>([]);
@@ -365,6 +367,22 @@ const AdminPage: React.FC = () => {
     }
   };
 
+  const handleScanGamePack = async () => {
+    toast.info('Scanning GamePack...');
+    try {
+      const res = await scanGamePack();
+      toast.success(
+        `Scan completed: ${res.summary.games} games, ${res.summary.tracks} tracks, ${res.summary.layouts} layouts, ${res.summary.cars} cars`
+      );
+      refreshGames();
+      refreshTracks();
+      refreshLayouts();
+      refreshCars();
+    } catch (err) {
+      toast.error('Scan failed');
+    }
+  };
+
   return (
     <div className="container mx-auto py-6 flex">
       <aside className="w-56 pr-4 border-r space-y-6">
@@ -450,6 +468,7 @@ const AdminPage: React.FC = () => {
               <Button size="sm" onClick={handleImportDb} disabled={!importFile}>
                 Import
               </Button>
+              <Button size="sm" onClick={handleScanGamePack}>Scan GamePack</Button>
             </div>
             {importProgress > 0 && <ProgressBar progress={importProgress} />}
             {logs.length > 0 && (
