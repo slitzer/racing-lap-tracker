@@ -2,20 +2,35 @@
 
 **Current version:** v1.1
 
-Racing Lap Time Tracker is a demo application for recording and displaying lap
-records for racing simulation games. The project is split into a Node.js backend
-API, a React frontend and a small PostgreSQL database schema. A Docker Compose
-configuration is provided for a quick local setup.
+Racing Lap Time Tracker is a small demonstration project for storing and
+displaying lap records from racing simulation games. The repository contains a
+Node.js backend API, a React frontend and a lightweight PostgreSQL schema. A
+ready to use Docker Compose configuration makes running everything together
+straightforward.
+
+## Architecture
+
+The application is split into three pieces:
+
+1. **Backend** – Express based REST API providing authentication, lap time
+   management and administrative endpoints.
+2. **Frontend** – React application built with Vite and Tailwind CSS.
+3. **Database** – PostgreSQL schema stored under `database/` for games, tracks,
+   layouts, cars and recorded laps.
+
+Docker Compose orchestrates all services for local development. Each component
+can also run independently if you prefer manual setup.
 
 ## Features
 
-- JWT based authentication and basic user profiles
-- Admin interface for verifying lap times and managing users
-- REST API for games, tracks, layouts, cars and lap times
-- Image uploads served from `/api/uploads`
-- GitHub Flavored Markdown support for descriptions and comments
-- Optional Wikipedia scraper utility for quick data entry
-- Unit tests for both backend and frontend
+* JWT based authentication and basic user profiles.
+* Admin interface for verifying lap times and managing users.
+* REST API for games, tracks, layouts, cars and lap times.
+* Image uploads served from `/api/uploads`.
+* GitHub Flavored Markdown support for descriptions and comments.
+* Automatic import of game data from `frontend/public/GamePack`.
+* Optional Wikipedia scraper utility for quick metadata entry.
+* Unit tests for both backend and frontend.
 
 ## Requirements
 
@@ -25,6 +40,21 @@ configuration is provided for a quick local setup.
 
 ## Setup
 
+### Environment Variables
+
+Configuration lives in `backend/.env` (see `backend/.env.example`). Key settings
+include:
+
+* `DATABASE_URL` – PostgreSQL connection string
+* `JWT_SECRET` – secret used to sign authentication tokens
+* `PORT` – backend HTTP port
+* `UPLOAD_DIR` – path for user uploaded images
+* `CONTENT_DIR` – Markdown content directory
+* `APP_VERSION` and `DB_VERSION` – displayed in the API `/api/version` endpoint
+* `SEED_SAMPLE_LAPTIMES` – load sample data on first start
+
+The frontend uses a single variable `VITE_API_URL` to point at the backend API.
+
 ### Backend
 
 ```bash
@@ -32,10 +62,6 @@ cd backend
 npm install
 npm run dev  # or `npm start` for production
 ```
-
-Configuration lives in `backend/.env` (see `backend/.env.example`). Important
-variables include `DATABASE_URL`, `JWT_SECRET`, `UPLOAD_DIR`, `CONTENT_DIR`,
-`APP_VERSION` and `SEED_SAMPLE_LAPTIMES`.
 
 Uploaded images are stored in `frontend/public/images` by default. Markdown
 content lives under `frontend/public/content` and is served from `/content`.
@@ -99,7 +125,22 @@ Fetch game, track or car information from Wikipedia:
 node backend/scrapers/scrapeInfo.js "Monza" "Ferrari 488 GT3"
 ```
 
+
 The Admin interface exposes this functionality through the **Info Search** page.
+
+## Troubleshooting and Gotchas
+
+- When the frontend cannot connect to the API, verify that `VITE_API_URL` is set
+  correctly and that the backend port matches the `PORT` variable.
+- Sample lap times are loaded only once when the database is empty. Set
+  `SEED_SAMPLE_LAPTIMES=false` to skip this step.
+- The GamePack scanner expects a `game.json` file under each game directory and
+  `layout.json` files under track layouts. Incorrect paths will prevent metadata
+  from importing.
+- Uploaded images are stored inside `frontend/public/images`. Ensure this
+  directory exists and is writable by the backend.
+- Use `npm run dev` for automatic reload during development; `npm start` runs the
+  compiled server for production.
 
 ## License
 
