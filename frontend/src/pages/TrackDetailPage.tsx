@@ -55,26 +55,38 @@ const TrackDetailPage: React.FC = () => {
         const g = games.find((gm) => gm.id === track.gameId);
         if (!g) return;
         const base = `/GamePack/${slugify(g.name)}/tracks/${slugify(track.name)}`;
-        fetch(`${base}/info.md`)
-          .then((res) => (res.ok ? res.text() : Promise.reject()))
-          .then((txt) => {
+        const fetchInfo = async (p: string) => {
+          try {
+            const res = await fetch(`${p}/info.md`);
+            if (!res.ok) throw new Error('missing');
+            const txt = await res.text();
             setPackDesc(txt);
             const exts = ['jpg', 'png', 'jpeg', 'webp'];
-            (async () => {
-              for (const ext of exts) {
-                try {
-                  const r = await fetch(`${base}/track.${ext}`, { method: 'HEAD' });
-                  if (r.ok) {
-                    setPackImage(`${base}/track.${ext}`);
-                    return;
-                  }
-                } catch {
-                  // ignore and try next
+            for (const ext of exts) {
+              try {
+                const r = await fetch(`${p}/track.${ext}`, { method: 'HEAD' });
+                if (r.ok) {
+                  setPackImage(`${p}/track.${ext}`);
+                  return;
                 }
+              } catch {
+                // ignore and try next
               }
-            })();
-          })
-          .catch(() => {});
+            }
+          } catch {
+            return false;
+          }
+          return true;
+        };
+        fetchInfo(base).then((ok) => {
+          if (!ok && track.imageUrl) {
+            const idx = track.imageUrl.lastIndexOf('/');
+            if (idx !== -1) {
+              const altBase = track.imageUrl.substring(0, idx);
+              fetchInfo(altBase);
+            }
+          }
+        });
       })
       .catch(() => {});
   }, [track]);
