@@ -41,6 +41,20 @@ export interface Layout {
   name: string;
   imageUrl?: string | null;
   trackLayoutId?: string;
+  pitSpeedLimitHighKPH?: number | null;
+  maxAIParticipants?: number | null;
+  raceDateYear?: number | null;
+  raceDateMonth?: number | null;
+  raceDateDay?: number | null;
+  trackSurface?: string | null;
+  trackType?: string | null;
+  trackGradeFilter?: string | null;
+  numberOfTurns?: number | null;
+  trackTimeZone?: string | null;
+  trackAltitude?: string | null;
+  length?: string | null;
+  dlcId?: string | null;
+  location?: string | null;
 }
 
 export interface Car {

@@ -30,8 +30,45 @@ async function upsertLayout(trackId, data) {
   );
   const layoutId = res.rows[0].id;
   const tl = await db.query(
-    'INSERT INTO track_layouts (track_id, layout_id) VALUES ($1,$2) ON CONFLICT (track_id, layout_id) DO UPDATE SET track_id=EXCLUDED.track_id RETURNING id',
-    [trackId, layoutId]
+    `INSERT INTO track_layouts (
+      track_id,
+      layout_id,
+      pit_speed_limit_high_kph,
+      max_ai_participants,
+      race_date_year,
+      race_date_month,
+      race_date_day,
+      track_surface,
+      track_type,
+      track_grade_filter,
+      number_of_turns,
+      track_time_zone,
+      track_altitude,
+      length,
+      dlc_id,
+      location
+    ) VALUES (
+      $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16
+    ) ON CONFLICT (track_id, layout_id)
+      DO UPDATE SET track_id=EXCLUDED.track_id RETURNING id`,
+    [
+      trackId,
+      layoutId,
+      data.pitSpeedLimitHighKPH || null,
+      data.maxAIParticipants || null,
+      data.raceDateYear || null,
+      data.raceDateMonth || null,
+      data.raceDateDay || null,
+      data.trackSurface || null,
+      data.trackType || null,
+      data.trackGradeFilter || null,
+      data.numberOfTurns || null,
+      data.trackTimeZone || null,
+      data.trackAltitude || null,
+      data.length || null,
+      data.dlcId || null,
+      data.location || null,
+    ]
   );
   return tl.rows[0].id;
 }

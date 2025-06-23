@@ -213,13 +213,80 @@ const TrackDetailPage: React.FC = () => {
       {layouts.map((layout) => (
         <div key={layout.id} className="space-y-2">
           <h2 className="text-2xl font-semibold">{layout.name}</h2>
-          {layout.imageUrl && (
-            <img
-              src={getImageUrl(layout.imageUrl)}
-              alt={layout.name}
-              className="max-w-lg rounded mb-2"
-            />
-          )}
+          <div className="flex flex-col md:flex-row md:space-x-4">
+            {layout.imageUrl && (
+              <img
+                src={getImageUrl(layout.imageUrl)}
+                alt={layout.name}
+                className="max-w-lg rounded mb-2 md:mb-0"
+              />
+            )}
+            <div className="text-sm space-y-1 md:w-80">
+              {layout.location && (
+                <p>
+                  <strong>Location:</strong> {layout.location}
+                </p>
+              )}
+              {layout.pitSpeedLimitHighKPH && (
+                <p>
+                  <strong>Pit Speed Limit:</strong> {layout.pitSpeedLimitHighKPH} kph
+                </p>
+              )}
+              {layout.maxAIParticipants && (
+                <p>
+                  <strong>Max AI participants:</strong> {layout.maxAIParticipants}
+                </p>
+              )}
+              {layout.numberOfTurns && (
+                <p>
+                  <strong>Number Of Turns:</strong> {layout.numberOfTurns}
+                </p>
+              )}
+              {layout.trackSurface && (
+                <p>
+                  <strong>Track Surface:</strong> {layout.trackSurface}
+                </p>
+              )}
+              {layout.trackType && (
+                <p>
+                  <strong>Track Type:</strong> {layout.trackType}
+                </p>
+              )}
+              {(layout.raceDateYear || layout.raceDateMonth || layout.raceDateDay) && (
+                <p>
+                  <strong>Race Date:</strong>{' '}
+                  {[layout.raceDateYear, layout.raceDateMonth, layout.raceDateDay]
+                    .filter(Boolean)
+                    .join('-')}
+                </p>
+              )}
+              {layout.trackGradeFilter && (
+                <p>
+                  <strong>Track Grade:</strong> {layout.trackGradeFilter}
+                </p>
+              )}
+              {layout.trackTimeZone && (
+                <p>
+                  <strong>Time Zone:</strong> {layout.trackTimeZone}
+                </p>
+              )}
+              {layout.trackAltitude && (
+                <p>
+                  <strong>Altitude:</strong> {layout.trackAltitude}
+                </p>
+              )}
+              {layout.length && (
+                <p>
+                  <strong>Length:</strong> {layout.length}
+                </p>
+              )}
+              {layout.dlcId && (
+                <p>
+                  <strong>DLC ID:</strong> {layout.dlcId}
+                </p>
+              )}
+            </div>
+          </div>
           {records[layout.id] && records[layout.id].length > 0 ? (
             <div className="overflow-x-auto">
               <table className="min-w-full text-sm border">
