@@ -57,6 +57,20 @@ CREATE TABLE track_layouts (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     track_id UUID NOT NULL REFERENCES tracks(id) ON DELETE CASCADE,
     layout_id UUID NOT NULL REFERENCES layouts(id) ON DELETE CASCADE,
+    pit_speed_limit_high_kph INTEGER,
+    max_ai_participants INTEGER,
+    race_date_year INTEGER,
+    race_date_month INTEGER,
+    race_date_day INTEGER,
+    track_surface TEXT,
+    track_type TEXT,
+    track_grade_filter TEXT,
+    number_of_turns INTEGER,
+    track_time_zone TEXT,
+    track_altitude TEXT,
+    length TEXT,
+    dlc_id TEXT,
+    location TEXT,
     UNIQUE(track_id, layout_id)
 );
 

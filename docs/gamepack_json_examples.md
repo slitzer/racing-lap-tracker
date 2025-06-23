@@ -30,7 +30,21 @@ GamePack/<game>/tracks/<track>/<layout>/layout.json  # legacy structure
 ```json
 {
   "name": "Full Course",
-  "imageUrl": "/images/layouts/monza_full.jpg"
+  "imageUrl": "/images/layouts/monza_full.jpg",
+  "pitSpeedLimitHighKPH": 80,
+  "maxAIParticipants": 32,
+  "raceDateYear": 2024,
+  "raceDateMonth": 6,
+  "raceDateDay": 1,
+  "trackSurface": "Asphalt",
+  "trackType": "Permanent Circuit",
+  "trackGradeFilter": "Grade 1",
+  "numberOfTurns": 15,
+  "trackTimeZone": "Europe/Rome",
+  "trackAltitude": "112m",
+  "length": "5.79 km",
+  "dlcId": "pack1",
+  "location": "Monza, Italy"
 }
 ```
 
