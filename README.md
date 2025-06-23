@@ -34,8 +34,8 @@ npm run dev  # or `npm start` for production
 ```
 
 Configuration lives in `backend/.env` (see `backend/.env.example`). Important
-variables include `DATABASE_URL`, `JWT_SECRET`, `UPLOAD_DIR`, `CONTENT_DIR` and
-`APP_VERSION`.
+variables include `DATABASE_URL`, `JWT_SECRET`, `UPLOAD_DIR`, `CONTENT_DIR`,
+`APP_VERSION` and `SEED_SAMPLE_LAPTIMES`.
 
 Uploaded images are stored in `frontend/public/images` by default. Markdown
 content lives under `frontend/public/content` and is served from `/content`.
@@ -75,10 +75,12 @@ To initialise a standalone database manually run:
 ```bash
 psql -U <user> -d <database> -f database/schema.sql
 psql -U <user> -d <database> -f database/seed_data.sql
+# Optionally load the sample game and track data
+# psql -U <user> -d <database> -f database/sample_seed_data.sql.disabled
 ```
 
 Sample lap times from `database/sample_lap_times.json` are loaded on first start
-when the table is empty.
+when the table is empty. Set `SEED_SAMPLE_LAPTIMES=false` to skip loading these records.
 
 ### Running Tests
 

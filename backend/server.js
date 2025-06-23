@@ -70,11 +70,15 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
+const seedSamples = process.env.SEED_SAMPLE_LAPTIMES !== 'false';
+
 if (process.env.NODE_ENV !== 'test') {
   (async () => {
     try {
       await waitForDb();
-      await seedSampleLapTimes();
+      if (seedSamples) {
+        await seedSampleLapTimes();
+      }
     } catch (err) {
       console.error('Failed to seed sample lap times', err);
     }
