@@ -1,4 +1,19 @@
 {
-  "name": "Jerez Chicane",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/jerez/jerez_chicane/image_3.jpg"
+  "name": "Jerez_2019",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/jerez/jerez_chicane/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 41,
+  "raceDateYear": 2020,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 4,
+  "raceDateDay": 26,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 15,
+  "trackTimeZone": "0",
+  "trackAltitude": 38.0,
+  "length": 4427.0,
+  "Base Game": "",
+  "location": "Spain"
 }

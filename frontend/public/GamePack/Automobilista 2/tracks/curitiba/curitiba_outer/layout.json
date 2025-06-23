@@ -1,4 +1,20 @@
 {
-  "name": "Curitiba Outer",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/curitiba/curitiba_outer/image_3.jpg"
+  "name": "Curitiba_outer",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/curitiba/curitiba_outer/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 3,
+  "raceDateDay": 17,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 6,
+  "trackTimeZone": "-3",
+  "trackAltitude": 881.0,
+  "isClockwise": true,
+  "length": 2600.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

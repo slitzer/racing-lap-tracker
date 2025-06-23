@@ -1,4 +1,18 @@
 {
-  "name": "Silverstone Historic 1975",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/silverstone/silverstone_historic_1975/image_3.jpg"
+  "name": "Silverstone_1975",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/silverstone/silverstone_historic_1975/image_3.jpg",
+  "maxAIParticipants": 35,
+  "raceDateYear": 1975,
+  "trackClimate": "England",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 19,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 10,
+  "trackTimeZone": "0",
+  "trackAltitude": 154.0,
+  "length": 4718.0,
+  "Base Game": "silverstonepack",
+  "location": "England"
 }

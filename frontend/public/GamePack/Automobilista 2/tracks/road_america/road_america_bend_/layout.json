@@ -1,4 +1,20 @@
 {
-  "name": "Road America Bend ",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/road_america/road_america_bend_/image_3.jpg"
+  "name": "Road_America_RCB",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/road_america/road_america_bend_/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2021,
+  "trackClimate": "north_usa",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 10,
+  "raceDateDay": 1,
+  "trackGradeFilter": "Grade2",
+  "numberOfTurns": 14,
+  "trackTimeZone": "-6",
+  "trackAltitude": 300.0,
+  "isClockwise": true,
+  "length": 6515.0,
+  "Base Game": "racinusapt2pack",
+  "location": "USA"
 }

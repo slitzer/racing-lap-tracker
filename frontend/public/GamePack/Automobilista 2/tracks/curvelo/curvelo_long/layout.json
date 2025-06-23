@@ -1,4 +1,19 @@
 {
-  "name": "Curvelo Long",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/curvelo/curvelo_long/image_3.jpg"
+  "name": "CurveloLong",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/curvelo/curvelo_long/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 37,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 4,
+  "raceDateDay": 1,
+  "trackGradeFilter": "Grade2",
+  "numberOfTurns": 18,
+  "trackTimeZone": "-3",
+  "trackAltitude": 672.0,
+  "length": 4420.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

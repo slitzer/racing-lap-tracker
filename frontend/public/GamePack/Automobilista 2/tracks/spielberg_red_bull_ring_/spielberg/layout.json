@@ -1,4 +1,20 @@
 {
-  "name": "Spielberg",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/spielberg_red_bull_ring_/spielberg/image_3.jpg"
+  "name": "Spielberg_Modern",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/spielberg_red_bull_ring_/spielberg/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2020,
+  "trackClimate": "europe_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 10,
+  "trackTimeZone": "1",
+  "trackAltitude": 660.0,
+  "isClockwise": true,
+  "length": 4318.0,
+  "Base Game": "",
+  "location": "Austria"
 }

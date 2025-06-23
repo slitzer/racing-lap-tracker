@@ -1,4 +1,20 @@
 {
-  "name": "N\u00fcrburgring Veedol 2020",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/n\u00fcrburgring/n\u00fcrburgring_veedol_2020/image_3.jpg"
+  "name": "Nurb_GP_2020_Veedol",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/n\u00fcrburgring/n\u00fcrburgring_veedol_2020/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2020,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 9,
+  "raceDateDay": 1,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 15,
+  "trackTimeZone": "1",
+  "trackAltitude": 625.5,
+  "isClockwise": true,
+  "length": 5137.0,
+  "Base Game": "nurburgringpack",
+  "location": "Germany"
 }

@@ -1,4 +1,19 @@
 {
-  "name": "Brands Hatch Indy",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/brands_hatch/brands_hatch_indy/image_3.jpg"
+  "name": "BrandsHatch",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/brands_hatch/brands_hatch_indy/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2020,
+  "trackClimate": "England",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 6,
+  "raceDateDay": 11,
+  "trackGradeFilter": "2",
+  "numberOfTurns": 5,
+  "trackTimeZone": "1",
+  "trackAltitude": 177.57,
+  "length": 1944.0,
+  "Base Game": "",
+  "location": "England"
 }

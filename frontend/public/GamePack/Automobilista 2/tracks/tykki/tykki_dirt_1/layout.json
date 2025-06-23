@@ -1,4 +1,19 @@
 {
-  "name": "Tykki Dirt 1",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/tykki/tykki_dirt_1/image_3.jpg"
+  "name": "Tykki_Dirt1",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/tykki/tykki_dirt_1/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 15,
+  "raceDateYear": 2022,
+  "trackClimate": "Scandinavia_rx",
+  "trackSurface": "mud",
+  "trackType": "Rallycross",
+  "raceDateMonth": 5,
+  "raceDateDay": 28,
+  "trackGradeFilter": "OffRoad",
+  "numberOfTurns": 8,
+  "trackTimeZone": "3",
+  "trackAltitude": 81.0,
+  "length": 910.0,
+  "Base Game": "adrenalinept1pack",
+  "location": "Finland"
 }

@@ -1,4 +1,20 @@
 {
-  "name": "Spa Francorchamps Rx",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/spa_francorchamps/spa_francorchamps_rx/image_3.jpg"
+  "name": "Spa_Francorchamps_2022_RX",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/spa_francorchamps/spa_francorchamps_rx/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 5,
+  "raceDateYear": 2022,
+  "trackClimate": "Europe",
+  "trackSurface": "mud",
+  "trackType": "Rallycross",
+  "raceDateMonth": 8,
+  "raceDateDay": 27,
+  "trackGradeFilter": "OffRoad",
+  "numberOfTurns": 5,
+  "trackTimeZone": "1",
+  "trackAltitude": 394.0,
+  "isClockwise": true,
+  "length": 890.0,
+  "Base Game": "adrenalinept1pack",
+  "location": "Belgium"
 }

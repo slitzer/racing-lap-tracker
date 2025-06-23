@@ -1,4 +1,20 @@
 {
-  "name": "Hockenheim",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/hockenheimring/hockenheim/image_3.jpg"
+  "name": "Hockenheim_GP",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/hockenheimring/hockenheim/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2020,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 8,
+  "raceDateDay": 27,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 17,
+  "trackTimeZone": "1",
+  "trackAltitude": 102.0,
+  "isClockwise": true,
+  "length": 4574.0,
+  "Base Game": "hockenheimpack",
+  "location": "Germany"
 }

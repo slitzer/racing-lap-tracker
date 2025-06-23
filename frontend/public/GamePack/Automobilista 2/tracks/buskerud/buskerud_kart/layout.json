@@ -1,4 +1,19 @@
 {
-  "name": "Buskerud Kart",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/buskerud/buskerud_kart/image_3.jpg"
+  "name": "Buskerud_Short",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/buskerud/buskerud_kart/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 23,
+  "raceDateYear": 2020,
+  "trackClimate": "europe_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Kart",
+  "raceDateMonth": 7,
+  "raceDateDay": 30,
+  "trackGradeFilter": "Kart",
+  "numberOfTurns": 15,
+  "trackTimeZone": "2",
+  "trackAltitude": 35.188,
+  "length": 958.0,
+  "Base Game": "",
+  "location": "Norway"
 }

@@ -1,4 +1,20 @@
 {
-  "name": "Monza Historic 1991",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/monza/monza_historic_1991/image_3.jpg"
+  "name": "Monza_1991",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/monza/monza_historic_1991/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 1991,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 9,
+  "raceDateDay": 8,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 14,
+  "trackTimeZone": "2",
+  "trackAltitude": 180.0,
+  "isClockwise": true,
+  "length": 5800.0,
+  "Base Game": "monzapack",
+  "location": "Italy"
 }

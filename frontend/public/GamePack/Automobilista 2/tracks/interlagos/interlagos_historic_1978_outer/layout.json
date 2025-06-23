@@ -1,4 +1,20 @@
 {
-  "name": "Interlagos Historic 1978 Outer",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_historic_1978_outer/image_3.jpg"
+  "name": "Interlagos_Historic_Outer",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_historic_1978_outer/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 1976,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 2,
+  "raceDateDay": 26,
+  "trackGradeFilter": "HistoricAlt",
+  "numberOfTurns": 6,
+  "trackTimeZone": "-3",
+  "trackAltitude": 750.188,
+  "isClockwise": false,
+  "length": 3236.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

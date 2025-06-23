@@ -1,4 +1,20 @@
 {
-  "name": "Campo Grande",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/campo_grande/campo_grande/image_3.jpg"
+  "name": "CampoGrande",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/campo_grande/campo_grande/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 45,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 6,
+  "raceDateDay": 7,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 12,
+  "trackTimeZone": "-3",
+  "trackAltitude": 592.0,
+  "isClockwise": false,
+  "length": 3433.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

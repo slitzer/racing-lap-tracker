@@ -1,4 +1,19 @@
 {
-  "name": "Cascais Alternate",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/cascais_estoril_/cascais_alternate/image_3.jpg"
+  "name": "Cascais_Alternate",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/cascais_estoril_/cascais_alternate/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2020,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 3,
+  "raceDateDay": 26,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 11,
+  "trackTimeZone": "0",
+  "trackAltitude": 130.0,
+  "length": 4157.0,
+  "Base Game": "",
+  "location": "Portugal"
 }

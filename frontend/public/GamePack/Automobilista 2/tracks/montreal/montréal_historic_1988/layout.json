@@ -1,4 +1,20 @@
 {
-  "name": "Montr\u00e9al Historic 1988",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/montreal/montr\u00e9al_historic_1988/image_3.jpg"
+  "name": "Montreal_Historic",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/montreal/montr\u00e9al_historic_1988/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 39,
+  "raceDateYear": 1988,
+  "trackClimate": "north_usa",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 6,
+  "raceDateDay": 12,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 16,
+  "trackTimeZone": "-5",
+  "trackAltitude": 13.0,
+  "isClockwise": true,
+  "length": 4430.0,
+  "Base Game": "",
+  "location": "Canada"
 }

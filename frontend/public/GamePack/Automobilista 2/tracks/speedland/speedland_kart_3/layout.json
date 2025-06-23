@@ -1,4 +1,19 @@
 {
-  "name": "Speedland Kart 3",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/speedland/speedland_kart_3/image_3.jpg"
+  "name": "Speedland3",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/speedland/speedland_kart_3/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 13,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Kart",
+  "raceDateMonth": 1,
+  "raceDateDay": 30,
+  "trackGradeFilter": "Kart",
+  "numberOfTurns": 15,
+  "trackTimeZone": "-3",
+  "trackAltitude": 700.188,
+  "length": 439.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

@@ -1,4 +1,20 @@
 {
-  "name": "Ortona Kart Four",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/ortona/ortona_kart_four/image_3.jpg"
+  "name": "Ortona4",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/ortona/ortona_kart_four/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2020,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Kart",
+  "raceDateMonth": 9,
+  "raceDateDay": 22,
+  "trackGradeFilter": "Kart",
+  "numberOfTurns": 13,
+  "trackTimeZone": "0",
+  "trackAltitude": 137.0,
+  "isClockwise": true,
+  "length": 963.0,
+  "Base Game": "",
+  "location": "Italy"
 }

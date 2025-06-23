@@ -1,4 +1,20 @@
 {
-  "name": "Londrina Short",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/londrina/londrina_short/image_3.jpg"
+  "name": "Londrina_short",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/londrina/londrina_short/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 45,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 5,
+  "raceDateDay": 17,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 10,
+  "trackTimeZone": "-3",
+  "trackAltitude": 566.0,
+  "isClockwise": false,
+  "length": 3020.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

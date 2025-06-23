@@ -1,4 +1,19 @@
 {
-  "name": "Curvelo Short",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/curvelo/curvelo_short/image_3.jpg"
+  "name": "CurveloShort",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/curvelo/curvelo_short/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 37,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 4,
+  "raceDateDay": 1,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 18,
+  "trackTimeZone": "-3",
+  "trackAltitude": 672.0,
+  "length": 3330.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

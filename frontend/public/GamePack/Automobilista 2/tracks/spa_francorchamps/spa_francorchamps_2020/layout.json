@@ -1,4 +1,20 @@
 {
-  "name": "Spa Francorchamps 2020",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/spa_francorchamps/spa_francorchamps_2020/image_3.jpg"
+  "name": "Spa_Francorchamps_2020",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/spa_francorchamps/spa_francorchamps_2020/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2020,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 8,
+  "raceDateDay": 30,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 20,
+  "trackTimeZone": "1",
+  "trackAltitude": 394.0,
+  "isClockwise": true,
+  "length": 7004.0,
+  "Base Game": "spapack",
+  "location": "Belgium"
 }

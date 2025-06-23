@@ -1,4 +1,20 @@
 {
-  "name": "Montr\u00e9al",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/montreal/montr\u00e9al/image_3.jpg"
+  "name": "Montreal_Modern",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/montreal/montr\u00e9al/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 39,
+  "raceDateYear": 2020,
+  "trackClimate": "north_usa",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 6,
+  "raceDateDay": 9,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 14,
+  "trackTimeZone": "-5",
+  "trackAltitude": 13.0,
+  "isClockwise": true,
+  "length": 4361.0,
+  "Base Game": "",
+  "location": "Canada"
 }

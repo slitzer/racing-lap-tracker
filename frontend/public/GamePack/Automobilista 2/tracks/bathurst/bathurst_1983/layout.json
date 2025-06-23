@@ -1,4 +1,20 @@
 {
-  "name": "Bathurst 1983",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/bathurst/bathurst_1983/image_3.jpg"
+  "name": "Bathurst_1983",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/bathurst/bathurst_1983/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 1983,
+  "trackClimate": "se_australia",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 2,
+  "raceDateDay": 1,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 20,
+  "trackTimeZone": "10",
+  "trackAltitude": 780.0,
+  "isClockwise": false,
+  "length": 6171.0,
+  "Base Game": "historicaltrackpt1pack",
+  "location": "Australia"
 }

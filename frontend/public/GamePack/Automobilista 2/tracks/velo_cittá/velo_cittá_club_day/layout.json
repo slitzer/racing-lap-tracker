@@ -1,4 +1,20 @@
 {
-  "name": "Velo Citt\u00e1 Club Day",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/velo_citt\u00e1/velo_citt\u00e1_club_day/image_3.jpg"
+  "name": "VeloCittaClubDay",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/velo_citt\u00e1/velo_citt\u00e1_club_day/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 33,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 6,
+  "raceDateDay": 28,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 7,
+  "trackTimeZone": "-3",
+  "trackAltitude": 750.0,
+  "isClockwise": false,
+  "length": 1721.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

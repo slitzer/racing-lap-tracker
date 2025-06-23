@@ -1,4 +1,19 @@
 {
-  "name": "Silverstone National",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/silverstone/silverstone_national/image_3.jpg"
+  "name": "Silverstone_Natl_2019",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/silverstone/silverstone_national/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 35,
+  "raceDateYear": 2020,
+  "trackClimate": "England",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 14,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 5,
+  "trackTimeZone": "0",
+  "trackAltitude": 154.0,
+  "length": 2639.0,
+  "Base Game": "silverstonepack",
+  "location": "England"
 }

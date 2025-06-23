@@ -1,4 +1,19 @@
 {
-  "name": "Kansai West",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/kansai_suzuka_/kansai_west/image_3.jpg"
+  "name": "Kansai",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/kansai_suzuka_/kansai_west/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 25,
+  "raceDateYear": 2020,
+  "trackClimate": "Europe_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 10,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 11,
+  "trackTimeZone": "9",
+  "trackAltitude": 47.188,
+  "length": 3466.0,
+  "Base Game": "",
+  "location": "Japan"
 }

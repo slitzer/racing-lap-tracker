@@ -1,4 +1,19 @@
 {
-  "name": "Spielberg Historic 1974",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/spielberg_red_bull_ring_/spielberg_historic_1974/image_3.jpg"
+  "name": "Spielberg_Vintage",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/spielberg_red_bull_ring_/spielberg_historic_1974/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 25,
+  "raceDateYear": 1974,
+  "trackClimate": "europe_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 4,
+  "raceDateDay": 22,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 9,
+  "trackTimeZone": "1",
+  "trackAltitude": 660.0,
+  "length": 5896.0,
+  "Base Game": "",
+  "location": "Austria"
 }

@@ -1,4 +1,19 @@
 {
   "name": "Betonschleife Historic 1971",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/n\u00fcrburgring/betonschleife_historic_1971/image_3.jpg"
+  "imageUrl": "/GamePack/Automobilista 2/tracks/n\u00fcrburgring/betonschleife_historic_1971/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 1971,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Historic",
+  "trackTimeZone": "-6",
+  "trackAltitude": 397.0,
+  "isClockwise": false,
+  "length": 2391.0,
+  "Base Game": "",
+  "location": "Germany"
 }

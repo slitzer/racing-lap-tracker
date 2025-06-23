@@ -1,4 +1,20 @@
 {
-  "name": "Silverstone Historic 1991",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/silverstone/silverstone_historic_1991/image_3.jpg"
+  "name": "Silverstone_1991",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/silverstone/silverstone_historic_1991/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 35,
+  "raceDateYear": 1991,
+  "trackClimate": "England",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 14,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 17,
+  "trackTimeZone": "0",
+  "trackAltitude": 154.0,
+  "isClockwise": true,
+  "length": 5226.0,
+  "Base Game": "silverstonepack",
+  "location": "England"
 }

@@ -1,4 +1,20 @@
 {
-  "name": "Long Beach",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/long_beach/long_beach/image_3.jpg"
+  "name": "Long_Beach",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/long_beach/long_beach/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2020,
+  "trackClimate": "california",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 9,
+  "raceDateDay": 15,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 11,
+  "trackTimeZone": "-7",
+  "trackAltitude": 2.0,
+  "isClockwise": true,
+  "length": 3167.0,
+  "Base Game": "racinusapt1pack",
+  "location": "USA"
 }

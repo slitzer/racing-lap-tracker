@@ -1,4 +1,8 @@
 {
   "name": "Watkins Glen Short Inner Loop ",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/watkins_glen/watkins_glen_short_inner_loop_/image_3.jpg"
+  "imageUrl": "/GamePack/Automobilista 2/tracks/watkins_glen/watkins_glen_short_inner_loop_/image_3.jpg",
+  "maxAIParticipants": 31,
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "isClockwise": "SANT"
 }

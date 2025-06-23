@@ -1,4 +1,20 @@
 {
-  "name": "Spa Francorchamps 1993",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/spa_francorchamps/spa_francorchamps_1993/image_3.jpg"
+  "name": "Spa_Francorchamps_1993",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/spa_francorchamps/spa_francorchamps_1993/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 1993,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 8,
+  "raceDateDay": 25,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 23,
+  "trackTimeZone": "1",
+  "trackAltitude": 394.0,
+  "isClockwise": true,
+  "length": 6940.0,
+  "Base Game": "spapack",
+  "location": "Belgium"
 }

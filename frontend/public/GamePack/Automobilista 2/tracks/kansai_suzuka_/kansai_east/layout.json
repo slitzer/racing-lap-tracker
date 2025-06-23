@@ -1,4 +1,19 @@
 {
-  "name": "Kansai East",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/kansai_suzuka_/kansai_east/image_3.jpg"
+  "name": "Kansai",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/kansai_suzuka_/kansai_east/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 51,
+  "raceDateYear": 2020,
+  "trackClimate": "Europe_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 10,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 10,
+  "trackTimeZone": "9",
+  "trackAltitude": 47.188,
+  "length": 2243.0,
+  "Base Game": "",
+  "location": "Japan"
 }

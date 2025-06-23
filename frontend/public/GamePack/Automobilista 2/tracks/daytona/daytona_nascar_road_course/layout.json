@@ -1,4 +1,20 @@
 {
-  "name": "Daytona Nascar Road Course",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/daytona/daytona_nascar_road_course/image_3.jpg"
+  "name": "Daytona_Nascar_Road_Course",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/daytona/daytona_nascar_road_course/image_3.jpg",
+  "pitSpeedLimitHighKPH": 100,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2021,
+  "trackClimate": "daytona",
+  "trackSurface": "Tarmac",
+  "trackType": "Circut",
+  "raceDateMonth": 2,
+  "raceDateDay": 14,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 15,
+  "trackTimeZone": "-5",
+  "trackAltitude": 9.039,
+  "isClockwise": false,
+  "length": 5729.0,
+  "Base Game": "racinusapt1pack",
+  "location": "USA"
 }

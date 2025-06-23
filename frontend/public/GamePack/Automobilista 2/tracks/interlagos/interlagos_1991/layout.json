@@ -1,4 +1,20 @@
 {
-  "name": "Interlagos 1991",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_1991/image_3.jpg"
+  "name": "Interlagos_1991",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_1991/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 1976,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 2,
+  "raceDateDay": 26,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 17,
+  "trackTimeZone": "-3",
+  "trackAltitude": 750.188,
+  "isClockwise": false,
+  "length": 4325.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

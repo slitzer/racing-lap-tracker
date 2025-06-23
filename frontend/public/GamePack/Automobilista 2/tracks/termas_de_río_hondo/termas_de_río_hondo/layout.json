@@ -1,4 +1,20 @@
 {
-  "name": "Termas De R\u00edo Hondo",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/termas_de_r\u00edo_hondo/termas_de_r\u00edo_hondo/image_3.jpg"
+  "name": "Termas_Rio_Hondo",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/termas_de_r\u00edo_hondo/termas_de_r\u00edo_hondo/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 33,
+  "raceDateYear": 2022,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 5,
+  "raceDateDay": 29,
+  "trackGradeFilter": "Grade2",
+  "numberOfTurns": 14,
+  "trackTimeZone": "-3",
+  "trackAltitude": 280.75,
+  "isClockwise": true,
+  "length": 4806.0,
+  "Base Game": "",
+  "location": "Argentina"
 }

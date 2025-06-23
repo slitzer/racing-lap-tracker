@@ -1,4 +1,20 @@
 {
-  "name": "Salvador Street Circuit",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/salvador/salvador_street_circuit/image_3.jpg"
+  "name": "Salvador_Street_Circuit",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/salvador/salvador_street_circuit/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 33,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 5,
+  "raceDateDay": 19,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 10,
+  "trackTimeZone": "-3",
+  "trackAltitude": 68.0,
+  "isClockwise": false,
+  "length": 2720.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

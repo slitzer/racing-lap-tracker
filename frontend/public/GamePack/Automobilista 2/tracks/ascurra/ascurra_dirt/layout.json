@@ -1,4 +1,19 @@
 {
-  "name": "Ascurra Dirt",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/ascurra/ascurra_dirt/image_3.jpg"
+  "name": "Ascurra_Dirt",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/ascurra/ascurra_dirt/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 15,
+  "raceDateYear": 2022,
+  "trackClimate": "south_america",
+  "trackSurface": "mud",
+  "trackType": "Rallycross",
+  "raceDateMonth": 9,
+  "raceDateDay": 28,
+  "trackGradeFilter": "OffRoad",
+  "numberOfTurns": 8,
+  "trackTimeZone": "-3",
+  "trackAltitude": 88.0,
+  "length": 910.0,
+  "Base Game": "adrenalinept1pack",
+  "location": "Brazil"
 }

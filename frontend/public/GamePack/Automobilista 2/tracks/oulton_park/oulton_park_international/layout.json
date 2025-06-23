@@ -1,4 +1,20 @@
 {
-  "name": "Oulton Park International",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/oulton_park/oulton_park_international/image_3.jpg"
+  "name": "OultonPark_International",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/oulton_park/oulton_park_international/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 27,
+  "raceDateYear": 2020,
+  "trackClimate": "scotland",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 11,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 17,
+  "trackTimeZone": "0",
+  "trackAltitude": 65.0,
+  "isClockwise": true,
+  "length": 4330.0,
+  "Base Game": "",
+  "location": "England"
 }

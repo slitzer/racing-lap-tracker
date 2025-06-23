@@ -1,4 +1,20 @@
 {
-  "name": "Indianapolis Motor Speedway Road Course",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/indianapolis/indianapolis_motor_speedway_road_course/image_3.jpg"
+  "name": "Indianapolis_2022_RC",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/indianapolis/indianapolis_motor_speedway_road_course/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2022,
+  "trackClimate": "north_usa",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 5,
+  "raceDateDay": 29,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 14,
+  "trackTimeZone": "-5",
+  "trackAltitude": 220.0,
+  "isClockwise": false,
+  "length": 3925.0,
+  "Base Game": "racinusapt3pack",
+  "location": "USA"
 }

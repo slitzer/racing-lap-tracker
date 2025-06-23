@@ -1,4 +1,20 @@
 {
-  "name": "Cadwell Park",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/cadwell_park/cadwell_park/image_3.jpg"
+  "name": "CadwellPark",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/cadwell_park/cadwell_park/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 25,
+  "raceDateYear": 2020,
+  "trackClimate": "England",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 6,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 16,
+  "trackTimeZone": "0",
+  "trackAltitude": 122.0,
+  "isClockwise": true,
+  "length": 3502.0,
+  "Base Game": "",
+  "location": "England"
 }

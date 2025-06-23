@@ -1,4 +1,8 @@
 {
   "name": "Velopark 2010",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/velopark/velopark_2010/image_3.jpg"
+  "imageUrl": "/GamePack/Automobilista 2/tracks/velopark/velopark_2010/image_3.jpg",
+  "maxAIParticipants": 33,
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "isClockwise": "FALSKT"
 }

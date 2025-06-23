@@ -1,4 +1,20 @@
 {
-  "name": "Daytona Nascar Tri Oval",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/daytona/daytona_nascar_tri_oval/image_3.jpg"
+  "name": "Daytona_Speedway_Tri_Oval",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/daytona/daytona_nascar_tri_oval/image_3.jpg",
+  "pitSpeedLimitHighKPH": 100,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2021,
+  "trackClimate": "daytona",
+  "trackSurface": "Tarmac",
+  "trackType": "Oval",
+  "raceDateMonth": 2,
+  "raceDateDay": 14,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 3,
+  "trackTimeZone": "-5",
+  "trackAltitude": 9.039,
+  "isClockwise": false,
+  "length": 4023.0,
+  "Base Game": "racinusapt1pack",
+  "location": "USA"
 }

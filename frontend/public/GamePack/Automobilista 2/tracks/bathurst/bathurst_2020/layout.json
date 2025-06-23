@@ -1,4 +1,20 @@
 {
-  "name": "Bathurst 2020",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/bathurst/bathurst_2020/image_3.jpg"
+  "name": "Bathurst_2020",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/bathurst/bathurst_2020/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 35,
+  "raceDateYear": 2020,
+  "trackClimate": "se_australia",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 2,
+  "raceDateDay": 1,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 23,
+  "trackTimeZone": "10",
+  "trackAltitude": 780.0,
+  "isClockwise": false,
+  "length": 6213.0,
+  "Base Game": "",
+  "location": "Australia"
 }

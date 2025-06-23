@@ -1,4 +1,20 @@
 {
-  "name": "Buenos Aires Circuito No 6",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/buenos_aires/buenos_aires_circuito_no_6/image_3.jpg"
+  "name": "Buenos_Aires_Circuito_6",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/buenos_aires/buenos_aires_circuito_no_6/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 2,
+  "raceDateDay": 20,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 17,
+  "trackTimeZone": "-3",
+  "trackAltitude": 10.0,
+  "isClockwise": false,
+  "length": 4312.0,
+  "Base Game": "",
+  "location": "Argentina"
 }

@@ -1,4 +1,20 @@
 {
-  "name": "Tarum\u00e3 Chicane",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/tarum\u00e3/tarum\u00e3_chicane/image_3.jpg"
+  "name": "Taruma_Chicane",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/tarum\u00e3/tarum\u00e3_chicane/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 4,
+  "raceDateDay": 28,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 11,
+  "trackTimeZone": "-3",
+  "trackAltitude": 71.0,
+  "isClockwise": false,
+  "length": 3074.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

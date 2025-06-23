@@ -1,4 +1,20 @@
 {
-  "name": "Hockenheim Rx",
-  "imageUrl": ""
+  "name": "Hockenheim_RX",
+  "imageUrl": "",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 5,
+  "raceDateYear": 2023,
+  "trackClimate": "Scandinavia_rx",
+  "trackSurface": "mud",
+  "trackType": "Rallycross",
+  "raceDateMonth": 8,
+  "raceDateDay": 27,
+  "trackGradeFilter": "OffRoad",
+  "numberOfTurns": 17,
+  "trackTimeZone": "1",
+  "trackAltitude": 102.0,
+  "isClockwise": true,
+  "length": 1122.0,
+  "Base Game": "adrenalinept1pack",
+  "location": "Germany"
 }

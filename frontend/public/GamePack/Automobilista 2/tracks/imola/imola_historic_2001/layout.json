@@ -1,4 +1,20 @@
 {
-  "name": "Imola Historic 2001",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/imola/imola_historic_2001/image_3.jpg"
+  "name": "Imola_GP",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/imola/imola_historic_2001/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 25,
+  "raceDateYear": 2001,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 4,
+  "raceDateDay": 15,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 21,
+  "trackTimeZone": "2",
+  "trackAltitude": 47.188,
+  "isClockwise": false,
+  "length": 4933.0,
+  "Base Game": "",
+  "location": "Italy"
 }

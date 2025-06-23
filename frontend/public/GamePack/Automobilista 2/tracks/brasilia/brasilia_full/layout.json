@@ -1,4 +1,19 @@
 {
-  "name": "Brasilia Full",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/brasilia/brasilia_full/image_3.jpg"
+  "name": "Brasilia_Full",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/brasilia/brasilia_full/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2014,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 6,
+  "raceDateDay": 2,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 12,
+  "trackTimeZone": "-3",
+  "trackAltitude": 1172.0,
+  "length": 5476.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

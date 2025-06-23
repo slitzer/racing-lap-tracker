@@ -1,4 +1,20 @@
 {
-  "name": "Monza Junior",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/monza/monza_junior/image_3.jpg"
+  "name": "Monza_2020_Junior",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/monza/monza_junior/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2020,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 4,
+  "raceDateDay": 16,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 4,
+  "trackTimeZone": "2",
+  "trackAltitude": 180.0,
+  "isClockwise": true,
+  "length": 2405.0,
+  "Base Game": "monzapack",
+  "location": "Italy"
 }

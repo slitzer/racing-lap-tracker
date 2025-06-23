@@ -1,4 +1,19 @@
 {
-  "name": "Circuit De Barcelona Catalunya Gp",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/barcelona/circuit_de_barcelona_catalunya_gp/image_3.jpg"
+  "name": "Circuit_de_Catalunya_GP",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/barcelona/circuit_de_barcelona_catalunya_gp/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2022,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 5,
+  "raceDateDay": 22,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 16,
+  "trackTimeZone": "1",
+  "trackAltitude": 115.0,
+  "length": 4675.0,
+  "Base Game": "barcelonapack",
+  "location": "Spain"
 }

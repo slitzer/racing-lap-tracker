@@ -1,4 +1,20 @@
 {
-  "name": "Brands Hatch Gp",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/brands_hatch/brands_hatch_gp/image_3.jpg"
+  "name": "BrandsHatch",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/brands_hatch/brands_hatch_gp/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2020,
+  "trackClimate": "England",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 6,
+  "raceDateDay": 11,
+  "trackGradeFilter": "Grade2",
+  "numberOfTurns": 10,
+  "trackTimeZone": "1",
+  "trackAltitude": 177.57,
+  "isClockwise": true,
+  "length": 3916.0,
+  "Base Game": "",
+  "location": "England"
 }

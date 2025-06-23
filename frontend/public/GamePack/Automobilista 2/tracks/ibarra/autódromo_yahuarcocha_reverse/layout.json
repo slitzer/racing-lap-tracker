@@ -1,4 +1,19 @@
 {
-  "name": "Aut\u00f3dromo Yahuarcocha Reverse",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/ibarra/aut\u00f3dromo_yahuarcocha_reverse/image_3.jpg"
+  "name": "Ibarra_Reverse",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/ibarra/aut\u00f3dromo_yahuarcocha_reverse/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 3,
+  "raceDateDay": 17,
+  "trackGradeFilter": "Grade4",
+  "numberOfTurns": 18,
+  "trackTimeZone": "-5",
+  "trackAltitude": 2190.0,
+  "length": 4307.0,
+  "Base Game": "",
+  "location": "Ecuador"
 }

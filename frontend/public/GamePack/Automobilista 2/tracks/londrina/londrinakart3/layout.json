@@ -1,4 +1,19 @@
 {
-  "name": "Londrinakart3",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/londrina/londrinakart3/image_3.jpg"
+  "name": "LondrinaKart3",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/londrina/londrinakart3/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 27,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Kart",
+  "raceDateMonth": 4,
+  "raceDateDay": 7,
+  "trackGradeFilter": "Kart",
+  "numberOfTurns": 6,
+  "trackTimeZone": "-3",
+  "trackAltitude": 566.0,
+  "length": 644.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

@@ -1,4 +1,19 @@
 {
-  "name": "Kansai Gp",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/kansai_suzuka_/kansai_gp/image_3.jpg"
+  "name": "Kansai",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/kansai_suzuka_/kansai_gp/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 51,
+  "raceDateYear": 2020,
+  "trackClimate": "Europe_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 10,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 19,
+  "trackTimeZone": "9",
+  "trackAltitude": 47.188,
+  "length": 5810.0,
+  "Base Game": "",
+  "location": "Japan"
 }

@@ -1,4 +1,19 @@
 {
-  "name": "Tykki Tarmac",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/tykki/tykki_tarmac/image_3.jpg"
+  "name": "Tykki_Tarmac",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/tykki/tykki_tarmac/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 15,
+  "raceDateYear": 2022,
+  "trackClimate": "Scandinavia_rx",
+  "trackSurface": "mud",
+  "trackType": "Circuit",
+  "raceDateMonth": 5,
+  "raceDateDay": 28,
+  "trackGradeFilter": "OffRoad",
+  "numberOfTurns": 7,
+  "trackTimeZone": "3",
+  "trackAltitude": 81.0,
+  "length": 750.0,
+  "Base Game": "adrenalinept1pack",
+  "location": "Finland"
 }

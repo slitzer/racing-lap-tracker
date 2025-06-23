@@ -1,4 +1,19 @@
 {
-  "name": "Granja Viana Kart 121",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/granja_viana/granja_viana_kart_121/image_3.jpg"
+  "name": "GranjaVianaKart121",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/granja_viana/granja_viana_kart_121/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 27,
+  "raceDateYear": 2020,
+  "trackClimate": "South_America",
+  "trackSurface": "Tarmac",
+  "trackType": "Kart",
+  "raceDateMonth": 5,
+  "raceDateDay": 3,
+  "trackGradeFilter": "Kart",
+  "numberOfTurns": 11,
+  "trackTimeZone": "1",
+  "trackAltitude": 797.0,
+  "length": 800.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

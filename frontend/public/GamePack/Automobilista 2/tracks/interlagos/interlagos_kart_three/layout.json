@@ -1,4 +1,19 @@
 {
-  "name": "Interlagos Kart Three",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_kart_three/image_3.jpg"
+  "name": "InterlagosKart3",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_kart_three/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 37,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Kart",
+  "raceDateMonth": 11,
+  "raceDateDay": 1,
+  "trackGradeFilter": "Kart",
+  "numberOfTurns": 9,
+  "trackTimeZone": "-3",
+  "trackAltitude": 750.188,
+  "length": 699.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

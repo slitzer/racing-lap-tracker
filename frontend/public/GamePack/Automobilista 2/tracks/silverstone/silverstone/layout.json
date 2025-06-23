@@ -1,4 +1,19 @@
 {
-  "name": "Silverstone",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/silverstone/silverstone/image_3.jpg"
+  "name": "Silverstone_GP",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/silverstone/silverstone/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2020,
+  "trackClimate": "England",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 14,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 18,
+  "trackTimeZone": "0",
+  "trackAltitude": 154.0,
+  "length": 5890.0,
+  "Base Game": "silverstonepack",
+  "location": "England"
 }

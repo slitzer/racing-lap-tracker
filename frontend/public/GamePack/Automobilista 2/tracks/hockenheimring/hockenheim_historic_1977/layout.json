@@ -1,4 +1,20 @@
 {
-  "name": "Hockenheim Historic 1977",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/hockenheimring/hockenheim_historic_1977/image_3.jpg"
+  "name": "Hockenheim_1977",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/hockenheimring/hockenheim_historic_1977/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 35,
+  "raceDateYear": 1977,
+  "trackClimate": "europe_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 8,
+  "raceDateDay": 31,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 13,
+  "trackTimeZone": "1",
+  "trackAltitude": 102.0,
+  "isClockwise": true,
+  "length": 6789.0,
+  "Base Game": "hockenheimpack",
+  "location": "Germany"
 }

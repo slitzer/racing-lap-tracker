@@ -1,4 +1,20 @@
 {
-  "name": "C\u00f3rdoba No 2",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/c\u00f3rdoba/c\u00f3rdoba_no_2/image_3.jpg"
+  "name": "Cordoba_NATL",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/c\u00f3rdoba/c\u00f3rdoba_no_2/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 25,
+  "raceDateYear": 2022,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 10,
+  "raceDateDay": 9,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 11,
+  "trackTimeZone": "-3",
+  "trackAltitude": 586.0,
+  "isClockwise": true,
+  "length": 2060.0,
+  "Base Game": "",
+  "location": "Argentina"
 }

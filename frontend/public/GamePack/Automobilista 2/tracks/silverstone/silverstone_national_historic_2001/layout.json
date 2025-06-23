@@ -1,4 +1,19 @@
 {
-  "name": "Silverstone National Historic 2001",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/silverstone/silverstone_national_historic_2001/image_3.jpg"
+  "name": "Silverstone_2001",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/silverstone/silverstone_national_historic_2001/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 35,
+  "raceDateYear": 2001,
+  "trackClimate": "England",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 15,
+  "trackGradeFilter": "HistoricAlt",
+  "numberOfTurns": 5,
+  "trackTimeZone": "0",
+  "trackAltitude": 154.0,
+  "length": 2638.0,
+  "Base Game": "silverstonepack",
+  "location": "England"
 }

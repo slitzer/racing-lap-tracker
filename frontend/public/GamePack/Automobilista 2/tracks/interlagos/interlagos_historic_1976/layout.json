@@ -1,4 +1,20 @@
 {
-  "name": "Interlagos Historic 1976",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_historic_1976/image_3.jpg"
+  "name": "Interlagos_Historic",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_historic_1976/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 1976,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 2,
+  "raceDateDay": 26,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 17,
+  "trackTimeZone": "-3",
+  "trackAltitude": 750.188,
+  "isClockwise": false,
+  "length": 7927.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

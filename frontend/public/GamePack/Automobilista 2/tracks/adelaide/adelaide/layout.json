@@ -1,4 +1,20 @@
 {
-  "name": "Adelaide",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/adelaide/adelaide/image_3.jpg"
+  "name": "Adelaide_Modern",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/adelaide/adelaide/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 38,
+  "raceDateYear": 2020,
+  "trackClimate": "se_australia",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 3,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Grade3",
+  "numberOfTurns": 14,
+  "trackTimeZone": "10.5",
+  "trackAltitude": 52.0,
+  "isClockwise": true,
+  "length": 3219.0,
+  "Base Game": "",
+  "location": "Australia"
 }

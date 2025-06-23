@@ -1,4 +1,20 @@
 {
-  "name": "C\u00f3rdoba No 4",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/c\u00f3rdoba/c\u00f3rdoba_no_4/image_3.jpg"
+  "name": "Cordoba_GP",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/c\u00f3rdoba/c\u00f3rdoba_no_4/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 25,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 2,
+  "raceDateDay": 18,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 13,
+  "trackTimeZone": "-3",
+  "trackAltitude": 586.0,
+  "isClockwise": true,
+  "length": 4060.0,
+  "Base Game": "",
+  "location": "Argentina"
 }

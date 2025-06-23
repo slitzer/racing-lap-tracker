@@ -1,4 +1,20 @@
 {
-  "name": "Cleveland Gp",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/cleveland/cleveland_gp/image_3.jpg"
+  "name": "Cleveland_GP",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/cleveland/cleveland_gp/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2020,
+  "trackClimate": "north_usa",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 6,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 10,
+  "trackTimeZone": "-4",
+  "trackAltitude": 199.0,
+  "isClockwise": true,
+  "length": 3389.0,
+  "Base Game": "racinusapt2pack",
+  "location": "USA"
 }

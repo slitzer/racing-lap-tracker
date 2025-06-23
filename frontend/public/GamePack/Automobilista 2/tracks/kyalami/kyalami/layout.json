@@ -1,4 +1,20 @@
 {
-  "name": "Kyalami",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/kyalami/kyalami/image_3.jpg"
+  "name": "Kyalami_2019",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/kyalami/kyalami/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 39,
+  "raceDateYear": 2020,
+  "trackClimate": "south_usa",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 4,
+  "raceDateDay": 15,
+  "trackGradeFilter": "Grade2",
+  "numberOfTurns": 15,
+  "trackTimeZone": "2",
+  "trackAltitude": 1532.0,
+  "isClockwise": false,
+  "length": 4529.0,
+  "Base Game": "",
+  "location": "South_Africa"
 }

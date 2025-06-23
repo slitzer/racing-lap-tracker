@@ -1,4 +1,19 @@
 {
-  "name": "Tykki Rx",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/tykki/tykki_rx/image_3.jpg"
+  "name": "Tykki_RX",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/tykki/tykki_rx/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 5,
+  "raceDateYear": 2022,
+  "trackClimate": "Scandinavia_rx",
+  "trackSurface": "mud",
+  "trackType": "Rallycross",
+  "raceDateMonth": 5,
+  "raceDateDay": 28,
+  "trackGradeFilter": "OffRoad",
+  "numberOfTurns": 11,
+  "trackTimeZone": "3",
+  "trackAltitude": 81.0,
+  "length": 1015.0,
+  "Base Game": "adrenalinept1pack",
+  "location": "Finland"
 }

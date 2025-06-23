@@ -1,4 +1,8 @@
 {
   "name": "Virginia International Raceway Full",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/virginia/virginia_international_raceway_full/image_3.jpg"
+  "imageUrl": "/GamePack/Automobilista 2/tracks/virginia/virginia_international_raceway_full/image_3.jpg",
+  "maxAIParticipants": 27,
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "isClockwise": ""
 }

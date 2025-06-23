@@ -1,4 +1,19 @@
 {
-  "name": "Cascais Historic 1988",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/cascais_estoril_/cascais_historic_1988/image_3.jpg"
+  "name": "Cascais_1988",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/cascais_estoril_/cascais_historic_1988/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 1988,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 9,
+  "raceDateDay": 25,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 11,
+  "trackTimeZone": "0",
+  "trackAltitude": 130.0,
+  "length": 4350.0,
+  "Base Game": "historicaltrackpt1pack",
+  "location": "Portugal"
 }

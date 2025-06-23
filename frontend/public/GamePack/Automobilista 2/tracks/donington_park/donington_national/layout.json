@@ -1,4 +1,20 @@
 {
-  "name": "Donington National",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/donington_park/donington_national/image_3.jpg"
+  "name": "Donington_Nat",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/donington_park/donington_national/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 37,
+  "raceDateYear": 2020,
+  "trackClimate": "England",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 8,
+  "raceDateDay": 11,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 9,
+  "trackTimeZone": "0",
+  "trackAltitude": 96.0,
+  "isClockwise": true,
+  "length": 3185.0,
+  "Base Game": "",
+  "location": "England"
 }

@@ -1,4 +1,20 @@
 {
-  "name": "Interlagos Stock Car Brasil",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_stock_car_brasil/image_3.jpg"
+  "name": "Interlagos_SCB",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_stock_car_brasil/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 45,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 8,
+  "raceDateDay": 23,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 15,
+  "trackTimeZone": "-3",
+  "trackAltitude": 750.188,
+  "isClockwise": false,
+  "length": 4295.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

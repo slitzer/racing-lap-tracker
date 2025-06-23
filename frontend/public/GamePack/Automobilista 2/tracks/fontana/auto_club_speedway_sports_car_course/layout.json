@@ -1,4 +1,20 @@
 {
-  "name": "Auto Club Speedway Sports Car Course",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/fontana/auto_club_speedway_sports_car_course/image_3.jpg"
+  "name": "Fontana_SCC",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/fontana/auto_club_speedway_sports_car_course/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2022,
+  "trackClimate": "california",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 5,
+  "raceDateDay": 30,
+  "trackGradeFilter": "Grade2",
+  "numberOfTurns": 17,
+  "trackTimeZone": "-6",
+  "trackAltitude": 377.0,
+  "isClockwise": false,
+  "length": 4509.0,
+  "Base Game": "racinusapt3pack",
+  "location": "USA"
 }

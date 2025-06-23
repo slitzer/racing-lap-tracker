@@ -1,4 +1,20 @@
 {
-  "name": "Hockenheim Historic 1988 Short",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/hockenheimring/hockenheim_historic_1988_short/image_3.jpg"
+  "name": "Hockenheim_1988_short",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/hockenheimring/hockenheim_historic_1988_short/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 35,
+  "raceDateYear": 1988,
+  "trackClimate": "europe_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 30,
+  "trackGradeFilter": "HistoricAlt",
+  "numberOfTurns": 13,
+  "trackTimeZone": "1",
+  "trackAltitude": 102.0,
+  "isClockwise": true,
+  "length": 2636.0,
+  "Base Game": "hockenheimpack",
+  "location": "Germany"
 }

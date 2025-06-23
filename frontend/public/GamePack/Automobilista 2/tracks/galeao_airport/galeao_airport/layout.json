@@ -1,4 +1,20 @@
 {
-  "name": "Galeao Airport",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/galeao_airport/galeao_airport/image_3.jpg"
+  "name": "Galeao_Airport",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/galeao_airport/galeao_airport/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2022,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 4,
+  "raceDateDay": 10,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 5,
+  "trackTimeZone": "-3",
+  "trackAltitude": 10.0,
+  "isClockwise": true,
+  "length": 3200.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

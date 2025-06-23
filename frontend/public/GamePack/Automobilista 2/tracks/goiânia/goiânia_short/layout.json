@@ -1,4 +1,19 @@
 {
-  "name": "Goi\u00e2nia Short",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/goi\u00e2nia/goi\u00e2nia_short/image_3.jpg"
+  "name": "GoianiaShort",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/goi\u00e2nia/goi\u00e2nia_short/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 35,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 3,
+  "raceDateDay": 29,
+  "trackGradeFilter": "Alt",
+  "numberOfTurns": 7,
+  "trackTimeZone": "-3",
+  "trackAltitude": 757.0,
+  "length": 1910.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

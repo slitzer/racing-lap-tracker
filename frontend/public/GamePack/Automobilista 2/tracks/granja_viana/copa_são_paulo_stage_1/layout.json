@@ -1,4 +1,19 @@
 {
-  "name": "Copa S\u00e3o Paulo Stage 1",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/granja_viana/copa_s\u00e3o_paulo_stage_1/image_3.jpg"
+  "name": "CopaSaoPauloStage1",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/granja_viana/copa_s\u00e3o_paulo_stage_1/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 27,
+  "raceDateYear": 2020,
+  "trackClimate": "South_America",
+  "trackSurface": "Tarmac",
+  "trackType": "Kart",
+  "raceDateMonth": 5,
+  "raceDateDay": 3,
+  "trackGradeFilter": "Kart",
+  "numberOfTurns": 12,
+  "trackTimeZone": "1",
+  "trackAltitude": 797.0,
+  "length": 1000.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

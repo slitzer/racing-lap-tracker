@@ -1,4 +1,20 @@
 {
-  "name": "Santa Cruz Do Sul",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/santa_cruz_do_sul/santa_cruz_do_sul/image_3.jpg"
+  "name": "SantaCruzDoSul",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/santa_cruz_do_sul/santa_cruz_do_sul/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 35,
+  "raceDateYear": 2020,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 19,
+  "trackGradeFilter": "Grade4",
+  "numberOfTurns": 14,
+  "trackTimeZone": "-3",
+  "trackAltitude": 120.0,
+  "isClockwise": false,
+  "length": 3325.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

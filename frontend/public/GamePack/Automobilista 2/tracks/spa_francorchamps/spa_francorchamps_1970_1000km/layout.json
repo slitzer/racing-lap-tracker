@@ -1,4 +1,20 @@
 {
-  "name": "Spa Francorchamps 1970 1000Km",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/spa_francorchamps/spa_francorchamps_1970_1000km/image_3.jpg"
+  "name": "Spa_Francorchamps_1970_1000km",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/spa_francorchamps/spa_francorchamps_1970_1000km/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 1970,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 5,
+  "raceDateDay": 17,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 21,
+  "trackTimeZone": "1",
+  "trackAltitude": 394.0,
+  "isClockwise": true,
+  "length": 14120.0,
+  "Base Game": "spapack",
+  "location": "Belgium"
 }

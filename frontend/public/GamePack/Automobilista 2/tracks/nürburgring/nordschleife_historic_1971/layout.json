@@ -1,4 +1,20 @@
 {
-  "name": "Nordschleife Historic 1971",
-  "imageUrl": ""
+  "name": "Nurb_1971_Nords",
+  "imageUrl": "",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 1971,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 7,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 160,
+  "trackTimeZone": "-6",
+  "trackAltitude": 377.0,
+  "isClockwise": true,
+  "length": 22835.0,
+  "Base Game": "nurburgringpack",
+  "location": "Germany"
 }

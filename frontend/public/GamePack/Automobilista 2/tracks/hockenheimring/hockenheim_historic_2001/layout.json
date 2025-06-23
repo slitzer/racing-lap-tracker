@@ -1,4 +1,20 @@
 {
-  "name": "Hockenheim Historic 2001",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/hockenheimring/hockenheim_historic_2001/image_3.jpg"
+  "name": "Hockenheim_2001",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/hockenheimring/hockenheim_historic_2001/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2001,
+  "trackClimate": "europe_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 8,
+  "raceDateDay": 31,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 16,
+  "trackTimeZone": "1",
+  "trackAltitude": 102.0,
+  "isClockwise": true,
+  "length": 6823.0,
+  "Base Game": "hockenheimpack",
+  "location": "Germany"
 }

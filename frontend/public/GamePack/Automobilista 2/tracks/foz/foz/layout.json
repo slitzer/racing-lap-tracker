@@ -1,4 +1,19 @@
 {
-  "name": "Foz",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/foz/foz/image_3.jpg"
+  "name": "Foz_RX",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/foz/foz/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 5,
+  "raceDateYear": 2023,
+  "trackClimate": "south_america",
+  "trackSurface": "mud",
+  "trackType": "Rallycross",
+  "raceDateMonth": 4,
+  "raceDateDay": 23,
+  "trackGradeFilter": "OffRoad",
+  "numberOfTurns": 8,
+  "trackTimeZone": "-3",
+  "trackAltitude": 164.0,
+  "length": 910.0,
+  "Base Game": "adrenalinept1pack",
+  "location": "Brazil"
 }

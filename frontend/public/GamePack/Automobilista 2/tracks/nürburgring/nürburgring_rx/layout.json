@@ -1,4 +1,20 @@
 {
-  "name": "N\u00fcrburgring Rx",
-  "imageUrl": ""
+  "name": "Nurb_2020_RX",
+  "imageUrl": "",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 4,
+  "raceDateYear": 2022,
+  "trackClimate": "europe",
+  "trackSurface": "mud",
+  "trackType": "Rallycross",
+  "raceDateMonth": 11,
+  "raceDateDay": 13,
+  "trackGradeFilter": "OffRoad",
+  "numberOfTurns": 6,
+  "trackTimeZone": "1",
+  "trackAltitude": 397.0,
+  "isClockwise": true,
+  "length": 1028.0,
+  "Base Game": "adrenalinept1pack",
+  "location": "Germany"
 }

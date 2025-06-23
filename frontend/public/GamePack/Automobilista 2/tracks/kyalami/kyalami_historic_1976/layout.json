@@ -1,4 +1,19 @@
 {
-  "name": "Kyalami Historic 1976",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/kyalami/kyalami_historic_1976/image_3.jpg"
+  "name": "Kyalami_Historic",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/kyalami/kyalami_historic_1976/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 25,
+  "raceDateYear": 1976,
+  "trackClimate": "south_america",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 3,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 9,
+  "trackTimeZone": "2",
+  "trackAltitude": 1532.0,
+  "length": 4048.0,
+  "Base Game": "",
+  "location": "South_Africa"
 }

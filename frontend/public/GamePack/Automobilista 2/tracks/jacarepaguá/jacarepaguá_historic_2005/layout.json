@@ -1,4 +1,20 @@
 {
-  "name": "Jacarepagu\u00e1 Historic 2005",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/jacarepagu\u00e1/jacarepagu\u00e1_historic_2005/image_3.jpg"
+  "name": "Jacarepagua_2005",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/jacarepagu\u00e1/jacarepagu\u00e1_historic_2005/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 39,
+  "raceDateYear": 2005,
+  "trackClimate": "south_america_farfog",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 4,
+  "raceDateDay": 9,
+  "trackGradeFilter": "Historic",
+  "numberOfTurns": 13,
+  "trackTimeZone": "-3",
+  "trackAltitude": 30.0,
+  "isClockwise": false,
+  "length": 4905.0,
+  "Base Game": "",
+  "location": "Brazil"
 }

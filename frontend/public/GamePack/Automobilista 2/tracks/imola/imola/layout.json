@@ -1,4 +1,20 @@
 {
-  "name": "Imola",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/imola/imola/image_3.jpg"
+  "name": "Imola_GP",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/imola/imola/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 31,
+  "raceDateYear": 2020,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 5,
+  "raceDateDay": 3,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 19,
+  "trackTimeZone": "2",
+  "trackAltitude": 47.188,
+  "isClockwise": false,
+  "length": 4909.0,
+  "Base Game": "",
+  "location": "Italy"
 }

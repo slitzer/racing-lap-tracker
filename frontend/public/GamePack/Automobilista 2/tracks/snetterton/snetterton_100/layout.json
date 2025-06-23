@@ -1,4 +1,19 @@
 {
-  "name": "Snetterton 100",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/snetterton/snetterton_100/image_3.jpg"
+  "name": "Snetterton_100",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/snetterton/snetterton_100/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 25,
+  "raceDateYear": 2020,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 6,
+  "raceDateDay": 22,
+  "trackGradeFilter": "Grade4",
+  "numberOfTurns": 6,
+  "trackTimeZone": "0",
+  "trackAltitude": 43.0,
+  "length": 1580.0,
+  "Base Game": "",
+  "location": "England"
 }

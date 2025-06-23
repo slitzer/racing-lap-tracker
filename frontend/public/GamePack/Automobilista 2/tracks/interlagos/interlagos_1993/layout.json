@@ -1,4 +1,8 @@
 {
   "name": "Interlagos 1993",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_1993/image_3.jpg"
+  "imageUrl": "/GamePack/Automobilista 2/tracks/interlagos/interlagos_1993/image_3.jpg",
+  "maxAIParticipants": 31,
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "isClockwise": "FALSKT"
 }

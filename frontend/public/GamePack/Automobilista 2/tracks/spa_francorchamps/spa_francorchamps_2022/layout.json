@@ -1,4 +1,20 @@
 {
-  "name": "Spa Francorchamps 2022",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/spa_francorchamps/spa_francorchamps_2022/image_3.jpg"
+  "name": "Spa_Francorchamps_2022",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/spa_francorchamps/spa_francorchamps_2022/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 29,
+  "raceDateYear": 2022,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 8,
+  "raceDateDay": 27,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 20,
+  "trackTimeZone": "1",
+  "trackAltitude": 394.0,
+  "isClockwise": true,
+  "length": 7004.0,
+  "Base Game": "spapack",
+  "location": "Belgium"
 }

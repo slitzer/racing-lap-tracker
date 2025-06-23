@@ -1,4 +1,20 @@
 {
-  "name": "Monza Historic 1971",
-  "imageUrl": "/GamePack/Automobilista 2/tracks/monza/monza_historic_1971/image_3.jpg"
+  "name": "Monza_1971",
+  "imageUrl": "/GamePack/Automobilista 2/tracks/monza/monza_historic_1971/image_3.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 25,
+  "raceDateYear": 1971,
+  "trackClimate": "europe",
+  "trackSurface": "Tarmac",
+  "trackType": "Circuit",
+  "raceDateMonth": 9,
+  "raceDateDay": 5,
+  "trackGradeFilter": "Grade1",
+  "numberOfTurns": 7,
+  "trackTimeZone": "2",
+  "trackAltitude": 180.0,
+  "isClockwise": true,
+  "length": 5750.0,
+  "Base Game": "monzapack",
+  "location": "Italy"
 }
