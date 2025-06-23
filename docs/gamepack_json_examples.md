@@ -1,7 +1,13 @@
 # GamePack JSON Examples
 
 The admin scan feature reads `.json` files from `frontend/public/GamePack` to automatically import data.
-Each game directory should contain a `game.json` file and optional subfolders for cars, tracks and layouts.
+Each game directory should contain a `game.json` file and optional subfolders for cars and tracks.  
+Layouts can live under a dedicated `layouts` directory or directly inside the track folder:
+
+```
+GamePack/<game>/tracks/<track>/layouts/<layout>/layout.json
+GamePack/<game>/tracks/<track>/<layout>/layout.json  # legacy structure
+```
 
 ## game.json
 ```json

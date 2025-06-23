@@ -80,23 +80,34 @@ async function scanGamePack() {
         if (!tJson) continue;
         const trackId = await upsertTrack(gameId, tJson);
         summary.tracks += 1;
-        const layoutsDir = path.join(tracksDir, t.name, 'layouts');
+        const trackDir = path.join(tracksDir, t.name);
+        const layoutsDir = path.join(trackDir, 'layouts');
+
+        const layoutFolders = new Set();
         if (fs.existsSync(layoutsDir)) {
-          const lFolders = fs
+          fs
             .readdirSync(layoutsDir, { withFileTypes: true })
-            .filter((d) => d.isDirectory());
-          for (const l of lFolders) {
-            const lJson = safeReadJSON(
-              path.join(layoutsDir, l.name, 'layout.json')
-            );
-            if (!lJson) continue;
-            const tlId = await upsertLayout(trackId, lJson);
-            await db.query(
-              'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2) ON CONFLICT DO NOTHING',
-              [gameId, tlId]
-            );
-            summary.layouts += 1;
-          }
+            .filter((d) => d.isDirectory())
+            .forEach((d) => layoutFolders.add(path.join(layoutsDir, d.name)));
+        }
+
+        fs
+          .readdirSync(trackDir, { withFileTypes: true })
+          .filter((d) => d.isDirectory())
+          .forEach((d) => {
+            const lp = path.join(trackDir, d.name, 'layout.json');
+            if (fs.existsSync(lp)) layoutFolders.add(path.join(trackDir, d.name));
+          });
+
+        for (const lPath of layoutFolders) {
+          const lJson = safeReadJSON(path.join(lPath, 'layout.json'));
+          if (!lJson) continue;
+          const tlId = await upsertLayout(trackId, lJson);
+          await db.query(
+            'INSERT INTO game_tracks (game_id, track_layout_id) VALUES ($1,$2) ON CONFLICT DO NOTHING',
+            [gameId, tlId]
+          );
+          summary.layouts += 1;
         }
       }
     }
