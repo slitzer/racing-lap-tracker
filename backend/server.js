@@ -25,6 +25,7 @@ const versionRoutes = require('./routes/version');
 const { router: uploadRoutes, uploadDir } = require('./routes/uploads');
 const { contentDir } = require('./utils/markdown');
 const { seedSampleLapTimes } = require('./utils/seedSampleLapTimes');
+const { seedDefaultAssists } = require('./utils/seedDefaultAssists');
 const waitForDb = require('./utils/waitForDb');
 const errorHandler = require('./middleware/errorHandler');
 
@@ -76,6 +77,7 @@ if (process.env.NODE_ENV !== 'test') {
   (async () => {
     try {
       await waitForDb();
+      await seedDefaultAssists();
       if (seedSamples) {
         await seedSampleLapTimes();
       }
