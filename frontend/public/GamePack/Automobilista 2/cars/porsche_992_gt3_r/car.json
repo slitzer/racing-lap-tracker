@@ -1,0 +1,35 @@
+{
+  "name": "Porsche 992 GT3 R",
+  "manufacturer": "Porsche",
+  "model": "Porsche 992 GT3 R",
+  "year": 2023,
+  "class": "GT3 Gen 2 (IMSA)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 544,
+    "torqueNM": 508,
+    "weightKG": 1390,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.2L - Boxer - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/porsche_992_gt3_r/image_1.jpg",
+    "additionalImages": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Chevrolet Cruz Stock Car '19",
+  "manufacturer": "Chevrolet",
+  "model": "Chevrolet Cruz Stock Car '19",
+  "year": 2019,
+  "class": "Stock Car Brasil 2019",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 473,
+    "torqueNM": 564,
+    "weightKG": 1340,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "5.7 L - MAST JLR - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/chevrolet_cruz_stock_car_19/image_1.jpg",
+    "additionalImages": []
+  }
+}

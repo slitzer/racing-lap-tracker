@@ -1,0 +1,35 @@
+{
+  "name": "F-Ultimate G1",
+  "manufacturer": "F-Ultimate",
+  "model": "F-Ultimate G1",
+  "year": 2019,
+  "class": "Formula Ultimate G1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 960,
+    "torqueNM": 640,
+    "weightKG": 734,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.6 L - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "8",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/f_ultimate_g1/image_1.jpg",
+    "additionalImages": []
+  }
+}

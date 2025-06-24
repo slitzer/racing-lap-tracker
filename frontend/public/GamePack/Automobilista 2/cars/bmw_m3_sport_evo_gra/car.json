@@ -1,0 +1,35 @@
+{
+  "name": "BMW M3 Sport Evo GrA",
+  "manufacturer": "BMW",
+  "model": "BMW M3 Sport Evo GrA",
+  "year": 1992,
+  "class": "German Group A (DTM)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 328,
+    "torqueNM": 300,
+    "weightKG": 1040,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.5 L - S14 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/bmw_m3_sport_evo_gra/image_1.jpg",
+    "additionalImages": []
+  }
+}

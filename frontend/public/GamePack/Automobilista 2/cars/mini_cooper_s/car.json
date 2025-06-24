@@ -1,0 +1,35 @@
+{
+  "name": "Mini Cooper S",
+  "manufacturer": "Mini",
+  "model": "Mini Cooper S",
+  "year": 1965,
+  "class": "Vintage Touring Tier 2",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 108,
+    "torqueNM": 138,
+    "weightKG": 700,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.3 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "FWD",
+    "gearbox": "4",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mini_cooper_s/image_1.jpg",
+    "additionalImages": []
+  }
+}

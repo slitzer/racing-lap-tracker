@@ -1,0 +1,35 @@
+{
+  "name": "Caterham 620R",
+  "manufacturer": "Caterham",
+  "model": "Caterham 620R",
+  "year": 2013,
+  "class": "Caterham 620R",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 300,
+    "torqueNM": 282,
+    "weightKG": 656,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.0 L - Ford Duratec - SC",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/caterham_620r/image_1.jpg",
+    "additionalImages": []
+  }
+}

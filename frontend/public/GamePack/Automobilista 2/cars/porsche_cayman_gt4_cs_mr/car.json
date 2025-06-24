@@ -1,0 +1,35 @@
+{
+  "name": "Porsche Cayman GT4 CS MR",
+  "manufacturer": "Porsche",
+  "model": "Porsche Cayman GT4 CS MR",
+  "year": 2016,
+  "class": "GT4 (Imp\u00e9rio Endurance)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 400,
+    "torqueNM": 454,
+    "weightKG": 1390,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.8 L - Boxer - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/porsche_cayman_gt4_cs_mr/image_1.jpg",
+    "additionalImages": []
+  }
+}

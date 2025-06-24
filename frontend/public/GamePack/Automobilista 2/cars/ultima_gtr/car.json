@@ -1,0 +1,35 @@
+{
+  "name": "Ultima GTR",
+  "manufacturer": "Ultima",
+  "model": "Ultima GTR",
+  "year": 2000,
+  "class": "Supercars",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 606,
+    "torqueNM": 693,
+    "weightKG": 1070,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "7.0 L - LS7 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/ultima_gtr/image_1.jpg",
+    "additionalImages": []
+  }
+}

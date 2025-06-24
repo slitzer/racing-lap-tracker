@@ -1,0 +1,35 @@
+{
+  "name": "MetalMoro AJR Judd (Fictional)",
+  "manufacturer": "MetalMoro",
+  "model": "MetalMoro AJR Judd (Fictional)",
+  "year": 2017,
+  "class": "P1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 556,
+    "torqueNM": 432,
+    "weightKG": 950,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.2 L - GV - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/metalmoro_ajr_judd_fictional_/image_1.jpg",
+    "additionalImages": []
+  }
+}

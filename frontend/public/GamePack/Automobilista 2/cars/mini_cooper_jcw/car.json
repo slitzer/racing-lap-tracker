@@ -1,0 +1,35 @@
+{
+  "name": "Mini Cooper JCW",
+  "manufacturer": "Mini",
+  "model": "Mini Cooper JCW",
+  "year": 2014,
+  "class": "Mini Challenge JCW",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 278,
+    "torqueNM": 351,
+    "weightKG": 1160,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.0 L - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mini_cooper_jcw/image_1.jpg",
+    "additionalImages": []
+  }
+}

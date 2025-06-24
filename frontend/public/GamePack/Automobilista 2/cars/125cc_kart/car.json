@@ -1,0 +1,35 @@
+{
+  "name": "125cc Kart",
+  "manufacturer": "125cc",
+  "model": "125cc Kart",
+  "year": 2016,
+  "class": "125cc Karts",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "Karting 125cc is a class featuring a single-speed, 125cc two-stroke kart.",
+  "specs": {
+    "powerHP": 32,
+    "torqueNM": 21,
+    "weightKG": 155,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "0.125 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "1",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/125cc_kart/image_1.jpg",
+    "additionalImages": []
+  }
+}

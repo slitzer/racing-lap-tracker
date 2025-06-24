@@ -1,0 +1,35 @@
+{
+  "name": "Porsche 962C",
+  "manufacturer": "Porsche",
+  "model": "Porsche 962C",
+  "year": 1987,
+  "class": "Group C",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 710,
+    "torqueNM": 677,
+    "weightKG": 935,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - 935 Boxer - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/porsche_962c/image_1.jpg",
+    "additionalImages": []
+  }
+}

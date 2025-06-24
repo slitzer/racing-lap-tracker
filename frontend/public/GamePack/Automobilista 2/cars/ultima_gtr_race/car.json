@@ -1,0 +1,35 @@
+{
+  "name": "Ultima GTR Race",
+  "manufacturer": "Ultima",
+  "model": "Ultima GTR Race",
+  "year": 2006,
+  "class": "GT Open",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 538,
+    "torqueNM": 626,
+    "weightKG": 1100,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "6.2 L - LS3 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/ultima_gtr_race/image_1.jpg",
+    "additionalImages": []
+  }
+}

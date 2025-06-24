@@ -1,0 +1,35 @@
+{
+  "name": "McLaren Senna",
+  "manufacturer": "McLaren",
+  "model": "McLaren Senna",
+  "year": 2022,
+  "class": "Hypercars",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 815,
+    "torqueNM": 825,
+    "weightKG": 1380,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.0 L - M840T - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "7",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mclaren_senna/image_1.jpg",
+    "additionalImages": []
+  }
+}

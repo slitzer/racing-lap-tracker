@@ -1,0 +1,35 @@
+{
+  "name": "McLaren 720S GT3 EVO",
+  "manufacturer": "McLaren",
+  "model": "McLaren 720S GT3 EVO",
+  "year": 2023,
+  "class": "GT3 Gen 2 (IMSA)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 541,
+    "torqueNM": 632,
+    "weightKG": 1385,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.0L - M840T - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mclaren_720s_gt3_evo/image_1.jpg",
+    "additionalImages": []
+  }
+}

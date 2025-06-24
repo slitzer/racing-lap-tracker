@@ -1,0 +1,35 @@
+{
+  "name": "Porsche 963",
+  "manufacturer": "Porsche",
+  "model": "Porsche 963",
+  "year": 2023,
+  "class": "LMDh/GTP",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 670,
+    "torqueNM": 658,
+    "weightKG": 1130,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.6 L - 9RD - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "7",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/porsche_963/image_1.jpg",
+    "additionalImages": []
+  }
+}

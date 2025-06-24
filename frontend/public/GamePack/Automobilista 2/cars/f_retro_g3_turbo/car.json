@@ -1,0 +1,35 @@
+{
+  "name": "F-Retro G3 Turbo",
+  "manufacturer": "F-Retro",
+  "model": "F-Retro G3 Turbo",
+  "year": 1983,
+  "class": "Formula Retro Gen. 3",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 830,
+    "torqueNM": 565,
+    "weightKG": 650,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.5 L - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/f_retro_g3_turbo/image_1.jpg",
+    "additionalImages": []
+  }
+}

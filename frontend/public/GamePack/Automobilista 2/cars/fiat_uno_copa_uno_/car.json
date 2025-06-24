@@ -1,0 +1,35 @@
+{
+  "name": "Fiat Uno (Copa Uno)",
+  "manufacturer": "Fiat",
+  "model": "Fiat Uno (Copa Uno)",
+  "year": 1992,
+  "class": "Copa Uno",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 131,
+    "torqueNM": 133,
+    "weightKG": 860,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.6 L - Type R - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/fiat_uno_copa_uno_/image_1.jpg",
+    "additionalImages": []
+  }
+}

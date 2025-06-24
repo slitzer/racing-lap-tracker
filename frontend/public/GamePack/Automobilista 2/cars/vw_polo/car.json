@@ -1,0 +1,35 @@
+{
+  "name": "VW Polo",
+  "manufacturer": "VW",
+  "model": "VW Polo",
+  "year": 2021,
+  "class": "TSI Cup",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 129,
+    "torqueNM": 235,
+    "weightKG": 1232,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.0 L - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "FWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/vw_polo/image_1.jpg",
+    "additionalImages": []
+  }
+}

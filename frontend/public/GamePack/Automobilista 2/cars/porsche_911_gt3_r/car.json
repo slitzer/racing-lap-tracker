@@ -1,0 +1,35 @@
+{
+  "name": "Porsche 911 GT3 R",
+  "manufacturer": "Porsche",
+  "model": "Porsche 911 GT3 R",
+  "year": 2018,
+  "class": "GT3 Gen 1 (Imp\u00e9rio Endurance)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 512,
+    "torqueNM": 469,
+    "weightKG": 1328,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.0 L - Boxer - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/porsche_911_gt3_r/image_1.jpg",
+    "additionalImages": []
+  }
+}

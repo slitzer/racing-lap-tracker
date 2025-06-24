@@ -1,0 +1,35 @@
+{
+  "name": "Corvette C8 Z06",
+  "manufacturer": "Corvette",
+  "model": "Corvette C8 Z06",
+  "year": 2022,
+  "class": "Supercars",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 673,
+    "torqueNM": 619,
+    "weightKG": 1673,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "5.5 L - LT6 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "8",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/corvette_c8_z06/image_1.jpg",
+    "additionalImages": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Mercedes-AMG GT3",
+  "manufacturer": "Mercedes-AMG",
+  "model": "Mercedes-AMG GT3",
+  "year": 2015,
+  "class": "GT3 Gen 1 (Imp\u00e9rio Endurance)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 521,
+    "torqueNM": 604,
+    "weightKG": 1370,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "6.2 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mercedes_amg_gt3/image_1.jpg",
+    "additionalImages": []
+  }
+}

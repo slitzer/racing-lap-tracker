@@ -1,0 +1,35 @@
+{
+  "name": "F-V10 G1",
+  "manufacturer": "F-V10",
+  "model": "F-V10 G1",
+  "year": 1997,
+  "class": "Formula V10 Gen. 1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 730,
+    "torqueNM": 323,
+    "weightKG": 600,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "7",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/f_v10_g1/image_1.jpg",
+    "additionalImages": []
+  }
+}

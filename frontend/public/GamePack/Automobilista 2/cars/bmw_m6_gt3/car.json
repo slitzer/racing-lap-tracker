@@ -1,0 +1,35 @@
+{
+  "name": "BMW M6 GT3",
+  "manufacturer": "BMW",
+  "model": "BMW M6 GT3",
+  "year": 2017,
+  "class": "GT3 Gen 1 (Imp\u00e9rio Endurance)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 518,
+    "torqueNM": 708,
+    "weightKG": 1400,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.4 L - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/bmw_m6_gt3/image_1.jpg",
+    "additionalImages": []
+  }
+}

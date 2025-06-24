@@ -1,0 +1,35 @@
+{
+  "name": "Iveco Stralis",
+  "manufacturer": "Iveco",
+  "model": "Iveco Stralis",
+  "year": 2017,
+  "class": "Copa Truck",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 1230,
+    "torqueNM": 3700,
+    "weightKG": 4800,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "12.9L - Cursor 13 - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6-1",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/iveco_stralis/image_1.jpg",
+    "additionalImages": []
+  }
+}

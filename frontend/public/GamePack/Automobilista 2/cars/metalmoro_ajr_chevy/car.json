@@ -1,0 +1,35 @@
+{
+  "name": "MetalMoro AJR Chevy",
+  "manufacturer": "MetalMoro",
+  "model": "MetalMoro AJR Chevy",
+  "year": 2017,
+  "class": "P1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 594,
+    "torqueNM": 700,
+    "weightKG": 960,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "6.2 & 6.9 L - LS3 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/metalmoro_ajr_chevy/image_1.jpg",
+    "additionalImages": []
+  }
+}

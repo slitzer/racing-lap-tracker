@@ -1,0 +1,35 @@
+{
+  "name": "BMW M4 GT4",
+  "manufacturer": "BMW",
+  "model": "BMW M4 GT4",
+  "year": 2018,
+  "class": "GT4 (Imp\u00e9rio Endurance)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 459,
+    "torqueNM": 629,
+    "weightKG": 1510,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "7",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/bmw_m4_gt4/image_1.jpg",
+    "additionalImages": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Nissan R390 GT1",
+  "manufacturer": "Nissan",
+  "model": "Nissan R390 GT1",
+  "year": 1997,
+  "class": "FIA GT1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 618,
+    "torqueNM": 678,
+    "weightKG": 1085,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.5 L - VRH35L - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/nissan_r390_gt1/image_1.jpg",
+    "additionalImages": []
+  }
+}

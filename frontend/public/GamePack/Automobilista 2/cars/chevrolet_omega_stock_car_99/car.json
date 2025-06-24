@@ -1,0 +1,35 @@
+{
+  "name": "Chevrolet Omega Stock Car '99",
+  "manufacturer": "Chevrolet",
+  "model": "Chevrolet Omega Stock Car '99",
+  "year": 1999,
+  "class": "Stock Car Brasil 1999",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 338,
+    "torqueNM": 478,
+    "weightKG": 1080,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.1 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/chevrolet_omega_stock_car_99/image_1.jpg",
+    "additionalImages": []
+  }
+}

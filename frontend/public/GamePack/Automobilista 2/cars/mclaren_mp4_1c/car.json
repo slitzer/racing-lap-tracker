@@ -1,0 +1,35 @@
+{
+  "name": "McLaren MP4/1C",
+  "manufacturer": "McLaren",
+  "model": "McLaren MP4/1C",
+  "year": 1983,
+  "class": "Formula Retro Gen. 3",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 526,
+    "torqueNM": 392,
+    "weightKG": 625,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - DFY - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mclaren_mp4_1c/image_1.jpg",
+    "additionalImages": []
+  }
+}

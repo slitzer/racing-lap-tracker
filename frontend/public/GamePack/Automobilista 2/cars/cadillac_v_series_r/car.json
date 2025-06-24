@@ -1,0 +1,35 @@
+{
+  "name": "Cadillac V-Series.R",
+  "manufacturer": "Cadillac",
+  "model": "Cadillac V-Series.R",
+  "year": 2023,
+  "class": "LMDh/GTP",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 670,
+    "torqueNM": 650,
+    "weightKG": 1130,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "5.5 L - LMC55R - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "7",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/cadillac_v_series_r/image_1.jpg",
+    "additionalImages": []
+  }
+}

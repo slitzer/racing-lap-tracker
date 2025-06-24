@@ -1,0 +1,35 @@
+{
+  "name": "Alpine A242",
+  "manufacturer": "Alpine",
+  "model": "Alpine A242",
+  "year": 2024,
+  "class": "LMDh/GTP",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 670,
+    "torqueNM": 596,
+    "weightKG": 1130,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.4 L - V634 - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "7",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/alpine_a242/image_1.jpg",
+    "additionalImages": []
+  }
+}

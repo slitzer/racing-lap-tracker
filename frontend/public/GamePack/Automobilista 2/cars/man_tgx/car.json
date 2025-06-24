@@ -1,0 +1,35 @@
+{
+  "name": "MAN TGX",
+  "manufacturer": "MAN",
+  "model": "MAN TGX",
+  "year": 2017,
+  "class": "Copa Truck",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 1210,
+    "torqueNM": 3700,
+    "weightKG": 4820,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "12.4L - D2666 - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6-1",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/man_tgx/image_1.jpg",
+    "additionalImages": []
+  }
+}

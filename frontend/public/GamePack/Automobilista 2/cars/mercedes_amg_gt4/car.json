@@ -1,0 +1,35 @@
+{
+  "name": "Mercedes-AMG GT4",
+  "manufacturer": "Mercedes-AMG",
+  "model": "Mercedes-AMG GT4",
+  "year": 2019,
+  "class": "GT4 (Imp\u00e9rio Endurance)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 468,
+    "torqueNM": 578,
+    "weightKG": 1475,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.0 L - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mercedes_amg_gt4/image_1.jpg",
+    "additionalImages": []
+  }
+}

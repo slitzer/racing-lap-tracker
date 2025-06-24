@@ -1,0 +1,35 @@
+{
+  "name": "BMW M Hybrid V8",
+  "manufacturer": "BMW",
+  "model": "BMW M Hybrid V8",
+  "year": 2023,
+  "class": "LMDh/GTP",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 670,
+    "torqueNM": 670,
+    "weightKG": 1120,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.0 L - P66/3 - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "7",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/bmw_m_hybrid_v8/image_1.jpg",
+    "additionalImages": []
+  }
+}

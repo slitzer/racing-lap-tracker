@@ -1,0 +1,35 @@
+{
+  "name": "Nissan R89C",
+  "manufacturer": "Nissan",
+  "model": "Nissan R89C",
+  "year": 1989,
+  "class": "Group C",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 918,
+    "torqueNM": 872,
+    "weightKG": 995,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.5 L - VRH35 - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/nissan_r89c/image_1.jpg",
+    "additionalImages": []
+  }
+}

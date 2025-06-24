@@ -1,0 +1,35 @@
+{
+  "name": "F-V12",
+  "manufacturer": "F-V12",
+  "model": "F-V12",
+  "year": 1995,
+  "class": "Formula V12",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 660,
+    "torqueNM": 296,
+    "weightKG": 595,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/f_v12/image_1.jpg",
+    "additionalImages": []
+  }
+}

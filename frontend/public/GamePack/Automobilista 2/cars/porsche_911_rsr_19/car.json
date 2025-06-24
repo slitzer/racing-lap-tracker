@@ -1,0 +1,35 @@
+{
+  "name": "Porsche 911 RSR-19",
+  "manufacturer": "Porsche",
+  "model": "Porsche 911 RSR-19",
+  "year": 2019,
+  "class": "GTE",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 528,
+    "torqueNM": 485,
+    "weightKG": 1328,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.2 L - Boxer - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/porsche_911_rsr_19/image_1.jpg",
+    "additionalImages": []
+  }
+}

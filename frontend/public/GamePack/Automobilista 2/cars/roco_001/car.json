@@ -1,0 +1,35 @@
+{
+  "name": "Roco 001",
+  "manufacturer": "Roco",
+  "model": "Roco 001",
+  "year": 2018,
+  "class": "P3",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 283,
+    "torqueNM": 227,
+    "weightKG": 550,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.5 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/roco_001/image_1.jpg",
+    "additionalImages": []
+  }
+}

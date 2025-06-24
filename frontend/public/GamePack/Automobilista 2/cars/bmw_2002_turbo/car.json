@@ -1,0 +1,35 @@
+{
+  "name": "BMW 2002 Turbo",
+  "manufacturer": "BMW",
+  "model": "BMW 2002 Turbo",
+  "year": 1973,
+  "class": "Vintage Touring Tier 1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 190,
+    "torqueNM": 252,
+    "weightKG": 1072,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.0 L - M10 - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "4",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/bmw_2002_turbo/image_1.jpg",
+    "additionalImages": []
+  }
+}

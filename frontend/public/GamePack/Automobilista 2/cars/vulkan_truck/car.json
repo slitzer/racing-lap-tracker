@@ -1,0 +1,35 @@
+{
+  "name": "Vulkan Truck",
+  "manufacturer": "Vulkan",
+  "model": "Vulkan Truck",
+  "year": 2017,
+  "class": "Copa Truck",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 1200,
+    "torqueNM": 3650,
+    "weightKG": 4900,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "12.0L - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6-1",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/vulkan_truck/image_1.jpg",
+    "additionalImages": []
+  }
+}

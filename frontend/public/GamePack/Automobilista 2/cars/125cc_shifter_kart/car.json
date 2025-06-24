@@ -1,0 +1,35 @@
+{
+  "name": "125cc Shifter Kart",
+  "manufacturer": "125cc",
+  "model": "125cc Shifter Kart",
+  "year": 2016,
+  "class": "125cc Shifter Karts",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "Karting 125cc is a class featuring a single-speed, 125cc two-stroke kart.",
+  "specs": {
+    "powerHP": 34,
+    "torqueNM": 22,
+    "weightKG": 155,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "0.125 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/125cc_shifter_kart/image_1.jpg",
+    "additionalImages": []
+  }
+}

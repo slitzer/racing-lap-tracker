@@ -1,0 +1,35 @@
+{
+  "name": "Puma GTB CCFL",
+  "manufacturer": "Puma",
+  "model": "Puma GTB CCFL",
+  "year": 2011,
+  "class": "Copa Classic - FL Class",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 212,
+    "torqueNM": 319,
+    "weightKG": 1080,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.1 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "4",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/puma_gtb_ccfl/image_1.jpg",
+    "additionalImages": []
+  }
+}

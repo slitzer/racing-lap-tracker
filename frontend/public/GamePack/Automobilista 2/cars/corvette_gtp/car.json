@@ -1,0 +1,35 @@
+{
+  "name": "Corvette GTP",
+  "manufacturer": "Corvette",
+  "model": "Corvette GTP",
+  "year": 1988,
+  "class": "Group C",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 802,
+    "torqueNM": 812,
+    "weightKG": 1015,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "6.0 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/corvette_gtp/image_1.jpg",
+    "additionalImages": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Chevrolet Corvette C3",
+  "manufacturer": "Chevrolet",
+  "model": "Chevrolet Corvette C3",
+  "year": 1973,
+  "class": "Vintage Touring Tier 1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 307,
+    "torqueNM": 515,
+    "weightKG": 1520,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "7.0 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "4",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/chevrolet_corvette_c3/image_1.jpg",
+    "additionalImages": []
+  }
+}

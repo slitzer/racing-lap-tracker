@@ -1,0 +1,35 @@
+{
+  "name": "MetalMoro MRX Honda P3",
+  "manufacturer": "MetalMoro",
+  "model": "MetalMoro MRX Honda P3",
+  "year": 2009,
+  "class": "P3",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 303,
+    "torqueNM": 330,
+    "weightKG": 740,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.0 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/metalmoro_mrx_honda_p3/image_1.jpg",
+    "additionalImages": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Cadillac DPi",
+  "manufacturer": "Cadillac",
+  "model": "Cadillac DPi",
+  "year": 2018,
+  "class": "Daytona Prototype International (DPi)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 582,
+    "torqueNM": 620,
+    "weightKG": 1015,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "5.5 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/cadillac_dpi/image_1.jpg",
+    "additionalImages": []
+  }
+}

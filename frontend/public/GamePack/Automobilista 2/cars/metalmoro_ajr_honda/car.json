@@ -1,0 +1,35 @@
+{
+  "name": "MetalMoro AJR Honda",
+  "manufacturer": "MetalMoro",
+  "model": "MetalMoro AJR Honda",
+  "year": 2017,
+  "class": "P1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 579,
+    "torqueNM": 663,
+    "weightKG": 935,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.4 L - K24 - L5 TC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/metalmoro_ajr_honda/image_1.jpg",
+    "additionalImages": []
+  }
+}

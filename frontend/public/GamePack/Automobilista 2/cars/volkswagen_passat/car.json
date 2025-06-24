@@ -1,0 +1,35 @@
+{
+  "name": "Volkswagen Passat",
+  "manufacturer": "Volkswagen",
+  "model": "Volkswagen Passat",
+  "year": 1983,
+  "class": "Hot Cars (Divis\u00e3o 3)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 165,
+    "torqueNM": 211,
+    "weightKG": 785,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.8 L - GT LqC - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "FWD",
+    "gearbox": "4",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/volkswagen_passat/image_1.jpg",
+    "additionalImages": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Porsche 911 GT1",
+  "manufacturer": "Porsche",
+  "model": "Porsche 911 GT1",
+  "year": 1998,
+  "class": "FIA GT1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 554,
+    "torqueNM": 604,
+    "weightKG": 1052,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.2 L - Boxer - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/porsche_911_gt1/image_1.jpg",
+    "additionalImages": []
+  }
+}

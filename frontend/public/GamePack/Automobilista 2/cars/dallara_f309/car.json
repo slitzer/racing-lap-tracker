@@ -1,0 +1,35 @@
+{
+  "name": "Dallara F309",
+  "manufacturer": "Dallara",
+  "model": "Dallara F309",
+  "year": 2009,
+  "class": "Formula 3 Brasil",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 260,
+    "torqueNM": 291,
+    "weightKG": 560,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.3 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/dallara_f309/image_1.jpg",
+    "additionalImages": []
+  }
+}

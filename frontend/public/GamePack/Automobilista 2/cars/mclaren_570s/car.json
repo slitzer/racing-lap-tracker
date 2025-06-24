@@ -1,0 +1,35 @@
+{
+  "name": "McLaren 570S",
+  "manufacturer": "McLaren",
+  "model": "McLaren 570S",
+  "year": 2016,
+  "class": "GT4 (Imp\u00e9rio Endurance)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 425,
+    "torqueNM": 445,
+    "weightKG": 1530,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.8 L - M838T - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "7",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mclaren_570s/image_1.jpg",
+    "additionalImages": []
+  }
+}

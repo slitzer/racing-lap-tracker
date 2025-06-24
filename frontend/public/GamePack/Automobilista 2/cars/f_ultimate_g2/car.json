@@ -1,0 +1,35 @@
+{
+  "name": "F-Ultimate G2",
+  "manufacturer": "F-Ultimate",
+  "model": "F-Ultimate G2",
+  "year": 2022,
+  "class": "Formula Ultimate G2",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 965,
+    "torqueNM": 640,
+    "weightKG": 798,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.6 L - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "8",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/f_ultimate_g2/image_1.jpg",
+    "additionalImages": []
+  }
+}

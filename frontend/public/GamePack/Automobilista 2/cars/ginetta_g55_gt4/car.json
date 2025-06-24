@@ -1,0 +1,35 @@
+{
+  "name": "Ginetta G55 GT4",
+  "manufacturer": "Ginetta",
+  "model": "Ginetta G55 GT4",
+  "year": 2012,
+  "class": "GT4 (Imp\u00e9rio Endurance)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 368,
+    "torqueNM": 463,
+    "weightKG": 1240,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.7 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/ginetta_g55_gt4/image_1.jpg",
+    "additionalImages": []
+  }
+}

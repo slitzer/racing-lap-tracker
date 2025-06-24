@@ -1,0 +1,35 @@
+{
+  "name": "Camaro GT4.R",
+  "manufacturer": "Camaro",
+  "model": "Camaro GT4.R",
+  "year": 2017,
+  "class": "GT4 (Imp\u00e9rio Endurance)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 446,
+    "torqueNM": 616,
+    "weightKG": 1495,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "6.2 L - LT1 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/camaro_gt4_r/image_1.jpg",
+    "additionalImages": []
+  }
+}

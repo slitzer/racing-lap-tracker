@@ -1,0 +1,35 @@
+{
+  "name": "Chevrolet Montana",
+  "manufacturer": "Chevrolet",
+  "model": "Chevrolet Montana",
+  "year": 2010,
+  "class": "Copa Montana",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 369,
+    "torqueNM": 499,
+    "weightKG": 1360,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "5.7 L - Carburetor - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/chevrolet_montana/image_1.jpg",
+    "additionalImages": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Brabham BT62",
+  "manufacturer": "Brabham",
+  "model": "Brabham BT62",
+  "year": 2022,
+  "class": "Hypercars",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 684,
+    "torqueNM": 662,
+    "weightKG": 1060,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "5.4 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/brabham_bt62/image_1.jpg",
+    "additionalImages": []
+  }
+}

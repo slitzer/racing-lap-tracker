@@ -1,0 +1,35 @@
+{
+  "name": "Lotus 79",
+  "manufacturer": "Lotus",
+  "model": "Lotus 79",
+  "year": 1979,
+  "class": "Formula Retro Gen. 2",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 501,
+    "torqueNM": 373,
+    "weightKG": 655,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - DFV - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/lotus_79/image_1.jpg",
+    "additionalImages": []
+  }
+}

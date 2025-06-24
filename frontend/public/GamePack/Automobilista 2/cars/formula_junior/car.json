@@ -1,0 +1,35 @@
+{
+  "name": "Formula Junior",
+  "manufacturer": "Formula",
+  "model": "Formula Junior",
+  "year": 1962,
+  "class": "Formula Junior",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 126,
+    "torqueNM": 116,
+    "weightKG": 483,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.0L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "4",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/formula_junior/image_1.jpg",
+    "additionalImages": []
+  }
+}

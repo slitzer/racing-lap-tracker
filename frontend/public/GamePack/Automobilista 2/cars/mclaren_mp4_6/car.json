@@ -1,0 +1,35 @@
+{
+  "name": "McLaren MP4/6",
+  "manufacturer": "McLaren",
+  "model": "McLaren MP4/6",
+  "year": 1991,
+  "class": "Formula Classic Gen. 4",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 757,
+    "torqueNM": 419,
+    "weightKG": 610,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.5 L - RA121/E - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mclaren_mp4_6/image_1.jpg",
+    "additionalImages": []
+  }
+}

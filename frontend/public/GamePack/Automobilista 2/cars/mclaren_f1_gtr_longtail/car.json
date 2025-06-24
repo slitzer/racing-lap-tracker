@@ -1,0 +1,35 @@
+{
+  "name": "McLaren F1 GTR Longtail",
+  "manufacturer": "McLaren",
+  "model": "McLaren F1 GTR Longtail",
+  "year": 1997,
+  "class": "FIA GT1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 581,
+    "torqueNM": 699,
+    "weightKG": 1042,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "6.1 L - BMW S70/2 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mclaren_f1_gtr_longtail/image_1.jpg",
+    "additionalImages": []
+  }
+}

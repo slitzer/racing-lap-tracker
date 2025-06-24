@@ -1,0 +1,35 @@
+{
+  "name": "Porsche 911 GT3 Cup 3.8",
+  "manufacturer": "Porsche",
+  "model": "Porsche 911 GT3 Cup 3.8",
+  "year": 2016,
+  "class": "Carrera Cup",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 450,
+    "torqueNM": 454,
+    "weightKG": 1280,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.8 L - Boxer - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/porsche_911_gt3_cup_3_8/image_1.jpg",
+    "additionalImages": []
+  }
+}

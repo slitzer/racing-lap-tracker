@@ -1,0 +1,35 @@
+{
+  "name": "MCR S2000",
+  "manufacturer": "MCR",
+  "model": "MCR S2000",
+  "year": 2013,
+  "class": "P4",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 217,
+    "torqueNM": 243,
+    "weightKG": 525,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.0 L - Ford Duratec - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mcr_s2000/image_1.jpg",
+    "additionalImages": []
+  }
+}

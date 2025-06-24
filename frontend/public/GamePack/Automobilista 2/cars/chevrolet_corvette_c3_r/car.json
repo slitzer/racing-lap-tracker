@@ -1,0 +1,35 @@
+{
+  "name": "Chevrolet Corvette C3 R",
+  "manufacturer": "Chevrolet",
+  "model": "Chevrolet Corvette C3 R",
+  "year": 1971,
+  "class": "GT Classics",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 504,
+    "torqueNM": 698,
+    "weightKG": 1380,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "7.0 L - L88 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "4",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/chevrolet_corvette_c3_r/image_1.jpg",
+    "additionalImages": []
+  }
+}

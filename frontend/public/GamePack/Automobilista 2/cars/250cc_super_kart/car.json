@@ -1,0 +1,35 @@
+{
+  "name": "250cc Super Kart",
+  "manufacturer": "250cc",
+  "model": "250cc Super Kart",
+  "year": 2019,
+  "class": "250cc Super Karts",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 93,
+    "torqueNM": 53,
+    "weightKG": 220,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "0.25 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/250cc_super_kart/image_1.jpg",
+    "additionalImages": []
+  }
+}

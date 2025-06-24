@@ -1,0 +1,35 @@
+{
+  "name": "Swift 009C Ford-Cosworth",
+  "manufacturer": "Swift",
+  "model": "Swift 009C Ford-Cosworth",
+  "year": 1998,
+  "class": "Formula USA Gen. 2",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 875,
+    "torqueNM": 448,
+    "weightKG": 770,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.65L - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/swift_009c_ford_cosworth/image_1.jpg",
+    "additionalImages": []
+  }
+}

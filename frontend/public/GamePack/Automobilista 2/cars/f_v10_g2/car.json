@@ -1,0 +1,35 @@
+{
+  "name": "F-V10 G2",
+  "manufacturer": "F-V10",
+  "model": "F-V10 G2",
+  "year": 2000,
+  "class": "Formula V10 Gen. 2",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 816,
+    "torqueNM": 331,
+    "weightKG": 600,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "7",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/f_v10_g2/image_1.jpg",
+    "additionalImages": []
+  }
+}

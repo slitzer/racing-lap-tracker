@@ -1,0 +1,35 @@
+{
+  "name": "Aussie Racing Camaro",
+  "manufacturer": "Aussie",
+  "model": "Aussie Racing Camaro",
+  "year": 2019,
+  "class": "Aussie Racing Cars",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 119,
+    "torqueNM": 115,
+    "weightKG": 595,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.3 L - Yamaha FJR1300 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/aussie_racing_camaro/image_1.jpg",
+    "additionalImages": []
+  }
+}

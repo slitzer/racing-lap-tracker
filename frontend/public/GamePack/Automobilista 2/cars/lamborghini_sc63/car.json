@@ -1,0 +1,35 @@
+{
+  "name": "Lamborghini SC63",
+  "manufacturer": "Lamborghini",
+  "model": "Lamborghini SC63",
+  "year": 2024,
+  "class": "LMDh/GTP",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 670,
+    "torqueNM": 650,
+    "weightKG": 1130,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.8 L - 2xTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "7",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/lamborghini_sc63/image_1.jpg",
+    "additionalImages": []
+  }
+}

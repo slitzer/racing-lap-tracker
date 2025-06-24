@@ -1,0 +1,35 @@
+{
+  "name": "Formula Vee Fin",
+  "manufacturer": "Formula",
+  "model": "Formula Vee Fin",
+  "year": 2019,
+  "class": "Formula Vee Brasil",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 93,
+    "torqueNM": 159,
+    "weightKG": 530,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.6 L - EA111 LqC - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "4",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/formula_vee_fin/image_1.jpg",
+    "additionalImages": []
+  }
+}

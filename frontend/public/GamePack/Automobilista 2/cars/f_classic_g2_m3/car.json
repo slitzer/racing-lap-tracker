@@ -1,0 +1,35 @@
+{
+  "name": "F-Classic G2 M3",
+  "manufacturer": "F-Classic",
+  "model": "F-Classic G2 M3",
+  "year": 1988,
+  "class": "Formula Classic Gen. 2",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 675,
+    "torqueNM": 430,
+    "weightKG": 620,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.5 L - 2XTC",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/f_classic_g2_m3/image_1.jpg",
+    "additionalImages": []
+  }
+}

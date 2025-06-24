@@ -1,0 +1,35 @@
+{
+  "name": "Porsche 911 RSR 3.0",
+  "manufacturer": "Porsche",
+  "model": "Porsche 911 RSR 3.0",
+  "year": 1974,
+  "class": "GT Classics",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 327,
+    "torqueNM": 315,
+    "weightKG": 980,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - Boxer - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/porsche_911_rsr_3_0/image_1.jpg",
+    "additionalImages": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Brabham BT46B",
+  "manufacturer": "Brabham",
+  "model": "Brabham BT46B",
+  "year": 1979,
+  "class": "Formula Retro Gen. 2",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 510,
+    "torqueNM": 419,
+    "weightKG": 670,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - AR 115-12 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/brabham_bt46b/image_1.jpg",
+    "additionalImages": []
+  }
+}

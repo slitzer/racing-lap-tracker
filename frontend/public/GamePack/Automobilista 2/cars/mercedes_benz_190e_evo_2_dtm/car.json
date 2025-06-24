@@ -1,0 +1,35 @@
+{
+  "name": "Mercedes-Benz 190E EVO 2 DTM",
+  "manufacturer": "Mercedes-Benz",
+  "model": "Mercedes-Benz 190E EVO 2 DTM",
+  "year": 1992,
+  "class": "German Group A (DTM)",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 340,
+    "torqueNM": 303,
+    "weightKG": 1070,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.5 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mercedes_benz_190e_evo_2_dtm/image_1.jpg",
+    "additionalImages": []
+  }
+}

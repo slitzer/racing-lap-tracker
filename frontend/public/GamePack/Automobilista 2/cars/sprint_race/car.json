@@ -1,0 +1,35 @@
+{
+  "name": "Sprint Race",
+  "manufacturer": "Sprint",
+  "model": "Sprint Race",
+  "year": 2012,
+  "class": "Sprint Race",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 265,
+    "torqueNM": 303,
+    "weightKG": 940,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/sprint_race/image_1.jpg",
+    "additionalImages": []
+  }
+}

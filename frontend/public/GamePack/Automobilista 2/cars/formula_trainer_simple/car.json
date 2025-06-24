@@ -1,0 +1,35 @@
+{
+  "name": "Formula Trainer Simple",
+  "manufacturer": "Formula",
+  "model": "Formula Trainer Simple",
+  "year": 2015,
+  "class": "Formula Trainer Simple",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 113,
+    "torqueNM": 158,
+    "weightKG": 495,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "1.6 L - EA111 LqC - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "4",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/formula_trainer_simple/image_1.jpg",
+    "additionalImages": []
+  }
+}

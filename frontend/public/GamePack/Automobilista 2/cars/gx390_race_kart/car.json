@@ -1,0 +1,35 @@
+{
+  "name": "GX390 Race Kart",
+  "manufacturer": "GX390",
+  "model": "GX390 Race Kart",
+  "year": 2016,
+  "class": "Race Karts",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 11,
+    "torqueNM": 25,
+    "weightKG": 170,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "0.389 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "1",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/gx390_race_kart/image_1.jpg",
+    "additionalImages": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Mitsubishi Lancer R",
+  "manufacturer": "Mitsubishi",
+  "model": "Mitsubishi Lancer R",
+  "year": 2007,
+  "class": "Lancer Cup",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 290,
+    "torqueNM": 370,
+    "weightKG": 1490,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.0 L - 4B11T Mivec - TC",
+    "fuelType": "Petrol",
+    "drivetrain": "FWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mitsubishi_lancer_r/image_1.jpg",
+    "additionalImages": []
+  }
+}

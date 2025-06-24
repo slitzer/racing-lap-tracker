@@ -1,0 +1,35 @@
+{
+  "name": "Sauber C9",
+  "manufacturer": "Sauber",
+  "model": "Sauber C9",
+  "year": 1989,
+  "class": "Group C",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 850,
+    "torqueNM": 1008,
+    "weightKG": 987,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "5.0 L - M119 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "5",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/sauber_c9/image_1.jpg",
+    "additionalImages": []
+  }
+}

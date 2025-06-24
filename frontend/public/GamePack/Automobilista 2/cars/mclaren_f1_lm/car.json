@@ -1,0 +1,35 @@
+{
+  "name": "McLaren F1 LM",
+  "manufacturer": "McLaren",
+  "model": "McLaren F1 LM",
+  "year": 1995,
+  "class": "Supercars",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 635,
+    "torqueNM": 664,
+    "weightKG": 1147,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "6.1 L - BMW S70/2 - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mclaren_f1_lm/image_1.jpg",
+    "additionalImages": []
+  }
+}

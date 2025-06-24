@@ -1,0 +1,35 @@
+{
+  "name": "Chevrolet Opala '86",
+  "manufacturer": "Chevrolet",
+  "model": "Chevrolet Opala '86",
+  "year": 1986,
+  "class": "Stock Car Brasil 1986",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 248,
+    "torqueNM": 381,
+    "weightKG": 1080,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "4.1 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "4",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/chevrolet_opala_86/image_1.jpg",
+    "additionalImages": []
+  }
+}

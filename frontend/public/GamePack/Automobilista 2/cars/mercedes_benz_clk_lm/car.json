@@ -1,0 +1,35 @@
+{
+  "name": "Mercedes-Benz CLK LM",
+  "manufacturer": "Mercedes-Benz",
+  "model": "Mercedes-Benz CLK LM",
+  "year": 1998,
+  "class": "FIA GT1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 597,
+    "torqueNM": 683,
+    "weightKG": 1059,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "5.0 L - GT108B - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mercedes_benz_clk_lm/image_1.jpg",
+    "additionalImages": []
+  }
+}

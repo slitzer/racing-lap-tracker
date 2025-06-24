@@ -1,0 +1,35 @@
+{
+  "name": "McLaren MP4/12",
+  "manufacturer": "McLaren",
+  "model": "McLaren MP4/12",
+  "year": 1997,
+  "class": "Formula V10 Gen. 1",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 748,
+    "torqueNM": 331,
+    "weightKG": 600,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.0 L - FO110E - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mclaren_mp4_12/image_1.jpg",
+    "additionalImages": []
+  }
+}

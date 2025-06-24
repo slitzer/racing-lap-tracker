@@ -1,0 +1,35 @@
+{
+  "name": "McLaren MP4/5B",
+  "manufacturer": "McLaren",
+  "model": "McLaren MP4/5B",
+  "year": 1990,
+  "class": "Formula Classic Gen. 3",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 690,
+    "torqueNM": 408,
+    "weightKG": 610,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.5 L - RA100-E - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/mclaren_mp4_5b/image_1.jpg",
+    "additionalImages": []
+  }
+}

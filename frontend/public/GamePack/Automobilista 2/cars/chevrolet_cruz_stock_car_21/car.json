@@ -1,0 +1,35 @@
+{
+  "name": "Chevrolet Cruz Stock Car '21",
+  "manufacturer": "Chevrolet",
+  "model": "Chevrolet Cruz Stock Car '21",
+  "year": 2021,
+  "class": "Stock Car Brasil 2021",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 473,
+    "torqueNM": 564,
+    "weightKG": 1370,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "6.8 L - MAST LS3 JLR - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/chevrolet_cruz_stock_car_21/image_1.jpg",
+    "additionalImages": []
+  }
+}

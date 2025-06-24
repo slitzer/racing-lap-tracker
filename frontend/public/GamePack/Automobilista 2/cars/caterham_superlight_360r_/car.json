@@ -1,0 +1,35 @@
+{
+  "name": "Caterham Superlight (360R)",
+  "manufacturer": "Caterham",
+  "model": "Caterham Superlight (360R)",
+  "year": 2017,
+  "class": "Caterham Superlight",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 177,
+    "torqueNM": 175,
+    "weightKG": 630,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "2.0 L - Ford Duratec - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/caterham_superlight_360r_/image_1.jpg",
+    "additionalImages": []
+  }
+}

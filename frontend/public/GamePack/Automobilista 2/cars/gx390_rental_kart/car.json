@@ -1,0 +1,35 @@
+{
+  "name": "GX390 Rental Kart",
+  "manufacturer": "GX390",
+  "model": "GX390 Rental Kart",
+  "year": 2016,
+  "class": "Rental Karts",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 12,
+    "torqueNM": 25,
+    "weightKG": 190,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "0.389 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "AWD",
+    "gearbox": "1",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/gx390_rental_kart/image_1.jpg",
+    "additionalImages": []
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "F-Classic G4 M2",
+  "manufacturer": "F-Classic",
+  "model": "F-Classic G4 M2",
+  "year": 1991,
+  "class": "Formula Classic Gen. 4",
+  "series": "",
+  "game": "Automobilista 2",
+  "gamePack": "amb2-core",
+  "dlc": "",
+  "description": "",
+  "specs": {
+    "powerHP": 707,
+    "torqueNM": 386,
+    "weightKG": 610,
+    "topSpeedKPH": 0,
+    "acceleration0to100": 0.0,
+    "brakingDistance100to0": 0.0,
+    "massDistribution": "",
+    "engine": "3.5 L - NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/cars/cars/f_classic_g4_m2/image_1.jpg",
+    "additionalImages": []
+  }
+}
