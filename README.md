@@ -109,6 +109,8 @@ psql -U <user> -d <database> -f database/seed_data.sql
 # psql -U <user> -d <database> -f database/migrations/2025-07-add-car-metadata.sql
 # If upgrading from an older version run the track metadata migration
 # psql -U <user> -d <database> -f database/migrations/2025-08-add-track-metadata.sql
+# Or run all migrations automatically
+# npm run migrate --prefix backend
 ```
 
 Sample lap times from `database/sample_lap_times.json` are loaded on first start
@@ -143,7 +145,8 @@ The Admin interface exposes this functionality through the **Info Search** page.
   from importing.
 - If the GamePack scan fails after upgrading, run the latest migrations
   (`2025-06-add-layout-metadata.sql` and `2025-08-add-track-metadata.sql`) to
-  create any missing columns.
+  create any missing columns. You can run them manually or execute
+  `npm run migrate --prefix backend` to apply them automatically.
 - Uploaded images are stored inside `frontend/public/images`. Ensure this
   directory exists and is writable by the backend.
 - Use `npm run dev` for automatic reload during development; `npm start` runs the
