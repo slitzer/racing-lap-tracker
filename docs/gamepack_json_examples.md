@@ -20,9 +20,56 @@ GamePack/<game>/tracks/<track>/<layout>/layout.json  # legacy structure
 ## track.json
 ```json
 {
-  "name": "Monza",
-  "imageUrl": "/images/tracks/monza.jpg",
-  "description": "Fast circuit in Italy"
+  "name": "Imola",
+  "officialName": "Autodromo Enzo e Dino Ferrari",
+  "country": "Italy",
+  "city": "Imola",
+  "game": "Assetto Corsa Competizione",
+  "gamePack": "ACC 2020 GT World Challenge Pack",
+  "dlc": "2020 GTWC Pack DLC",
+  "description": "A historic Formula 1 and endurance racing circuit known for its challenging layout and fast corners.",
+  "tags": ["circuit", "historic", "Italy", "F1", "GT", "Endurance"],
+  "geotags": {
+    "latitude": 44.3439,
+    "longitude": 11.7161
+  },
+  "videoUrl": "https://www.youtube.com/watch?v=example",
+  "specs": {
+    "lengthM": 4909,
+    "widthM": 15,
+    "turns": 17,
+    "pitBoxes": 24,
+    "pitSpeedLimitKPH": 60,
+    "isClockwise": false,
+    "altitudeM": 65,
+    "timezoneOffset": "+1",
+    "defaultMonth": 5,
+    "defaultDay": 14,
+    "grade": "Grade 1",
+    "trackType": "Permanent Circuit",
+    "surfaceType": "Asphalt",
+    "climateZone": "Mediterranean",
+    "lighting": true,
+    "hasRainSupport": true,
+    "aiMax": 32
+  },
+  "media": {
+    "imageUrl": "/GamePack/ACC/tracks/imola/imola_main.jpg",
+    "logoUrl": "/GamePack/ACC/tracks/imola/imola_logo.png",
+    "additionalImages": [
+      "/GamePack/ACC/tracks/imola/image_1.jpg",
+      "/GamePack/ACC/tracks/imola/image_2.jpg"
+    ]
+  },
+  "layouts": [
+    {
+      "name": "Grand Prix",
+      "lengthM": 4909,
+      "turns": 17,
+      "isClockwise": false,
+      "layoutImageUrl": "/GamePack/ACC/tracks/imola/layouts/grand_prix/monza_full.jpg"
+    }
+  ]
 }
 ```
 
