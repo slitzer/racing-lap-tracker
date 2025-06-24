@@ -105,6 +105,8 @@ psql -U <user> -d <database> -f database/seed_data.sql
 # psql -U <user> -d <database> -f database/sample_seed_data.sql.disabled
 # If upgrading from an older version run the layout metadata migration
 # psql -U <user> -d <database> -f database/migrations/2025-06-add-layout-metadata.sql
+# If upgrading from an older version run the car metadata migration
+# psql -U <user> -d <database> -f database/migrations/2025-07-add-car-metadata.sql
 ```
 
 Sample lap times from `database/sample_lap_times.json` are loaded on first start
