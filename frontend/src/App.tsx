@@ -16,6 +16,7 @@ import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import ProfilePage from './pages/ProfilePage';
 import LapTimesPage from './pages/LapTimesPage';
+import ShowcasePage from './pages/ShowcasePage';
 import SubmitLapTimePage from './pages/SubmitLapTimePage';
 import AdminPage from './pages/AdminPage';
 import InfoSearchPage from './pages/InfoSearchPage';
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/" element={<Layout />}>
                   <Route index element={<HomePage />} />
                   <Route path="/lap-times" element={<LapTimesPage />} />
+                  <Route path="/showcase" element={<ShowcasePage />} />
                   <Route path="/track/:id" element={<TrackDetailPage />} />
                   <Route path="/car/:id" element={<CarDetailPage />} />
                   <Route path="/game/:id" element={<GameDetailPage />} />
