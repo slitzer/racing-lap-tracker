@@ -21,6 +21,7 @@ import AdminPage from './pages/AdminPage';
 import InfoSearchPage from './pages/InfoSearchPage';
 import TrackDetailPage from './pages/TrackDetailPage';
 import CarDetailPage from './pages/CarDetailPage';
+import GameDetailPage from './pages/GameDetailPage';
 import InfoPage from './pages/InfoPage';
 import { useLocation } from 'react-router-dom';
 import './App.css';
@@ -56,6 +57,7 @@ function App() {
                   <Route path="/lap-times" element={<LapTimesPage />} />
                   <Route path="/track/:id" element={<TrackDetailPage />} />
                   <Route path="/car/:id" element={<CarDetailPage />} />
+                  <Route path="/game/:id" element={<GameDetailPage />} />
                   <Route path="/info/*" element={<InfoRoute />} />
                   <Route
                     path="/submit"

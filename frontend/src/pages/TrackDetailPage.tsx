@@ -23,7 +23,6 @@ const TrackDetailPage: React.FC = () => {
   const [description, setDescription] = useState('');
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [packDesc, setPackDesc] = useState<string | null>(null);
-  const [packImage, setPackImage] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -49,7 +48,6 @@ const TrackDetailPage: React.FC = () => {
   useEffect(() => {
     if (!track) return;
     setPackDesc(null);
-    setPackImage(null);
     getGames()
       .then((games) => {
         const g = games.find((gm) => gm.id === track.gameId);
@@ -61,18 +59,6 @@ const TrackDetailPage: React.FC = () => {
             if (!res.ok) throw new Error('missing');
             const txt = await res.text();
             setPackDesc(txt);
-            const exts = ['jpg', 'png', 'jpeg', 'webp'];
-            for (const ext of exts) {
-              try {
-                const r = await fetch(`${p}/track.${ext}`, { method: 'HEAD' });
-                if (r.ok) {
-                  setPackImage(`${p}/track.${ext}`);
-                  return;
-                }
-              } catch {
-                // ignore and try next
-              }
-            }
           } catch {
             return false;
           }
@@ -147,13 +133,6 @@ const TrackDetailPage: React.FC = () => {
     <div className="container mx-auto py-6 space-y-6">
       <div className="text-center space-y-2">
         <h1 className="text-3xl font-bold">{track.name}</h1>
-        {(packImage || track.imageUrl) && (
-          <img
-            src={packImage || getImageUrl(track.imageUrl)}
-            alt={track.name}
-            className="mx-auto max-w-lg rounded"
-          />
-        )}
         {packDesc && !editing ? (
           <MarkdownRenderer content={packDesc} className="text-muted-foreground" />
         ) : track.description && !editing ? (

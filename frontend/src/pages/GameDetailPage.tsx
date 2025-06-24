@@ -1,85 +1,58 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { getCars, getGames, getLapTimes, getWorldRecords, updateCar, uploadFile } from '../api';
-import { Car, LapTime } from '../types';
+import {
+  getGames,
+  getLapTimes,
+  getWorldRecords,
+  updateGame,
+  uploadFile,
+} from '../api';
+import { Game, LapTime } from '../types';
 import { getImageUrl, slugify } from '../utils';
 import { formatTime } from '../utils/time';
 import InputTypeBadge from '../components/InputTypeBadge';
-import MarkdownRenderer from '../components/MarkdownRenderer';
 import { useAuth } from '../contexts/AuthContext';
 
-const CarDetailPage: React.FC = () => {
+const GameDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const { user } = useAuth();
-  const [car, setCar] = useState<Car | null>(null);
+  const [game, setGame] = useState<Game | null>(null);
   const [recent, setRecent] = useState<LapTime[]>([]);
   const [top, setTop] = useState<LapTime[]>([]);
   const [tab, setTab] = useState<'top' | 'recent'>('top');
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
   const [imageFile, setImageFile] = useState<File | null>(null);
-  const [packDesc, setPackDesc] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
-    getCars()
+    getGames()
       .then((data) => {
-        const c = data.find((car) => car.id === id) || null;
-        setCar(c);
-        if (c) {
-          setName(c.name);
-          setDescription(c.description || '');
+        const g = data.find((gm) => gm.id === id) || null;
+        setGame(g);
+        if (g) {
+          setName(g.name);
         }
       })
       .catch(() => {});
     getWorldRecords()
-      .then((data) => setTop(data.filter((l) => l.carId === id)))
+      .then((data) => setTop(data.filter((l) => l.gameId === id)))
       .catch(() => {});
-    getLapTimes(undefined, id)
+    getLapTimes()
       .then((data) => {
-        data.sort((a, b) => new Date(b.lapDate).getTime() - new Date(a.lapDate).getTime());
-        setRecent(data.slice(0, 10));
+        const filtered = data.filter((l) => l.gameId === id);
+        filtered.sort(
+          (a, b) => new Date(b.lapDate).getTime() - new Date(a.lapDate).getTime()
+        );
+        setRecent(filtered.slice(0, 10));
       })
       .catch(() => {});
   }, [id]);
 
-  useEffect(() => {
-    if (!car) return;
-    setPackDesc(null);
-    getGames()
-      .then((games) => {
-        const g = games.find((gm) => gm.id === car.gameId);
-        if (!g) return;
-        const base = `/GamePack/${slugify(g.name)}/cars/${slugify(car.name)}`;
-        const fetchInfo = async (p: string) => {
-          try {
-            const res = await fetch(`${p}/info.md`);
-            if (!res.ok) throw new Error('missing');
-            const txt = await res.text();
-            setPackDesc(txt);
-          } catch {
-            return false;
-          }
-          return true;
-        };
-        fetchInfo(base).then((ok) => {
-          if (!ok && car.imageUrl) {
-            const idx = car.imageUrl.lastIndexOf('/');
-            if (idx !== -1) {
-              const altBase = car.imageUrl.substring(0, idx);
-              fetchInfo(altBase);
-            }
-          }
-        });
-      })
-      .catch(() => {});
-  }, [car]);
-
-  if (!car) {
+  if (!game) {
     return (
       <div className="container mx-auto py-6 text-center">
-        <p className="text-muted-foreground">Car not found.</p>
+        <p className="text-muted-foreground">Game not found.</p>
       </div>
     );
   }
@@ -91,6 +64,7 @@ const CarDetailPage: React.FC = () => {
           <tr className="border-b">
             <th className="px-2 py-1 text-left">Driver</th>
             <th className="px-2 py-1 text-left">Track</th>
+            <th className="px-2 py-1 text-left">Car</th>
             <th className="px-2 py-1 text-left">Input</th>
             <th className="px-2 py-1 text-right">Time</th>
           </tr>
@@ -105,6 +79,11 @@ const CarDetailPage: React.FC = () => {
                 </Link>
               </td>
               <td className="px-2 py-1">
+                <Link to={`/car/${r.carId}`} className="underline">
+                  {r.carName}
+                </Link>
+              </td>
+              <td className="px-2 py-1">
                 <InputTypeBadge inputType={r.inputType} />
               </td>
               <td className="px-2 py-1 text-right">{formatTime(r.timeMs)}</td>
@@ -116,33 +95,30 @@ const CarDetailPage: React.FC = () => {
   );
 
   const handleSave = async () => {
-    if (!car) return;
-    let imageUrl: string | undefined = car.imageUrl || undefined;
+    if (!game) return;
+    let imageUrl: string | undefined = game.imageUrl || undefined;
     if (imageFile) {
       const ext = imageFile.name.substring(imageFile.name.lastIndexOf('.'));
       const filename = `${slugify(name)}-${Date.now()}${ext}`;
       try {
-        const res = await uploadFile(imageFile, 'images/cars', filename);
+        const res = await uploadFile(imageFile, 'images/games', filename);
         imageUrl = res.url;
       } catch {
-        imageUrl = car.imageUrl || undefined;
+        imageUrl = game.imageUrl || undefined;
       }
     }
-    const updated = await updateCar(car.id, {
-      gameId: car.gameId,
+    const updated = await updateGame(game.id, {
       name,
       imageUrl,
-      description,
     });
-    setCar(updated);
+    setGame(updated);
     setEditing(false);
     setImageFile(null);
   };
 
   const handleCancel = () => {
-    if (!car) return;
-    setName(car.name);
-    setDescription(car.description || '');
+    if (!game) return;
+    setName(game.name);
     setImageFile(null);
     setEditing(false);
   };
@@ -150,12 +126,14 @@ const CarDetailPage: React.FC = () => {
   return (
     <div className="container mx-auto py-6 space-y-6">
       <div className="text-center space-y-2">
-        <h1 className="text-3xl font-bold">{car.name}</h1>
-        {packDesc && !editing ? (
-          <MarkdownRenderer content={packDesc} className="text-muted-foreground" />
-        ) : car.description && !editing ? (
-          <MarkdownRenderer content={car.description} className="text-muted-foreground" />
-        ) : null}
+        <h1 className="text-3xl font-bold">{game.name}</h1>
+        {game.imageUrl && (
+          <img
+            src={getImageUrl(game.imageUrl)}
+            alt={game.name}
+            className="mx-auto max-w-lg rounded"
+          />
+        )}
         {user?.isAdmin && !editing && (
           <button
             className="text-sm underline text-primary"
@@ -172,14 +150,6 @@ const CarDetailPage: React.FC = () => {
                 className="w-full rounded border px-3 py-2"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div className="space-y-1">
-              <label className="block text-sm font-medium">Description</label>
-              <textarea
-                className="w-full rounded border px-3 py-2"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
               />
             </div>
             <div className="space-y-1">
@@ -244,4 +214,5 @@ const CarDetailPage: React.FC = () => {
   );
 };
 
-export default CarDetailPage;
+export default GameDetailPage;
+
