@@ -7,6 +7,19 @@ const gamePackDir = path.resolve(
     path.join(__dirname, '..', '..', 'frontend', 'public', 'GamePack')
 );
 
+// Convert loose boolean values to strict true/false or null
+function parseBoolean(val) {
+  if (val === undefined || val === null || val === '') return null;
+  if (typeof val === 'boolean') return val;
+  if (typeof val === 'number') return val !== 0;
+  if (typeof val === 'string') {
+    const v = val.trim().toLowerCase();
+    if (['true', '1', 'yes', 'on', 'sant'].includes(v)) return true;
+    if (['false', '0', 'no', 'off', 'falskt'].includes(v)) return false;
+  }
+  return null;
+}
+
 async function upsertGame(data) {
   const res = await db.query(
     'INSERT INTO games (name, image_url) VALUES ($1,$2) ON CONFLICT (name) DO UPDATE SET image_url=EXCLUDED.image_url RETURNING id',
@@ -107,7 +120,7 @@ async function upsertTrack(gameId, data) {
       data.specs?.turns || null,
       data.specs?.pitBoxes || null,
       data.specs?.pitSpeedLimitKPH || null,
-      data.specs?.isClockwise ?? null,
+      parseBoolean(data.specs?.isClockwise),
       data.specs?.altitudeM || null,
       data.specs?.timezoneOffset || null,
       data.specs?.defaultMonth || null,
@@ -116,8 +129,8 @@ async function upsertTrack(gameId, data) {
       data.specs?.trackType || null,
       data.specs?.surfaceType || null,
       data.specs?.climateZone || null,
-      data.specs?.lighting ?? null,
-      data.specs?.hasRainSupport ?? null,
+      parseBoolean(data.specs?.lighting),
+      parseBoolean(data.specs?.hasRainSupport),
       data.specs?.aiMax || null,
       data.media?.logoUrl || null,
       additionalImages,
@@ -174,7 +187,7 @@ async function upsertLayout(trackId, data) {
       data.dlcId || null,
       data.location || null,
       data.lengthM || null,
-      data.isClockwise ?? null,
+      parseBoolean(data.isClockwise),
     ]
   );
   return tl.rows[0].id;
@@ -266,11 +279,11 @@ async function upsertCar(gameId, data) {
       data.specs?.drivetrain || null,
       data.specs?.gearbox || null,
       data.specs?.inputType || null,
-      data.specs?.isElectric ?? null,
-      data.specs?.headlights ?? null,
-      data.specs?.ers ?? null,
-      data.specs?.abs ?? null,
-      data.specs?.tc ?? null,
+      parseBoolean(data.specs?.isElectric),
+      parseBoolean(data.specs?.headlights),
+      parseBoolean(data.specs?.ers),
+      parseBoolean(data.specs?.abs),
+      parseBoolean(data.specs?.tc),
       additionalImages,
     ]
   );

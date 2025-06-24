@@ -32,6 +32,9 @@ const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
+// Trust the first proxy (e.g., docker compose or nginx)
+app.set('trust proxy', 1);
+
 app.use(helmet());
 app.use(cors());
 app.use(compression());
