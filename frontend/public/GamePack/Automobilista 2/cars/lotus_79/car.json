@@ -6,7 +6,7 @@
   "class": "Formula Retro Gen. 2",
   "series": "",
   "game": "Automobilista 2",
-  "gamePack": "amb2-core",
+  "gamePack": "amb2-base",
   "dlc": "",
   "description": "",
   "specs": {
@@ -29,7 +29,7 @@
     "tc": true
   },
   "media": {
-    "imageUrl": "/GamePack/cars/cars/lotus_79/image_1.jpg",
+    "imageUrl": "/GamePack/Automobilista 2/cars/lotus_79/image_1.jpg",
     "additionalImages": []
   }
 }

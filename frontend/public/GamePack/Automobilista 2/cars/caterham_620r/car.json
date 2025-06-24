@@ -6,7 +6,7 @@
   "class": "Caterham 620R",
   "series": "",
   "game": "Automobilista 2",
-  "gamePack": "amb2-core",
+  "gamePack": "amb2-base",
   "dlc": "",
   "description": "",
   "specs": {
@@ -29,7 +29,7 @@
     "tc": true
   },
   "media": {
-    "imageUrl": "/GamePack/cars/cars/caterham_620r/image_1.jpg",
+    "imageUrl": "/GamePack/Automobilista 2/cars/caterham_620r/image_1.jpg",
     "additionalImages": []
   }
 }
