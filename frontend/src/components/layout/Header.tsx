@@ -40,6 +40,7 @@ const Header: React.FC = () => {
   const navItems = [
     { to: '/', label: 'Home', icon: Timer },
     { to: '/lap-times', label: 'Lap Times', icon: Timer },
+    { to: '/showcase', label: 'Showcase', icon: Search },
   ];
   const userNavItems = [
     { to: '/submit', label: 'Submit Lap', icon: PlusCircle },
