@@ -13,7 +13,7 @@ const TrackInfo: React.FC<TrackInfoProps> = ({ game, track, className, fallback 
   const [content, setContent] = useState<string | null>(null);
 
   useEffect(() => {
-    const path = `/GamePack/${slugify(game)}/tracks/${slugify(track)}/info.md`;
+    const path = `/GamePack/${game}/tracks/${slugify(track)}/info.md`;
     fetch(path)
       .then((res) => (res.ok ? res.text() : Promise.reject()))
       .then((text) => setContent(text))
