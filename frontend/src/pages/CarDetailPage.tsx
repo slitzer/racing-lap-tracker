@@ -20,6 +20,9 @@ const CarDetailPage: React.FC = () => {
   const [description, setDescription] = useState('');
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [packDesc, setPackDesc] = useState<string | null>(null);
+  const [packData, setPackData] = useState<any | null>(null);
+  const [images, setImages] = useState<string[]>([]);
+  const [imgIdx, setImgIdx] = useState(0);
 
   useEffect(() => {
     if (!id) return;
@@ -47,28 +50,52 @@ const CarDetailPage: React.FC = () => {
   useEffect(() => {
     if (!car) return;
     setPackDesc(null);
+    setPackData(null);
+    setImages(car.imageUrl ? [car.imageUrl] : []);
+    setImgIdx(0);
     getGames()
       .then((games) => {
         const g = games.find((gm) => gm.id === car.gameId);
         if (!g) return;
         const base = `/GamePack/${slugify(g.name)}/cars/${slugify(car.name)}`;
-        const fetchInfo = async (p: string) => {
+        const fetchExtras = async (p: string) => {
+          let found = false;
           try {
             const res = await fetch(`${p}/info.md`);
-            if (!res.ok) throw new Error('missing');
-            const txt = await res.text();
-            setPackDesc(txt);
+            if (res.ok) {
+              const txt = await res.text();
+              setPackDesc(txt);
+              found = true;
+            }
           } catch {
-            return false;
+            // ignore
           }
-          return true;
+          try {
+            const resj = await fetch(`${p}/car.json`);
+            if (resj.ok) {
+              const data = await resj.json();
+              setPackData(data);
+              const imgs: string[] = [];
+              if (data.media?.imageUrl) imgs.push(data.media.imageUrl);
+              if (Array.isArray(data.media?.additionalImages)) {
+                imgs.push(...data.media.additionalImages);
+              }
+              if (imgs.length > 0) {
+                setImages(imgs);
+              }
+              found = true;
+            }
+          } catch {
+            // ignore
+          }
+          return found;
         };
-        fetchInfo(base).then((ok) => {
+        fetchExtras(base).then((ok) => {
           if (!ok && car.imageUrl) {
             const idx = car.imageUrl.lastIndexOf('/');
             if (idx !== -1) {
               const altBase = car.imageUrl.substring(0, idx);
-              fetchInfo(altBase);
+              fetchExtras(altBase);
             }
           }
         });
@@ -147,6 +174,46 @@ const CarDetailPage: React.FC = () => {
     setEditing(false);
   };
 
+  const detailPairs: [string, string | number | boolean][] = [];
+  if (packData) {
+    if (packData.manufacturer) detailPairs.push(['Manufacturer', packData.manufacturer]);
+    if (packData.model) detailPairs.push(['Model', packData.model]);
+    if (packData.year) detailPairs.push(['Year', packData.year]);
+    if (packData.class) detailPairs.push(['Class', packData.class]);
+    if (packData.series) detailPairs.push(['Series', packData.series]);
+    if (packData.dlc) detailPairs.push(['DLC', packData.dlc]);
+    const specMap: Record<string, string> = {
+      powerHP: 'Power (HP)',
+      torqueNM: 'Torque (NM)',
+      weightKG: 'Weight (kg)',
+      topSpeedKPH: 'Top Speed (kph)',
+      acceleration0to100: '0-100 (s)',
+      brakingDistance100to0: 'Braking 100-0 (m)',
+      massDistribution: 'Mass Distribution',
+      engine: 'Engine',
+      fuelType: 'Fuel',
+      drivetrain: 'Drivetrain',
+      gearbox: 'Gearbox',
+      inputType: 'Input',
+      isElectric: 'Electric',
+      headlights: 'Headlights',
+      ers: 'ERS',
+      abs: 'ABS',
+      tc: 'TC',
+    };
+    if (packData.specs) {
+      Object.entries(packData.specs).forEach(([k, v]) => {
+        if (v !== undefined && specMap[k]) {
+          const val = typeof v === 'boolean' ? (v ? 'Yes' : 'No') : v;
+          detailPairs.push([specMap[k], val as any]);
+        }
+      });
+    }
+  }
+  const mid = Math.ceil(detailPairs.length / 2);
+  const leftPairs = detailPairs.slice(0, mid);
+  const rightPairs = detailPairs.slice(mid);
+
   return (
     <div className="container mx-auto py-6 space-y-6">
       <div className="text-center space-y-2">
@@ -203,6 +270,65 @@ const CarDetailPage: React.FC = () => {
             </div>
           </div>
         )}
+      </div>
+      <div className="md:flex md:space-x-4">
+        <div className="md:w-1/2">
+          <div className="relative group">
+            {images[imgIdx] && (
+              <img
+                src={getImageUrl(images[imgIdx])}
+                alt={car.name}
+                className="rounded w-full"
+              />
+            )}
+            {images.length > 1 && (
+              <>
+                <button
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 hidden group-hover:block"
+                  onClick={() =>
+                    setImgIdx((i) => (i - 1 + images.length) % images.length)
+                  }
+                >
+                  &lt;
+                </button>
+                <button
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 hidden group-hover:block"
+                  onClick={() => setImgIdx((i) => (i + 1) % images.length)}
+                >
+                  &gt;
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+        <div className="md:w-1/2 mt-4 md:mt-0">
+          <div className="grid grid-cols-4 gap-x-2 text-sm">
+            <div className="space-y-1">
+              {leftPairs.map(([k]) => (
+                <div key={k} className="font-semibold">
+                  {k}
+                </div>
+              ))}
+            </div>
+            <div className="space-y-1">
+              {leftPairs.map(([k, v]) => (
+                <div key={k}>{v}</div>
+              ))}
+            </div>
+            <div className="space-y-1">
+              {rightPairs.map(([k]) => (
+                <div key={k} className="font-semibold">
+                  {k}
+                </div>
+              ))}
+            </div>
+            <div className="space-y-1">
+              {rightPairs.map(([k, v]) => (
+                <div key={k}>{v}</div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
       <div className="space-y-4">
         <div className="flex justify-center">
