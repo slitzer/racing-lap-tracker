@@ -1,5 +1,35 @@
 {
   "name": "Chevrolet Chevette",
-  "imageUrl": "/GamePack/example_racing_game/cars/chevrolet_chevette/chevette.jpg",
-  "description": "Classic hatchback"
+  "manufacturer": "Chevrolet",
+  "model": "Chevette",
+  "year": 1976,
+  "class": "Historic",
+  "series": "Example Series",
+  "game": "Example Racing Game",
+  "gamePack": "Example Pack",
+  "dlc": "Historic Pack",
+  "description": "Classic hatchback",
+  "specs": {
+    "powerHP": 75,
+    "torqueNM": 110,
+    "weightKG": 920,
+    "topSpeedKPH": 160,
+    "acceleration0to100": 15.2,
+    "brakingDistance100to0": 45,
+    "massDistribution": "52/48",
+    "engine": "1.4L I4",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "4-speed manual",
+    "inputType": "H-pattern",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": false,
+    "tc": false
+  },
+  "media": {
+    "imageUrl": "/GamePack/example_racing_game/cars/chevrolet_chevette/chevette.jpg",
+    "additionalImages": []
+  }
 }

@@ -74,9 +74,98 @@ async function upsertLayout(trackId, data) {
 }
 
 async function upsertCar(gameId, data) {
+  const imageUrl = data.media?.imageUrl || data.imageUrl || null;
+  const additionalImages = data.media?.additionalImages
+    ? JSON.stringify(data.media.additionalImages)
+    : null;
   const res = await db.query(
-    'INSERT INTO cars (name, image_url) VALUES ($1,$2) ON CONFLICT (name) DO UPDATE SET image_url=EXCLUDED.image_url RETURNING id',
-    [data.name, data.imageUrl || null]
+    `INSERT INTO cars (
+      name,
+      image_url,
+      manufacturer,
+      model,
+      year,
+      class,
+      series,
+      game_pack,
+      dlc,
+      power_hp,
+      torque_nm,
+      weight_kg,
+      top_speed_kph,
+      acceleration_0_100,
+      braking_distance_100_0,
+      mass_distribution,
+      engine,
+      fuel_type,
+      drivetrain,
+      gearbox,
+      input_type_car,
+      is_electric,
+      headlights,
+      ers,
+      abs,
+      tc,
+      additional_images
+    ) VALUES (
+      $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27
+    ) ON CONFLICT (name) DO UPDATE SET
+      image_url=EXCLUDED.image_url,
+      manufacturer=EXCLUDED.manufacturer,
+      model=EXCLUDED.model,
+      year=EXCLUDED.year,
+      class=EXCLUDED.class,
+      series=EXCLUDED.series,
+      game_pack=EXCLUDED.game_pack,
+      dlc=EXCLUDED.dlc,
+      power_hp=EXCLUDED.power_hp,
+      torque_nm=EXCLUDED.torque_nm,
+      weight_kg=EXCLUDED.weight_kg,
+      top_speed_kph=EXCLUDED.top_speed_kph,
+      acceleration_0_100=EXCLUDED.acceleration_0_100,
+      braking_distance_100_0=EXCLUDED.braking_distance_100_0,
+      mass_distribution=EXCLUDED.mass_distribution,
+      engine=EXCLUDED.engine,
+      fuel_type=EXCLUDED.fuel_type,
+      drivetrain=EXCLUDED.drivetrain,
+      gearbox=EXCLUDED.gearbox,
+      input_type_car=EXCLUDED.input_type_car,
+      is_electric=EXCLUDED.is_electric,
+      headlights=EXCLUDED.headlights,
+      ers=EXCLUDED.ers,
+      abs=EXCLUDED.abs,
+      tc=EXCLUDED.tc,
+      additional_images=EXCLUDED.additional_images
+      RETURNING id`,
+    [
+      data.name,
+      imageUrl,
+      data.manufacturer || null,
+      data.model || null,
+      data.year || null,
+      data.class || null,
+      data.series || null,
+      data.gamePack || null,
+      data.dlc || null,
+      data.specs?.powerHP || null,
+      data.specs?.torqueNM || null,
+      data.specs?.weightKG || null,
+      data.specs?.topSpeedKPH || null,
+      data.specs?.acceleration0to100 || null,
+      data.specs?.brakingDistance100to0 || null,
+      data.specs?.massDistribution || null,
+      data.specs?.engine || null,
+      data.specs?.fuelType || null,
+      data.specs?.drivetrain || null,
+      data.specs?.gearbox || null,
+      data.specs?.inputType || null,
+      data.specs?.isElectric ?? null,
+      data.specs?.headlights ?? null,
+      data.specs?.ers ?? null,
+      data.specs?.abs ?? null,
+      data.specs?.tc ?? null,
+      additionalImages,
+    ]
   );
   const carId = res.rows[0].id;
   await db.query(

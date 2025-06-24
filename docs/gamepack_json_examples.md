@@ -51,8 +51,41 @@ GamePack/<game>/tracks/<track>/<layout>/layout.json  # legacy structure
 ## car.json
 ```json
 {
-  "name": "Chevrolet Chevette",
-  "imageUrl": "/images/cars/chevette.jpg",
-  "description": "Classic hatchback"
+  "name": "Chevrolet Corvette C8.R",
+  "manufacturer": "Chevrolet",
+  "model": "Corvette C8.R",
+  "year": 2020,
+  "class": "GTE",
+  "series": "IMSA / WEC",
+  "game": "Assetto Corsa Competizione",
+  "gamePack": "ACC GT4 Pack",
+  "dlc": "GT4 Pack DLC",
+  "description": "A modern mid-engine GTE-class racing car built for endurance racing.",
+  "specs": {
+    "powerHP": 500,
+    "torqueNM": 650,
+    "weightKG": 1245,
+    "topSpeedKPH": 295,
+    "acceleration0to100": 3.4,
+    "brakingDistance100to0": 32.5,
+    "massDistribution": "51/49",
+    "engine": "5.5L V8 NA",
+    "fuelType": "Petrol",
+    "drivetrain": "RWD",
+    "gearbox": "6-speed sequential",
+    "inputType": "Sequential",
+    "isElectric": false,
+    "headlights": true,
+    "ers": false,
+    "abs": true,
+    "tc": true
+  },
+  "media": {
+    "imageUrl": "/GamePack/ACC/cars/corvette_c8r/c8r_main.jpg",
+    "additionalImages": [
+      "/GamePack/ACC/cars/corvette_c8r/c8r_1.jpg",
+      "/GamePack/ACC/cars/corvette_c8r/c8r_2.jpg"
+    ]
+  }
 }
 ```
