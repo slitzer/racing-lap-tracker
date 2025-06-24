@@ -52,7 +52,7 @@ const TrackDetailPage: React.FC = () => {
       .then((games) => {
         const g = games.find((gm) => gm.id === track.gameId);
         if (!g) return;
-        const base = `/GamePack/${slugify(g.name)}/tracks/${slugify(track.name)}`;
+        const base = `/GamePack/${g.name}/tracks/${slugify(track.name)}`;
         const fetchInfo = async (p: string) => {
           try {
             const res = await fetch(`${p}/info.md`);

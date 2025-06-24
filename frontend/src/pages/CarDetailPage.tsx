@@ -57,7 +57,7 @@ const CarDetailPage: React.FC = () => {
       .then((games) => {
         const g = games.find((gm) => gm.id === car.gameId);
         if (!g) return;
-        const base = `/GamePack/${slugify(g.name)}/cars/${slugify(car.name)}`;
+        const base = `/GamePack/${g.name}/cars/${slugify(car.name)}`;
         const fetchExtras = async (p: string) => {
           let found = false;
           try {

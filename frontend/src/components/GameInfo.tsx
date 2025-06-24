@@ -12,7 +12,7 @@ const GameInfo: React.FC<GameInfoProps> = ({ game, className, fallback }) => {
   const [content, setContent] = useState<string | null>(null);
 
   useEffect(() => {
-    const path = `/GamePack/${slugify(game)}/info.md`;
+    const path = `/GamePack/${game}/info.md`;
     fetch(path)
       .then((res) => (res.ok ? res.text() : Promise.reject()))
       .then((text) => setContent(text))

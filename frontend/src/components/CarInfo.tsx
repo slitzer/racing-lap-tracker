@@ -13,7 +13,7 @@ const CarInfo: React.FC<CarInfoProps> = ({ game, car, className, fallback }) => 
   const [content, setContent] = useState<string | null>(null);
 
   useEffect(() => {
-    const path = `/GamePack/${slugify(game)}/cars/${slugify(car)}/info.md`;
+    const path = `/GamePack/${game}/cars/${slugify(car)}/info.md`;
     fetch(path)
       .then((res) => (res.ok ? res.text() : Promise.reject()))
       .then((text) => setContent(text))
