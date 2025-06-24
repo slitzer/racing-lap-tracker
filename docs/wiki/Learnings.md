@@ -7,7 +7,10 @@ This page collects general notes and observations from working on the Racing Lap
 - **Keep environment files out of version control.** Copy `.env.example` and adjust variables locally.
 - **Frontend and backend can run separately.** If using Docker Compose, ensure the API URL matches the backend service.
 - **GamePack metadata structure matters.** Every game folder requires a `game.json` file. Track layouts should contain `layout.json` files. Wrong paths lead to missing data.
-- **Database migrations live under `database/migrations`.** Run them in order if upgrading an existing installation.
+- **Database migrations live under `database/migrations`.** Run them in order if
+  upgrading an existing installation. New columns for track metadata were added
+  in `2025-08-add-track-metadata.sql`; layouts also require
+  `2025-06-add-layout-metadata.sql`.
 - **When seeding data** the backend only loads sample lap times once. To repopulate, clear the table or adjust the `SEED_SAMPLE_LAPTIMES` variable.
 
 ## Testing
