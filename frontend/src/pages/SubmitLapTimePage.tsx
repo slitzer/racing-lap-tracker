@@ -143,7 +143,7 @@ const SubmitLapTimePage: React.FC = () => {
       setRank(null);
       return;
     }
-    getLapTimes(user.id)
+    getLapTimes({ userId: user.id })
       .then((data) => {
         const filtered = data.filter(
           (t) => t.trackLayoutId === trackLayoutId && t.gameId === gameId

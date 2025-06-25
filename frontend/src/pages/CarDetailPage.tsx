@@ -39,7 +39,7 @@ const CarDetailPage: React.FC = () => {
     getWorldRecords()
       .then((data) => setTop(data.filter((l) => l.carId === id)))
       .catch(() => {});
-    getLapTimes(undefined, id)
+    getLapTimes({ carId: id })
       .then((data) => {
         data.sort((a, b) => new Date(b.lapDate).getTime() - new Date(a.lapDate).getTime());
         setRecent(data.slice(0, 10));
