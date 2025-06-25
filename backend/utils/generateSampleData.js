@@ -30,10 +30,22 @@ async function generateSampleData() {
   const { rows: userRows } = await db.query('SELECT id, username FROM users');
   const userMap = Object.fromEntries(userRows.map((u) => [u.username, u.id]));
 
-  const games = await db.query('SELECT id, name FROM games');
+  let games = await db.query('SELECT id, name FROM games');
   if (games.rows.length === 0) {
-    console.log('No games found. Skipping sample lap generation');
-    return;
+    // If no games exist yet, attempt to scan the bundled GamePack directory
+    const { scanGamePack } = require('./scanGamePack');
+    try {
+      const summary = await scanGamePack();
+      if (summary.games > 0) {
+        games = await db.query('SELECT id, name FROM games');
+      }
+    } catch (err) {
+      console.error('Failed to scan GamePack for sample data', err);
+    }
+    if (games.rows.length === 0) {
+      console.log('No games found. Skipping sample lap generation');
+      return;
+    }
   }
 
   const gameTracks = await db.query('SELECT game_id, track_layout_id FROM game_tracks');
