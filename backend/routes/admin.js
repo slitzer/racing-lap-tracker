@@ -81,6 +81,20 @@ router.delete('/lapTimes', auth, admin, async (req, res, next) => {
   }
 });
 
+// Generate demo users and lap times
+const { generateSampleData } = require('../utils/generateSampleData');
+router.post('/generateSampleData', auth, admin, async (req, res, next) => {
+  if (process.env.ENABLE_SAMPLE_DATA !== 'true') {
+    return res.status(404).json({ message: 'Not enabled' });
+  }
+  try {
+    await generateSampleData();
+    res.json({ message: 'Sample data generated' });
+  } catch (err) {
+    next(err);
+  }
+});
+
 // Clear data related to a specific game
 router.delete('/games/:id/data', auth, admin, async (req, res, next) => {
   const { id } = req.params;

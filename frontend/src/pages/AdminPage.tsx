@@ -28,6 +28,7 @@ import {
   clearGameData,
   scanGamePack,
   uploadGamePack,
+  generateSampleData,
   getVersion,
   getAdminUsers,
   createUser,
@@ -52,6 +53,7 @@ const AdminPage: React.FC = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [appVersion, setAppVersion] = useState('');
   const [dbVersion, setDbVersion] = useState('');
+  const [sampleDataEnabled, setSampleDataEnabled] = useState(false);
 
   const [gameImage, setGameImage] = useState<File | null>(null);
   const [trackImage, setTrackImage] = useState<File | null>(null);
@@ -133,6 +135,7 @@ const AdminPage: React.FC = () => {
       .then((v) => {
         setAppVersion(v.appVersion);
         setDbVersion(v.dbVersion);
+        setSampleDataEnabled(!!v.sampleDataEnabled);
       })
       .catch(() => {});
   }, []);
@@ -403,6 +406,20 @@ const AdminPage: React.FC = () => {
     }
   };
 
+  const handleGenerateSamples = async () => {
+    toast.info('Generating sample data...');
+    try {
+      await generateSampleData();
+      toast.success('Sample data created');
+      refreshGames();
+      refreshTracks();
+      refreshLayouts();
+      refreshCars();
+    } catch (err) {
+      toast.error('Generation failed');
+    }
+  };
+
   return (
     <div className="container mx-auto py-6 flex">
       <aside className="w-56 pr-4 border-r space-y-6">
@@ -510,6 +527,11 @@ const AdminPage: React.FC = () => {
               <Button size="sm" variant="destructive" onClick={handleClearLapTimes}>
                 Clear All Lap Times
               </Button>
+              {sampleDataEnabled && (
+                <Button size="sm" onClick={handleGenerateSamples}>
+                  Generate Sample Data
+                </Button>
+              )}
               <div className="flex items-center space-x-2">
                 <select
                   className="border p-1"
