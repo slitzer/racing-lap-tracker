@@ -79,14 +79,14 @@ test('deletes a lap time', async () => {
   expect(mockedApi.deleteLapTime).toHaveBeenCalledWith('2');
 });
 
-test('generates sample data when enabled', async () => {
+test('generates sample times when enabled', async () => {
   render(
     <MemoryRouter>
       <AdminPage />
     </MemoryRouter>
   );
   await userEvent.click(screen.getByRole('button', { name: /database tools/i }));
-  const btn = await screen.findByRole('button', { name: /generate sample data/i });
+  const btn = await screen.findByRole('button', { name: /generate sample times/i });
   await userEvent.click(btn);
   expect(mockedApi.generateSampleData).toHaveBeenCalled();
 });
