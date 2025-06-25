@@ -19,6 +19,8 @@ export interface UserStats {
   lapCount: number;
   bestLapMs: number | null;
   avgLapMs: number | null;
+  favoriteCarId?: string | null;
+  favoriteCarName?: string | null;
 }
 
 export interface Game {
@@ -94,4 +96,13 @@ export interface LapTime {
 export interface Assist {
   id: string;
   name: string;
+}
+
+export interface Comment {
+  id: string;
+  lapTimeId: string;
+  userId: string;
+  username?: string;
+  content: string;
+  createdAt: string;
 }

@@ -194,9 +194,30 @@ CREATE INDEX idx_lap_times_date_submitted ON lap_times(date_submitted);
 CREATE INDEX idx_lap_times_lap_date ON lap_times(lap_date);
 CREATE INDEX idx_lta_lap_time_id ON lap_time_assists(lap_time_id);
 CREATE INDEX idx_lta_assist_id ON lap_time_assists(assist_id);
--- Composite indexes for common queries
 CREATE INDEX idx_lap_times_leaderboard ON lap_times(game_id, track_layout_id, time_ms);
 CREATE INDEX idx_lap_times_user_stats ON lap_times(user_id, date_submitted);
+
+-- Comments table for social features
+CREATE TABLE comments (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    lap_time_id UUID NOT NULL REFERENCES lap_times(id) ON DELETE CASCADE,
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    content TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX idx_comments_lap_time_id ON comments(lap_time_id);
+
+-- Followers table for following drivers
+CREATE TABLE follows (
+    follower_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    followee_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (follower_id, followee_id)
+);
+CREATE INDEX idx_follows_follower_id ON follows(follower_id);
+CREATE INDEX idx_follows_followee_id ON follows(followee_id);
+
+-- Composite indexes for common queries
 -- Function to update updated_at timestamp
 CREATE OR REPLACE FUNCTION update_updated_at_column()
 RETURNS TRIGGER AS $$

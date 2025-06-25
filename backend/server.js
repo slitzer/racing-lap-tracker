@@ -22,6 +22,8 @@ const assistRoutes = require('./routes/assists');
 const adminRoutes = require('./routes/admin');
 const adminUserRoutes = require('./routes/adminUsers');
 const versionRoutes = require('./routes/version');
+const commentRoutes = require('./routes/comments');
+const followRoutes = require('./routes/follows');
 const { router: uploadRoutes, uploadDir } = require('./routes/uploads');
 const { contentDir } = require('./utils/markdown');
 const { seedSampleLapTimes } = require('./utils/seedSampleLapTimes');
@@ -64,10 +66,12 @@ app.use('/api/layouts', layoutRoutes);
 app.use('/api/cars', carRoutes);
 app.use('/api/assists', assistRoutes);
 app.use('/api/lapTimes', lapTimeRoutes);
+app.use('/api/lapTimes/:lapTimeId/comments', commentRoutes);
 app.use('/api/leaderboards', leaderboardRoutes);
 app.use('/api/uploads', uploadRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/admin/users', adminUserRoutes);
+app.use('/api/users/:userId/follow', followRoutes);
 app.use('/api/version', versionRoutes);
 
 // Error handling
