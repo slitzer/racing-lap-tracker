@@ -8,7 +8,8 @@
     "dev": "nodemon server.js",
     "migrate": "node utils/runMigrations.js",
     "pretest": "test -d node_modules || npm install",
-    "test": "jest"
+    "test": "jest",
+    "gamepack": "node utils/gamepackManager.js"
   },
   "dependencies": {
     "@mudbill/duckduckgo-images-api": "^2.0.1",

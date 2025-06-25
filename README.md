@@ -69,6 +69,21 @@ Game and vehicle metadata can be placed under `frontend/public/GamePack`. Use
 the **Scan GamePack** button on the Admin page to import any `*.json` files
 found in these folders.
 
+### GamePack Manager
+
+A helper script is available to tidy up a GamePack directory and create a
+compressed archive. It moves legacy layout folders into a `layouts` directory,
+reformats JSON files and reports the total number of games, tracks, layouts and
+cars found. Run it from the repository root:
+
+```bash
+npm run gamepack --prefix backend [inputDir] [outputFile]
+```
+
+The default input directory is `frontend/public/GamePack` and the output file is
+`GamePack.zip`. A `gamepack.log` file is written alongside the archive with a
+full summary of actions performed.
+
 ### Frontend
 
 ```bash
