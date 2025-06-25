@@ -149,3 +149,8 @@ export async function uploadGamePack(file: File) {
   });
   return res.data as { message: string; summary: { games: number; tracks: number; layouts: number; cars: number } };
 }
+
+export async function generateSampleData() {
+  const res = await apiClient.post('/admin/generateSampleData');
+  return res.data as { message: string };
+}

@@ -52,6 +52,7 @@ include:
 * `CONTENT_DIR` – Markdown content directory
 * `APP_VERSION` and `DB_VERSION` – displayed in the API `/api/version` endpoint
 * `SEED_SAMPLE_LAPTIMES` – load sample data on first start
+* `ENABLE_SAMPLE_DATA` – allow generating demo users and lap times from the Admin page
 
 The frontend uses a single variable `VITE_API_URL` to point at the backend API.
 
@@ -115,6 +116,7 @@ psql -U <user> -d <database> -f database/seed_data.sql
 
 Sample lap times from `database/sample_lap_times.json` are loaded on first start
 when the table is empty. Set `SEED_SAMPLE_LAPTIMES=false` to skip loading these records.
+Set `ENABLE_SAMPLE_DATA=true` to add a "Generate Sample Data" button on the Admin page.
 
 ### Running Tests
 

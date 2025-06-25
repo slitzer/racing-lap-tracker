@@ -10,6 +10,7 @@ const mockedApi = {
   getCars: jest.fn(),
   verifyLapTime: jest.fn(),
   deleteLapTime: jest.fn(),
+  generateSampleData: jest.fn(),
   getVersion: jest.fn(),
   getAdminUsers: jest.fn(),
   createUser: jest.fn(),
@@ -28,7 +29,7 @@ beforeEach(() => {
   mockedApi.getLayouts.mockResolvedValue([]);
   mockedApi.getCars.mockResolvedValue([]);
   mockedApi.getAdminUsers.mockResolvedValue([]);
-  mockedApi.getVersion.mockResolvedValue({ appVersion: 'v1.1', dbVersion: 'v1' });
+  mockedApi.getVersion.mockResolvedValue({ appVersion: 'v1.1', dbVersion: 'v1', sampleDataEnabled: true });
 });
 
 test('renders admin heading', () => {
@@ -76,4 +77,16 @@ test('deletes a lap time', async () => {
   expect(await screen.findByText('2')).toBeInTheDocument();
   await userEvent.click(screen.getAllByRole('button', { name: /delete/i })[0]);
   expect(mockedApi.deleteLapTime).toHaveBeenCalledWith('2');
+});
+
+test('generates sample data when enabled', async () => {
+  render(
+    <MemoryRouter>
+      <AdminPage />
+    </MemoryRouter>
+  );
+  await userEvent.click(screen.getByRole('button', { name: /database tools/i }));
+  const btn = await screen.findByRole('button', { name: /generate sample data/i });
+  await userEvent.click(btn);
+  expect(mockedApi.generateSampleData).toHaveBeenCalled();
 });
