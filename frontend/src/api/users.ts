@@ -52,6 +52,19 @@ export async function getUserStats(): Promise<UserStats> {
   return res.data;
 }
 
+export async function followUser(userId: string): Promise<void> {
+  await apiClient.post(`/users/${userId}/follow`);
+}
+
+export async function unfollowUser(userId: string): Promise<void> {
+  await apiClient.delete(`/users/${userId}/follow`);
+}
+
+export async function isFollowing(userId: string): Promise<boolean> {
+  const res = await apiClient.get(`/users/${userId}/follow`);
+  return res.data.isFollowing;
+}
+
 export async function getUsers(): Promise<Pick<User, 'id' | 'username'>[]> {
   const res = await apiClient.get('/users');
   return res.data;

@@ -8,7 +8,7 @@ const path = require('path');
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
-  const { userId, carId } = req.query;
+  const { userId, carId, dateFrom, dateTo, assist } = req.query;
   const params = [];
   const conditions = [];
   if (userId) {
@@ -18,6 +18,20 @@ router.get('/', async (req, res, next) => {
   if (carId) {
     params.push(carId);
     conditions.push(`lt.car_id = $${params.length}`);
+  }
+  if (dateFrom) {
+    params.push(dateFrom);
+    conditions.push(`lt.lap_date >= $${params.length}`);
+  }
+  if (dateTo) {
+    params.push(dateTo);
+    conditions.push(`lt.lap_date <= $${params.length}`);
+  }
+  if (assist) {
+    params.push(assist);
+    conditions.push(
+      `EXISTS (SELECT 1 FROM lap_time_assists lta JOIN assists a2 ON lta.assist_id = a2.id WHERE lta.lap_time_id = lt.id AND a2.name = $${params.length})`
+    );
   }
   const where = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
   try {

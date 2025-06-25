@@ -127,11 +127,24 @@ router.get('/me/stats', auth, async (req, res, next) => {
       `SELECT COUNT(*) AS lap_count, MIN(time_ms) AS best_lap_ms, AVG(time_ms)::INT AS avg_lap_ms FROM lap_times WHERE user_id = $1`,
       [req.user.id]
     );
+    const carRes = await db.query(
+      `SELECT car_id, c.name, COUNT(*) AS cnt
+       FROM lap_times lt
+       JOIN cars c ON lt.car_id = c.id
+       WHERE lt.user_id = $1
+       GROUP BY car_id, c.name
+       ORDER BY cnt DESC
+       LIMIT 1`,
+      [req.user.id]
+    );
     const row = result.rows[0];
+    const fav = carRes.rows[0];
     res.json({
       lapCount: parseInt(row.lap_count, 10),
       bestLapMs: row.best_lap_ms ? parseInt(row.best_lap_ms, 10) : null,
       avgLapMs: row.avg_lap_ms ? parseInt(row.avg_lap_ms, 10) : null,
+      favoriteCarId: fav ? fav.car_id : null,
+      favoriteCarName: fav ? fav.name : null,
     });
   } catch (err) {
     next(err);

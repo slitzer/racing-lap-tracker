@@ -24,6 +24,7 @@ import TrackDetailPage from './pages/TrackDetailPage';
 import CarDetailPage from './pages/CarDetailPage';
 import GameDetailPage from './pages/GameDetailPage';
 import InfoPage from './pages/InfoPage';
+import StatsPage from './pages/StatsPage';
 import { useLocation } from 'react-router-dom';
 import './App.css';
 // Create a client for React Query
@@ -61,6 +62,14 @@ function App() {
                   <Route path="/car/:id" element={<CarDetailPage />} />
                   <Route path="/game/:id" element={<GameDetailPage />} />
                   <Route path="/info/*" element={<InfoRoute />} />
+                  <Route
+                    path="/stats"
+                    element={
+                      <ProtectedRoute>
+                        <StatsPage />
+                      </ProtectedRoute>
+                    }
+                  />
                   <Route
                     path="/submit"
                     element={

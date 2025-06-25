@@ -1,16 +1,36 @@
-import React from 'react';
-import { LapTime } from '../types';
+import React, { useEffect, useState } from 'react';
+import { LapTime, Comment } from '../types';
 import { formatTime } from '../utils/time';
 import { getImageUrl } from '../utils';
 import AssistTags from './AssistTags';
 import InputTypeBadge from './InputTypeBadge';
 import MarkdownRenderer from './MarkdownRenderer';
+import { getComments, addComment } from '../api';
+import { useAuth } from '../contexts/AuthContext';
 
 interface LapTimePopupProps {
   lap: LapTime;
 }
 
 const LapTimePopup: React.FC<LapTimePopupProps> = ({ lap }) => {
+  const { user } = useAuth();
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [newComment, setNewComment] = useState('');
+
+  useEffect(() => {
+    getComments(lap.id).then(setComments).catch(() => {});
+  }, [lap.id]);
+
+  const handleSubmit = async () => {
+    if (!newComment.trim()) return;
+    try {
+      const c = await addComment(lap.id, newComment.trim());
+      setComments((prev) => [...prev, { ...c, username: user?.username }]);
+      setNewComment('');
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <div className="space-y-4">
       <h2 className="text-xl font-bold text-center">Lap Details</h2>
@@ -111,10 +131,35 @@ const LapTimePopup: React.FC<LapTimePopupProps> = ({ lap }) => {
 
       {lap.notes && (
         <div>
-          <h3 className="text-sm font-semibold mb-1">Comments</h3>
+          <h3 className="text-sm font-semibold mb-1">Notes</h3>
           <MarkdownRenderer content={lap.notes} className="text-sm" />
         </div>
       )}
+
+      <div className="space-y-2">
+        <h3 className="text-sm font-semibold">Comments</h3>
+        {comments.map((c) => (
+          <div key={c.id} className="text-sm border-b pb-1">
+            <span className="font-medium mr-1">{c.username}</span>
+            <span>{c.content}</span>
+          </div>
+        ))}
+        {user && (
+          <div className="flex items-center space-x-2 pt-2">
+            <input
+              className="flex-1 border rounded px-2 py-1 text-sm"
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+            />
+            <button
+              className="px-2 py-1 text-sm border rounded"
+              onClick={handleSubmit}
+            >
+              Add
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

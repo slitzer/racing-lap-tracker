@@ -104,6 +104,11 @@ const ProfilePage: React.FC = () => {
             <span className="font-medium">Average Lap:</span>{' '}
             {stats.avgLapMs !== null ? formatTime(stats.avgLapMs) : 'N/A'}
           </p>
+          {stats.favoriteCarName && (
+            <p>
+              <span className="font-medium">Most Used Car:</span> {stats.favoriteCarName}
+            </p>
+          )}
         </div>
       )}
       <form
