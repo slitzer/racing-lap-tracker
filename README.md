@@ -116,7 +116,7 @@ psql -U <user> -d <database> -f database/seed_data.sql
 
 Sample lap times from `database/sample_lap_times.json` are loaded on first start
 when the table is empty. Set `SEED_SAMPLE_LAPTIMES=false` to skip loading these records.
-Set `ENABLE_SAMPLE_DATA=true` to add a "Generate Sample Data" button on the Admin page.
+Set `ENABLE_SAMPLE_DATA=true` to add a "Generate Sample Times" button on the Admin page.
 
 ### Running Tests
 

@@ -444,7 +444,7 @@ const AdminPage: React.FC = () => {
               Database Editor
             </button>
             <button type="button" onClick={() => setActiveSection('legacyEditor')} className={navClass('legacyEditor')}>
-              Legacy Editor
+              Add New
             </button>
             <button type="button" onClick={() => setActiveSection('dbTools')} className={navClass('dbTools')}>
               Database Tools
@@ -491,68 +491,81 @@ const AdminPage: React.FC = () => {
         {activeSection === 'dbTools' && (
           <section>
             <h2 className="text-xl font-semibold mb-2">Database Tools</h2>
-            <div className="flex items-center space-x-2 mb-4">
-              <Button size="sm" onClick={handleExportDb}>Export</Button>
-              <input
-                type="file"
-                accept="application/json"
-                onChange={(e) => {
-                  setImportFile(e.target.files?.[0] || null);
-                  setImportProgress(0);
-                  setLogs([]);
-                }}
-              />
-              <Button size="sm" onClick={handleImportDb} disabled={!importFile}>
-                Import
-              </Button>
-              <input
-                type="file"
-                accept=".zip"
-                onChange={(e) => setPackFile(e.target.files?.[0] || null)}
-              />
-              <Button size="sm" onClick={handleUploadGamePack} disabled={!packFile}>
-                Upload GamePack
-              </Button>
-              <Button size="sm" onClick={handleScanGamePack}>Scan GamePack</Button>
-            </div>
-            {importProgress > 0 && <ProgressBar progress={importProgress} />}
-            {logs.length > 0 && (
-              <div className="border p-2 bg-gray-50 text-xs h-24 overflow-auto space-y-1">
-                {logs.map((l, i) => (
-                  <div key={i}>{l}</div>
-                ))}
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div className="border rounded p-3 space-y-2">
+                <h3 className="font-semibold">Import / Export</h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  <Button size="sm" onClick={handleExportDb}>Export</Button>
+                  <input
+                    type="file"
+                    accept="application/json"
+                    onChange={(e) => {
+                      setImportFile(e.target.files?.[0] || null);
+                      setImportProgress(0);
+                      setLogs([]);
+                    }}
+                  />
+                  <Button size="sm" onClick={handleImportDb} disabled={!importFile}>
+                    Import
+                  </Button>
+                </div>
+                {importProgress > 0 && <ProgressBar progress={importProgress} />}
+                {logs.length > 0 && (
+                  <div className="border p-2 bg-gray-50 text-xs h-24 overflow-auto space-y-1">
+                    {logs.map((l, i) => (
+                      <div key={i}>{l}</div>
+                    ))}
+                  </div>
+                )}
               </div>
-            )}
-            <div className="mt-4 space-y-2">
-              <Button size="sm" variant="destructive" onClick={handleClearLapTimes}>
-                Clear All Lap Times
-              </Button>
-              {sampleDataEnabled && (
-                <Button size="sm" onClick={handleGenerateSamples}>
-                  Generate Sample Data
+              <div className="border rounded p-3 space-y-2">
+                <h3 className="font-semibold">GamePack</h3>
+                <input
+                  type="file"
+                  accept=".zip"
+                  onChange={(e) => setPackFile(e.target.files?.[0] || null)}
+                />
+                <div className="flex flex-wrap items-center gap-2">
+                  <Button size="sm" onClick={handleUploadGamePack} disabled={!packFile}>
+                    Upload GamePack
+                  </Button>
+                  <Button size="sm" onClick={handleScanGamePack}>Scan GamePack</Button>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <div className="border rounded p-3 space-y-2">
+                <h3 className="font-semibold">Maintenance</h3>
+                <Button size="sm" variant="destructive" onClick={handleClearLapTimes}>
+                  Clear All Lap Times
                 </Button>
-              )}
-              <div className="flex items-center space-x-2">
-                <select
-                  className="border p-1"
-                  value={clearGameId}
-                  onChange={(e) => setClearGameId(e.target.value)}
-                >
-                  <option value="">Select Game</option>
-                  {games.map((g) => (
-                    <option key={g.id} value={g.id}>
-                      {g.name}
-                    </option>
-                  ))}
-                </select>
-                <Button
-                  size="sm"
-                  variant="destructive"
-                  onClick={handleClearGame}
-                  disabled={!clearGameId}
-                >
-                  Clear Game Data
-                </Button>
+                {sampleDataEnabled && (
+                  <Button size="sm" onClick={handleGenerateSamples}>
+                    Generate Sample Times
+                  </Button>
+                )}
+                <div className="flex items-center space-x-2">
+                  <select
+                    className="border p-1"
+                    value={clearGameId}
+                    onChange={(e) => setClearGameId(e.target.value)}
+                  >
+                    <option value="">Select Game</option>
+                    {games.map((g) => (
+                      <option key={g.id} value={g.id}>
+                        {g.name}
+                      </option>
+                    ))}
+                  </select>
+                  <Button
+                    size="sm"
+                    variant="destructive"
+                    onClick={handleClearGame}
+                    disabled={!clearGameId}
+                  >
+                    Clear Game Data
+                  </Button>
+                </div>
               </div>
             </div>
           </section>
@@ -677,7 +690,7 @@ const AdminPage: React.FC = () => {
 
         {activeSection === 'legacyEditor' && (
           <section className="space-y-6">
-            <h2 className="text-xl font-semibold mb-2">Legacy Editor</h2>
+            <h2 className="text-xl font-semibold mb-2">Add New</h2>
             <div>
               <h3 className="font-semibold mb-2">Games</h3>
               <div className="flex space-x-2 mb-2">
