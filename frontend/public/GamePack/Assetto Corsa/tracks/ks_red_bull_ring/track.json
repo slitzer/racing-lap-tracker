@@ -1,0 +1,61 @@
+{
+  "name": "ks_red_bull_ring",
+  "officialName": "Red Bull Ring Gp",
+  "country": "Austria",
+  "city": "Spielberg",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Red Bull Ring Grand Prix Cricuit",
+  "tags": [
+    "circuit",
+    "original",
+    "drift",
+    "Austria"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 4326,
+    "widthM": 12,
+    "pitBoxes": 24,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_red_bull_ring/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Red Bull Ring Gp",
+      "lengthM": 4326,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_red_bull_ring/layout/layout_gp/preview.jpg"
+    },
+    {
+      "name": "Red Bull Ring GP",
+      "lengthM": 4326,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_red_bull_ring/layout/layout_gp/preview.jpg"
+    },
+    {
+      "name": "Red Bull Ring National",
+      "lengthM": 2336,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_red_bull_ring/layout/layout_national/preview.jpg"
+    },
+    {
+      "name": "Red Bull Ring National",
+      "lengthM": 2336,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_red_bull_ring/layout/layout_national/preview.jpg"
+    }
+  ]
+}

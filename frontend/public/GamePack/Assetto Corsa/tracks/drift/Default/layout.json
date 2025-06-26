@@ -1,0 +1,18 @@
+{
+  "name": "Drift Track",
+  "imageUrl": "/GamePack/Assetto Corsa/tracks/drift/Default/preview.jpg",
+  "pitSpeedLimitHighKPH": 60,
+  "maxAIParticipants": 12,
+  "raceDateYear": 2024,
+  "raceDateMonth": 6,
+  "raceDateDay": 1,
+  "trackSurface": "Asphalt",
+  "trackType": "Permanent Circuit",
+  "trackGradeFilter": "Grade 1",
+  "numberOfTurns": 15,
+  "trackTimeZone": "Europe/Rome",
+  "trackAltitude": "112m",
+  "length": "905 m",
+  "dlcId": "Base",
+  "location": "Monza, Italy"
+}

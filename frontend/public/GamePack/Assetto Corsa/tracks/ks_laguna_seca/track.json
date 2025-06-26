@@ -1,0 +1,40 @@
+{
+  "name": "ks_laguna_seca",
+  "officialName": "Laguna Seca",
+  "country": "USA",
+  "city": "Monterey",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Mazda Raceway Laguna Seca",
+  "tags": [
+    "circuit",
+    "original",
+    "drift",
+    "Usa"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 0,
+    "widthM": 11,
+    "pitBoxes": 24,
+    "trackType": "anti-clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_laguna_seca/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Laguna Seca",
+      "lengthM": 0,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_laguna_seca/layout/Default/preview.jpg"
+    }
+  ]
+}

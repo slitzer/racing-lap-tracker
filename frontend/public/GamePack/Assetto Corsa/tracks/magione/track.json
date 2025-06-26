@@ -1,0 +1,40 @@
+{
+  "name": "magione",
+  "officialName": "Magione",
+  "country": "Italy",
+  "city": "Magione",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Autodromo di Umbria",
+  "tags": [
+    "circuit",
+    "original",
+    "drift",
+    "Italy"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 2507,
+    "widthM": 11,
+    "pitBoxes": 18,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/magione/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Magione",
+      "lengthM": 2507,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/magione/layout/Default/preview.jpg"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "ks_monza66",
+  "officialName": "Monza 1966 - Full Course",
+  "country": "Italy",
+  "city": "Monza (MI)",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Autodromo di Monza",
+  "tags": [
+    "circuit",
+    "original",
+    "historic",
+    "Italy"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 10000,
+    "widthM": 12,
+    "pitBoxes": 25,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_monza66/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Monza 1966 - Full Course",
+      "lengthM": 10000,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_monza66/layout/full/preview.jpg"
+    },
+    {
+      "name": "Monza 1966 - Junior Course",
+      "lengthM": 2405,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_monza66/layout/junior/preview.jpg"
+    },
+    {
+      "name": "Monza 1966 - Road Course",
+      "lengthM": 5793,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_monza66/layout/road/preview.jpg"
+    }
+  ]
+}

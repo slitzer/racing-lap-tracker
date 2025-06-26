@@ -1,0 +1,61 @@
+{
+  "name": "ks_barcelona",
+  "officialName": "Barcelona GP",
+  "country": "Spain",
+  "city": "Montmelo'",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Circuit de Barcelona",
+  "tags": [
+    "circuit",
+    "original",
+    "drift",
+    "Spain"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 0,
+    "widthM": 0,
+    "pitBoxes": 24,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_barcelona/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Barcelona GP",
+      "lengthM": 0,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_barcelona/layout/layout_gp/preview.jpg"
+    },
+    {
+      "name": "Barcelona - GP",
+      "lengthM": 4655,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_barcelona/layout/layout_gp/preview.jpg"
+    },
+    {
+      "name": "Barcelona Moto",
+      "lengthM": 0,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_barcelona/layout/layout_moto/preview.jpg"
+    },
+    {
+      "name": "Barcelona - Moto",
+      "lengthM": 4727,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_barcelona/layout/layout_moto/preview.jpg"
+    }
+  ]
+}

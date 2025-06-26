@@ -1,0 +1,42 @@
+{
+  "name": "drift",
+  "officialName": "Drift",
+  "country": "Japan",
+  "city": "Tokyo",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Drift Track",
+  "tags": [
+    "#drift",
+    "drift",
+    "test track",
+    "circuit",
+    "original",
+    "Japan"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 905,
+    "widthM": 15,
+    "pitBoxes": 18,
+    "trackType": "DRIFT"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/drift/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Drift",
+      "lengthM": 905,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/drift/layout/Default/preview.jpg"
+    }
+  ]
+}

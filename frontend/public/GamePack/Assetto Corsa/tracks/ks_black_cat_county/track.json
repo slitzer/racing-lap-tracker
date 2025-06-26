@@ -1,0 +1,54 @@
+{
+  "name": "ks_black_cat_county",
+  "officialName": "Black Cat County",
+  "country": "U.S.A.",
+  "city": "Los Angeles",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Fictional U.S.A. Road",
+  "tags": [
+    "circuit",
+    "drift",
+    "original",
+    "usa"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 6478,
+    "widthM": 15,
+    "pitBoxes": 24,
+    "trackType": "anti-clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_black_cat_county/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Black Cat County",
+      "lengthM": 6478,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_black_cat_county/layout/layout_int/preview.jpg"
+    },
+    {
+      "name": "Black Cat County - Long",
+      "lengthM": 11244,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_black_cat_county/layout/layout_long/preview.jpg"
+    },
+    {
+      "name": "Black Cat County - Short",
+      "lengthM": 6542,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_black_cat_county/layout/layout_short/preview.jpg"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "ks_zandvoort",
+  "officialName": "Zandvoort",
+  "country": "Netherlands",
+  "city": "Zandvoort",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Zandvoort Circuit Park",
+  "tags": [
+    "circuit",
+    "original",
+    "Netherlands"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 4307,
+    "widthM": 13,
+    "pitBoxes": 18,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_zandvoort/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Zandvoort",
+      "lengthM": 4307,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_zandvoort/layout/Default/preview.jpg"
+    }
+  ]
+}

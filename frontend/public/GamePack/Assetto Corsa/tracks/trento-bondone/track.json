@@ -1,0 +1,41 @@
+{
+  "name": "trento-bondone",
+  "officialName": "Trento-Bondone",
+  "country": "Italy",
+  "city": "Trento",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Hillclimb course",
+  "tags": [
+    "A2B",
+    "Hillclimb",
+    "touge",
+    "original",
+    "Italy"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 17619,
+    "widthM": 8,
+    "pitBoxes": 4,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/trento-bondone/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Trento-Bondone",
+      "lengthM": 17619,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/trento-bondone/layout/Default/preview.jpg"
+    }
+  ]
+}

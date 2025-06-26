@@ -1,0 +1,39 @@
+{
+  "name": "spa",
+  "officialName": "Spa",
+  "country": "Belgium",
+  "city": "Francorchamps",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Spa-Francorchamps",
+  "tags": [
+    "circuit",
+    "original",
+    "Belgium"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 7004,
+    "widthM": 15,
+    "pitBoxes": 24,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/spa/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Spa",
+      "lengthM": 7004,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/spa/layout/Default/preview.jpg"
+    }
+  ]
+}

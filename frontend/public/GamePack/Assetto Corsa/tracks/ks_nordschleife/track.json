@@ -1,0 +1,80 @@
+{
+  "name": "ks_nordschleife",
+  "officialName": "Nordschleife Endurance",
+  "country": "Germany",
+  "city": "Nurburg",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Nuerburgring Nordschleife",
+  "tags": [
+    "test track",
+    "Germany"
+  ],
+  "geotags": [
+    "50.3356\u00b0 N",
+    "6.9475\u00b0 E"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 25378,
+    "widthM": 0,
+    "pitBoxes": 24,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_nordschleife/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Nordschleife Endurance",
+      "lengthM": 25378,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_nordschleife/layout/endurance/preview.jpg"
+    },
+    {
+      "name": "Nordschleife - Endurance",
+      "lengthM": 25378,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_nordschleife/layout/endurance/preview.jpg"
+    },
+    {
+      "name": "Nordschleife - Endurance Cup",
+      "lengthM": 24433,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_nordschleife/layout/endurance_cup/preview.jpg"
+    },
+    {
+      "name": "Nordschleife",
+      "lengthM": 20832,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_nordschleife/layout/nordschleife/preview.jpg"
+    },
+    {
+      "name": "Nordschleife",
+      "lengthM": 20832,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_nordschleife/layout/nordschleife/preview.jpg"
+    },
+    {
+      "name": "Nordschleife Tourist",
+      "lengthM": 19100,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_nordschleife/layout/touristenfahrten/preview.jpg"
+    },
+    {
+      "name": "Nordschleife - Tourist",
+      "lengthM": 19100,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_nordschleife/layout/touristenfahrten/preview.jpg"
+    }
+  ]
+}

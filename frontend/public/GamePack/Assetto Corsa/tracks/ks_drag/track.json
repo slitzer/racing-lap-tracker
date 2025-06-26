@@ -1,0 +1,66 @@
+{
+  "name": "ks_drag",
+  "officialName": "Drag 1000m",
+  "country": "Italy",
+  "city": "Imola",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "fast&furious",
+  "tags": [
+    "drag",
+    "original"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 1000,
+    "widthM": 15,
+    "pitBoxes": 2,
+    "trackType": "dragstrip"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_drag/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Drag 1000m",
+      "lengthM": 1000,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_drag/layout/drag1000/preview.jpg"
+    },
+    {
+      "name": "Drag 200m",
+      "lengthM": 200,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_drag/layout/drag200/preview.jpg"
+    },
+    {
+      "name": "Drag 2000m",
+      "lengthM": 2000,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_drag/layout/drag2000/preview.jpg"
+    },
+    {
+      "name": "Drag 400m",
+      "lengthM": 400,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_drag/layout/drag400/preview.jpg"
+    },
+    {
+      "name": "Drag 500m",
+      "lengthM": 500,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_drag/layout/drag500/preview.jpg"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "ks_silverstone",
+  "officialName": "Silverstone GP",
+  "country": "Great Britain",
+  "city": "Silverstone",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Circuit of Silverstone",
+  "tags": [
+    "circuit",
+    "original",
+    "Great Britain"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 5901,
+    "widthM": 14,
+    "pitBoxes": 24,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_silverstone/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Silverstone GP",
+      "lengthM": 5901,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_silverstone/layout/gp/preview.jpg"
+    },
+    {
+      "name": "Silverstone - International",
+      "lengthM": 3619,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_silverstone/layout/international/preview.jpg"
+    },
+    {
+      "name": "Silverstone - National",
+      "lengthM": 2638,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_silverstone/layout/national/preview.jpg"
+    }
+  ]
+}

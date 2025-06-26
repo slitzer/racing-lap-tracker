@@ -1,0 +1,61 @@
+{
+  "name": "ks_highlands",
+  "officialName": "Highlands Drift",
+  "country": "Scotland",
+  "city": "Fantasy",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Highlands drift layout",
+  "tags": [
+    "circuit",
+    "original",
+    "drift",
+    "Scotland"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 5167,
+    "widthM": 10,
+    "pitBoxes": 24,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_highlands/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Highlands Drift",
+      "lengthM": 5167,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_highlands/layout/layout_drift/preview.jpg"
+    },
+    {
+      "name": "Highlands",
+      "lengthM": 8152,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_highlands/layout/layout_int/preview.jpg"
+    },
+    {
+      "name": "Highlands Long",
+      "lengthM": 12191,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_highlands/layout/layout_long/preview.jpg"
+    },
+    {
+      "name": "Highlands Short",
+      "lengthM": 1714,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_highlands/layout/layout_short/preview.jpg"
+    }
+  ]
+}

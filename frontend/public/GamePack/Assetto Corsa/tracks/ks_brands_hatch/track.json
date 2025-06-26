@@ -1,0 +1,47 @@
+{
+  "name": "ks_brands_hatch",
+  "officialName": "Brands Hatch Gp",
+  "country": "United Kingdom",
+  "city": "Fawkham",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Brands Hatch Circuit",
+  "tags": [
+    "circuit",
+    "original",
+    "drift",
+    "uk"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 0,
+    "widthM": 0,
+    "pitBoxes": 24,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_brands_hatch/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Brands Hatch Gp",
+      "lengthM": 0,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_brands_hatch/layout/gp/preview.jpg"
+    },
+    {
+      "name": "Brands Hatch Indy",
+      "lengthM": 0,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_brands_hatch/layout/indy/preview.jpg"
+    }
+  ]
+}

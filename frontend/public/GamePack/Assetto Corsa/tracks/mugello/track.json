@@ -1,0 +1,39 @@
+{
+  "name": "mugello",
+  "officialName": "Mugello",
+  "country": "Italy",
+  "city": "Scarperia",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Autodromo del Mugello",
+  "tags": [
+    "circuit",
+    "original",
+    "Italy"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 5245,
+    "widthM": 14,
+    "pitBoxes": 24,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/mugello/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Mugello",
+      "lengthM": 5245,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/mugello/layout/Default/preview.jpg"
+    }
+  ]
+}

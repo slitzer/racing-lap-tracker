@@ -1,0 +1,60 @@
+{
+  "name": "Nurburgring GP",
+  "officialName": "Nurburgring - GP",
+  "country": "Germany",
+  "city": "Nurburg",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "Base",
+  "description": "The Nürburgring is a 150,000-person capacity motorsports complex located in the town of Nürburg, Rhineland-Palatinate, Germany. It features a Grand Prix race track built in 1984, and a long Nordschleife configuration,[a] built in the 1920s, around the village and medieval castle of Nürburg in the Eifel mountains. The north loop is 20.830 km (12.943 mi) long and contains more than 300 metres (1,000 feet) of elevation change from its lowest to highest points. Scottish racing driver Jackie Stewart nicknamed the track "the Green Hell"",
+  "tags": [
+    "original",
+    "circuit",
+    "Germany"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 5148,
+    "widthM": 14,
+    "pitBoxes": 24,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/nurburgring/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Nurburgring - GP",
+      "lengthM": 5148,
+      "turns": 15,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/nurburgring/layout_gp_a/preview.jpg"
+    },
+    {
+      "name": "Nurburgring - GP (GT)",
+      "lengthM": 5137,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_nurburgring/layout_gp_b/preview.jpg"
+    },
+    {
+      "name": "Nurburgring - Sprint",
+      "lengthM": 3629,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_nurburgring/layout_sprint_a/preview.jpg"
+    },
+    {
+      "name": "Nurburgring - Sprint (GT)",
+      "lengthM": 3618,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_nurburgring/layout_sprint_b/preview.jpg"
+    }
+  ]
+}

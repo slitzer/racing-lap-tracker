@@ -1,0 +1,54 @@
+{
+  "name": "ks_vallelunga",
+  "officialName": "Vallelunga - Classic",
+  "country": "Italy",
+  "city": "Rome",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Autodromo Piero Taruffi",
+  "tags": [
+    "circuit",
+    "original",
+    "drift",
+    "Italy"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 3222,
+    "widthM": 14,
+    "pitBoxes": 24,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_vallelunga/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Vallelunga - Classic",
+      "lengthM": 3222,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_vallelunga/layout/classic_circuit/preview.jpg"
+    },
+    {
+      "name": "Vallelunga - Club",
+      "lengthM": 1746,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_vallelunga/layout/club_circuit/preview.jpg"
+    },
+    {
+      "name": "Vallelunga",
+      "lengthM": 4085,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_vallelunga/layout/extended_circuit/preview.jpg"
+    }
+  ]
+}

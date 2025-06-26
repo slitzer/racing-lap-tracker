@@ -1,0 +1,40 @@
+{
+  "name": "ks_silverstone1967",
+  "officialName": "Silverstone 1967",
+  "country": "Great Britain",
+  "city": "Silverstone",
+  "game": "Assetto Corsa",
+  "gamePack": "ac-base",
+  "dlc": "",
+  "description": "Historic Circuit of Silverstone",
+  "tags": [
+    "circuit",
+    "original",
+    "historic",
+    "Great Britain"
+  ],
+  "geotags": [
+    "lat",
+    "lon"
+  ],
+  "videoUrl": "",
+  "specs": {
+    "lengthM": 4710,
+    "widthM": 14,
+    "pitBoxes": 20,
+    "trackType": "clockwise"
+  },
+  "media": {
+    "imageUrl": "/GamePack/Assetto Corsa/tracks/ks_silverstone1967/preview.jpg",
+    "additionalImages": []
+  },
+  "layouts": [
+    {
+      "name": "Silverstone 1967",
+      "lengthM": 4710,
+      "turns": 0,
+      "isClockwise": true,
+      "layoutImageUrl": "/GamePack/Assetto Corsa/tracks/ks_silverstone1967/layout/Default/preview.jpg"
+    }
+  ]
+}
