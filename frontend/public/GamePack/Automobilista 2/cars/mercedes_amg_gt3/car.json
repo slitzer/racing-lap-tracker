@@ -6,7 +6,7 @@
   "class": "GT3 Gen 1 (Imp\u00e9rio Endurance)",
   "series": "",
   "game": "Automobilista 2",
-  "gamePack": "amb2-base",
+  "gamePack": "amb2-core",
   "dlc": "",
   "description": "",
   "specs": {
@@ -29,7 +29,7 @@
     "tc": true
   },
   "media": {
-    "imageUrl": "/GamePack/Automobilista 2/cars/mercedes_amg_gt3/image_1.jpg",
+    "imageUrl": "/GamePack/cars/cars/mercedes_amg_gt3/image_1.jpg",
     "additionalImages": []
   }
 }

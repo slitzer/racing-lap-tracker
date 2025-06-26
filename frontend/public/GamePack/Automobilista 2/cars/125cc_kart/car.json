@@ -6,7 +6,7 @@
   "class": "125cc Karts",
   "series": "",
   "game": "Automobilista 2",
-  "gamePack": "amb2-base",
+  "gamePack": "amb2-core",
   "dlc": "",
   "description": "Karting 125cc is a class featuring a single-speed, 125cc two-stroke kart.",
   "specs": {
@@ -29,7 +29,7 @@
     "tc": true
   },
   "media": {
-    "imageUrl": "/GamePack/Automobilista 2/cars/125cc_kart/image_1.jpg",
+    "imageUrl": "/GamePack/cars/cars/125cc_kart/image_1.jpg",
     "additionalImages": []
   }
 }

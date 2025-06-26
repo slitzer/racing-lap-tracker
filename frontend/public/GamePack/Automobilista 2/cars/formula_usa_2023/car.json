@@ -6,7 +6,7 @@
   "class": "Formula USA 2023",
   "series": "",
   "game": "Automobilista 2",
-  "gamePack": "amb2-base",
+  "gamePack": "amb2-core",
   "dlc": "",
   "description": "",
   "specs": {
@@ -29,7 +29,7 @@
     "tc": true
   },
   "media": {
-    "imageUrl": "/GamePack/Automobilista 2/cars/formula_usa_2023/image_1.jpg",
+    "imageUrl": "/GamePack/cars/cars/formula_usa_2023/image_1.jpg",
     "additionalImages": []
   }
 }
