@@ -57,7 +57,10 @@ const CarDetailPage: React.FC = () => {
       .then((games) => {
         const g = games.find((gm) => gm.id === car.gameId);
         if (!g) return;
-        const base = `/GamePack/${g.name}/cars/${slugify(car.name)}`;
+        const bases = [
+          `/GamePack/${g.name}/cars/${slugify(car.name)}`,
+          `/GamePack/${slugify(g.name)}/cars/${slugify(car.name)}`,
+        ];
         const fetchExtras = async (p: string) => {
           let found = false;
           try {
@@ -90,15 +93,20 @@ const CarDetailPage: React.FC = () => {
           }
           return found;
         };
-        fetchExtras(base).then((ok) => {
-          if (!ok && car.imageUrl) {
+        const tryBases = async () => {
+          for (const b of bases) {
+            if (await fetchExtras(b)) return true;
+          }
+          if (car.imageUrl) {
             const idx = car.imageUrl.lastIndexOf('/');
             if (idx !== -1) {
               const altBase = car.imageUrl.substring(0, idx);
-              fetchExtras(altBase);
+              if (await fetchExtras(altBase)) return true;
             }
           }
-        });
+          return false;
+        };
+        tryBases();
       })
       .catch(() => {});
   }, [car]);
