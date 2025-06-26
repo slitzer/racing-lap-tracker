@@ -57,7 +57,8 @@ const CarDetailPage: React.FC = () => {
       .then((games) => {
         const g = games.find((gm) => gm.id === car.gameId);
         if (!g) return;
-        const base = `/GamePack/${g.name}/cars/${slugify(car.name)}`;
+        const gameSegment = encodeURIComponent(g.name);
+        const base = `/GamePack/${gameSegment}/cars/${slugify(car.name)}`;
         const fetchExtras = async (p: string) => {
           let found = false;
           try {
@@ -94,7 +95,7 @@ const CarDetailPage: React.FC = () => {
           if (!ok && car.imageUrl) {
             const idx = car.imageUrl.lastIndexOf('/');
             if (idx !== -1) {
-              const altBase = car.imageUrl.substring(0, idx);
+              const altBase = encodeURI(car.imageUrl.substring(0, idx));
               fetchExtras(altBase);
             }
           }
