@@ -218,11 +218,6 @@ const CarDetailPage: React.FC = () => {
     <div className="container mx-auto py-6 space-y-6">
       <div className="text-center space-y-2">
         <h1 className="text-3xl font-bold">{car.name}</h1>
-        {packDesc && !editing ? (
-          <MarkdownRenderer content={packDesc} className="text-muted-foreground" />
-        ) : car.description && !editing ? (
-          <MarkdownRenderer content={car.description} className="text-muted-foreground" />
-        ) : null}
         {user?.isAdmin && !editing && (
           <button
             className="text-sm underline text-primary"
@@ -272,7 +267,7 @@ const CarDetailPage: React.FC = () => {
         )}
       </div>
       <div className="md:flex md:space-x-4">
-        <div className="md:w-1/2">
+        <div className="md:w-3/5">
           <div className="relative group">
             {images[imgIdx] && (
               <img
@@ -301,7 +296,7 @@ const CarDetailPage: React.FC = () => {
             )}
           </div>
         </div>
-        <div className="md:w-1/2 mt-4 md:mt-0">
+        <div className="md:w-2/5 mt-4 md:mt-0">
           <div className="grid grid-cols-4 gap-x-2 text-sm">
             <div className="space-y-1">
               {leftPairs.map(([k]) => (
@@ -330,6 +325,13 @@ const CarDetailPage: React.FC = () => {
           </div>
         </div>
       </div>
+      {!editing && (
+        packDesc ? (
+          <MarkdownRenderer content={packDesc} className="text-muted-foreground" />
+        ) : car.description ? (
+          <MarkdownRenderer content={car.description} className="text-muted-foreground" />
+        ) : null
+      )}
       <div className="space-y-4">
         <div className="flex justify-center">
           <button
