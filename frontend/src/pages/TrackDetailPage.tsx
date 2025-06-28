@@ -23,6 +23,9 @@ const TrackDetailPage: React.FC = () => {
   const [description, setDescription] = useState('');
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [packDesc, setPackDesc] = useState<string | null>(null);
+  const [packData, setPackData] = useState<any | null>(null);
+  const [images, setImages] = useState<string[]>([]);
+  const [imgIdx, setImgIdx] = useState(0);
 
   useEffect(() => {
     if (!id) return;
@@ -48,28 +51,53 @@ const TrackDetailPage: React.FC = () => {
   useEffect(() => {
     if (!track) return;
     setPackDesc(null);
+    setPackData(null);
+    setImages(track.imageUrl ? [track.imageUrl] : []);
+    setImgIdx(0);
     getGames()
       .then((games) => {
         const g = games.find((gm) => gm.id === track.gameId);
         if (!g) return;
-        const base = `/GamePack/${g.name}/tracks/${slugify(track.name)}`;
-        const fetchInfo = async (p: string) => {
+        const gameSegment = encodeURIComponent(g.name);
+        const base = `/GamePack/${gameSegment}/tracks/${slugify(track.name)}`;
+        const fetchExtras = async (p: string) => {
+          let found = false;
           try {
             const res = await fetch(`${p}/info.md`);
-            if (!res.ok) throw new Error('missing');
-            const txt = await res.text();
-            setPackDesc(txt);
+            if (res.ok) {
+              const txt = await res.text();
+              setPackDesc(txt);
+              found = true;
+            }
           } catch {
-            return false;
+            // ignore
           }
-          return true;
+          try {
+            const resj = await fetch(`${p}/track.json`);
+            if (resj.ok) {
+              const data = await resj.json();
+              setPackData(data);
+              const imgs: string[] = [];
+              if (data.media?.imageUrl) imgs.push(data.media.imageUrl);
+              if (Array.isArray(data.media?.additionalImages)) {
+                imgs.push(...data.media.additionalImages);
+              }
+              if (imgs.length > 0) {
+                setImages(imgs);
+              }
+              found = true;
+            }
+          } catch {
+            // ignore
+          }
+          return found;
         };
-        fetchInfo(base).then((ok) => {
+        fetchExtras(base).then((ok) => {
           if (!ok && track.imageUrl) {
             const idx = track.imageUrl.lastIndexOf('/');
             if (idx !== -1) {
-              const altBase = track.imageUrl.substring(0, idx);
-              fetchInfo(altBase);
+              const altBase = encodeURI(track.imageUrl.substring(0, idx));
+              fetchExtras(altBase);
             }
           }
         });
@@ -128,6 +156,44 @@ const TrackDetailPage: React.FC = () => {
     setImageFile(null);
     setEditing(false);
   };
+
+  const detailPairs: [string, string | number | boolean][] = [];
+  if (packData) {
+    if (packData.officialName) detailPairs.push(['Official Name', packData.officialName]);
+    if (packData.country) detailPairs.push(['Country', packData.country]);
+    if (packData.city) detailPairs.push(['City', packData.city]);
+    if (packData.dlc) detailPairs.push(['DLC', packData.dlc]);
+    const specMap: Record<string, string> = {
+      lengthM: 'Length (m)',
+      widthM: 'Width (m)',
+      turns: 'Turns',
+      pitBoxes: 'Pit Boxes',
+      pitSpeedLimitKPH: 'Pit Speed (kph)',
+      isClockwise: 'Clockwise',
+      altitudeM: 'Altitude (m)',
+      timezoneOffset: 'Timezone',
+      defaultMonth: 'Default Month',
+      defaultDay: 'Default Day',
+      grade: 'Grade',
+      trackType: 'Track Type',
+      surfaceType: 'Surface',
+      climateZone: 'Climate',
+      lighting: 'Lighting',
+      hasRainSupport: 'Rain Support',
+      aiMax: 'AI Max',
+    };
+    if (packData.specs) {
+      Object.entries(packData.specs).forEach(([k, v]) => {
+        if (v !== undefined && specMap[k]) {
+          const val = typeof v === 'boolean' ? (v ? 'Yes' : 'No') : v;
+          detailPairs.push([specMap[k], val as any]);
+        }
+      });
+    }
+  }
+  const mid = Math.ceil(detailPairs.length / 2);
+  const leftPairs = detailPairs.slice(0, mid);
+  const rightPairs = detailPairs.slice(mid);
 
   return (
     <div className="container mx-auto py-6 space-y-6">
@@ -188,6 +254,65 @@ const TrackDetailPage: React.FC = () => {
             </div>
           </div>
         )}
+      </div>
+      <div className="md:flex md:space-x-4">
+        <div className="md:w-1/2">
+          <div className="relative group">
+            {images[imgIdx] && (
+              <img
+                src={getImageUrl(images[imgIdx])}
+                alt={track.name}
+                className="rounded w-full"
+              />
+            )}
+            {images.length > 1 && (
+              <>
+                <button
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 hidden group-hover:block"
+                  onClick={() =>
+                    setImgIdx((i) => (i - 1 + images.length) % images.length)
+                  }
+                >
+                  &lt;
+                </button>
+                <button
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white px-2 py-1 hidden group-hover:block"
+                  onClick={() => setImgIdx((i) => (i + 1) % images.length)}
+                >
+                  &gt;
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+        <div className="md:w-1/2 mt-4 md:mt-0">
+          <div className="grid grid-cols-4 gap-x-2 text-sm">
+            <div className="space-y-1">
+              {leftPairs.map(([k]) => (
+                <div key={k} className="font-semibold">
+                  {k}
+                </div>
+              ))}
+            </div>
+            <div className="space-y-1">
+              {leftPairs.map(([k, v]) => (
+                <div key={k}>{v}</div>
+              ))}
+            </div>
+            <div className="space-y-1">
+              {rightPairs.map(([k]) => (
+                <div key={k} className="font-semibold">
+                  {k}
+                </div>
+              ))}
+            </div>
+            <div className="space-y-1">
+              {rightPairs.map(([k, v]) => (
+                <div key={k}>{v}</div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
       {layouts.map((layout) => (
         <div key={layout.id} className="space-y-2">
